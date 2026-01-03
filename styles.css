@@ -1216,21 +1216,27 @@ a:hover {
     }
 
     .nav-menu {
+        display: none;
         position: fixed;
         top: var(--nav-height);
         left: 0;
         right: 0;
         bottom: 0;
+        height: calc(100vh - var(--nav-height));
+        height: calc(100dvh - var(--nav-height));
         flex-direction: column;
         justify-content: flex-start;
-        padding: var(--space-lg);
-        background: rgba(11, 14, 20, 0.98);
-        transform: translateX(100%);
-        transition: transform var(--transition-base);
+        align-items: stretch;
+        padding: var(--space-xl) var(--space-lg);
+        background: #0B0E14;
+        z-index: 999;
+        gap: var(--space-md);
+        overflow-y: auto;
+        list-style: none;
     }
 
     .nav-menu.active {
-        transform: translateX(0);
+        display: flex;
     }
 
     .nav-toggle {
@@ -1326,5 +1332,171 @@ a:hover {
 
     .contact-form {
         padding: var(--space-md);
+    }
+
+    .client-logos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-placeholder {
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+    }
+
+    .guarantee-icon {
+        font-size: 3rem;
+    }
+
+    .hero-headline {
+        font-size: 2rem;
+    }
+}
+
+/* === iOS & Safari Specific Fixes === */
+
+/* Fix for iOS image rendering */
+img {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Fix backdrop-filter for Safari */
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+
+    .glass-card,
+    .navbar {
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+    }
+}
+
+/* Fallback for browsers without backdrop-filter */
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .glass-card {
+        background: rgba(17, 22, 42, 0.95);
+    }
+
+    .navbar {
+        background: rgba(11, 14, 20, 0.98);
+    }
+}
+
+/* iOS touch target size (min 44px) */
+.btn,
+.tab-btn,
+.faq-question,
+.nav-link,
+.nav-toggle {
+    min-height: 44px;
+}
+
+/* Fix iOS momentum scrolling */
+html {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Fix iOS input zoom (prevent zoom on focus) */
+@media screen and (max-width: 768px) {
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* iOS safe area padding for notched devices */
+@supports (padding: max(0px)) {
+    .navbar {
+        padding-left: max(var(--space-md), env(safe-area-inset-left));
+        padding-right: max(var(--space-md), env(safe-area-inset-right));
+    }
+
+    .footer {
+        padding-bottom: max(var(--space-lg), env(safe-area-inset-bottom));
+    }
+}
+
+/* Fix GIF animation on iOS Safari */
+.hero-bg-gif,
+.member-avatar img {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* Ensure images load properly on iOS */
+.member-avatar img,
+.hero-bg-gif {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-object-fit: cover;
+}
+
+/* Fix hover states for touch devices */
+@media (hover: none) and (pointer: coarse) {
+
+    .btn:hover,
+    .glass-card:hover,
+    .tab-btn:hover,
+    .nav-link:hover {
+        transform: none;
+    }
+
+    .btn-primary:hover {
+        transform: none;
+        box-shadow: 0 4px 20px rgba(124, 77, 255, 0.4);
+    }
+}
+
+/* Improved tap highlight for mobile */
+a,
+button {
+    -webkit-tap-highlight-color: rgba(124, 77, 255, 0.2);
+}
+
+/* Prevent text size adjustment on orientation change */
+html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* High contrast mode for accessibility */
+@media (prefers-contrast: high) {
+    .glass-card {
+        border-color: var(--text-primary);
+    }
+
+    .btn-primary {
+        background: var(--primary-neon);
+    }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .hero-scroll-indicator {
+        animation: none;
     }
 }
