@@ -14,11 +14,11 @@
     --text-secondary: #A9B2D6;
     --border: rgba(124, 77, 255, 0.25);
     --glow: rgba(0, 229, 255, 0.22);
-    
+
     /* Typography */
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
-    
+
     /* Spacing */
     --space-xs: 0.5rem;
     --space-sm: 1rem;
@@ -26,25 +26,27 @@
     --space-lg: 2rem;
     --space-xl: 3rem;
     --space-2xl: 5rem;
-    
+
     /* Border Radius */
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
     --radius-xl: 24px;
-    
+
     /* Transitions */
     --transition-fast: 150ms ease;
     --transition-base: 250ms ease;
     --transition-slow: 350ms ease;
-    
+
     /* Container */
     --container-max: 1200px;
     --nav-height: 72px;
 }
 
 /* === Reset === */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -73,7 +75,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
+    background:
         radial-gradient(ellipse at 20% 20%, rgba(124, 77, 255, 0.15) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 80%, rgba(0, 229, 255, 0.1) 0%, transparent 50%),
         radial-gradient(ellipse at 50% 50%, rgba(0, 255, 154, 0.05) 0%, transparent 50%);
@@ -82,17 +84,33 @@ body::before {
 }
 
 /* === Typography === */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     font-weight: 600;
     line-height: 1.2;
     color: var(--text-primary);
 }
 
-h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
-h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
-h3 { font-size: clamp(1.5rem, 3vw, 1.75rem); }
-h4 { font-size: 1.25rem; }
+h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 1.75rem);
+}
+
+h4 {
+    font-size: 1.25rem;
+}
 
 p {
     color: var(--text-secondary);
@@ -115,7 +133,9 @@ a:hover {
     background-clip: text;
 }
 
-.text-center { text-align: center; }
+.text-center {
+    text-align: center;
+}
 
 /* === Layout === */
 .container {
@@ -156,7 +176,7 @@ a:hover {
 
 .glass-card:hover {
     border-color: rgba(124, 77, 255, 0.5);
-    box-shadow: 
+    box-shadow:
         0 0 20px rgba(124, 77, 255, 0.15),
         0 0 40px rgba(0, 229, 255, 0.1);
 }
@@ -343,34 +363,37 @@ a:hover {
 .hero-video-overlay {
     position: absolute;
     inset: 0;
-    background: 
+    background:
         linear-gradient(180deg, rgba(11, 14, 20, 0.7) 0%, rgba(11, 14, 20, 0.5) 50%, rgba(11, 14, 20, 0.9) 100%);
 }
 
 .hero-gradient {
     position: absolute;
     inset: 0;
-    background: 
+    background:
         radial-gradient(ellipse at 30% 40%, rgba(124, 77, 255, 0.2) 0%, transparent 60%),
         radial-gradient(ellipse at 70% 60%, rgba(0, 229, 255, 0.15) 0%, transparent 60%);
     animation: gradientPulse 8s ease-in-out infinite alternate;
 }
 
 @keyframes gradientPulse {
-    0% { opacity: 0.8; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .scanlines {
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 0, 0, 0.03) 2px,
-        rgba(0, 0, 0, 0.03) 4px
-    );
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.03) 2px,
+            rgba(0, 0, 0, 0.03) 4px);
     pointer-events: none;
 }
 
@@ -433,8 +456,15 @@ a:hover {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(10px); }
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
 }
 
 /* === Services Section === */
@@ -493,8 +523,15 @@ a:hover {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .service-card {
@@ -1087,6 +1124,13 @@ a:hover {
     font-size: 1.5rem;
     font-weight: 700;
     color: white;
+    overflow: hidden;
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .team-member h4 {
@@ -1147,11 +1191,11 @@ a:hover {
     .pricing-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .timeline {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .timeline::before {
         display: none;
     }
@@ -1161,7 +1205,7 @@ a:hover {
     :root {
         --nav-height: 64px;
     }
-    
+
     .nav-menu {
         position: fixed;
         top: var(--nav-height);
@@ -1175,81 +1219,81 @@ a:hover {
         transform: translateX(100%);
         transition: transform var(--transition-base);
     }
-    
+
     .nav-menu.active {
         transform: translateX(0);
     }
-    
+
     .nav-toggle {
         display: block;
     }
-    
+
     .nav-cta {
         display: none;
     }
-    
+
     .nav-link {
         font-size: 1.25rem;
         padding: var(--space-sm) 0;
     }
-    
+
     .hero-cta {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .hero-cta .btn {
         width: 100%;
         max-width: 300px;
     }
-    
+
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .portfolio-split {
         grid-template-columns: 1fr;
     }
-    
+
     .pricing-grid,
     .pricing-grid-3 {
         grid-template-columns: 1fr;
     }
-    
+
     .timeline {
         grid-template-columns: 1fr;
     }
-    
+
     .guarantee-banner {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .team-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .form-row {
         grid-template-columns: 1fr;
     }
-    
+
     .service-card {
         grid-template-columns: 1fr;
     }
-    
+
     .service-visual {
         order: -1;
     }
-    
+
     .service-icon-large {
         font-size: 4rem;
     }
-    
+
     .tabs-nav {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .tab-btn {
         justify-content: center;
     }
@@ -1260,17 +1304,17 @@ a:hover {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .badge {
         width: 100%;
         max-width: 280px;
         justify-content: center;
     }
-    
+
     .section {
         padding: var(--space-xl) 0;
     }
-    
+
     .contact-form {
         padding: var(--space-md);
     }
