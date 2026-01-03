@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCut Studio — Videóvágás, videógyártás, weboldalkészítés</title>
+    <meta name="description" content="Videóvágás magánszemélyeknek és cégeknek, komplett videógyártás Blackmagic Cinema Camera-val, valamint gyors weboldalkészítés pénzvisszafizetési garanciával.">
+    <meta name="keywords" content="videóvágás, videógyártás, weboldalkészítés, Blackmagic, Budapest, Magyarország">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="CyberCut Studio — Videóvágás, videógyártás, weboldalkészítés">
+    <meta property="og:description" content="Pro videó + villám web — kompromisszum nélkül.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="hu_HU">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "CyberCut Studio",
+        "description": "Videóvágás, videógyártás, weboldalkészítés",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "HU"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Szolgáltatások",
+            "itemListElement": [
+                {
+                    "@type": "Service",
+                    "name": "Videóvágás",
+                    "description": "Short form, YouTube, reklám vágás"
+                },
+                {
+                    "@type": "Service",
+                    "name": "Komplett videógyártás",
+                    "description": "Forgatás + vágás Blackmagic Cinema Camera-val"
+                },
+                {
+                    "@type": "Service",
+                    "name": "Weboldalkészítés",
+                    "description": "Gyors, modern, reszponzív weboldalak"
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-text">CyberCut</span>
+                <span class="logo-accent">Studio</span>
+            </a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Menü megnyitása">
+                <span class="hamburger"></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#services" class="nav-link">Szolgáltatások</a></li>
+                <li><a href="#portfolio" class="nav-link">Referenciák</a></li>
+                <li><a href="#pricing" class="nav-link">Árazás</a></li>
+                <li><a href="#process" class="nav-link">Folyamat</a></li>
+                <li><a href="#faq" class="nav-link">GYIK</a></li>
+                <li><a href="#contact" class="nav-link">Kapcsolat</a></li>
+            </ul>
+            
+            <a href="#contact" class="btn btn-primary nav-cta">Ajánlatkérés</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-video-overlay"></div>
+            <div class="hero-gradient"></div>
+            <div class="scanlines"></div>
+        </div>
+        
+        <div class="container hero-content">
+            <h1 class="hero-headline">Videó, ami üt.<br><span class="text-gradient">Web, ami elad.</span></h1>
+            <p class="hero-subheadline">Videóvágás • Komplett videógyártás Blackmagic Cinema Camera-val • Weboldalkészítés gyorsan, minőségi garanciával.</p>
+            
+            <div class="hero-badges">
+                <span class="badge"><span class="badge-icon">⚡</span> 48 órán belül első preview</span>
+                <span class="badge"><span class="badge-icon">🏢</span> Céges & privát projektek</span>
+                <span class="badge"><span class="badge-icon">✓</span> Pénzvissza garancia</span>
+            </div>
+            
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary btn-lg">Kérek ajánlatot</a>
+                <a href="#portfolio" class="btn btn-secondary btn-lg">Nézem a referenciákat</a>
+            </div>
+        </div>
+        
+        <div class="hero-scroll-indicator">
+            <span>↓</span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <header class="section-header">
+                <h2 class="section-title">Szolgáltatások</h2>
+                <p class="section-subtitle">Három gyors út ugyanoda: több figyelem, több bizalom, több konverzió.</p>
+            </header>
+            
+            <div class="services-tabs">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="video-editing">
+                        <span class="tab-icon">✂️</span>
+                        <span>Videóvágás</span>
+                    </button>
+                    <button class="tab-btn" data-tab="full-production">
+                        <span class="tab-icon">🎬</span>
+                        <span>Komplett videógyártás</span>
+                    </button>
+                    <button class="tab-btn" data-tab="websites">
+                        <span class="tab-icon">✨</span>
+                        <span>Weboldalkészítés</span>
+                    </button>
+                </div>
+                
+                <div class="tabs-content">
+                    <!-- Video Editing Tab -->
+                    <div class="tab-panel active" id="video-editing">
+                        <div class="service-card glass-card">
+                            <div class="service-info">
+                                <h3>Videóvágás</h3>
+                                <p class="service-desc">Short form, YouTube, reklám — tiszta ritmus, erős hook, profi hang/zenekezelés.</p>
+                                <ul class="service-features">
+                                    <li><span class="check">✓</span> Hook & pacing optimalizálás</li>
+                                    <li><span class="check">✓</span> Feliratozás (HU/EN), social safe</li>
+                                    <li><span class="check">✓</span> Színkorrekció/alap grade</li>
+                                    <li><span class="check">✓</span> Hangtisztítás + zenei vágás</li>
+                                    <li><span class="check">✓</span> Revíziók csomagtól függően</li>
+                                </ul>
+                                <a href="#contact" class="btn btn-primary">Videóvágás ajánlat</a>
+                            </div>
+                            <div class="service-visual">
+                                <div class="service-icon-large">✂️</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Full Production Tab -->
+                    <div class="tab-panel" id="full-production">
+                        <div class="service-card glass-card">
+                            <div class="service-info">
+                                <h3>Komplett videógyártás</h3>
+                                <p class="service-desc">Forgatás + vágás egy kézben, Blackmagic Cinema Camera minőségben. Céges bemutató, kampány, esemény.</p>
+                                <ul class="service-features">
+                                    <li><span class="check">✓</span> Blackmagic Cinema Camera</li>
+                                    <li><span class="check">✓</span> Forgatási terv + shotlist</li>
+                                    <li><span class="check">✓</span> Utómunka: vágás, grade, hang</li>
+                                    <li><span class="check">✓</span> Kimenetek: 9:16 / 1:1 / 16:9</li>
+                                    <li><span class="check">✓</span> Brand-safe grafikai elemek</li>
+                                </ul>
+                                <a href="#contact" class="btn btn-primary">Videógyártás ajánlat</a>
+                            </div>
+                            <div class="service-visual">
+                                <div class="service-icon-large">🎬</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Websites Tab -->
+                    <div class="tab-panel" id="websites">
+                        <div class="service-card glass-card">
+                            <div class="service-info">
+                                <h3>Weboldalkészítés</h3>
+                                <p class="service-desc">Gyors, modern, reszponzív weboldalak. Ha nem tetszik az irány, visszatérítjük a pénzt (fair keretek között).</p>
+                                <ul class="service-features">
+                                    <li><span class="check">✓</span> Gyors indulás, sprint szemlélet</li>
+                                    <li><span class="check">✓</span> SEO alapok + technikai teljesítmény</li>
+                                    <li><span class="check">✓</span> Mobil-first, modern UI</li>
+                                    <li><span class="check">✓</span> GDPR-barát alapok</li>
+                                    <li><span class="check">✓</span> Garancia: preview után 48 órán belül visszalépés</li>
+                                </ul>
+                                <a href="#contact" class="btn btn-primary">Weboldal ajánlat</a>
+                            </div>
+                            <div class="service-visual">
+                                <div class="service-icon-large">✨</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats/Proof Section -->
+    <section class="section proof" id="proof">
+        <div class="container">
+            <h2 class="section-title text-center">Miért működik velünk?</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card glass-card">
+                    <span class="stat-value text-gradient">48h</span>
+                    <span class="stat-label">első preview (tipikusan)</span>
+                </div>
+                <div class="stat-card glass-card">
+                    <span class="stat-value text-gradient">3</span>
+                    <span class="stat-label">szolgáltatás, egy rendszerben</span>
+                </div>
+                <div class="stat-card glass-card">
+                    <span class="stat-value text-gradient">0</span>
+                    <span class="stat-label">rizikó (garancia mellett)</span>
+                </div>
+            </div>
+            
+            <div class="client-logos">
+                <div class="logo-placeholder">Logo #1</div>
+                <div class="logo-placeholder">Logo #2</div>
+                <div class="logo-placeholder">Logo #3</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <header class="section-header">
+                <h2 class="section-title">Referenciák</h2>
+                <p class="section-subtitle">Itt látszik a különbség: ritmus, kép, konverzió.</p>
+            </header>
+            
+            <div class="portfolio-split">
+                <!-- Video Portfolio -->
+                <div class="portfolio-column">
+                    <h3 class="portfolio-category-title">Videó referenciák</h3>
+                    
+                    <div class="reel-carousel">
+                        <div class="reel-item glass-card">
+                            <div class="reel-placeholder">
+                                <span>▶</span>
+                                <p>Reels #1</p>
+                            </div>
+                        </div>
+                        <div class="reel-item glass-card">
+                            <div class="reel-placeholder">
+                                <span>▶</span>
+                                <p>YouTube #1</p>
+                            </div>
+                        </div>
+                        <div class="reel-item glass-card">
+                            <div class="reel-placeholder">
+                                <span>▶</span>
+                                <p>Business Promo #1</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="before-after glass-card">
+                        <h4>Előtte / Utána</h4>
+                        <p class="before-after-label">Color + Audio + Pacing</p>
+                        <div class="slider-container">
+                            <div class="before-side">
+                                <span>Előtte</span>
+                            </div>
+                            <div class="slider-handle" id="baSlider">
+                                <span>◀ ▶</span>
+                            </div>
+                            <div class="after-side">
+                                <span>Utána</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Web Portfolio -->
+                <div class="portfolio-column">
+                    <h3 class="portfolio-category-title">Weboldal referenciák</h3>
+                    
+                    <div class="web-grid">
+                        <a href="#" class="web-item glass-card">
+                            <div class="web-placeholder">
+                                <span>🌐</span>
+                                <p>Projekt #1</p>
+                            </div>
+                        </a>
+                        <a href="#" class="web-item glass-card">
+                            <div class="web-placeholder">
+                                <span>🌐</span>
+                                <p>Projekt #2</p>
+                            </div>
+                        </a>
+                        <a href="#" class="web-item glass-card">
+                            <div class="web-placeholder">
+                                <span>🌐</span>
+                                <p>Projekt #3</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing" id="pricing">
+        <div class="container">
+            <header class="section-header">
+                <h2 class="section-title">Árazás</h2>
+                <p class="section-subtitle">Átlátható csomagok. Egyedi igénynél gyors ajánlat.</p>
+            </header>
+            
+            <!-- Video Editing Pricing -->
+            <div class="pricing-block">
+                <h3 class="pricing-block-title">Videóvágás csomagok</h3>
+                <div class="pricing-grid">
+                    <div class="pricing-card glass-card">
+                        <h4 class="plan-name">Short Boost</h4>
+                        <div class="plan-price">
+                            <span class="price-from">tól</span>
+                            <span class="price-value">19 900</span>
+                            <span class="price-currency">Ft</span>
+                            <span class="price-unit">/videó</span>
+                        </div>
+                        <p class="plan-best-for">Reels / TikTok / Shorts (≤60 mp)</p>
+                        <ul class="plan-includes">
+                            <li>Hook + pacing</li>
+                            <li>Felirat (HU)</li>
+                            <li>Alap grade</li>
+                            <li>1 revízió</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-block">Ezt kérem</a>
+                    </div>
+                    
+                    <div class="pricing-card glass-card">
+                        <h4 class="plan-name">YouTube Standard</h4>
+                        <div class="plan-price">
+                            <span class="price-from">tól</span>
+                            <span class="price-value">59 900</span>
+                            <span class="price-currency">Ft</span>
+                            <span class="price-unit">/videó</span>
+                        </div>
+                        <p class="plan-best-for">5–12 perces videók</p>
+                        <ul class="plan-includes">
+                            <li>Strukturált vágás</li>
+                            <li>Hangtisztítás</li>
+                            <li>B-roll kezelés</li>
+                            <li>2 revízió</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-block">Ezt kérem</a>
+                    </div>
+                    
+                    <div class="pricing-card glass-card">
+                        <h4 class="plan-name">Business Promo</h4>
+                        <div class="plan-price">
+                            <span class="price-from">tól</span>
+                            <span class="price-value">89 900</span>
+                            <span class="price-currency">Ft</span>
+                            <span class="price-unit">/videó</span>
+                        </div>
+                        <p class="plan-best-for">30–90 mp reklám / bemutató</p>
+                        <ul class="plan-includes">
+                            <li>Brand-safe grafika</li>
+                            <li>Felirat (HU/EN)</li>
+                            <li>Erős CTA vágásban</li>
+                            <li>2 revízió</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-block">Ezt kérem</a>
+                    </div>
+                    
+                    <div class="pricing-card glass-card featured">
+                        <span class="featured-badge">Folyamatos</span>
+                        <h4 class="plan-name">Céges Retainer</h4>
+                        <div class="plan-price">
+                            <span class="price-from">tól</span>
+                            <span class="price-value">199 000</span>
+                            <span class="price-currency">Ft</span>
+                            <span class="price-unit">/hó</span>
+                        </div>
+                        <p class="plan-best-for">Folyamatos tartalomgyártás</p>
+                        <ul class="plan-includes">
+                            <li>8–12 short/hó</li>
+                            <li>1 hosszabb videó</li>
+                            <li>Prioritás</li>
+                            <li>SLA egyeztetés</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-block">Kérek csomagot</a>
+                    </div>
+                </div>
+                <p class="pricing-note">A pontos ár a nyersanyag minőségétől, hosszától és a revíziók számától függ.</p>
+            </div>
+            
+            <!-- Full Production Pricing -->
+            <div class="pricing-block">
+                <h3 class="pricing-block-title">Komplett videógyártás (Blackmagic)</h3>
+                <div class="pricing-grid pricing-grid-3">
+                    <div class="pricing-card glass-card">
+                        <h4 class="plan-name">Half-day Shoot</h4>
+                        <div class="plan-price">
+                            <span class="price-from">tól</span>
+                            <span class="price-value">179 000</span>
+                            <span class="price-currency">Ft</span>
+                            <span class="price-unit">/projekt</span>
+                        </div>
+                        <p class="plan-best-for">Céges bemutató / interjú / esemény</p>
+                        <ul class="plan-includes">
+                            <li>Fél nap forgatás</li>
+                            <li>Vágás + grade</li>
+                            <li>1 fő videó + social verziók</li>
+                            <li>1–2 revízió</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-block">Ajánlatot kérek</a>
+                    </div>
+                    
+                    <div class="pricing-card glass-card">
+                        <h4 class="plan-name">Full-day Production</h4>
+                        <div class="plan-price">
+                            <span class="price-from">tól</span>
+                            <span class="price-value">299 000</span>
+                            <span class="price-currency">Ft</span>
+                            <span class="price-unit">/projekt</span>
+                        </div>
+                        <p class="plan-best-for">Komolyabb kampány / több helyszín</p>
+                        <ul class="plan-includes">
+                            <li>Egész nap forgatás</li>
+                            <li>Utómunka full</li>
+                            <li>Több kimenet</li>
+                            <li>2 revízió</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-block">Ajánlatot kérek</a>
+                    </div>
+                    
+                    <div class="pricing-card glass-card">
+                        <h4 class="plan-name">Premium Campaign</h4>
+                        <div class="plan-price">
+                            <span class="price-value">Egyedi</span>
+                        </div>
+                        <p class="plan-best-for">Több nap / több videó / reklám kreatív</p>
+                        <ul class="plan-includes">
+                            <li>Kreatív terv</li>
+                            <li>Gyártás + utómunka</li>
+                            <li>Platformonként optimalizált deliverables</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-block">Egyedi egyeztetés</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Web Pricing -->
+            <div class="pricing-block">
+                <h3 class="pricing-block-title">Weboldalkészítés</h3>
+                <div class="pricing-grid pricing-grid-3">
+                    <div class="pricing-card glass-card">
+                        <h4 class="plan-name">Landing Sprint</h4>
+                        <div class="plan-price">
+                            <span class="price-from">tól</span>
+                            <span class="price-value">199 000</span>
+                            <span class="price-currency">Ft</span>
+                            <span class="price-unit">/projekt</span>
+                        </div>
+                        <p class="plan-best-for">1 oldalas, konverziós landing</p>
+                        <ul class="plan-includes">
+                            <li>Modern design</li>
+                            <li>Mobil-first</li>
+                            <li>SEO alapok</li>
+                            <li>1 kör finomítás</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-block">Kérem</a>
+                    </div>
+                    
+                    <div class="pricing-card glass-card">
+                        <h4 class="plan-name">Pro Multi-page</h4>
+                        <div class="plan-price">
+                            <span class="price-from">tól</span>
+                            <span class="price-value">399 000</span>
+                            <span class="price-currency">Ft</span>
+                            <span class="price-unit">/projekt</span>
+                        </div>
+                        <p class="plan-best-for">4–6 oldalas céges web</p>
+                        <ul class="plan-includes">
+                            <li>UI rendszer</li>
+                            <li>Sebesség optimalizálás</li>
+                            <li>Alap analytics</li>
+                            <li>2 kör finomítás</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-block">Kérem</a>
+                    </div>
+                    
+                    <div class="pricing-card glass-card">
+                        <h4 class="plan-name">E-commerce / Booking</h4>
+                        <div class="plan-price">
+                            <span class="price-from">tól</span>
+                            <span class="price-value">699 000</span>
+                            <span class="price-currency">Ft</span>
+                            <span class="price-unit">/projekt</span>
+                        </div>
+                        <p class="plan-best-for">Shop / foglalós / komplex funkciók</p>
+                        <ul class="plan-includes">
+                            <li>Integrációk</li>
+                            <li>Admin felület</li>
+                            <li>Biztonsági alapok</li>
+                            <li>Betanítás</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-block">Kérek felmérést</a>
+                    </div>
+                </div>
+                
+                <div class="addons">
+                    <h4>Kiegészítők</h4>
+                    <div class="addons-list">
+                        <span class="addon-item">Karbantartás: 29 000 Ft/hó</span>
+                        <span class="addon-item">Alap SEO csomag: 49 000 Ft/projekt</span>
+                        <span class="addon-item">Copywriting: 59 000 Ft/projekt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process" id="process">
+        <div class="container">
+            <header class="section-header">
+                <h2 class="section-title">Folyamat</h2>
+            </header>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content glass-card">
+                        <h3>Brief</h3>
+                        <p>Cél, stílus, határidő, platformok. 10 perc alatt tisztázzuk.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content glass-card">
+                        <h3>Első preview</h3>
+                        <p>Vágás/web irány első verziója gyorsan, hogy lásd az ívet.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content glass-card">
+                        <h3>Iteráció</h3>
+                        <p>Revíziók csomag szerint — fókusz: tisztaság és konverzió.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content glass-card">
+                        <h3>Átadás</h3>
+                        <p>Végleges fájlok / web publikálás, támogatással.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="section guarantee" id="guarantee">
+        <div class="container">
+            <div class="guarantee-banner glass-card">
+                <div class="guarantee-icon">🛡️</div>
+                <div class="guarantee-content">
+                    <h2>Pénzvisszafizetési garancia</h2>
+                    <p>Ha az első preview iránya nem szimpatikus, 48 órán belül kérheted a 100% visszatérítést (a kész anyagok átadása nélkül).</p>
+                </div>
+                <a href="#contact" class="btn btn-primary btn-lg">Biztosra megyek</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <header class="section-header">
+                <h2 class="section-title">GYIK</h2>
+            </header>
+            
+            <div class="faq-list">
+                <div class="faq-item glass-card">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Mennyi idő alatt készül el egy vágás?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Típustól függ, de gyakran 48 órán belül megkapod az első preview-t.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item glass-card">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Hány revízió van benne?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Csomagtól függ — a pricing kártyákon látod. Extra revízió kérhető.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item glass-card">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Hogy működik a pénzvissza garancia?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Az első preview után 48 órán belül, ha nem tetszik az irány, visszaléphetsz. Fair keretek között, átláthatóan.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item glass-card">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>A weboldalt ti hostoljátok?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Kérésre igen, vagy segítünk a saját tárhelyedre/stackedre telepíteni.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <header class="section-header">
+                <h2 class="section-title">Kérj gyors ajánlatot</h2>
+                <p class="section-subtitle">Írd meg pár sorban, mit szeretnél — 48 órán belül válaszolunk.</p>
+            </header>
+            
+            <div class="contact-wrapper">
+                <form class="contact-form glass-card" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Név *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Szolgáltatás *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Válassz...</option>
+                            <option value="videovagas">Videóvágás</option>
+                            <option value="videogyartas">Komplett videógyártás</option>
+                            <option value="weboldal">Weboldalkészítés</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="deadline">Határidő</label>
+                            <input type="text" id="deadline" name="deadline" placeholder="pl. 2 hét">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Költségkeret (opcionális)</label>
+                            <input type="text" id="budget" name="budget" placeholder="pl. 100 000 Ft">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Projekt leírása *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Írd le röviden, mit szeretnél..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Ajánlatot kérek</button>
+                </form>
+                
+                <div class="contact-secondary">
+                    <a href="#portfolio" class="btn btn-secondary">Referenciák megtekintése</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="team-footer">
+        <div class="container">
+            <div class="team-section">
+                <h3>A csapat</h3>
+                <div class="team-grid">
+                    <div class="team-member glass-card">
+                        <div class="member-avatar">
+                            <span>SB</span>
+                        </div>
+                        <h4>Szappanos Benedek</h4>
+                        <p class="member-role">Mérnök informatikus | Cinematographer & Video Editor</p>
+                        <div class="member-badges">
+                            <span class="member-badge">Blackmagic workflow</span>
+                            <span class="member-badge">Color & pacing</span>
+                            <span class="member-badge">Commercial edit</span>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member glass-card">
+                        <div class="member-avatar">
+                            <span>KJ</span>
+                        </div>
+                        <h4>Kaiser Jonatán</h4>
+                        <p class="member-role">Programtervező informatikus | Full-Stack & Product</p>
+                        <div class="member-badges">
+                            <span class="member-badge">Gyors delivery</span>
+                            <span class="member-badge">Modern UI/SEO</span>
+                            <span class="member-badge">Stabil architektúra</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="/privacy">Adatkezelés</a>
+                    <a href="/terms">ÁSZF</a>
+                </div>
+                <p class="copyright">© 2026 CyberCut Studio — Minden jog fenntartva.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
