@@ -358,6 +358,7 @@ a:hover {
     position: absolute;
     inset: 0;
     z-index: -1;
+    overflow: hidden;
 }
 
 .hero-bg-gif {
@@ -366,6 +367,7 @@ a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     opacity: 0.4;
 }
 
@@ -1262,6 +1264,10 @@ a:hover {
         max-width: 300px;
     }
 
+    .hero-bg-gif {
+        transform: rotate(90deg) scale(1.8);
+    }
+
     .stats-grid {
         grid-template-columns: 1fr;
     }
@@ -1423,15 +1429,13 @@ html {
 }
 
 /* Fix GIF animation on iOS Safari */
-.hero-bg-gif,
 .member-avatar img {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
 
 /* Ensure images load properly on iOS */
-.member-avatar img,
-.hero-bg-gif {
+.member-avatar img {
     display: block;
     max-width: 100%;
     height: auto;
