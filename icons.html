@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Selection - CyberCut Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0B0E14;
+            --surface: #11162A;
+            --primary-neon: #7C4DFF;
+            --secondary-neon: #00E5FF;
+            --accent-neon: #00FF9A;
+            --text-primary: #EAF0FF;
+            --text-secondary: #A9B2D6;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 40px;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: var(--primary-neon);
+        }
+
+        .category-title {
+            margin-top: 60px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+            color: var(--secondary-neon);
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .icon-card {
+            background: var(--surface);
+            border: 1px solid rgba(124, 77, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .icon-card:hover {
+            border-color: var(--primary-neon);
+            box-shadow: 0 0 20px rgba(124, 77, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .icon-card svg {
+            width: 48px;
+            height: 48px;
+            stroke: var(--text-primary);
+            stroke-width: 1.5;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .icon-card:hover svg {
+            stroke: var(--secondary-neon);
+        }
+
+        .icon-name {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Ikon Választó</h1>
+    <p style="text-align: center; color: var(--text-secondary);">Válassz a stílusok közül! (Kattints a kártyákra -
+        jelenleg csak vizuális)</p>
+
+    <!-- Category: Mobile / Social -->
+    <h2 class="category-title">Mobil & Social Media</h2>
+    <div class="icon-grid">
+        <div class="icon-card">
+            <!-- Smartphone -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+            <span class="icon-name">Smartphone 1</span>
+        </div>
+        <div class="icon-card">
+            <!-- Smartphone with hand vibe -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <path d="M12 18h.01"></path>
+            </svg>
+            <span class="icon-name">Smartphone 2</span>
+        </div>
+        <div class="icon-card">
+            <!-- App / Grid -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span class="icon-name">App Grid</span>
+        </div>
+        <div class="icon-card">
+            <!-- Play / Video -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+            </svg>
+            <span class="icon-name">Video Content</span>
+        </div>
+        <div class="icon-card">
+            <!-- Camera / Photo -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+            </svg>
+            <span class="icon-name">Camera</span>
+        </div>
+    </div>
+
+    <!-- Category: Web / Tech -->
+    <h2 class="category-title">Weboldal & Tech</h2>
+    <div class="icon-grid">
+        <div class="icon-card">
+            <!-- Layout / Web -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+            <span class="icon-name">Layout 1</span>
+        </div>
+        <div class="icon-card">
+            <!-- Layout 2 -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                <path d="M3 9h18"></path>
+                <path d="M9 21V9"></path>
+            </svg>
+            <span class="icon-name">Layout 2</span>
+        </div>
+        <div class="icon-card">
+            <!-- Monitor -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <span class="icon-name">Desktop</span>
+        </div>
+        <div class="icon-card">
+            <!-- Code -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            <span class="icon-name">Development</span>
+        </div>
+        <div class="icon-card">
+            <!-- Globe -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                </path>
+            </svg>
+            <span class="icon-name">Online / Global</span>
+        </div>
+    </div>
+
+    <!-- Category: Growth / Rocket -->
+    <h2 class="category-title">Növekedés & Start (SEO/Marketing)</h2>
+    <div class="icon-grid">
+        <div class="icon-card">
+            <!-- Rocket -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+                </path>
+                <path
+                    d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+                </path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+            </svg>
+            <span class="icon-name">Rocket 1</span>
+        </div>
+        <div class="icon-card">
+            <!-- Rocket Simple -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            </svg>
+            <span class="icon-name">Rocket Simple</span>
+        </div>
+        <div class="icon-card">
+            <!-- Trending Up -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            <span class="icon-name">Growth / Trend</span>
+        </div>
+        <div class="icon-card">
+            <!-- Target -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+            <span class="icon-name">Target</span>
+        </div>
+        <div class="icon-card">
+            <!-- Lightning -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            <span class="icon-name">Speed / Power</span>
+        </div>
+    </div>
+
+</body>
+
+</html>

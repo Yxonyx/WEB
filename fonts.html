@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betűtípus Opciók - CyberCut Studio</title>
+
+    <!-- Import Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Manrope:wght@400;700&family=Outfit:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&family=Rajdhani:wght@500;700&family=Sora:wght@400;700&family=Space+Grotesk:wght@400;700&family=Syne:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0B0E14;
+            --surface: #11162A;
+            --primary: #7C4DFF;
+            --secondary: #00E5FF;
+            --text-main: #EAF0FF;
+            --text-dim: #A9B2D6;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            font-family: sans-serif;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+        }
+
+        .font-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .font-card {
+            background: var(--surface);
+            border: 1px solid rgba(124, 77, 255, 0.2);
+            padding: 30px;
+            border-radius: 16px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .font-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .font-name {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .sample-headline {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .sample-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+
+        .char-sample {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.3);
+            word-break: break-all;
+        }
+
+        /* Font Families */
+        .font-jakarta {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-outfit {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .font-space {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .font-rajdhani {
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .font-sora {
+            font-family: 'Sora', sans-serif;
+        }
+
+        .font-manrope {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .font-syne {
+            font-family: 'Syne', sans-serif;
+        }
+
+        .current-badge {
+            background: var(--primary);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-left: 10px;
+            display: inline-block;
+            vertical-align: middle;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Válassz Betűtípust</h1>
+
+        <div class="font-grid">
+            <!-- 1. Plus Jakarta Sans (Current) -->
+            <div class="font-card font-jakarta">
+                <span class="font-name">Plus Jakarta Sans <span class="current-badge">Jelenlegi</span></span>
+                <div class="sample-headline">Videó, ami felkelti a figyelmet.</div>
+                <p class="sample-text">Átfogó kreatív megoldások a vállalkozásod felemelésére. Modern, geometrikus,
+                    barátságos, de professzionális.</p>
+                <div class="char-sample">ABCDEFGHIJKLMNOPQRSTUVWXYZ absdefghijklmnopqrstuvwxyz 1234567890 &@?!</div>
+            </div>
+
+            <!-- 2. Inter -->
+            <div class="font-card font-inter">
+                <span class="font-name">Inter</span>
+                <div class="sample-headline">Videó, ami felkelti a figyelmet.</div>
+                <p class="sample-text">A világ legnépszerűbb modern betűtípusa. Rendkívül olvasható, semleges,
+                    "tech-nagyvállalati" érzés.</p>
+                <div class="char-sample">ABCDEFGHIJKLMNOPQRSTUVWXYZ absdefghijklmnopqrstuvwxyz 1234567890 &@?!</div>
+            </div>
+
+            <!-- 3. Outfit -->
+            <div class="font-card font-outfit">
+                <span class="font-name">Outfit</span>
+                <div class="sample-headline">Videó, ami felkelti a figyelmet.</div>
+                <p class="sample-text">Modern, lekerekített betűk. Nagyon stílusos, "brand-fókuszú", kicsit exkluzívabb
+                    hatású.</p>
+                <div class="char-sample">ABCDEFGHIJKLMNOPQRSTUVWXYZ absdefghijklmnopqrstuvwxyz 1234567890 &@?!</div>
+            </div>
+
+            <!-- 4. Space Grotesk -->
+            <div class="font-card font-space">
+                <span class="font-name">Space Grotesk</span>
+                <div class="sample-headline">Videó, ami felkelti a figyelmet.</div>
+                <p class="sample-text">Kifejezetten "tech" és "űr" hangulat. Szögletes ívek, nagyon karakteres, igazi
+                    Cyberpunk választás.</p>
+                <div class="char-sample">ABCDEFGHIJKLMNOPQRSTUVWXYZ absdefghijklmnopqrstuvwxyz 1234567890 &@?!</div>
+            </div>
+
+            <!-- 5. Rajdhani -->
+            <div class="font-card font-rajdhani">
+                <span class="font-name">Rajdhani</span>
+                <div class="sample-headline">Videó, ami felkelti a figyelmet.</div>
+                <p class="sample-text">Szögletes, kondenzált, futurisztikus. Ha igazán agresszív, Sci-Fi megjelenést
+                    szeretnél.</p>
+                <div class="char-sample">ABCDEFGHIJKLMNOPQRSTUVWXYZ absdefghijklmnopqrstuvwxyz 1234567890 &@?!</div>
+            </div>
+
+            <!-- 6. Sora -->
+            <div class="font-card font-sora">
+                <span class="font-name">Sora</span>
+                <div class="sample-headline">Videó, ami felkelti a figyelmet.</div>
+                <p class="sample-text">Geometrikus, de egyedi ívekkel. Nagyon modern, digitális termékekhez gyakran
+                    használják.</p>
+                <div class="char-sample">ABCDEFGHIJKLMNOPQRSTUVWXYZ absdefghijklmnopqrstuvwxyz 1234567890 &@?!</div>
+            </div>
+
+            <!-- 7. Manrope -->
+            <div class="font-card font-manrope">
+                <span class="font-name">Manrope</span>
+                <div class="sample-headline">Videó, ami felkelti a figyelmet.</div>
+                <p class="sample-text">Félig geometrikus, félig groteszk. Nagyon tiszta, modern és sokoldalú.</p>
+                <div class="char-sample">ABCDEFGHIJKLMNOPQRSTUVWXYZ absdefghijklmnopqrstuvwxyz 1234567890 &@?!</div>
+            </div>
+
+            <!-- 8. Syne -->
+            <div class="font-card font-syne">
+                <span class="font-name">Syne</span>
+                <div class="sample-headline">Videó, ami felkelti a figyelmet.</div>
+                <p class="sample-text">Extrém művészi. Ha "Art House" vagy "Nagyon Egyedi" stílust keresel a
+                    címsoroknak.</p>
+                <div class="char-sample">ABCDEFGHIJKLMNOPQRSTUVWXYZ absdefghijklmnopqrstuvwxyz 1234567890 &@?!</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
