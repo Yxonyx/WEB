@@ -16,8 +16,13 @@
     --glow: rgba(0, 229, 255, 0.22);
 
     /* Typography */
+<<<<<<< HEAD
     --font-heading: 'Sora', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
+=======
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 
     /* Spacing */
     --space-xs: 0.5rem;
@@ -55,9 +60,12 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--nav-height);
+<<<<<<< HEAD
     overflow-x: hidden;
     /* Double safety */
     width: 100%;
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 }
 
 body {
@@ -68,6 +76,7 @@ body {
     background: var(--bg);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+<<<<<<< HEAD
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
     /* Removed side padding to prevent 100% width overflow */
@@ -85,6 +94,8 @@ select {
     appearance: none;
     -webkit-tap-highlight-color: transparent;
     /* Remove grey tap box */
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 }
 
 /* Gradient mesh background */
@@ -117,6 +128,7 @@ h6 {
 }
 
 h1 {
+<<<<<<< HEAD
     font-size: clamp(2rem, 6vw, 4rem);
     /* Reduced min from 2.5rem to 2rem */
 }
@@ -124,6 +136,13 @@ h1 {
 h2 {
     font-size: clamp(1.75rem, 4vw, 2.75rem);
     /* Reduced min from 2rem */
+=======
+    font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 }
 
 h3 {
@@ -165,8 +184,11 @@ a:hover {
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 var(--space-md);
+<<<<<<< HEAD
     padding-left: max(var(--space-md), env(safe-area-inset-left));
     padding-right: max(var(--space-md), env(safe-area-inset-right));
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 }
 
 .section {
@@ -257,8 +279,12 @@ a:hover {
 
 /* === Navigation === */
 .navbar {
+<<<<<<< HEAD
     position: sticky;
     /* iOS preferred */
+=======
+    position: fixed;
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
     top: 0;
     left: 0;
     right: 0;
@@ -374,6 +400,7 @@ a:hover {
 .hero {
     position: relative;
     min-height: 100vh;
+<<<<<<< HEAD
     min-height: 100svh;
     /* iOS fix */
     display: flex;
@@ -387,6 +414,13 @@ a:hover {
     /* Only use internal padding, Nav is sticky */
     /* Fixed position from top (~100px) */
     padding-bottom: var(--space-2xl);
+=======
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: var(--nav-height);
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 }
 
 .hero-bg {
@@ -626,6 +660,7 @@ a:hover {
     opacity: 0.3;
 }
 
+<<<<<<< HEAD
 /* === Stat Counter Section === */
 .stat-counter-section {
     padding: var(--space-2xl) 0 var(--space-xl);
@@ -682,6 +717,8 @@ a:hover {
     }
 }
 
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 /* === New Services Grid === */
 .services-grid {
     display: grid;
@@ -704,12 +741,15 @@ a:hover {
     transform: translateY(-3px);
 }
 
+<<<<<<< HEAD
 /* All service cards get purple border */
 .services-grid .service-card {
     border: 1px solid var(--primary-neon);
     background: linear-gradient(135deg, rgba(124, 77, 255, 0.1), rgba(0, 229, 255, 0.05));
 }
 
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 .services-grid .service-card.service-primary {
     border-color: var(--primary-neon);
     background: linear-gradient(135deg, rgba(124, 77, 255, 0.15), rgba(0, 229, 255, 0.08));
@@ -1125,7 +1165,13 @@ a:hover {
 }
 
 .plan-includes li::before {
+<<<<<<< HEAD
     content: none;
+=======
+    content: '✓';
+    color: var(--accent-neon);
+    font-weight: bold;
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 }
 
 .pricing-note {
@@ -1138,6 +1184,7 @@ a:hover {
 .addons {
     text-align: center;
     margin-top: var(--space-lg);
+<<<<<<< HEAD
     padding: var(--space-xl);
     max-width: 900px;
     margin-left: auto;
@@ -1368,12 +1415,64 @@ a:hover {
     .process-result-banner {
         padding: var(--space-xl);
     }
+=======
+    padding: var(--space-lg);
+    background: rgba(17, 22, 42, 0.5);
+    border-radius: var(--radius-lg);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.addons h4 {
+    margin-bottom: var(--space-md);
+    color: var(--text-secondary);
+}
+
+.addons-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.addon-item {
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(124, 77, 255, 0.1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    display: inline-block;
+}
+
+/* === Process/Timeline Section === */
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+    z-index: 0;
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 }
 
 .timeline-item {
     text-align: center;
+<<<<<<< HEAD
     display: flex;
     flex-direction: column;
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 }
 
 .timeline-marker {
@@ -1396,9 +1495,12 @@ a:hover {
 
 .timeline-content {
     padding: var(--space-md);
+<<<<<<< HEAD
     flex: 1;
     display: flex;
     flex-direction: column;
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 }
 
 .timeline-content h3 {
@@ -1408,7 +1510,10 @@ a:hover {
 
 .timeline-content p {
     font-size: 0.9375rem;
+<<<<<<< HEAD
     flex: 1;
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 }
 
 /* === Guarantee Section === */
@@ -1501,6 +1606,7 @@ a:hover {
     padding: 0 var(--space-lg) var(--space-lg);
 }
 
+<<<<<<< HEAD
 /* === GEO Optimization Section === */
 .geo-section {
     position: relative;
@@ -1638,12 +1744,15 @@ a:hover {
     }
 }
 
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 /* === Contact Section === */
 .contact-wrapper {
     max-width: 600px;
     margin: 0 auto;
 }
 
+<<<<<<< HEAD
 /* === Contact Extras (Premium Style) === */
 .contact-extras {
     display: grid;
@@ -1793,6 +1902,8 @@ a:hover {
     }
 }
 
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 .contact-form {
     padding: var(--space-xl);
 }
@@ -2019,6 +2130,7 @@ a:hover {
 
     .nav-toggle {
         display: block;
+<<<<<<< HEAD
         position: absolute;
         right: var(--space-sm);
         top: 50%;
@@ -2031,6 +2143,8 @@ a:hover {
         position: relative;
         left: -10px;
         /* Slight optical adjustment if needed due to toggle button */
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
     }
 
     .nav-cta {
@@ -2052,6 +2166,7 @@ a:hover {
         max-width: 300px;
     }
 
+<<<<<<< HEAD
     /* Hero section: compact and WIDE on mobile */
     .hero {
         min-height: auto;
@@ -2100,6 +2215,10 @@ a:hover {
     .hero-bg-gif {
         transform: scale(1.5);
         object-position: center center;
+=======
+    .hero-bg-gif {
+        transform: rotate(90deg) scale(1.8);
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
     }
 
     .stats-grid {
@@ -2155,6 +2274,7 @@ a:hover {
 
     /* New responsive styles */
     .services-grid {
+<<<<<<< HEAD
         display: flex;
         /* Flex over Grid for Mobile */
         flex-direction: column;
@@ -2187,6 +2307,9 @@ a:hover {
         /* Smaller description */
         line-height: 1.3;
         margin-bottom: 0;
+=======
+        grid-template-columns: repeat(2, 1fr);
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
     }
 
     .contact-wrapper {
@@ -2209,6 +2332,7 @@ a:hover {
     .plan-includes-grid {
         grid-template-columns: 1fr;
     }
+<<<<<<< HEAD
 
     /* Mobile Purple Accents */
     .text-gradient {
@@ -2351,6 +2475,8 @@ a:hover {
         width: 24px;
         height: 24px;
     }
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 }
 
 @media (max-width: 480px) {
@@ -2393,8 +2519,12 @@ a:hover {
     }
 
     .services-grid {
+<<<<<<< HEAD
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-sm);
+=======
+        grid-template-columns: 1fr;
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
     }
 }
 
@@ -2759,6 +2889,7 @@ html {
 
 .nav-link:hover::after {
     width: 100%;
+<<<<<<< HEAD
 }
 
 /* === Refined Hirdetéskezelés Card (Reduced Dominance) === */
@@ -2941,4 +3072,6 @@ html {
 
 .scroll-pop:nth-child(6).visible {
     animation-delay: 0.5s;
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 }

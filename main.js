@@ -10,8 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initFAQ();
     initContactForm();
     initScrollAnimations();
+<<<<<<< HEAD
     init3DTilt();
     initStatCounter();
+=======
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 });
 
 /**
@@ -221,6 +224,7 @@ function showFormMessage(form, message, type) {
  * Scroll-triggered Animations
  */
 function initScrollAnimations() {
+<<<<<<< HEAD
     // Extended list of elements to animate
     const animatedElements = document.querySelectorAll(
         '.glass-card, .stat-card, .pricing-card, .faq-item, .section-header, .service-card, .web-item'
@@ -246,11 +250,31 @@ function initScrollAnimations() {
     });
 
     // Observer for regular elements
+=======
+    const animatedElements = document.querySelectorAll(
+        '.glass-card, .stat-card, .pricing-card, .timeline-item, .faq-item'
+    );
+
+    if (!animatedElements.length) return;
+
+    // Add initial hidden state
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+
+    // Create intersection observer
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
+<<<<<<< HEAD
                 entry.target.style.transform = 'translateY(0) scale(1)';
+=======
+                entry.target.style.transform = 'translateY(0)';
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
                 observer.unobserve(entry.target);
             }
         });
@@ -259,6 +283,7 @@ function initScrollAnimations() {
         rootMargin: '0px 0px -50px 0px'
     });
 
+<<<<<<< HEAD
     // Observer for timeline - triggers line and items together
     const timelineObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -289,6 +314,10 @@ function initScrollAnimations() {
     if (timelineItems.length) {
         timelineObserver.observe(timelineItems[0]);
     }
+=======
+    // Observe elements
+    animatedElements.forEach(el => observer.observe(el));
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
 }
 
 /**
@@ -299,6 +328,7 @@ window.addEventListener('scroll', () => {
     if (!navbar) return;
 
     if (window.scrollY > 100) {
+<<<<<<< HEAD
         navbar.style.background = 'rgba(11, 14, 20, 0.98)';
         navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
     } else {
@@ -382,3 +412,14 @@ function initStatCounter() {
 
     statNumbers.forEach(stat => observer.observe(stat));
 }
+=======
+        navbar.style.background = 'rgba(11, 14, 20, 0.7)'; // Scrolled: semi-transparent
+        navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
+        navbar.style.backdropFilter = 'blur(20px)'; // Ensure blur stays
+    } else {
+        navbar.style.background = 'rgba(11, 14, 20, 0.2)'; // Top: very transparent
+        navbar.style.boxShadow = 'none';
+        navbar.style.backdropFilter = 'blur(10px)';
+    }
+});
+>>>>>>> 98480c9ea63182180347d8a6a2cc45e16645c0be
