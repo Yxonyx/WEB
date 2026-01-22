@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg text-white font-sans antialiased selection:bg-neonBlue/20 selection:text-white text-base sm:text-lg leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.18);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(189, 0, 255, 0.16);
+  }
+
+  .glass-panel {
+    @apply bg-surface/60 backdrop-blur-md border border-border;
+  }
+}
