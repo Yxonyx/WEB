@@ -47,6 +47,42 @@ export const Process = () => {
                         <p className="text-muted">
                             Átlátható process, dedikált kapcsolattartás és folyamatos visszajelzés.
                         </p>
+
+                        <div className="mt-8 p-6 rounded-xl bg-surface/30 border border-white/5 backdrop-blur-sm">
+                            <h3 className="text-xl font-bold text-white mb-4">Határidők & Gyorsítás</h3>
+                            <div className="space-y-4 text-sm text-muted">
+                                <div>
+                                    <div className="flex justify-between mb-1">
+                                        <span className="text-white">Landing Page</span>
+                                        <span className="text-neonBlue">5–7 munkanap</span>
+                                    </div>
+                                    <div className="h-1 bg-surface2 rounded-full overflow-hidden">
+                                        <div className="h-full bg-neonBlue/50 w-[30%]" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="flex justify-between mb-1">
+                                        <span className="text-white">Céges weboldal</span>
+                                        <span className="text-neonBlue">7–14 munkanap</span>
+                                    </div>
+                                    <div className="h-1 bg-surface2 rounded-full overflow-hidden">
+                                        <div className="h-full bg-neonBlue/50 w-[60%]" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="flex justify-between mb-1">
+                                        <span className="text-white">Webshop</span>
+                                        <span className="text-neonBlue">14–28 munkanap</span>
+                                    </div>
+                                    <div className="h-1 bg-surface2 rounded-full overflow-hidden">
+                                        <div className="h-full bg-neonBlue/50 w-[90%]" />
+                                    </div>
+                                </div>
+                                <div className="pt-2 text-xs text-muted2 italic border-t border-white/5 mt-2">
+                                    *Sürgős kivitelezés felár ellenében kérhető.
+                                </div>
+                            </div>
+                        </div>
                     </motion.div>
                     <div className="lg:col-span-8">
                         <motion.div

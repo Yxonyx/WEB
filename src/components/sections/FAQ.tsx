@@ -52,24 +52,24 @@ const FAQItem = ({ q, a, index }: { q: string, a: string, index: number }) => {
 export const FAQ = () => {
     const questions = [
         {
-            q: "Mobilbarát és SEO-alapú lesz a weboldal?",
-            a: "Igen. Minden weboldal reszponzív (mobilra optimalizált) és SEO-alapokra épül, így könnyen megtalálható és eredményes lesz."
+            q: "Mennyi idő alatt készül el egy weboldal?",
+            a: "Landing Page: kb. 5–7 munkanap, céges weboldal: 7–14 munkanap, webshop: 14–28 munkanap. A pontos ütemezés a projekt terjedelmétől és az anyagok rendelkezésre állásától függ."
         },
         {
-            q: "Mennyi idő alatt készül el egy weboldal?",
-            a: "Átlagosan 2–6 hét a projekt, a komplexitástól függően. Már az elején kapsz egy ütemtervet, amely pontosan megmutatja, mikor mire számíthatsz."
+            q: "Lehet sürgősen kérni?",
+            a: "Igen. Felár ellenében, egyedi megbeszélés alapján gyorsítjuk a kivitelezést — jellemzően több fejlesztő párhuzamos ráállításával."
         },
         {
             q: "Tudom később én is szerkeszteni a weboldalt?",
-            a: "Igen. Olyan megoldást adunk át, amit könnyen tudsz kezelni, és a projekt átadása során megmutatjuk a fontos lépéseket."
+            a: "Igen. Igény esetén admin felületet / blog modult adunk, és átadjuk a szerkesztés alapjait."
         },
         {
             q: "Vállaltok karbantartást és frissítést?",
-            a: "Igen. Igény szerint biztosítunk karbantartást és frissítést, hogy a weboldalad gyors, biztonságos és naprakész maradjon."
+            a: "Igen. Havi karbantartási csomagokkal biztosítjuk, hogy az oldal gyors, biztonságos és naprakész maradjon."
         },
         {
-            q: "Hogyan indul az együttműködés folyamata?",
-            a: "Egy rövid egyeztetéssel kezdünk, ahol tisztázzuk a célokat, majd stratégia → tervezés → kivitelezés lépéseken keresztül haladunk."
+            q: "Készítetek AI chatbotot is?",
+            a: "Igen. Weboldalra integrált, értékesítést segítő chatbotot implementálunk, ami a weboldal tartalma alapján informál, kérdez és ajánlatkérésig terel. A fenntartás havi menedzsmentből és forgalomfüggő AI használati díjból áll."
         }
     ];
 

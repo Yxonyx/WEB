@@ -114,6 +114,12 @@ export const Services = () => {
                                         Frissítés, biztonság, folyamatos finomítás hosszú távra.
                                     </SignatureItem>
                                 </motion.div>
+
+                                <motion.div variants={itemVariants}>
+                                    <SignatureItem index="05" title="AI Chatbot">
+                                        Weboldalra integrált értékesítő chatbot, ami informál, kvalifikál és ajánlatkérésig terel.
+                                    </SignatureItem>
+                                </motion.div>
                             </motion.div>
                         </SignaturePanel>
                     </motion.div>
