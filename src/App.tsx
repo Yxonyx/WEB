@@ -1,8 +1,9 @@
-
 import { Navbar } from './components/sections/Navbar';
 import { Hero } from './components/sections/Hero';
 import { Stats } from './components/sections/Stats';
 import { Services } from './components/sections/Services';
+import { Maintenance } from './components/sections/Maintenance';
+import { ChatbotIntro } from './components/sections/ChatbotIntro';
 import { Pricing } from './components/sections/Pricing';
 import { GEO } from './components/sections/GEO';
 import { Portfolio } from './components/sections/Portfolio';
@@ -11,6 +12,8 @@ import { FAQ } from './components/sections/FAQ';
 import { Team } from './components/sections/Team';
 import { Contact } from './components/sections/Contact';
 import { Footer } from './components/sections/Footer';
+
+import { QuoteSection } from './components/sections/QuoteSection';
 
 import { ParticleNetwork } from './components/ui/ParticleNetwork';
 import { CookieBanner } from './components/ui/CookieBanner';
@@ -23,9 +26,12 @@ function App() {
       <Navbar />
       <Hero />
       <Stats />
+      <QuoteSection />
       <Services />
-      <Pricing />
       <GEO />
+      <Maintenance />
+      <ChatbotIntro />
+      <Pricing />
       <Portfolio />
       <Process />
       <FAQ />

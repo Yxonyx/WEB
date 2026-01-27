@@ -53,7 +53,7 @@ export const ParticleNetwork = () => {
         }
 
         const initParticles = () => {
-            const particleCount = Math.min(Math.floor(window.innerWidth / 15), 80); // Slightly fewer interact better
+            const particleCount = Math.min(Math.floor(window.innerWidth / 25), 50); // Optimized: fewer particles
             particles = [];
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
@@ -78,9 +78,9 @@ export const ParticleNetwork = () => {
                     const dy = a.y - b.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < 150) {
+                    if (distance < 120) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(0, 240, 255, ${0.1 * (1 - distance / 150)})`;
+                        ctx.strokeStyle = `rgba(0, 240, 255, ${0.1 * (1 - distance / 120)})`;
                         ctx.lineWidth = 1;
                         ctx.moveTo(a.x, a.y);
                         ctx.lineTo(b.x, b.y);
@@ -95,9 +95,9 @@ export const ParticleNetwork = () => {
                 const dy = a.y - mouse.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < 200) {
+                if (distance < 150) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(189, 0, 255, ${0.2 * (1 - distance / 200)})`; // Neon Purple for interaction
+                    ctx.strokeStyle = `rgba(189, 0, 255, ${0.15 * (1 - distance / 150)})`; // Neon Purple for interaction
                     ctx.lineWidth = 1;
                     ctx.moveTo(a.x, a.y);
                     ctx.lineTo(mouse.x, mouse.y);

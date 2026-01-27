@@ -110,19 +110,20 @@ export const Contact = () => {
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-muted">Szolgáltatás</label>
                                     <select className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors appearance-none">
-                                        <option>Webfejlesztés</option>
-                                        <option>SEO</option>
-                                        <option>GEO-optimalizálás</option>
-                                        <option>Web + SEO + GEO (komplett)</option>
+                                        <option className="bg-surface text-white">Webfejlesztés</option>
+                                        <option className="bg-surface text-white">Webshop</option>
+                                        <option className="bg-surface text-white">SEO</option>
+                                        <option className="bg-surface text-white">GEO-optimalizálás</option>
+                                        <option className="bg-surface text-white">Web + SEO + GEO (komplett)</option>
                                     </select>
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-muted">Költségkeret</label>
                                     <select className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors appearance-none">
-                                        <option>150k – 300k</option>
-                                        <option>300k – 500k</option>
-                                        <option>500k – 1M+</option>
-                                        <option>Egyedi</option>
+                                        <option className="bg-surface text-white">150k – 300k</option>
+                                        <option className="bg-surface text-white">300k – 500k</option>
+                                        <option className="bg-surface text-white">500k – 1M+</option>
+                                        <option className="bg-surface text-white">Egyedi</option>
                                     </select>
                                 </div>
                             </motion.div>

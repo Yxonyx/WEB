@@ -43,54 +43,67 @@ const useCountUp = (end: number, duration: number = 2000, startOnView: boolean =
 };
 
 export const Stats = () => {
-    const { count, ref } = useCountUp(44, 2000);
-
     return (
         <motion.div
-            ref={ref}
-            className="border-y border-white/5 bg-black/50 backdrop-blur-sm"
+            className="border-y border-white/5 bg-[#020205]/80 backdrop-blur-sm relative z-20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
         >
             <Container>
-                <div className="py-8 flex flex-col sm:flex-row items-center justify-center gap-8 text-center sm:text-left">
-                    <motion.div
-                        className="flex items-baseline gap-2"
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                        <span className="text-4xl sm:text-5xl font-bold text-white tracking-tighter tabular-nums">
-                            {count}
-                        </span>
-                        <motion.span
-                            className="text-neonBlue text-xl sm:text-2xl font-bold"
-                            initial={{ rotate: -180, opacity: 0 }}
-                            whileInView={{ rotate: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.5 }}
-                        >
-                            +
-                        </motion.span>
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                    >
-                        <p className="text-base sm:text-lg font-medium text-white">
-                            elégedett ügyfél
-                        </p>
-                        <p className="text-sm text-muted">
-                            Magyarországon és külföldön
-                        </p>
-                    </motion.div>
+                <div className="py-6 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 divide-y md:divide-y-0 md:divide-x divide-white/10">
+                    {/* Stat 1 */}
+                    <StatItem
+                        end={7}
+                        suffix="+"
+                        label="Év tapasztalat"
+                        sublabel="Full-stack fejlesztésben"
+                        duration={1000}
+                    />
+
+                    {/* Stat 2 */}
+                    <StatItem
+                        end={44}
+                        suffix="+"
+                        label="Elégedett ügyfél"
+                        sublabel="Magyarországon és külföldön"
+                    />
+
+                    {/* Stat 3 */}
+                    <StatItem
+                        end={100}
+                        suffix="%"
+                        label="Garancia"
+                        sublabel="Pénzvisszafizetési opcióval"
+                    />
                 </div>
             </Container>
         </motion.div>
+    );
+};
+
+const StatItem = ({ end, suffix, label, sublabel, duration = 2000 }: { end: number, suffix: string, label: string, sublabel: string, duration?: number }) => {
+    const { count, ref } = useCountUp(end, duration);
+
+    return (
+        <div ref={ref} className="flex flex-col items-center text-center sm:flex-row sm:text-left sm:justify-center gap-3 py-2 md:py-0">
+            <div className="flex items-baseline gap-1">
+                <span className="text-3xl sm:text-4xl font-black text-white tracking-tighter tabular-nums">
+                    {count}
+                </span>
+                <span className="text-neonBlue text-xl sm:text-2xl font-black">
+                    {suffix}
+                </span>
+            </div>
+            <div>
+                <p className="text-xs font-bold text-white uppercase tracking-widest leading-tight mb-1">
+                    {label}
+                </p>
+                <p className="text-[10px] text-muted/80 font-medium tracking-wide">
+                    {sublabel}
+                </p>
+            </div>
+        </div>
     );
 };

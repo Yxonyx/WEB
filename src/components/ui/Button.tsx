@@ -22,7 +22,7 @@ export const Button: React.FC<ButtonProps> = ({
     const baseStyles = "relative inline-flex items-center justify-center font-mono font-bold tracking-wider transition-all duration-300 group";
 
     const variants = {
-        primary: "bg-gradient-to-r from-neonBlue to-neonPurple text-black hover:brightness-110",
+        primary: "bg-neonBlue text-black hover:bg-white hover:shadow-[0_0_30px_rgba(0,240,255,0.4)]",
         secondary: "bg-surface/50 border border-white/10 text-white hover:bg-white/5 hover:border-white/20 hover:text-neonBlue",
     };
 
@@ -34,11 +34,12 @@ export const Button: React.FC<ButtonProps> = ({
 
     const Brackets = () => (
         <>
-            {/* Top Left */}
-            <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/50 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-white/20" />
-            {/* Bottom Right */}
-            <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/50 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-white/20" />
+            <span className="mr-2 text-black/60 group-hover:text-black/80 transition-colors">&lt;</span>
         </>
+    );
+
+    const CloseBracket = () => (
+        <span className="ml-2 text-black/60 group-hover:text-black/80 transition-colors">&gt;</span>
     );
 
     const combinedClassName = twMerge(baseStyles, variants[variant], sizes[size], className);
@@ -47,9 +48,10 @@ export const Button: React.FC<ButtonProps> = ({
         return (
             <a href={href} className={combinedClassName}>
                 <Brackets />
-                <span className="relative z-10 flex items-center gap-2">
+                <span className="relative z-10 flex items-center">
                     {children}
                 </span>
+                <CloseBracket />
             </a>
         );
     }
@@ -62,9 +64,10 @@ export const Button: React.FC<ButtonProps> = ({
             {...(props as any)}
         >
             <Brackets />
-            <span className="relative z-10 flex items-center gap-2">
+            <span className="relative z-10 flex items-center">
                 {children}
             </span>
+            <CloseBracket />
         </motion.button>
     );
 };

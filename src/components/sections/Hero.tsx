@@ -32,9 +32,14 @@ export const Hero = () => {
                         </span> & karbantartás
                     </h1>
 
-                    <p className="text-lg text-muted mb-8 max-w-lg leading-relaxed mx-auto lg:mx-0">
-                        Weboldalad ott jelenik meg, ahol a döntések születnek: a Google keresésekben és az AI-alapú találatokban.
-                    </p>
+                    <div className="text-lg md:text-xl text-muted mb-10 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-display font-light">
+                        <p className="mb-4">
+                            <span className="text-neonPurple">Modern, mesterséges intelligencia</span> alapú megoldások.
+                        </p>
+                        <p className="text-white">
+                            Weboldalad ott jelenik meg, ahol a döntések születnek: a <span className="text-neonBlue">Google keresésekben</span> és az <span className="text-neonPurple">AI-alapú találatokban</span>.
+                        </p>
+                    </div>
 
                     <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                         <Button href="#kapcsolat" variant="primary">
@@ -57,6 +62,8 @@ export const Hero = () => {
                     <div className="absolute top-10 left-10 right-10 bottom-10 z-10">
                         <RetroTerminal3D />
                     </div>
+
+
 
                     {/* Decorative Elements */}
                     <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-neonBlue rounded-tr-3xl opacity-50" />

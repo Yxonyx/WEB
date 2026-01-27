@@ -20,6 +20,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        display: ['Outfit', 'sans-serif'],
       },
       fontSize: {
         '7xl': '5rem',

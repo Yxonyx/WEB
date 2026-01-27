@@ -23,8 +23,8 @@ const itemVariants: Variants = {
 
 const projects = [
     { id: 1, name: "Projekt 01", image: "/images/project-1.gif" },
-    { id: 2, name: "Projekt 02", image: null },
-    { id: 3, name: "Projekt 03", image: null }
+    { id: 2, name: "Projekt 02", image: "/images/portfolio-2.webp" },
+    { id: 3, name: "Projekt 03", image: "/images/portfolio-3.webp" }
 ];
 
 export const Portfolio = () => {
@@ -52,13 +52,16 @@ export const Portfolio = () => {
                     {projects.map((project) => (
                         <motion.div key={project.id} variants={itemVariants}>
                             <BracketFrame className="group cursor-pointer hover:border-neonBlue/30 transition-colors">
-                                <div className="aspect-video bg-surface2 rounded-lg mb-6 relative overflow-hidden">
+                                <div className="aspect-video bg-gradient-to-br from-surface2 to-surface rounded-lg mb-6 relative overflow-hidden group-hover:shadow-lg group-hover:shadow-neonBlue/20 transition-all">
                                     {project.image ? (
-                                        <img
-                                            src={project.image}
-                                            alt={project.name}
-                                            className="w-full h-full object-cover"
-                                        />
+                                        <>
+                                            <img
+                                                src={project.image}
+                                                alt={project.name}
+                                                className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        </>
                                     ) : (
                                         <div className="absolute inset-0 flex items-center justify-center text-muted2 font-mono text-sm group-hover:bg-black/50 transition-colors">
                                             project_thumbnail_{project.id}.jpg

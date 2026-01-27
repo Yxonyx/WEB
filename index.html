@@ -2,6 +2,15 @@
 <html lang="hu">
 
 <head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGHHJY5WQR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-HGHHJY5WQR');
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -48,12 +57,54 @@
   <link rel="icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <!-- ✅ High-res icon for Google/Search -->
+  <link rel="icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
   <!-- ✅ Performance hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- ✅ Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://cyberlabsweb.com/#website",
+        "url": "https://cyberlabsweb.com/",
+        "name": "CyberLabs Studio",
+        "description": "Céges weboldal készítés, SEO és GEO optimalizálás magyar KKV-knak",
+        "inLanguage": "hu-HU"
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://cyberlabsweb.com/#business",
+        "name": "CyberLabs Studio",
+        "description": "Modern, villámgyors céges weboldal fejlesztés és karbantartás. Technikai SEO + GEO, hogy Google-ben és AI-találatokban is megtaláljanak.",
+        "url": "https://cyberlabsweb.com/",
+        "logo": "https://cyberlabsweb.com/og/cyberlabs-og.png",
+        "image": "https://cyberlabsweb.com/og/cyberlabs-og.png",
+        "priceRange": "$$",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Hungary"
+        },
+        "serviceType": ["Weboldal fejlesztés", "SEO optimalizálás", "GEO pozicionálás", "Weboldal karbantartás"],
+        "sameAs": []
+      },
+      {
+        "@type": "Service",
+        "name": "Egyedi weboldal készítés",
+        "provider": {"@id": "https://cyberlabsweb.com/#business"},
+        "description": "Gyors, modern, megbízható weboldalak fejlesztése üzleti célokra."
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>

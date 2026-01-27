@@ -33,7 +33,7 @@ const teamMembers: TeamMember[] = [
         id: "SOMA",
         name: "Vlaszaty Soma",
         role: "STRATEGIST",
-        image: "/images/vlaszaty-soma.jpeg",
+        image: "/images/vlaszaty-soma.webp",
         phone: "+36 70 330 4445",
         skills: ["Koordináció", "Ügyfélkapcsolat", "Határidők_check"]
     },
@@ -41,14 +41,14 @@ const teamMembers: TeamMember[] = [
         id: "BENI",
         name: "Szappanos Benedek",
         role: "FRONTEND_DEV",
-        image: "/images/beni.jpeg",
+        image: "/images/beni.webp",
         skills: ["UI/UX_Design", "React_Components", "Responsive_Web"]
     },
     {
         id: "JONI",
         name: "Kaiser Jonatán",
         role: "DEVELOPER",
-        image: "/images/kaiser-jonatan.jpg",
+        image: "/images/kaiser-jonatan.webp",
         skills: ["System_Architecture", "Frontend_UI", "Backend_API"]
     }
 ];
@@ -67,11 +67,11 @@ export const Team = () => {
                     {teamMembers.map((member, i) => (
                         <motion.div
                             key={i}
-                            className="relative group"
+                            className="relative group h-full"
                             variants={itemVariants}
                         >
                             {/* Terminal Card */}
-                            <div className="relative bg-surface2/60 backdrop-blur-sm border border-white/10 rounded-lg">
+                            <div className="relative bg-surface2/60 backdrop-blur-sm border border-white/10 rounded-lg h-full flex flex-col">
                                 {/* Corner Brackets - Top Right */}
                                 <div className="absolute -top-px -right-px w-3 h-3 border-t-2 border-r-2 border-neonPurple" />
                                 {/* Corner Brackets - Bottom Left */}

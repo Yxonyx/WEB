@@ -21,11 +21,11 @@ export const RetroTerminal3D = () => {
         camera.position.set(0, 3, 7);
         camera.lookAt(0, 1, 0);
 
-        // Renderer
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        // Renderer - optimized for performance
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // Re-enabled antialiasing for smooth edges
         renderer.setSize(width, height);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.shadowMap.enabled = true;
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); // Lower pixel ratio
+        renderer.shadowMap.enabled = false; // Disabled shadows for performance
         container.appendChild(renderer.domElement);
 
         // Lighting
@@ -190,7 +190,7 @@ export const RetroTerminal3D = () => {
             animationId = requestAnimationFrame(animate);
             time += 0.01;
 
-            computerGroup.rotation.y = Math.sin(time * 0.3) * 0.15;
+            computerGroup.rotation.y = Math.sin(time * 0.3) * 0.3; // Increased rotation amplitude
             screenGlow.intensity = 0.8 + Math.sin(time * 2) * 0.2;
 
             renderer.render(scene, camera);

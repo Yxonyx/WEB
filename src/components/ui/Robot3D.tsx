@@ -25,10 +25,10 @@ export const Robot3D = ({ size = 200 }: Robot3DProps) => {
         const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
         camera.position.set(0, 1, 3);
 
-        // Renderer
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        // Renderer - optimized for performance
+        const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
         renderer.setSize(width, height);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         container.appendChild(renderer.domElement);
 

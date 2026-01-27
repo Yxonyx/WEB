@@ -5,8 +5,8 @@ import { Button } from '../ui/Button';
 import { Plus, Minus, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const FAQItem = ({ q, a, index }: { q: string, a: string, index: number }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const FAQItem = ({ q, a, defaultOpen = false, index }: { q: string, a: string, defaultOpen?: boolean, index: number }) => {
+    const [isOpen, setIsOpen] = useState(defaultOpen);
 
     return (
         <motion.div
@@ -52,6 +52,11 @@ const FAQItem = ({ q, a, index }: { q: string, a: string, index: number }) => {
 export const FAQ = () => {
     const questions = [
         {
+            q: "Csak akkor fizetek, ha tetszik a demó?",
+            a: "Igen, a kockázat a miénk. Készítünk egy működő demót az igényeid alapján. Ha tetszik az irány, akkor szerződünk és folytatjuk a munkát. Ha nem, semmilyen kötelezettséged nincs.",
+            defaultOpen: true
+        },
+        {
             q: "Mennyi idő alatt készül el egy weboldal?",
             a: "Landing Page: kb. 5–7 munkanap, céges weboldal: 7–14 munkanap, webshop: 14–28 munkanap. A pontos ütemezés a projekt terjedelmétől és az anyagok rendelkezésre állásától függ."
         },
@@ -69,45 +74,17 @@ export const FAQ = () => {
         },
         {
             q: "Készítetek AI chatbotot is?",
-            a: "Igen. Weboldalra integrált, értékesítést segítő chatbotot implementálunk, ami a weboldal tartalma alapján informál, kérdez és ajánlatkérésig terel. A fenntartás havi menedzsmentből és forgalomfüggő AI használati díjból áll."
+            a: "Igen. Weboldalba integrált, értékesítést segítő chatbotot implementálunk, ami a weboldal tartalma alapján informál, kérdez és ajánlatkérésig terel."
         }
     ];
 
     return (
         <Section id="gyik">
             <Container>
-                <div className="grid lg:grid-cols-12 gap-12 items-start">
-                    {/* Guarantee Block */}
+                <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                    {/* FAQ List - First on mobile, right on desktop */}
                     <motion.div
-                        className="lg:col-span-5"
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <div className="bg-surface2/50 border border-white/5 rounded-2xl p-8 sticky top-32">
-                            <motion.div
-                                className="w-12 h-12 rounded-xl bg-highlight/10 flex items-center justify-center mb-6"
-                                initial={{ scale: 0, rotate: -180 }}
-                                whileInView={{ scale: 1, rotate: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.2 }}
-                            >
-                                <ShieldCheck className="w-6 h-6 text-highlight" />
-                            </motion.div>
-                            <h3 className="text-2xl font-bold text-white mb-4">Minőségi garancia</h3>
-                            <p className="text-muted text-lg mb-8 leading-relaxed">
-                                Ha nem vagy elégedett a végeredménnyel, addig finomítunk, amíg tökéletes nem lesz. Célunk a 100%-os ügyfélelégedettség.
-                            </p>
-                            <Button href="#kapcsolat" variant="primary" className="w-full">
-                                Biztosra megyek
-                            </Button>
-                        </div>
-                    </motion.div>
-
-                    {/* FAQ List */}
-                    <motion.div
-                        className="lg:col-span-7"
+                        className="lg:col-span-7 lg:order-2"
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
@@ -118,6 +95,61 @@ export const FAQ = () => {
                             {questions.map((faq, i) => (
                                 <FAQItem key={i} {...faq} index={i} />
                             ))}
+                        </div>
+                    </motion.div>
+
+                    {/* Premium Guarantee Card */}
+                    <motion.div
+                        className="lg:col-span-5 lg:order-1"
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <div className="lg:sticky lg:top-32">
+                            {/* Outer glow */}
+                            <div className="relative group">
+                                <div className="absolute -inset-1 bg-gradient-to-r from-neonBlue/20 via-neonPurple/20 to-neonBlue/20 rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+
+                                {/* Card */}
+                                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-surface2 via-[#0a0b12] to-surface border border-white/10 p-8 shadow-2xl">
+
+                                    {/* Corner decorations */}
+                                    <div className="absolute top-3 left-3 w-6 h-6 border-l-2 border-t-2 border-neonBlue/40" />
+                                    <div className="absolute top-3 right-3 w-6 h-6 border-r-2 border-t-2 border-neonBlue/40" />
+                                    <div className="absolute bottom-3 left-3 w-6 h-6 border-l-2 border-b-2 border-neonBlue/40" />
+                                    <div className="absolute bottom-3 right-3 w-6 h-6 border-r-2 border-b-2 border-neonBlue/40" />
+
+                                    {/* Icon with glow */}
+                                    <div className="flex justify-center mb-6">
+                                        <div className="relative">
+                                            <div className="absolute inset-0 bg-neonBlue/30 blur-2xl rounded-full scale-150" />
+                                            <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-neonBlue/20 to-neonPurple/20 border border-white/10 flex items-center justify-center">
+                                                <ShieldCheck className="w-10 h-10 text-neonBlue" strokeWidth={1.5} />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Title */}
+                                    <h3 className="text-2xl md:text-3xl font-bold text-center mb-4 text-white font-display">
+                                        Minőségi garancia
+                                    </h3>
+
+                                    {/* Description */}
+                                    <p className="text-center text-muted text-lg mb-8 leading-relaxed">
+                                        Ha nem vagy elégedett a végeredménnyel, addig finomítunk, amíg tökéletes nem lesz. Célunk a 100%-os ügyfélelégedettség.
+                                    </p>
+
+                                    {/* CTA Button */}
+                                    <Button
+                                        href="#kapcsolat"
+                                        variant="primary"
+                                        className="w-full"
+                                    >
+                                        Biztosra megyek
+                                    </Button>
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
                 </div>

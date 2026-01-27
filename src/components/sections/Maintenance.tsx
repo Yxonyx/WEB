@@ -1,0 +1,141 @@
+import { Container } from '../Container';
+import { Section } from '../Section';
+import { ShieldCheck, Zap, RefreshCw, CheckCircle2 } from 'lucide-react';
+import { motion, type Variants } from 'framer-motion';
+import { BracketFrame } from '../ui/BracketFrame';
+
+const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+    }
+};
+
+const itemVariants: Variants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.5, ease: "easeOut" }
+    }
+};
+
+export const Maintenance = () => {
+    return (
+        <Section id="karbantartas" className="relative overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-neonPurple/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2" />
+
+            <Container>
+                <motion.div
+                    className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={containerVariants}
+                >
+                    {/* Visual - Left Side (Unified Dashboard) */}
+                    <motion.div variants={itemVariants} className="order-2 lg:order-1 relative">
+                        <div className="absolute inset-0 bg-neonPurple/5 rounded-2xl blur-xl" />
+                        <BracketFrame className="relative h-full bg-surface/30 p-6 sm:p-8 flex flex-col justify-center">
+
+                            {/* Dashboard Content */}
+                            <div className="space-y-3">
+                                {/* Item 1: Frissítések */}
+                                <div className="flex items-center justify-between p-3 rounded-xl bg-surface2/50 border border-white/5 group hover:border-neonBlue/30 transition-colors">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 rounded-lg bg-neonBlue/10 flex items-center justify-center text-neonBlue group-hover:text-white group-hover:bg-neonBlue transition-colors">
+                                            <RefreshCw size={16} />
+                                        </div>
+                                        <div className="hidden sm:block">
+                                            <div className="font-bold text-white text-sm">Rendszer</div>
+                                            <div className="text-[10px] text-muted">Frissítések</div>
+                                        </div>
+                                        <div className="sm:hidden font-bold text-white text-sm">Frissítések</div>
+                                    </div>
+                                    <span className="text-xs text-neonBlue font-mono bg-neonBlue/5 px-2 py-1 rounded border border-neonBlue/10">Naprakész</span>
+                                </div>
+
+                                {/* Item 2: Biztonság */}
+                                <div className="flex items-center justify-between p-3 rounded-xl bg-surface2/50 border border-white/5 group hover:border-neonPurple/30 transition-colors">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 rounded-lg bg-neonPurple/10 flex items-center justify-center text-neonPurple group-hover:text-white group-hover:bg-neonPurple transition-colors">
+                                            <ShieldCheck size={16} />
+                                        </div>
+                                        <div className="hidden sm:block">
+                                            <div className="font-bold text-white text-sm">Védelem</div>
+                                            <div className="text-[10px] text-muted">Biztonság</div>
+                                        </div>
+                                        <div className="sm:hidden font-bold text-white text-sm">Biztonság</div>
+                                    </div>
+                                    <span className="text-xs text-neonPurple font-mono bg-neonPurple/5 px-2 py-1 rounded border border-neonPurple/10">Aktív</span>
+                                </div>
+
+                                {/* Item 3: Mentések */}
+                                <div className="flex items-center justify-between p-3 rounded-xl bg-surface2/50 border border-white/5 group hover:border-green-500/30 transition-colors">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500 group-hover:text-white group-hover:bg-green-500 transition-colors">
+                                            <CheckCircle2 size={16} />
+                                        </div>
+                                        <div className="hidden sm:block">
+                                            <div className="font-bold text-white text-sm">Adatbázis</div>
+                                            <div className="text-[10px] text-muted">Mentések</div>
+                                        </div>
+                                        <div className="sm:hidden font-bold text-white text-sm">Mentések</div>
+                                    </div>
+                                    <span className="text-xs text-green-500 font-mono bg-green-500/5 px-2 py-1 rounded border border-green-500/10">Napi</span>
+                                </div>
+
+                                {/* Item 4: Sebesség */}
+                                <div className="flex items-center justify-between p-3 rounded-xl bg-surface2/50 border border-white/5 group hover:border-yellow-500/30 transition-colors">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-500 group-hover:text-white group-hover:bg-yellow-500 transition-colors">
+                                            <Zap size={16} />
+                                        </div>
+                                        <div className="hidden sm:block">
+                                            <div className="font-bold text-white text-sm">Teljesítmény</div>
+                                            <div className="text-[10px] text-muted">Sebesség</div>
+                                        </div>
+                                        <div className="sm:hidden font-bold text-white text-sm">Sebesség</div>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <div className="h-1.5 w-16 bg-surface rounded-full overflow-hidden">
+                                            <div className="h-full bg-yellow-500 w-[95%]" />
+                                        </div>
+                                        <span className="text-xs text-yellow-500 font-mono">98/100</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </BracketFrame>
+                    </motion.div>
+
+                    {/* Content - Right Side */}
+                    <motion.div variants={itemVariants} className="order-1 lg:order-2">
+                        <div className="w-12 h-12 rounded-xl bg-neonPurple/10 flex items-center justify-center mb-6 text-neonPurple">
+                            <ShieldCheck size={24} />
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Karbantartás & Stabilitás</h2>
+                        <p className="text-muted text-lg mb-8 leading-relaxed">
+                            Frissítések, mentések, biztonság, sebesség-ellenőrzés, javítások. Hogy a weboldalad évek múlva is ugyanolyan gyors és megbízható legyen, mint az első napon.
+                        </p>
+
+                        <div className="mb-4 text-sm font-bold text-white uppercase tracking-wider">Miért kell ez neked?</div>
+                        <ul className="space-y-3">
+                            {[
+                                "ne törjön el semmi frissítés után",
+                                "ne lassuljon be az oldal",
+                                "biztonságban legyen az adatállomány"
+                            ].map((item, i) => (
+                                <li key={i} className="flex items-center gap-3 text-muted">
+                                    <CheckCircle2 className="w-4 h-4 text-neonPurple shrink-0" />
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                </motion.div>
+            </Container>
+        </Section>
+    );
+};
