@@ -78,7 +78,7 @@ export const Team = () => {
                                 <div className="absolute -bottom-px -left-px w-3 h-3 border-b-2 border-l-2 border-neonPurple" />
                                 {/* Header Bar */}
                                 <div className="flex items-center justify-between px-4 py-2 border-b border-white/5 bg-black/30">
-                                    <span className="font-mono text-xs text-muted2">USER_ID: {member.id}</span>
+                                    <span className="font-mono text-sm text-muted2">AZONOSÍTÓ: {member.id}</span>
                                     <div className="w-2 h-2 rounded-full bg-neonBlue animate-pulse" />
                                 </div>
 
@@ -99,7 +99,7 @@ export const Team = () => {
                                     </h3>
 
                                     {/* Role */}
-                                    <p className="text-xs font-mono text-muted uppercase tracking-wider mb-4">
+                                    <p className="text-sm font-mono text-muted uppercase tracking-wider mb-4">
                                         ROLE: <span className="text-white">{member.role}</span>
                                     </p>
 
@@ -107,14 +107,14 @@ export const Team = () => {
                                     {member.phone && (
                                         <a
                                             href={`tel:${member.phone.replace(/\s/g, '')}`}
-                                            className="inline-block mb-4 px-3 py-1.5 rounded border border-white/20 bg-black/40 text-white font-mono text-sm hover:border-neonBlue/50 hover:text-neonBlue transition-colors"
+                                            className="inline-block mb-4 px-3 py-1.5 rounded border border-white/20 bg-black/40 text-white font-mono text-base hover:border-neonBlue/50 hover:text-neonBlue transition-colors"
                                         >
                                             {member.phone}
                                         </a>
                                     )}
 
                                     {/* Skills as checkboxes */}
-                                    <ul className="space-y-2 font-mono text-sm">
+                                    <ul className="space-y-2 font-mono text-base">
                                         {member.skills.map((skill, j) => (
                                             <li key={j} className="flex items-center gap-2 text-muted">
                                                 <span className="text-neonBlue">[x]</span>

@@ -18,13 +18,13 @@ export const QuoteSection = () => {
                     >
                         {/* Badges */}
                         <div className="flex flex-wrap gap-6 mb-8 justify-center lg:justify-start">
-                            <div className="inline-flex items-center gap-2 text-[#00F0FF] font-mono text-sm font-semibold tracking-wider">
+                            <div className="inline-flex items-center gap-2 text-[#00F0FF] font-mono text-base font-semibold tracking-wider">
                                 <span>&lt;</span>
                                 <Clock size={16} />
-                                <span>1 héten belül demó</span>
+                                <span>1 héten belül próbaverzió</span>
                                 <span>&gt;</span>
                             </div>
-                            <div className="inline-flex items-center gap-2 text-[#BD00FF] font-mono text-sm font-semibold tracking-wider">
+                            <div className="inline-flex items-center gap-2 text-[#BD00FF] font-mono text-base font-semibold tracking-wider">
                                 <span>&lt;</span>
                                 <ShieldCheck size={16} />
                                 <span>Csak akkor fizetsz, ha tetszik</span>
@@ -34,12 +34,12 @@ export const QuoteSection = () => {
 
                         {/* Heading */}
                         <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight font-display font-light">
-                            "1 héten belül kapsz egy <span className="text-neonBlue">működő demót</span>."
+                            "1 héten belül kapsz egy <span className="text-neonBlue">működő próbaverziót</span>."
                         </h2>
 
                         <p className="text-lg text-muted mb-6 leading-relaxed">
                             Addig finomítjuk, amíg tényleg olyan nem lesz, amilyet szeretnél.
-                            És <span className="text-white font-medium">csak akkor fizetsz, ha tetszik a demó.</span>
+                            És <span className="text-white font-medium">csak akkor fizetsz, ha tetszik az alapváz.</span>
                         </p>
 
                         {/* Benefits List */}
@@ -50,11 +50,11 @@ export const QuoteSection = () => {
                             </h3>
                             <ul className="space-y-3">
                                 {[
-                                    "Nem ígéretek alapján döntesz, hanem kézzelfogható demó alapján.",
+                                    "Nem ígéretek alapján döntesz, hanem kézzelfogható tesztoldal alapján.",
                                     "Kockázat nélkül vágsz bele: ha nem tetszik, nem fizetsz.",
                                     "A végeredmény nem „valahogy elkészül”, hanem addig csiszoljuk, amíg késznek nem érzed."
                                 ].map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-sm text-muted/90">
+                                    <li key={i} className="flex items-start gap-3 text-base text-muted/90">
                                         <div className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-neonBlue/10 flex items-center justify-center">
                                             <Check size={12} className="text-neonBlue" />
                                         </div>
@@ -67,9 +67,9 @@ export const QuoteSection = () => {
                         {/* CTAs */}
                         <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                             <Button href="#kapcsolat" variant="primary">
-                                Kérem a demót
+                                Kérem a próbaverziót
                             </Button>
-                            <Button href="#arak" variant="secondary">
+                            <Button href="#arazas" variant="secondary">
                                 Árak & csomagok
                             </Button>
                         </div>
@@ -90,9 +90,9 @@ export const QuoteSection = () => {
                             {/* Header */}
                             <div className="flex items-center gap-3 px-4 py-3 border-b border-white/5">
                                 <div className="w-8 h-8 rounded-full bg-neonPurple/20 flex items-center justify-center">
-                                    <span className="text-neonPurple font-bold text-xs">01</span>
+                                    <span className="text-neonPurple font-bold text-sm">01</span>
                                 </div>
-                                <span className="text-xs text-white/60 font-medium">Igényfelmérés</span>
+                                <span className="text-sm text-white/60 font-medium">Igényfelmérés</span>
                             </div>
 
                             {/* Content - Form-like */}
@@ -131,7 +131,7 @@ export const QuoteSection = () => {
                         >
                             {/* Title Bar */}
                             <div className="flex justify-between items-center px-4 py-3 border-b border-white/10 bg-[#0A0A15]">
-                                <div className="text-sm font-mono text-neonBlue">demo_v1.build</div>
+                                <div className="text-base font-mono text-neonBlue">demo_v1.build</div>
                                 <div className="flex gap-1.5">
                                     <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
                                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
@@ -191,11 +191,11 @@ export const QuoteSection = () => {
                             <div className="flex items-center justify-between px-4 py-3 border-t border-white/10 bg-[#0A0A15]">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                    <span className="text-xs text-muted">Status: Ready</span>
+                                    <span className="text-sm text-muted">Status: Ready</span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <span className="text-xs text-green-400 font-mono font-bold">98%</span>
-                                    <span className="text-xs text-muted">Match</span>
+                                    <span className="text-sm text-green-400 font-mono font-bold">98%</span>
+                                    <span className="text-sm text-muted">Match</span>
                                 </div>
                             </div>
                         </motion.div>

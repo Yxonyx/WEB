@@ -11,7 +11,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, x: 30 },
     visible: {
         opacity: 1,
         x: 0,
@@ -32,7 +32,7 @@ export const Process = () => {
             highlight: false
         },
         {
-            title: "Demó 1 héten belül",
+            title: "Próbaverzió 1 héten belül",
             desc: "Első működő verzió. Nem statikus terv, hanem kattintható valóság.",
             highlight: true
         },
@@ -69,7 +69,7 @@ export const Process = () => {
                                 <span className="w-1.5 h-6 bg-neonBlue rounded-full"></span>
                                 Határidők & Gyorsítás
                             </h3>
-                            <div className="space-y-4 text-sm text-muted">
+                            <div className="space-y-4 text-base text-muted">
                                 <div>
                                     <div className="flex justify-between mb-1">
                                         <span className="text-white font-medium">Landing Page</span>
@@ -115,7 +115,7 @@ export const Process = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className="pt-3 text-xs text-muted2 italic border-t border-white/5 flex items-start gap-2">
+                                <div className="pt-3 text-sm text-muted2 italic border-t border-white/5 flex items-start gap-2">
                                     <div className="shrink-0 w-3.5 h-3.5 rounded-full bg-highlight/20 flex items-center justify-center mt-0.5 text-[10px] font-bold text-highlight">!</div>
                                     Sürgős kivitelezés felár ellenében kérhető.
                                 </div>
@@ -151,7 +151,7 @@ export const Process = () => {
                                         <h4 className={`text-lg font-bold mb-1 ${step.highlight ? 'text-highlight' : 'text-white'}`}>
                                             {step.title}
                                         </h4>
-                                        <p className="text-sm text-muted leading-relaxed">
+                                        <p className="text-base text-muted leading-relaxed">
                                             {step.desc}
                                         </p>
                                     </div>

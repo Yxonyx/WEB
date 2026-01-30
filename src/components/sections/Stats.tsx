@@ -97,10 +97,10 @@ const StatItem = ({ end, suffix, label, sublabel, duration = 2000 }: { end: numb
                 </span>
             </div>
             <div>
-                <p className="text-xs font-bold text-white uppercase tracking-widest leading-tight mb-1">
+                <p className="text-base font-bold text-white uppercase tracking-widest leading-tight mb-1">
                     {label}
                 </p>
-                <p className="text-[10px] text-muted/80 font-medium tracking-wide">
+                <p className="text-sm text-muted/80 font-medium tracking-wide">
                     {sublabel}
                 </p>
             </div>

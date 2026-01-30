@@ -11,7 +11,7 @@ const FAQItem = ({ q, a, defaultOpen = false, index }: { q: string, a: string, d
     return (
         <motion.div
             className="border-b border-white/10 last:border-0"
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -52,8 +52,8 @@ const FAQItem = ({ q, a, defaultOpen = false, index }: { q: string, a: string, d
 export const FAQ = () => {
     const questions = [
         {
-            q: "Csak akkor fizetek, ha tetszik a demó?",
-            a: "Igen, a kockázat a miénk. Készítünk egy működő demót az igényeid alapján. Ha tetszik az irány, akkor szerződünk és folytatjuk a munkát. Ha nem, semmilyen kötelezettséged nincs.",
+            q: "Csak akkor fizetek, ha tetszik a próbaverzió?",
+            a: "Igen, a kockázat a miénk. Készítünk egy működő próbaverziót az igényeid alapján. Ha tetszik az irány, akkor szerződünk és folytatjuk a munkát. Ha nem, semmilyen kötelezettséged nincs.",
             defaultOpen: true
         },
         {
@@ -70,7 +70,7 @@ export const FAQ = () => {
         },
         {
             q: "Vállaltok karbantartást és frissítést?",
-            a: "Igen. Havi karbantartási csomagokkal biztosítjuk, hogy az oldal gyors, biztonságos és naprakész maradjon."
+            a: "Igen. Havi karbantartási csomagokkal biztosítjuk, hogy a reszponzív webdizájn mellett az oldal mobilbarát és gyors maradjon hosszú távon is."
         },
         {
             q: "Készítetek AI chatbotot is?",
@@ -85,7 +85,7 @@ export const FAQ = () => {
                     {/* FAQ List - First on mobile, right on desktop */}
                     <motion.div
                         className="lg:col-span-7 lg:order-2"
-                        initial={{ opacity: 0, x: 30 }}
+                        initial={{ opacity: 0, x: 40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}

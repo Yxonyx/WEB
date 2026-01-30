@@ -40,7 +40,7 @@ export const Contact = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.4 }}
                         >
-                            <span className="text-xs font-mono text-neonPurple uppercase tracking-widest">Kapcsolat</span>
+                            <span className="text-sm font-mono text-neonPurple uppercase tracking-widest">Kapcsolat</span>
                         </motion.div>
                         <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
                             Van egy projekt ötleted? <br />
@@ -84,53 +84,69 @@ export const Contact = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
                         <motion.form
-                            className="bg-surface2/30 backdrop-blur-md rounded-3xl p-8 border border-white/5 shadow-2xl space-y-6"
+                            className="bg-surface2/20 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-white/10 shadow-[0_0_50px_-12px_rgba(0,240,255,0.1)] space-y-8 relative overflow-hidden"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
                             variants={containerVariants}
+                            name="contact"
+                            method="POST"
+                            data-netlify="true"
                         >
+                            <input type="hidden" name="form-name" value="contact" />
+
                             <motion.div className="grid sm:grid-cols-2 gap-6" variants={itemVariants}>
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-muted">Teljes név *</label>
-                                    <input type="text" required className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors" />
+                                    <label className="text-base font-medium text-muted">Teljes név *</label>
+                                    <input type="text" name="name" required className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors" />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-muted">Cégnév</label>
-                                    <input type="text" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors" />
+                                    <label className="text-base font-medium text-muted">Cégnév</label>
+                                    <input type="text" name="company" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors" />
                                 </div>
                             </motion.div>
 
                             <motion.div className="space-y-2" variants={itemVariants}>
-                                <label className="text-sm font-medium text-muted">Email cím *</label>
-                                <input type="email" required className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors" />
+                                <label className="text-base font-medium text-muted">Email cím *</label>
+                                <input type="email" name="email" required className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors" />
                             </motion.div>
 
                             <motion.div className="grid sm:grid-cols-2 gap-6" variants={itemVariants}>
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-muted">Szolgáltatás</label>
-                                    <select className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors appearance-none">
-                                        <option className="bg-surface text-white">Webfejlesztés</option>
-                                        <option className="bg-surface text-white">Webshop</option>
-                                        <option className="bg-surface text-white">SEO</option>
-                                        <option className="bg-surface text-white">GEO-optimalizálás</option>
-                                        <option className="bg-surface text-white">Web + SEO + GEO (komplett)</option>
-                                    </select>
+                                <div className="space-y-2 group">
+                                    <label className="text-base font-medium text-muted group-focus-within:text-neonBlue transition-colors">Szolgáltatás</label>
+                                    <div className="relative">
+                                        <select name="service" className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-all appearance-none cursor-pointer hover:bg-black/80">
+                                            <option className="bg-[#0A0A1F] text-white">Webfejlesztés</option>
+                                            <option className="bg-[#0A0A1F] text-white">Webshop</option>
+                                            <option className="bg-[#0A0A1F] text-white">SEO</option>
+                                            <option className="bg-[#0A0A1F] text-white">AI Chatbot</option>
+                                            <option className="bg-[#0A0A1F] text-white">GEO-optimalizálás</option>
+                                            <option className="bg-[#0A0A1F] text-white">Web + SEO + GEO (komplett)</option>
+                                        </select>
+                                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-muted">
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-muted">Költségkeret</label>
-                                    <select className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors appearance-none">
-                                        <option className="bg-surface text-white">150k – 300k</option>
-                                        <option className="bg-surface text-white">300k – 500k</option>
-                                        <option className="bg-surface text-white">500k – 1M+</option>
-                                        <option className="bg-surface text-white">Egyedi</option>
-                                    </select>
+                                <div className="space-y-2 group">
+                                    <label className="text-base font-medium text-muted group-focus-within:text-neonBlue transition-colors">Költségkeret</label>
+                                    <div className="relative">
+                                        <select name="budget" className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-all appearance-none cursor-pointer hover:bg-black/80">
+                                            <option className="bg-[#0A0A1F] text-white">150k – 300k</option>
+                                            <option className="bg-[#0A0A1F] text-white">300k – 500k</option>
+                                            <option className="bg-[#0A0A1F] text-white">500k – 1M+</option>
+                                            <option className="bg-[#0A0A1F] text-white">Egyedi</option>
+                                        </select>
+                                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-muted">
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                                        </div>
+                                    </div>
                                 </div>
                             </motion.div>
 
                             <motion.div className="space-y-2" variants={itemVariants}>
-                                <label className="text-sm font-medium text-muted">Projekt részletek *</label>
-                                <textarea required rows={4} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors resize-none"></textarea>
+                                <label className="text-base font-medium text-muted">Projekt részletek *</label>
+                                <textarea name="message" required rows={4} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors resize-none"></textarea>
                             </motion.div>
 
                             <motion.div variants={itemVariants}>

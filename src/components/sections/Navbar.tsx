@@ -50,12 +50,12 @@ export const Navbar = () => {
                         <a
                             key={link.label}
                             href={link.href}
-                            className="text-sm font-bold font-mono text-muted hover:text-neonBlue transition-colors lowercase tracking-wide"
+                            className="text-base font-bold font-mono text-muted hover:text-neonBlue transition-colors lowercase tracking-wide"
                         >
                             &lt;{link.label}&gt;
                         </a>
                     ))}
-                    <Button href="#kapcsolat" variant="primary" className="ml-4 py-2 px-5 text-sm">
+                    <Button href="#kapcsolat" variant="primary" className="ml-4 py-2 px-5 text-base">
                         Beszéljünk
                     </Button>
                 </nav>

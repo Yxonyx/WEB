@@ -10,9 +10,13 @@ export const ParticleNetwork = () => {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
+        // Mobile detection
+        const isMobile = window.innerWidth < 1024 || 'ontouchstart' in window;
+
         let particles: Particle[] = [];
         let animationFrameId: number;
         let mouse = { x: -1000, y: -1000 };
+        let frameCount = 0;
 
         const fitCanvas = () => {
             canvas.width = window.innerWidth;
@@ -29,8 +33,10 @@ export const ParticleNetwork = () => {
             constructor() {
                 this.x = Math.random() * canvas!.width;
                 this.y = Math.random() * canvas!.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
+                // Slower movement on mobile
+                const speed = isMobile ? 0.3 : 0.5;
+                this.vx = (Math.random() - 0.5) * speed;
+                this.vy = (Math.random() - 0.5) * speed;
                 this.size = Math.random() * 2 + 1;
             }
 
@@ -53,7 +59,10 @@ export const ParticleNetwork = () => {
         }
 
         const initParticles = () => {
-            const particleCount = Math.min(Math.floor(window.innerWidth / 25), 50); // Optimized: fewer particles
+            // Mobile: 15 particles, Desktop: up to 50
+            const particleCount = isMobile
+                ? Math.min(Math.floor(window.innerWidth / 50), 15)
+                : Math.min(Math.floor(window.innerWidth / 25), 50);
             particles = [];
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
@@ -62,6 +71,15 @@ export const ParticleNetwork = () => {
 
         const animate = () => {
             if (!canvas || !ctx) return;
+
+            frameCount++;
+
+            // Mobile: skip every other frame for performance (30fps instead of 60fps)
+            if (isMobile && frameCount % 2 !== 0) {
+                animationFrameId = requestAnimationFrame(animate);
+                return;
+            }
+
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             // Update and draw particles
@@ -69,6 +87,9 @@ export const ParticleNetwork = () => {
                 particle.update();
                 particle.draw();
             });
+
+            // Connection distance: shorter on mobile
+            const connectionDistance = isMobile ? 80 : 120;
 
             // Draw connections between particles
             particles.forEach((a, index) => {
@@ -78,9 +99,9 @@ export const ParticleNetwork = () => {
                     const dy = a.y - b.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < 120) {
+                    if (distance < connectionDistance) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(0, 240, 255, ${0.1 * (1 - distance / 120)})`;
+                        ctx.strokeStyle = `rgba(0, 240, 255, ${0.1 * (1 - distance / connectionDistance)})`;
                         ctx.lineWidth = 1;
                         ctx.moveTo(a.x, a.y);
                         ctx.lineTo(b.x, b.y);
@@ -89,27 +110,29 @@ export const ParticleNetwork = () => {
                 }
             });
 
-            // Connect particles to mouse
-            particles.forEach((a) => {
-                const dx = a.x - mouse.x;
-                const dy = a.y - mouse.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
+            // Mouse interaction - only on desktop (no mouse on touch devices)
+            if (!isMobile) {
+                particles.forEach((a) => {
+                    const dx = a.x - mouse.x;
+                    const dy = a.y - mouse.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < 150) {
-                    ctx.beginPath();
-                    ctx.strokeStyle = `rgba(189, 0, 255, ${0.15 * (1 - distance / 150)})`; // Neon Purple for interaction
-                    ctx.lineWidth = 1;
-                    ctx.moveTo(a.x, a.y);
-                    ctx.lineTo(mouse.x, mouse.y);
-                    ctx.stroke();
+                    if (distance < 150) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(189, 0, 255, ${0.15 * (1 - distance / 150)})`; // Neon Purple for interaction
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
 
-                    // Gentle attraction to mouse
-                    if (distance > 50) {
-                        a.x -= dx * 0.005;
-                        a.y -= dy * 0.005;
+                        // Gentle attraction to mouse
+                        if (distance > 50) {
+                            a.x -= dx * 0.005;
+                            a.y -= dy * 0.005;
+                        }
                     }
-                }
-            });
+                });
+            }
 
             animationFrameId = requestAnimationFrame(animate);
         };

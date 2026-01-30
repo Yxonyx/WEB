@@ -1,15 +1,28 @@
 import { Button } from '../ui/Button';
 import { Container } from '../Container';
 import { Section } from '../Section';
+import { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
-import { RetroTerminal3D } from '../ui/RetroTerminal3D';
+
+// Lazy load the 3D component to improve initial page load speed
+const RetroTerminal3D = lazy(() => import('../ui/RetroTerminal3D').then(module => ({ default: module.RetroTerminal3D })));
 
 export const Hero = () => {
     return (
         <Section id="hero" className="pt-32 pb-20 min-h-screen flex items-center relative overflow-hidden">
-            {/* Background Elements */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-neonBlue/10 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-neonPurple/10 rounded-full blur-[100px] pointer-events-none" />
+            {/* Background Elements - radial gradients for iOS performance (no blur filter needed) */}
+            <div
+                className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none opacity-30"
+                style={{
+                    background: 'radial-gradient(circle, rgba(0,240,255,0.4) 0%, rgba(0,240,255,0.1) 40%, transparent 70%)'
+                }}
+            />
+            <div
+                className="absolute bottom-0 left-0 w-[500px] h-[500px] pointer-events-none opacity-30"
+                style={{
+                    background: 'radial-gradient(circle, rgba(189,0,255,0.4) 0%, rgba(189,0,255,0.1) 40%, transparent 70%)'
+                }}
+            />
 
             <Container className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 {/* Text Content */}
@@ -20,7 +33,7 @@ export const Hero = () => {
                     className="text-center lg:text-left"
                 >
                     <div className="mb-6">
-                        <span className="text-sm font-bold font-mono text-neonBlue uppercase tracking-wider">
+                        <span className="text-base font-bold font-mono text-neonBlue uppercase tracking-wider">
                             &lt; Web + SEO + GEO &gt;<span className="animate-pulse">_</span>
                         </span>
                     </div>
@@ -60,7 +73,13 @@ export const Hero = () => {
                 >
                     {/* 3D Retro Terminal - No Frame */}
                     <div className="absolute top-10 left-10 right-10 bottom-10 z-10">
-                        <RetroTerminal3D />
+                        <Suspense fallback={
+                            <div className="w-full h-full rounded-xl bg-white/5 animate-pulse border border-white/10 flex items-center justify-center">
+                                <span className="text-neonBlue font-mono text-sm">System Initializing...</span>
+                            </div>
+                        }>
+                            <RetroTerminal3D />
+                        </Suspense>
                     </div>
 
 

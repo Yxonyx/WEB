@@ -4,8 +4,8 @@ import { BracketFrame } from '../ui/BracketFrame';
 const features = [
     {
         icon: Zap,
-        title: "Gyors, mobilbarát weboldal",
-        desc: "Mert a lassú oldalról elmennek."
+        title: "Reszponzív webdizájn",
+        desc: "Mobilbarát és gyors megoldások – mert a lassú oldalról elmennek."
     },
     {
         icon: Search,

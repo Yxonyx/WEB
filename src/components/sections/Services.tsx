@@ -38,7 +38,7 @@ export const Services = () => {
                     transition={{ duration: 0.6 }}
                 >
                     <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-neonBlue/10 border border-neonBlue/20">
-                        <span className="text-xs font-bold text-neonBlue uppercase tracking-wider">Megoldások</span>
+                        <span className="text-sm font-bold text-neonBlue uppercase tracking-wider">Megoldások</span>
                     </div>
                     <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">Szolgáltatások</h2>
                     <p className="text-xl text-muted">
@@ -60,12 +60,12 @@ export const Services = () => {
                             <div className="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center mb-6 text-neonBlue">
                                 <Laptop size={24} />
                             </div>
-                            <h3 className="text-2xl sm:text-4xl font-bold text-white mb-6">Egyedi weboldal készítés</h3>
+                            <h3 className="text-2xl sm:text-4xl font-bold text-white mb-6">Reszponzív webdizájn</h3>
                             <p className="text-muted text-lg mb-8 leading-relaxed">
-                                Gyors, modern, megbízható weboldalak, amik üzleti célt szolgálnak (érdeklődő, ajánlatkérés, vásárlás).
+                                Mobilbarát és gyors weboldalak, amik üzleti célt szolgálnak (érdeklődő, ajánlatkérés, vásárlás).
                             </p>
 
-                            <div className="mb-4 text-sm font-bold text-white uppercase tracking-wider">Miért jó ez neked?</div>
+                            <div className="mb-4 text-base font-bold text-white uppercase tracking-wider">Miért jó ez neked?</div>
                             <ul className="space-y-3">
                                 {[
                                     "Profibb első benyomás",
@@ -156,18 +156,18 @@ export const Services = () => {
                                 {/* Flow Visual */}
                                 <div className="flex flex-col gap-6 w-full max-w-sm relative z-10">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-surface2 border border-white/10 flex items-center justify-center text-xs font-bold text-white shrink-0">1</div>
-                                        <div className="flex-1 p-3 bg-surface2 rounded-lg border border-white/5 text-sm">Felépítés <span className="text-neonPurple text-xs block">technikai alap</span></div>
+                                        <div className="w-10 h-10 rounded-full bg-surface2 border border-white/10 flex items-center justify-center text-sm font-bold text-white shrink-0">1</div>
+                                        <div className="flex-1 p-3 bg-surface2 rounded-lg border border-white/5 text-base">Felépítés <span className="text-neonPurple text-sm block">technikai alap</span></div>
                                     </div>
                                     <div className="h-6 w-0.5 bg-white/10 ml-5" />
                                     <div className="flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-surface2 border border-white/10 flex items-center justify-center text-xs font-bold text-white shrink-0">2</div>
-                                        <div className="flex-1 p-3 bg-surface2 rounded-lg border border-white/5 text-sm">Tartalom <span className="text-neonPurple text-xs block">relevancia</span></div>
+                                        <div className="w-10 h-10 rounded-full bg-surface2 border border-white/10 flex items-center justify-center text-sm font-bold text-white shrink-0">2</div>
+                                        <div className="flex-1 p-3 bg-surface2 rounded-lg border border-white/5 text-base">Tartalom <span className="text-neonPurple text-sm block">relevancia</span></div>
                                     </div>
                                     <div className="h-6 w-0.5 bg-white/10 ml-5" />
                                     <div className="flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-neonPurple text-black flex items-center justify-center text-xs font-bold shrink-0">3</div>
-                                        <div className="flex-1 p-3 bg-neonPurple/10 rounded-lg border border-neonPurple/20 text-sm text-white">Mérhetőség <span className="text-neonPurple text-xs block">több látogató</span></div>
+                                        <div className="w-10 h-10 rounded-full bg-neonPurple text-black flex items-center justify-center text-sm font-bold shrink-0">3</div>
+                                        <div className="flex-1 p-3 bg-neonPurple/10 rounded-lg border border-neonPurple/20 text-base text-white">Mérhetőség <span className="text-neonPurple text-sm block">több látogató</span></div>
                                     </div>
                                 </div>
                             </BracketFrame>
@@ -183,7 +183,7 @@ export const Services = () => {
                                 Úgy alakítjuk ki az oldalt, hogy a Google könnyen értse, miről szól, és esélye legyen jó helyen megjelenni.
                             </p>
 
-                            <div className="mb-4 text-sm font-bold text-white uppercase tracking-wider">Miért kell ez neked?</div>
+                            <div className="mb-4 text-base font-bold text-white uppercase tracking-wider">Miért kell ez neked?</div>
                             <p className="text-muted leading-relaxed">
                                 Mert a legtöbb ügyfél a Google-ben kezd, és általában az első találatokból választ.
                             </p>

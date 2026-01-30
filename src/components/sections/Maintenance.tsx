@@ -49,12 +49,12 @@ export const Maintenance = () => {
                                             <RefreshCw size={16} />
                                         </div>
                                         <div className="hidden sm:block">
-                                            <div className="font-bold text-white text-sm">Rendszer</div>
+                                            <div className="font-bold text-white text-base">Rendszer</div>
                                             <div className="text-[10px] text-muted">Frissítések</div>
                                         </div>
-                                        <div className="sm:hidden font-bold text-white text-sm">Frissítések</div>
+                                        <div className="sm:hidden font-bold text-white text-base">Frissítések</div>
                                     </div>
-                                    <span className="text-xs text-neonBlue font-mono bg-neonBlue/5 px-2 py-1 rounded border border-neonBlue/10">Naprakész</span>
+                                    <span className="text-sm text-neonBlue font-mono bg-neonBlue/5 px-2 py-1 rounded border border-neonBlue/10">Naprakész</span>
                                 </div>
 
                                 {/* Item 2: Biztonság */}
@@ -64,12 +64,12 @@ export const Maintenance = () => {
                                             <ShieldCheck size={16} />
                                         </div>
                                         <div className="hidden sm:block">
-                                            <div className="font-bold text-white text-sm">Védelem</div>
+                                            <div className="font-bold text-white text-base">Védelem</div>
                                             <div className="text-[10px] text-muted">Biztonság</div>
                                         </div>
-                                        <div className="sm:hidden font-bold text-white text-sm">Biztonság</div>
+                                        <div className="sm:hidden font-bold text-white text-base">Biztonság</div>
                                     </div>
-                                    <span className="text-xs text-neonPurple font-mono bg-neonPurple/5 px-2 py-1 rounded border border-neonPurple/10">Aktív</span>
+                                    <span className="text-sm text-neonPurple font-mono bg-neonPurple/5 px-2 py-1 rounded border border-neonPurple/10">Aktív</span>
                                 </div>
 
                                 {/* Item 3: Mentések */}
@@ -79,12 +79,12 @@ export const Maintenance = () => {
                                             <CheckCircle2 size={16} />
                                         </div>
                                         <div className="hidden sm:block">
-                                            <div className="font-bold text-white text-sm">Adatbázis</div>
+                                            <div className="font-bold text-white text-base">Adatbázis</div>
                                             <div className="text-[10px] text-muted">Mentések</div>
                                         </div>
-                                        <div className="sm:hidden font-bold text-white text-sm">Mentések</div>
+                                        <div className="sm:hidden font-bold text-white text-base">Mentések</div>
                                     </div>
-                                    <span className="text-xs text-green-500 font-mono bg-green-500/5 px-2 py-1 rounded border border-green-500/10">Napi</span>
+                                    <span className="text-sm text-green-500 font-mono bg-green-500/5 px-2 py-1 rounded border border-green-500/10">Napi</span>
                                 </div>
 
                                 {/* Item 4: Sebesség */}
@@ -94,16 +94,16 @@ export const Maintenance = () => {
                                             <Zap size={16} />
                                         </div>
                                         <div className="hidden sm:block">
-                                            <div className="font-bold text-white text-sm">Teljesítmény</div>
+                                            <div className="font-bold text-white text-base">Teljesítmény</div>
                                             <div className="text-[10px] text-muted">Sebesség</div>
                                         </div>
-                                        <div className="sm:hidden font-bold text-white text-sm">Sebesség</div>
+                                        <div className="sm:hidden font-bold text-white text-base">Sebesség</div>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="h-1.5 w-16 bg-surface rounded-full overflow-hidden">
                                             <div className="h-full bg-yellow-500 w-[95%]" />
                                         </div>
-                                        <span className="text-xs text-yellow-500 font-mono">98/100</span>
+                                        <span className="text-sm text-yellow-500 font-mono">98/100</span>
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@ export const Maintenance = () => {
                             Frissítések, mentések, biztonság, sebesség-ellenőrzés, javítások. Hogy a weboldalad évek múlva is ugyanolyan gyors és megbízható legyen, mint az első napon.
                         </p>
 
-                        <div className="mb-4 text-sm font-bold text-white uppercase tracking-wider">Miért kell ez neked?</div>
+                        <div className="mb-4 text-base font-bold text-white uppercase tracking-wider">Miért kell ez neked?</div>
                         <ul className="space-y-3">
                             {[
                                 "ne törjön el semmi frissítés után",

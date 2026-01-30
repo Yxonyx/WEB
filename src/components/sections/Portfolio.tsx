@@ -24,12 +24,12 @@ const itemVariants: Variants = {
 const projects = [
     { id: 1, name: "Projekt 01", image: "/images/project-1.gif" },
     { id: 2, name: "Projekt 02", image: "/images/portfolio-2.webp" },
-    { id: 3, name: "Projekt 03", image: "/images/portfolio-3.webp" }
+    { id: 3, name: "Projekt 03", image: "/images/portfolio-3.png" }
 ];
 
 export const Portfolio = () => {
     return (
-        <Section id="referenciak">
+        <Section id="referenciak" className="overflow-visible">
             <Container>
                 <motion.div
                     className="mb-12"
@@ -58,19 +58,22 @@ export const Portfolio = () => {
                                             <img
                                                 src={project.image}
                                                 alt={project.name}
-                                                className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                                                width={800}
+                                                height={600}
+                                                loading="lazy"
+                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                                         </>
                                     ) : (
-                                        <div className="absolute inset-0 flex items-center justify-center text-muted2 font-mono text-sm group-hover:bg-black/50 transition-colors">
+                                        <div className="absolute inset-0 flex items-center justify-center text-muted2 font-mono text-base group-hover:bg-black/50 transition-colors">
                                             project_thumbnail_{project.id}.jpg
                                         </div>
                                     )}
                                 </div>
                                 <div className="flex justify-between items-center mb-2">
                                     <h3 className="text-lg font-bold text-white">{project.name}</h3>
-                                    <span className="text-xs font-mono text-neonBlue border border-neonBlue/20 px-2 py-1 rounded">CL</span>
+                                    <span className="text-sm font-mono text-neonBlue border border-neonBlue/20 px-2 py-1 rounded">CL</span>
                                 </div>
                                 <div className="h-1 w-12 bg-white/10 group-hover:w-full group-hover:bg-neonBlue/50 transition-all duration-500" />
                             </BracketFrame>

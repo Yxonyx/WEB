@@ -40,7 +40,7 @@ export const Pricing = () => {
                 >
                     <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Árazás</h2>
                     <p className="text-muted text-lg">
-                        Minden projekt egyedi, de az alábbi irányárak segítenek tervezni. A döntéshez demót adunk így biztosan tudni fogod, mire számíts.
+                        Minden projekt egyedi, de az alábbi irányárak segítenek tervezni. A döntéshez alapvázat adunk így biztosan tudni fogod, mire számíts.
                     </p>
                 </motion.div>
 
@@ -55,18 +55,18 @@ export const Pricing = () => {
                     <motion.div variants={cardVariants}>
                         <BracketFrame className="h-full">
                             <div className="mb-6">
-                                <span className="inline-block py-1 px-2 mb-2 rounded bg-white/10 text-xs font-bold text-white uppercase tracking-wider">
+                                <span className="inline-block py-1 px-2 mb-2 rounded bg-white/10 text-sm font-bold text-white uppercase tracking-wider">
                                     Kezdő
                                 </span>
                                 <h3 className="text-xl font-bold text-white">Landing oldal</h3>
                                 <div className="mt-4 flex items-baseline gap-1">
                                     <span className="text-2xl font-bold text-neonBlue">150 000 Ft</span>
-                                    <span className="text-sm text-muted">-tól</span>
+                                    <span className="text-base text-muted">-tól</span>
                                 </div>
                             </div>
                             <ul className="space-y-3 mb-8">
-                                {["mobilbarát megjelenés", "keresőbarát alapok", "kapcsolat űrlap", "gyors betöltés"].map((feat, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-sm text-muted">
+                                {["reszponzív webdizájn", "mobilbarát és gyors", "kapcsolat űrlap", "keresőbarát alapok"].map((feat, i) => (
+                                    <li key={i} className="flex items-center gap-3 text-base text-muted">
                                         <Check className="w-4 h-4 text-neonBlue shrink-0" />
                                         {feat}
                                     </li>
@@ -83,32 +83,37 @@ export const Pricing = () => {
                         className="lg:col-span-1 lg:-mt-8"
                         variants={cardVariants}
                     >
-                        <SignaturePanel label="Legnépszerűbb" highlight={true} className="bg-surface/80">
-                            <div className="mb-2 inline-block px-3 py-1 rounded-full bg-neonPurple/20 text-neonPurple text-xs font-bold uppercase tracking-wider">
-                                Legnépszerűbb
-                            </div>
-                            <h3 className="text-2xl font-bold text-white mb-2">Céges weboldal</h3>
-                            <div className="flex items-baseline gap-1 mb-8">
-                                <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
-                                    300 000 Ft
-                                </span>
-                                <span className="text-sm text-muted">-tól</span>
-                            </div>
+                        <SignaturePanel label="Legnépszerűbb" highlight={true} className="bg-surface/80 relative overflow-hidden group/card shadow-[0_0_40px_-15px_rgba(189,0,255,0.3)] hover:shadow-[0_0_50px_-10px_rgba(189,0,255,0.5)] transition-shadow duration-500">
+                            {/* Animated Background Beam */}
+                            <div className="absolute -inset-[100%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#00F0FF_0%,#BD00FF_50%,#00F0FF_100%)] opacity-[0.03] group-hover/card:opacity-[0.08] transition-opacity" />
 
-                            <ul className="space-y-4 mb-10">
-                                {["minden, ami a Landingben", "egyedi megjelenés", "keresőbarát + AI-találhatóság", "admin felület (ha kéred)", "blog modul (ha tartalommal is szeretnél növekedni)"].map((feat, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-white">
-                                        <div className="w-5 h-5 rounded-full bg-neonBlue/20 flex items-center justify-center shrink-0 mt-0.5">
-                                            <Check className="w-3 h-3 text-neonBlue" />
-                                        </div>
-                                        <span className="text-sm">{feat}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                            <div className="relative z-10">
+                                <div className="mb-2 inline-block px-3 py-1 rounded-full bg-neonPurple/20 text-neonPurple text-sm font-bold uppercase tracking-wider border border-neonPurple/30">
+                                    Legnépszerűbb
+                                </div>
+                                <h3 className="text-2xl font-bold text-white mb-2">Céges weboldal</h3>
+                                <div className="flex items-baseline gap-1 mb-8">
+                                    <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
+                                        300 000 Ft
+                                    </span>
+                                    <span className="text-base text-muted">-tól</span>
+                                </div>
 
-                            <Button href="#kapcsolat" variant="primary" className="w-full">
-                                Ajánlatot kérek
-                            </Button>
+                                <ul className="space-y-4 mb-10">
+                                    {["reszponzív webdizájn", "mobilbarát és gyors kivitelezés", "AI-találhatóság", "admin felület (ha kéred)", "blog modul a növekedéshez"].map((feat, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-white">
+                                            <div className="w-5 h-5 rounded-full bg-neonBlue/20 flex items-center justify-center shrink-0 mt-0.5">
+                                                <Check className="w-3 h-3 text-neonBlue" />
+                                            </div>
+                                            <span className="text-base">{feat}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                <Button href="#kapcsolat" variant="primary" className="w-full">
+                                    Ajánlatot kérek
+                                </Button>
+                            </div>
                         </SignaturePanel>
                     </motion.div>
 
@@ -116,25 +121,25 @@ export const Pricing = () => {
                     <motion.div variants={cardVariants}>
                         <BracketFrame className="h-full">
                             <div className="mb-6">
-                                <span className="inline-block py-1 px-2 mb-2 rounded bg-white/10 text-xs font-bold text-white uppercase tracking-wider">
+                                <span className="inline-block py-1 px-2 mb-2 rounded bg-white/10 text-sm font-bold text-white uppercase tracking-wider">
                                     E-Commerce
                                 </span>
                                 <h3 className="text-xl font-bold text-white">Webshop</h3>
                                 <div className="mt-4 flex items-baseline gap-1">
                                     <span className="text-2xl font-bold text-neonBlue">500 000 Ft</span>
-                                    <span className="text-sm text-muted">-tól</span>
+                                    <span className="text-base text-muted">-tól</span>
                                 </div>
                             </div>
 
                             {/* "Pills" for highlighted features as requested */}
                             <div className="flex flex-wrap gap-2 mb-6">
-                                <span className="px-2 py-1 rounded bg-neonBlue/10 text-neonBlue text-xs font-medium">Fizetés</span>
-                                <span className="px-2 py-1 rounded bg-neonBlue/10 text-neonBlue text-xs font-medium">Szállítás</span>
+                                <span className="px-2 py-1 rounded bg-neonBlue/10 text-neonBlue text-sm font-medium">Fizetés</span>
+                                <span className="px-2 py-1 rounded bg-neonBlue/10 text-neonBlue text-sm font-medium">Szállítás</span>
                             </div>
 
                             <ul className="space-y-3 mb-8">
                                 {["termékek kezelése", "fizetés beállítása", "szállítási megoldások", "bővíthető felépítés"].map((feat, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-sm text-muted">
+                                    <li key={i} className="flex items-center gap-3 text-base text-muted">
                                         <Check className="w-4 h-4 text-neonBlue shrink-0" />
                                         {feat}
                                     </li>
@@ -200,11 +205,11 @@ export const Pricing = () => {
                                 </div>
                                 <div className="mb-6">
                                     <div className="text-2xl font-bold text-white">{plan.price}</div>
-                                    <div className="text-sm text-muted">-tól</div>
+                                    <div className="text-base text-muted">-tól</div>
                                 </div>
                                 <ul className="space-y-3 mb-6 flex-1">
                                     {plan.feats.map((feat, fi) => (
-                                        <li key={fi} className="flex items-start gap-2 text-sm text-muted">
+                                        <li key={fi} className="flex items-start gap-2 text-base text-muted">
                                             <Check className="w-4 h-4 text-neonBlue mt-0.5 shrink-0" />
                                             <span>{feat}</span>
                                         </li>
@@ -216,7 +221,7 @@ export const Pricing = () => {
                             </motion.div>
                         ))}
                     </motion.div>
-                    <motion.p variants={cardVariants} className="text-center text-xs text-muted2 mt-6 max-w-2xl mx-auto">
+                    <motion.p variants={cardVariants} className="text-center text-sm text-muted2 mt-6 max-w-2xl mx-auto">
                         *A csomagárak a kivitelezési díjat jelölik. A chatbot működésének havi fenntartási és AI használati díja van, amelyet az igények alapján egyeztetünk.
                     </motion.p>
                 </motion.div>
@@ -272,11 +277,11 @@ export const Pricing = () => {
                                 <h4 className="text-xl font-bold text-white mb-2">{plan.name}</h4>
                                 <div className="flex items-baseline gap-1 mb-6">
                                     <span className="text-2xl font-bold text-white">{plan.price}</span>
-                                    <span className="text-sm text-muted">{plan.per}</span>
+                                    <span className="text-base text-muted">{plan.per}</span>
                                 </div>
                                 <ul className="space-y-3 mb-6 flex-1">
                                     {plan.feats.map((feat, fi) => (
-                                        <li key={fi} className="flex items-start gap-2 text-sm text-muted">
+                                        <li key={fi} className="flex items-start gap-2 text-base text-muted">
                                             <Check className={`w-4 h-4 mt-0.5 shrink-0 ${plan.highlight ? 'text-neonPurple' : 'text-zinc-500'}`} />
                                             <span>{feat}</span>
                                         </li>
@@ -291,7 +296,7 @@ export const Pricing = () => {
                 </motion.div>
 
                 <motion.p
-                    className="text-center text-muted2 text-sm mt-12"
+                    className="text-center text-muted2 text-base mt-12"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}

@@ -43,22 +43,22 @@ export const CookieBanner = () => {
                             <div className="flex items-center justify-between px-4 py-2 border-b border-white/5 bg-black/40">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 rounded-full bg-neonPurple animate-pulse" />
-                                    <span className="font-mono text-xs text-muted2">COOKIE_CONSENT.exe</span>
+                                    <span className="font-mono text-sm tracking-widest text-muted2 uppercase">COOKIE_CONSENT.exe</span>
                                 </div>
-                                <span className="font-mono text-xs text-neonBlue/50">[v1.0]</span>
+                                <span className="font-mono text-neonBlue/80 text-base group-hover/item:text-neonBlue transition-colors duration-300">[v1.0]</span>
                             </div>
 
                             {/* Content */}
                             <div className="p-4">
-                                <div className="font-mono text-sm text-muted mb-3">
+                                <p className="text-muted leading-relaxed text-base sm:text-lg">
                                     <span className="text-neonBlue">&gt;</span> Ez a weboldal sütiket használ a működéshez.
-                                </div>
-                                <div className="font-mono text-xs text-muted2 mb-4">
+                                </p>
+                                <div className="font-mono text-sm text-muted2 mb-4">
                                     <span className="text-neonPurple/70">//</span> További info: <a href="/adatvedelem.html" className="text-neonBlue hover:underline">adatvedelem.html</a>
                                 </div>
 
                                 {/* Buttons */}
-                                <div className="flex gap-3 font-mono text-sm">
+                                <div className="flex gap-3 font-mono text-base">
                                     <button
                                         onClick={handleDecline}
                                         className="px-4 py-2 text-muted hover:text-white border border-white/10 hover:border-white/30 rounded transition-colors"

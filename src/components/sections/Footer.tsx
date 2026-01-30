@@ -44,20 +44,20 @@ export const Footer = () => {
                     ))}
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-muted mb-8 text-sm">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-muted mb-8 text-base">
                     <span>Inkább hívnál?</span>
                     <a href="tel:+36703304445" className="text-white hover:text-neonBlue transition-colors font-mono">
                         +36 70 330 4445
                     </a>
                 </div>
 
-                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-muted2 mb-6">
+                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-muted2 mb-6">
                     <a href="/aszf.html" className="hover:text-neonBlue transition-colors">ÁSZF</a>
                     <span className="opacity-30">|</span>
                     <a href="/adatvedelem.html" className="hover:text-neonBlue transition-colors">Adatvédelem</a>
                 </div>
 
-                <div className="text-xs text-muted2">
+                <div className="text-sm text-muted2">
                     &copy; {new Date().getFullYear()} CyberLabs Studio. Minden jog fenntartva.
                 </div>
             </Container>

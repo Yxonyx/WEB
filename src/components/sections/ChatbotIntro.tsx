@@ -69,7 +69,7 @@ export const ChatbotIntro = () => {
                                     </div>
                                     <div>
                                         <div className="text-white font-bold">CyberLabs AI</div>
-                                        <div className="text-xs text-neonBlue">Mindig elérhető asszisztens</div>
+                                        <div className="text-sm text-neonBlue">Mindig elérhető asszisztens</div>
                                     </div>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@ export const ChatbotIntro = () => {
                             <div className="space-y-4 flex-1 flex flex-col justify-end">
                                 <div className="flex items-start gap-3">
                                     <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                                        <span className="text-xs font-bold text-white">U</span>
+                                        <span className="text-sm font-bold text-white">U</span>
                                     </div>
                                     <div className="bg-white/5 border border-white/10 rounded-2xl rounded-tl-none p-3 text-sm text-white max-w-[80%]">
                                         Mikor vagytok nyitva? És mennyi idő egy weboldal?
@@ -91,10 +91,10 @@ export const ChatbotIntro = () => {
                                     </div>
                                     <div className="bg-surface2 border border-neonBlue/20 rounded-2xl rounded-tr-none p-4 text-sm text-white max-w-[90%] shadow-lg">
                                         <p className="mb-2">Hétköznap 9-17 óráig vagyunk elérhetőek.</p>
-                                        <p>Egy landing page jellemzően 5-7 munkanap, komplett weboldal 2 hét alatt készül el. <span className="text-neonBlue font-bold">Kérsz egy ingyenes demót?</span></p>
+                                        <p>Egy landing page jellemzően 5-7 munkanap, komplett weboldal 2 hét alatt készül el. <span className="text-neonBlue font-bold">Kérsz egy ingyenes tesztoldalt?</span></p>
 
                                         <div className="mt-3 flex gap-2">
-                                            <button className="px-3 py-1.5 rounded-lg bg-neonBlue/10 text-neonBlue text-xs font-bold hover:bg-neonBlue/20 transition-colors">Igen, érdekel!</button>
+                                            <button className="px-3 py-1.5 rounded-lg bg-neonBlue/10 text-neonBlue text-sm font-bold hover:bg-neonBlue/20 transition-colors">Igen, érdekel!</button>
                                         </div>
                                     </div>
                                 </div>

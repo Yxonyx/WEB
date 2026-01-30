@@ -36,7 +36,7 @@ export const GEO = () => {
                     transition={{ duration: 0.6 }}
                 >
                     <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-highlight/10 border border-highlight/20">
-                        <span className="text-xs font-bold text-highlight uppercase tracking-wider">Új korszak</span>
+                        <span className="text-sm font-bold text-highlight uppercase tracking-wider">Új korszak</span>
                     </div>
                     <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">AI-találhatóság, egyszerűen</h2>
                     <p className="text-xl text-muted">
@@ -77,8 +77,8 @@ export const GEO = () => {
 
                                 {/* Card - on right */}
                                 <div className="relative z-0 p-4 md:p-6 border border-neonBlue/30 bg-surface/80 backdrop-blur rounded-xl max-w-[180px] md:max-w-xs -ml-8">
-                                    <div className="text-xs font-mono text-neonBlue mb-2">KERESÉS:</div>
-                                    <div className="text-sm text-white italic">"Hogyan működnek a modern keresők?"</div>
+                                    <div className="text-sm font-mono text-neonBlue mb-2">KERESÉS:</div>
+                                    <div className="text-base text-white italic">"Hogyan működnek a modern keresők?"</div>
                                     <div className="mt-4 h-1 w-full bg-neonBlue/20 rounded" />
                                     <div className="mt-2 h-1 w-2/3 bg-neonBlue/20 rounded" />
                                 </div>
@@ -130,16 +130,16 @@ export const GEO = () => {
                             viewport={{ once: true }}
                         >
                             <motion.div variants={itemVariants} className="bg-surface/50 border border-white/5 p-4 rounded-xl">
-                                <div className="text-xs font-bold text-neonBlue mb-1 uppercase">Kérdés</div>
-                                <p className="text-sm text-white italic">"Melyik a legjobb kivitelező X városban?"</p>
+                                <div className="text-sm font-bold text-neonBlue mb-1 uppercase">Kérdés</div>
+                                <p className="text-base text-white italic">"Melyik a legjobb kivitelező X városban?"</p>
                             </motion.div>
                             <motion.div variants={itemVariants} className="bg-surface/50 border border-white/5 p-4 rounded-xl ml-8 border-l-neonPurple/50">
-                                <div className="text-xs font-bold text-neonPurple mb-1 uppercase">AI Válasz</div>
-                                <p className="text-sm text-muted">"A vélemények és referenciák alapján a <strong className="text-white">Te Cégedet</strong> ajánlom, mert..."</p>
+                                <div className="text-sm font-bold text-neonPurple mb-1 uppercase">AI Válasz</div>
+                                <p className="text-base text-muted">"A vélemények és referenciák alapján a <strong className="text-white">Te Cégedet</strong> ajánlom, mert..."</p>
                             </motion.div>
                             <motion.div variants={itemVariants} className="bg-surface/50 border border-white/5 p-4 rounded-xl">
-                                <div className="text-xs font-bold text-neonBlue mb-1 uppercase">Kérdés</div>
-                                <p className="text-sm text-white italic">"Mennyibe kerül egy ilyen szolgáltatás?"</p>
+                                <div className="text-sm font-bold text-neonBlue mb-1 uppercase">Kérdés</div>
+                                <p className="text-base text-white italic">"Mennyibe kerül egy ilyen szolgáltatás?"</p>
                             </motion.div>
                         </motion.div>
                     </motion.div>
@@ -166,7 +166,7 @@ export const GEO = () => {
                             {/* Progress Bars - Moved here */}
                             <div className="mt-8 flex flex-col gap-6 pl-6">
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex justify-between text-xs text-muted">
+                                    <div className="flex justify-between text-sm text-muted">
                                         <span>Tartalom Minősége</span>
                                         <span className="text-neonBlue">98%</span>
                                     </div>
@@ -181,7 +181,7 @@ export const GEO = () => {
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex justify-between text-xs text-muted">
+                                    <div className="flex justify-between text-sm text-muted">
                                         <span>Online Megbízhatóság</span>
                                         <span className="text-neonPurple">Magas</span>
                                     </div>
@@ -221,8 +221,8 @@ export const GEO = () => {
                                                 {step.icon}
                                             </div>
                                             <div>
-                                                <div className={`text-sm font-bold ${step.highlight ? 'text-neonBlue' : 'text-white'}`}>{step.label}</div>
-                                                <div className="text-xs text-muted">{step.sub}</div>
+                                                <div className={`text-base font-bold ${step.highlight ? 'text-neonBlue' : 'text-white'}`}>{step.label}</div>
+                                                <div className="text-sm text-muted">{step.sub}</div>
                                             </div>
                                         </div>
                                     ))}

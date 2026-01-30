@@ -53,8 +53,8 @@ const FAQItem = ({ q, a, defaultOpen = false, index }: { q: string, a: string, d
 export const FAQ_Alternate = () => {
     const questions = [
         {
-            q: "Csak akkor fizetek, ha tetszik a demó?",
-            a: "Igen, a kockázat a miénk. Készítünk egy működő demót az igényeid alapján. Ha tetszik az irány, akkor szerződünk és folytatjuk a munkát. Ha nem, semmilyen kötelezettséged nincs.",
+            q: "Csak akkor fizetek, ha tetszik a próbaverzió?",
+            a: "Igen, a kockázat a miénk. Készítünk egy működő próbaverziót az igényeid alapján. Ha tetszik az irány, akkor szerződünk és folytatjuk a munkát. Ha nem, semmilyen kötelezettséged nincs.",
             defaultOpen: true
         },
         {
@@ -71,7 +71,7 @@ export const FAQ_Alternate = () => {
         },
         {
             q: "Vállaltok karbantartást és frissítést?",
-            a: "Igen. Havi karbantartási csomagokkal biztosítjuk, hogy az oldal gyors, biztonságos és naprakész maradjon."
+            a: "Igen. Havi karbantartási csomagokkal biztosítjuk, hogy a reszponzív webdizájn mellett az oldal mobilbarát és gyors maradjon hosszú távon is."
         },
         {
             q: "Készítetek AI chatbotot is?",
