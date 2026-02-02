@@ -9,7 +9,7 @@ interface ContainerProps {
 
 export const Container: React.FC<ContainerProps> = ({ children, className, id }) => {
     return (
-        <div id={id} className={twMerge("w-full max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12", className)}>
+        <div id={id} className={twMerge("w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12", className)}>
             {children}
         </div>
     );

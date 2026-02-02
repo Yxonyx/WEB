@@ -6,7 +6,7 @@ const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+        transition: { staggerChildren: 0.08, delayChildren: 0.1 }
     }
 };
 
@@ -15,7 +15,7 @@ const itemVariants: Variants = {
     visible: {
         opacity: 1,
         x: 0,
-        transition: { duration: 0.5, ease: "easeOut" }
+        transition: { duration: 0.4, ease: "easeOut" }
     }
 };
 
@@ -56,7 +56,7 @@ export const Process = () => {
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.4 }}
                     >
                         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Hogyan dolgozunk?</h2>
                         <p className="text-base text-muted mb-8 leading-relaxed">
@@ -164,3 +164,5 @@ export const Process = () => {
         </Section>
     );
 };
+
+

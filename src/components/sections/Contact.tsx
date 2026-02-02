@@ -13,7 +13,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
         opacity: 1,
         y: 0,
@@ -23,7 +23,7 @@ const itemVariants: Variants = {
 
 export const Contact = () => {
     return (
-        <Section id="kapcsolat">
+        <Section id="kapcsolat" withOrbs>
             <Container>
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
                     {/* Left Info */}
@@ -31,7 +31,7 @@ export const Contact = () => {
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.4 }}
                     >
                         <motion.div
                             className="inline-block px-3 py-1 mb-6 rounded-full bg-neonPurple/10 border border-neonPurple/20"
@@ -54,21 +54,21 @@ export const Contact = () => {
 
                         <motion.div
                             className="relative max-w-sm"
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
+                            transition={{ duration: 0.4, delay: 0.3 }}
                         >
                             <div className="absolute -inset-1 bg-gradient-to-r from-neonBlue to-neonPurple rounded-2xl opacity-20 blur-lg" />
                             <BracketFrame className="bg-surface h-auto">
                                 <div className="flex items-center gap-4">
-                                    <div className="relative w-12 h-12 shrink-0 flex items-center justify-center bg-gradient-to-br from-neonBlue to-neonPurple text-black font-bold font-mono text-xl leading-none">
-                                        <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-white/60" />
-                                        <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-white/60" />
-                                        CL
+                                    <div className="relative w-12 h-12 shrink-0 flex items-center justify-center bg-gradient-to-br from-white to-neonBlue text-black font-bold font-mono text-xl leading-none">
+                                        <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-black/20" />
+                                        <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-black/20" />
+                                        MW
                                     </div>
                                     <div>
-                                        <div className="text-white font-bold">CyberLabs Studio</div>
+                                        <div className="text-white font-bold">Modernweblap</div>
                                         <div className="text-sm text-neonBlue">Web & GEO Optimalizálás</div>
                                     </div>
                                 </div>
@@ -81,10 +81,10 @@ export const Contact = () => {
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                        transition={{ duration: 0.4, delay: 0.2 }}
                     >
                         <motion.form
-                            className="bg-surface2/20 backdrop-blur-xl rounded-3xl p-8 md:p-10 border border-white/10 shadow-[0_0_50px_-12px_rgba(0,240,255,0.1)] space-y-8 relative overflow-hidden"
+                            className="bg-surface2/20 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-white/10 shadow-[0_0_50px_-12px_rgba(0,240,255,0.1)] space-y-6 sm:space-y-8 relative overflow-hidden"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
@@ -161,3 +161,5 @@ export const Contact = () => {
         </Section>
     );
 };
+
+

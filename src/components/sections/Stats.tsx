@@ -46,10 +46,10 @@ export const Stats = () => {
     return (
         <motion.div
             className="border-y border-white/5 bg-[#020205]/80 backdrop-blur-sm relative z-20"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
         >
             <Container>
                 <div className="py-6 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 divide-y md:divide-y-0 md:divide-x divide-white/10">
@@ -107,3 +107,5 @@ const StatItem = ({ end, suffix, label, sublabel, duration = 2000 }: { end: numb
         </div>
     );
 };
+
+

@@ -89,10 +89,10 @@ export const FAQ_Alternate = () => {
                 <div className="max-w-3xl mx-auto">
                     <motion.div
                         className="text-center mb-16"
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.4 }}
                     >
                         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Gyakori kérdések</h2>
                         <p className="text-xl text-muted">A legfontosabb válaszok, őszintén.</p>
@@ -108,3 +108,5 @@ export const FAQ_Alternate = () => {
         </Section>
     );
 };
+
+

@@ -9,17 +9,17 @@ const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: { staggerChildren: 0.2, delayChildren: 0.1 }
+        transition: { staggerChildren: 0.08, delayChildren: 0.1 }
     }
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    hidden: { opacity: 0, y: 15, scale: 0.95 },
     visible: {
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }
+        transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }
     }
 };
 
@@ -30,10 +30,10 @@ export const GEO = () => {
                 {/* Header */}
                 <motion.div
                     className="text-center max-w-3xl mx-auto mb-20"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.4 }}
                 >
                     <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-highlight/10 border border-highlight/20">
                         <span className="text-sm font-bold text-highlight uppercase tracking-wider">Új korszak</span>
@@ -48,10 +48,10 @@ export const GEO = () => {
                     {/* Row 1: A Váltás (Robot Visual) */}
                     <motion.div
                         className="grid md:grid-cols-2 gap-12 items-center"
-                        initial={{ opacity: 0, y: 40 }}
+                        initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.4 }}
                     >
                         <div>
                             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">A Váltás</h3>
@@ -70,7 +70,7 @@ export const GEO = () => {
                                     initial={{ opacity: 0, x: -50 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ duration: 0.8, ease: "easeOut" }}
+                                    transition={{ duration: 0.5, ease: "easeOut" }}
                                 >
                                     <Robot3D size={280} />
                                 </motion.div>
@@ -90,17 +90,17 @@ export const GEO = () => {
                     {/* Row 2: Hol kell megjelenned (Q&A Boxes) */}
                     <motion.div
                         className="grid md:grid-cols-2 gap-12 items-center"
-                        initial={{ opacity: 0, y: 40 }}
+                        initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.4 }}
                     >
                         <motion.div
                             className="md:order-2"
                             initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
+                            transition={{ duration: 0.4 }}
                         >
                             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">Hol kell megjelenned?</h3>
                             <p className="text-muted text-lg leading-relaxed border-l-2 border-neonBlue/20 pl-6 mb-8">
@@ -147,16 +147,16 @@ export const GEO = () => {
                     {/* Row 3: Mi mit csinálunk (Infographic) */}
                     <motion.div
                         className="grid md:grid-cols-2 gap-12 items-center"
-                        initial={{ opacity: 0, y: 40 }}
+                        initial={{ opacity: 0, y: 15 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.4 }}
                     >
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
+                            transition={{ duration: 0.4 }}
                         >
                             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">Mi mit csinálunk?</h3>
                             <p className="text-muted text-lg leading-relaxed border-l-2 border-neonBlue/20 pl-6">
@@ -202,7 +202,7 @@ export const GEO = () => {
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
+                            transition={{ duration: 0.4 }}
                         >
                             <BracketFrame className="bg-surface/30 p-8">
                                 <div className="flex flex-col gap-6 relative">
@@ -235,3 +235,5 @@ export const GEO = () => {
         </Section>
     );
 };
+
+

@@ -20,48 +20,95 @@ export const Hero = () => {
         window.addEventListener('resize', checkMobile);
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
+
     return (
-        <Section id="hero" className="pt-32 pb-20 min-h-screen flex items-center relative overflow-hidden">
-            {/* Background Elements - radial gradients for iOS performance (no blur filter needed) */}
-            <div
-                className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none opacity-30"
+        <Section id="hero" className="pt-32 pb-20" fullHeight withOrbs>
+            {/* Mesh gradient background */}
+            <div className="absolute inset-0 bg-hero-gradient pointer-events-none" />
+
+            {/* Animated gradient orbs - optimized for mobile */}
+            <motion.div
+                className="absolute top-[-10%] right-[-10%] w-[300px] sm:w-[800px] h-[300px] sm:h-[800px] rounded-full pointer-events-none"
                 style={{
-                    background: 'radial-gradient(circle, rgba(0,240,255,0.4) 0%, rgba(0,240,255,0.1) 40%, transparent 70%)'
+                    background: 'radial-gradient(circle, rgba(0,240,255,0.2) 0%, rgba(0,240,255,0.02) 40%, transparent 70%)',
+                    filter: isDesktop ? 'blur(40px)' : 'blur(20px)'
+                }}
+                animate={isDesktop ? {
+                    x: [0, 50, 0],
+                    y: [0, 30, 0],
+                    scale: [1, 1.1, 1],
+                } : {}}
+                transition={{
+                    duration: 15,
+                    ease: "easeInOut",
+                    repeat: Infinity,
                 }}
             />
-            <div
-                className="absolute bottom-0 left-0 w-[500px] h-[500px] pointer-events-none opacity-30"
+            <motion.div
+                className="absolute bottom-[-15%] left-[-15%] w-[300px] sm:w-[700px] h-[300px] sm:h-[700px] rounded-full pointer-events-none"
                 style={{
-                    background: 'radial-gradient(circle, rgba(189,0,255,0.4) 0%, rgba(189,0,255,0.1) 40%, transparent 70%)'
+                    background: 'radial-gradient(circle, rgba(189,0,255,0.2) 0%, rgba(189,0,255,0.02) 40%, transparent 70%)',
+                    filter: isDesktop ? 'blur(40px)' : 'blur(20px)'
+                }}
+                animate={isDesktop ? {
+                    x: [0, -40, 0],
+                    y: [0, -50, 0],
+                    scale: [1, 1.15, 1],
+                } : {}}
+                transition={{
+                    duration: 18,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    delay: 2,
                 }}
             />
 
-            <Container className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Additional decorative orb - Desktop ONLY */}
+            {isDesktop && (
+                <motion.div
+                    className="absolute top-[40%] left-[30%] w-[300px] h-[300px] rounded-full pointer-events-none opacity-30"
+                    style={{
+                        background: 'radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%)',
+                        filter: 'blur(50px)'
+                    }}
+                    animate={{
+                        x: [0, 100, 0],
+                        y: [0, -80, 0],
+                    }}
+                    transition={{
+                        duration: 20,
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                    }}
+                />
+            )}
+
+            <Container className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-20">
                 {/* Text Content */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.4 }}
                     className="text-center lg:text-left"
                 >
                     <div className="mb-6">
-                        <span className="text-base font-bold font-mono text-neonBlue uppercase tracking-wider">
+                        <span className="text-lg sm:text-base font-bold font-mono text-neonBlue uppercase tracking-wider">
                             &lt; Web + SEO + GEO &gt;<span className="animate-pulse">_</span>
                         </span>
                     </div>
 
-                    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-8 leading-tight">
+                    <h1 className="text-5xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-8 leading-[1.1]">
                         Egyedi weboldal <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-accent1 to-neonPurple animate-gradient-shift" style={{ backgroundSize: '200% auto' }}>
                             fejlesztés
                         </span> & karbantartás
                     </h1>
 
-                    <div className="text-lg md:text-xl text-muted mb-10 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-display font-light">
+                    <div className="text-xl sm:text-lg md:text-xl text-white/70 mb-10 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-display font-light">
                         <p className="mb-4">
                             <span className="text-neonPurple">Modern, mesterséges intelligencia</span> alapú megoldások.
                         </p>
-                        <p className="text-white">
+                        <p>
                             Weboldalad ott jelenik meg, ahol a döntések születnek: a <span className="text-neonBlue">Google keresésekben</span> és az <span className="text-neonPurple">AI-alapú találatokban</span>.
                         </p>
                     </div>
@@ -70,8 +117,8 @@ export const Hero = () => {
                         <Button href="#kapcsolat" variant="primary">
                             Beszéljünk
                         </Button>
-                        <Button href="#szolgaltatasok" variant="secondary">
-                            Szolgáltatások
+                        <Button href="#arazas" variant="secondary">
+                            Válaszd ki a csomagod
                         </Button>
                     </div>
                 </motion.div>
@@ -80,7 +127,7 @@ export const Hero = () => {
                 <motion.div
                     initial={{ opacity: 0, x: 100 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                    transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
                     className="relative hidden lg:block h-[500px]"
                 >
                     {/* 3D Retro Terminal - No Frame */}
@@ -96,8 +143,6 @@ export const Hero = () => {
                         )}
                     </div>
 
-
-
                     {/* Decorative Elements */}
                     <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-neonBlue rounded-tr-3xl opacity-50" />
                     <div className="absolute bottom-0 left-0 w-24 h-24 border-b-2 border-l-2 border-neonPurple rounded-bl-3xl opacity-50" />
@@ -110,3 +155,5 @@ export const Hero = () => {
         </Section>
     );
 };
+
+

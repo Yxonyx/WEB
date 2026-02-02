@@ -7,17 +7,17 @@ const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+        transition: { staggerChildren: 0.08, delayChildren: 0.1 }
     }
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    hidden: { opacity: 0, y: 15, scale: 0.95 },
     visible: {
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }
+        transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }
     }
 };
 
@@ -33,10 +33,10 @@ export const Portfolio = () => {
             <Container>
                 <motion.div
                     className="mb-12"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.4 }}
                 >
                     <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Referenciák</h2>
                     <p className="text-muted text-lg">Modern weboldalak, amik eredményt hoznak.</p>
@@ -84,3 +84,5 @@ export const Portfolio = () => {
         </Section>
     );
 };
+
+

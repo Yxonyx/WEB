@@ -9,6 +9,7 @@ import { GEO } from './components/sections/GEO';
 import { Portfolio } from './components/sections/Portfolio';
 import { Process } from './components/sections/Process';
 import { FAQ } from './components/sections/FAQ';
+import { Insights } from './components/sections/Insights';
 import { Team } from './components/sections/Team';
 import { Contact } from './components/sections/Contact';
 import { Footer } from './components/sections/Footer';
@@ -20,7 +21,7 @@ import { CookieBanner } from './components/ui/CookieBanner';
 
 function App() {
   return (
-    <div className="min-h-screen bg-bg text-white selection:bg-neonBlue/30">
+    <div className="min-h-screen bg-bgDeep text-white selection:bg-neonBlue/30 noise-overlay relative">
       <ParticleNetwork />
       <CookieBanner />
       <Navbar />
@@ -35,6 +36,7 @@ function App() {
       <Portfolio />
       <Process />
       <FAQ />
+      <Insights />
       <Contact />
       <Team />
       <Footer />

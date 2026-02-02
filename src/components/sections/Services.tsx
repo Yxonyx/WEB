@@ -9,33 +9,33 @@ const containerVariants: Variants = {
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.15,
-            delayChildren: 0.2,
+            staggerChildren: 0.08,
+            delayChildren: 0.1,
         }
     }
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.5, ease: "easeOut" }
+        transition: { duration: 0.4, ease: "easeOut" }
     }
 };
 
 export const Services = () => {
     return (
-        <Section id="szolgaltatasok" className="py-20 lg:py-32 relative overflow-hidden">
+        <Section id="szolgaltatasok" className="py-20 lg:py-32" withMeshGradient withOrbs>
 
             <Container>
                 {/* Header */}
                 <motion.div
                     className="text-center max-w-3xl mx-auto mb-20 md:mb-32"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.4 }}
                 >
                     <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-neonBlue/10 border border-neonBlue/20">
                         <span className="text-sm font-bold text-neonBlue uppercase tracking-wider">Megoldások</span>
@@ -60,7 +60,8 @@ export const Services = () => {
                             <div className="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center mb-6 text-neonBlue">
                                 <Laptop size={24} />
                             </div>
-                            <h3 className="text-2xl sm:text-4xl font-bold text-white mb-6">Reszponzív webdizájn</h3>
+                            <h3 className="text-2xl sm:text-4xl font-bold text-white mb-4">Reszponzív weboldalak és webáruházak</h3>
+                            <div className="text-neonBlue font-mono text-sm mb-6 tracking-wide">Keresőoptimalizálva • Kulcsrakészen</div>
                             <p className="text-muted text-lg mb-8 leading-relaxed">
                                 Mobilbarát és gyors weboldalak, amik üzleti célt szolgálnak (érdeklődő, ajánlatkérés, vásárlás).
                             </p>
@@ -104,20 +105,21 @@ export const Services = () => {
                                         <div className="p-4 space-y-4 bg-surface2/20">
                                             {/* Mock Nav */}
                                             <div className="flex justify-between items-center mb-2">
-                                                <div className="w-8 h-2 bg-white/20 rounded-full" />
-                                                <div className="flex gap-2">
-                                                    <div className="w-6 h-1.5 bg-white/5 rounded-full" />
-                                                    <div className="w-6 h-1.5 bg-white/5 rounded-full" />
+                                                <span className="text-xs font-bold text-white/80">Dr. Kovács</span>
+                                                <div className="flex gap-3 text-[9px] text-white/40">
+                                                    <span>Rólam</span>
+                                                    <span>Szolgáltatások</span>
+                                                    <span className="text-neonBlue">Időpontfoglalás</span>
                                                 </div>
                                             </div>
 
                                             {/* Mock Hero */}
                                             <div className="w-full h-28 bg-gradient-to-br from-neonBlue/10 to-neonPurple/5 rounded-lg border border-white/5 flex items-center p-4 relative overflow-hidden">
-                                                <div className="relative z-10 w-2/3 space-y-2">
-                                                    <div className="h-2 w-3/4 bg-white/20 rounded" />
-                                                    <div className="h-2 w-1/2 bg-white/20 rounded" />
-                                                    <div className="h-1.5 w-full bg-white/5 rounded mt-2" />
-                                                    <div className="mt-3 w-16 h-4 bg-neonBlue/20 rounded border border-neonBlue/20" />
+                                                <div className="relative z-10 w-2/3 space-y-1.5">
+                                                    <div className="text-[11px] font-bold text-white leading-tight">Magánorvosi rendelő</div>
+                                                    <div className="text-[11px] text-neonBlue font-bold leading-tight">Budapesten</div>
+                                                    <div className="text-[8px] text-white/50 mt-1">Személyre szabott ellátás, rövid várakozás</div>
+                                                    <div className="mt-2 px-2 py-1 text-[8px] bg-neonBlue/20 rounded border border-neonBlue/30 text-neonBlue inline-block">Időpontot kérek</div>
                                                 </div>
                                                 {/* Decorative elements */}
                                                 <div className="absolute right-0 bottom-0 w-20 h-20 bg-neonBlue/10 rounded-full blur-xl transform translate-x-1/2 translate-y-1/2" />
@@ -125,13 +127,16 @@ export const Services = () => {
 
                                             {/* Mock Cards */}
                                             <div className="grid grid-cols-2 gap-3">
-                                                {[1, 2].map(i => (
-                                                    <div key={i} className="h-20 bg-[#151520] rounded-lg border border-white/5 p-2 flex flex-col gap-2 relative overflow-hidden">
-                                                        <div className="w-6 h-6 rounded bg-white/5" />
-                                                        <div className="h-1.5 w-2/3 bg-white/10 rounded" />
-                                                        <div className="h-1 w-full bg-white/5 rounded" />
-                                                    </div>
-                                                ))}
+                                                <div className="h-20 bg-[#151520] rounded-lg border border-white/5 p-2.5 flex flex-col gap-1.5">
+                                                    <div className="w-5 h-5 rounded bg-neonBlue/20 flex items-center justify-center text-[8px] text-neonBlue">🩺</div>
+                                                    <div className="text-[10px] font-bold text-white/80">Belgyógyászat</div>
+                                                    <div className="text-[8px] text-white/40">Teljes körű vizsgálat</div>
+                                                </div>
+                                                <div className="h-20 bg-[#151520] rounded-lg border border-white/5 p-2.5 flex flex-col gap-1.5">
+                                                    <div className="w-5 h-5 rounded bg-neonPurple/20 flex items-center justify-center text-[8px] text-neonPurple">📅</div>
+                                                    <div className="text-[10px] font-bold text-white/80">Online foglalás</div>
+                                                    <div className="text-[8px] text-white/40">24 órán belül</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -194,3 +199,5 @@ export const Services = () => {
         </Section>
     );
 };
+
+

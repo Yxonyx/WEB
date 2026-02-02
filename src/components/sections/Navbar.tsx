@@ -2,12 +2,22 @@ import { useState, useEffect } from 'react';
 import { clsx } from 'clsx';
 import { Button } from '../ui/Button';
 import { Container } from '../Container';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+const serviceDropdown = [
+    { label: 'Weboldal készítés', href: '#arazas' },
+    { label: 'Webshop készítés', href: '#arazas' },
+    { label: 'SEO optimalizálás', href: '#szolgaltatasok' },
+    { label: 'AI-találhatóság (GEO)', href: '#geo' },
+    { label: 'Weboldal karbantartás', href: '#karbantartas' },
+    { label: 'AI Chatbot', href: '#chatbot-intro' },
+];
 
 export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileOpen, setIsMobileOpen] = useState(false);
+    const [isServicesOpen, setIsServicesOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -18,7 +28,6 @@ export const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { label: 'szolgáltatások', href: '#szolgaltatasok' },
         { label: 'árazás', href: '#arazas' },
         { label: 'referenciák', href: '#referenciak' },
         { label: 'kapcsolat', href: '#kapcsolat' },
@@ -34,25 +43,66 @@ export const Navbar = () => {
             <Container className="flex items-center justify-between">
                 {/* Logo */}
                 <a href="#" className="flex items-center gap-3 group">
-                    <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-neonBlue to-neonPurple text-black font-bold font-mono text-lg leading-none transition-transform group-hover:scale-105">
-                        <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-white/60" />
-                        <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-white/60" />
-                        CL
+                    <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-white to-neonBlue text-black font-bold font-mono text-lg leading-none transition-transform group-hover:scale-105">
+                        <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-black/20" />
+                        <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-black/20" />
+                        MW
                     </div>
-                    <span className="text-xl font-bold tracking-tight text-white group-hover:text-neonBlue transition-colors">
-                        CyberLabs
+                    <span className="text-xl font-bold tracking-tight group-hover:text-neonBlue transition-colors">
+                        <span className="text-white">Modern</span><span className="text-neonBlue">weblap</span>
                     </span>
                 </a>
 
                 {/* Desktop Nav */}
                 <nav className="hidden lg:flex items-center gap-8">
+                    {/* Services Dropdown */}
+                    <div
+                        className="relative"
+                        onMouseEnter={() => setIsServicesOpen(true)}
+                        onMouseLeave={() => setIsServicesOpen(false)}
+                    >
+                        <button
+                            className="text-sm font-semibold font-mono text-white/80 hover:text-neonBlue transition-all duration-200 lowercase tracking-widest antialiased flex items-center gap-1"
+                            style={{ textRendering: 'geometricPrecision' }}
+                        >
+                            <span className="text-neonBlue/60">&lt;</span>szolgáltatások<span className="text-neonBlue/60">&gt;</span>
+                            <ChevronDown className={clsx("w-4 h-4 transition-transform duration-200", isServicesOpen && "rotate-180")} />
+                        </button>
+
+                        <AnimatePresence>
+                            {isServicesOpen && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: 10 }}
+                                    transition={{ duration: 0.2 }}
+                                    className="absolute top-full left-0 mt-2 w-64 py-3 bg-surface/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl shadow-black/50 overflow-hidden"
+                                >
+                                    {/* Gradient accent line at top */}
+                                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-neonBlue via-neonPurple to-neonBlue" />
+
+                                    {serviceDropdown.map((item, index) => (
+                                        <a
+                                            key={index}
+                                            href={item.href}
+                                            className="block px-5 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-all duration-150 border-l-2 border-transparent hover:border-neonBlue"
+                                        >
+                                            {item.label}
+                                        </a>
+                                    ))}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+
                     {navLinks.map((link) => (
                         <a
                             key={link.label}
                             href={link.href}
-                            className="text-base font-bold font-mono text-muted hover:text-neonBlue transition-colors lowercase tracking-wide"
+                            className="text-sm font-semibold font-mono text-white/80 hover:text-neonBlue transition-all duration-200 lowercase tracking-widest antialiased"
+                            style={{ textRendering: 'geometricPrecision' }}
                         >
-                            &lt;{link.label}&gt;
+                            <span className="text-neonBlue/60">&lt;</span>{link.label}<span className="text-neonBlue/60">&gt;</span>
                         </a>
                     ))}
                     <Button href="#kapcsolat" variant="primary" className="ml-4 py-2 px-5 text-base">
@@ -78,7 +128,26 @@ export const Navbar = () => {
                         exit={{ height: 0, opacity: 0 }}
                         className="lg:hidden bg-surface overflow-hidden border-b border-white/10"
                     >
-                        <Container className="py-8 flex flex-col gap-6">
+                        <Container className="py-8 flex flex-col gap-4">
+                            {/* Services Section */}
+                            <div className="border-b border-white/10 pb-4">
+                                <span className="text-xs font-mono text-neonBlue/60 uppercase tracking-widest mb-3 block">
+                                    Szolgáltatások
+                                </span>
+                                <div className="flex flex-col gap-2">
+                                    {serviceDropdown.map((item, index) => (
+                                        <a
+                                            key={index}
+                                            href={item.href}
+                                            onClick={() => setIsMobileOpen(false)}
+                                            className="text-base text-white/80 hover:text-neonBlue pl-3 border-l-2 border-white/10 hover:border-neonBlue transition-all"
+                                        >
+                                            {item.label}
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+
                             {navLinks.map((link) => (
                                 <a
                                     key={link.label}
@@ -91,7 +160,7 @@ export const Navbar = () => {
                                     <span className="font-mono text-neonBlue/50 ml-2">&gt;</span>
                                 </a>
                             ))}
-                            <Button href="#kapcsolat" variant="primary" className="w-full justify-center">
+                            <Button href="#kapcsolat" variant="primary" className="w-full justify-center mt-4">
                                 Beszéljünk
                             </Button>
                         </Container>
@@ -101,3 +170,5 @@ export const Navbar = () => {
         </header>
     );
 };
+
+

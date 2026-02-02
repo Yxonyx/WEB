@@ -11,17 +11,17 @@ const TikTokIcon = () => (
 
 export const Footer = () => {
     const socialLinks = [
-        { icon: Instagram, href: "https://www.instagram.com/cyberlabsweb?igsh=bjB3bmRtaHhqa250", label: "Instagram" },
-        { icon: Facebook, href: "https://facebook.com/cyberlabs", label: "Facebook" },
-        { icon: Linkedin, href: "https://linkedin.com/company/cyberlabs", label: "LinkedIn" },
-        { icon: TikTokIcon, href: "https://tiktok.com/@cyberlabs", label: "TikTok" },
+        { icon: Instagram, href: "https://www.instagram.com/modernweblap", label: "Instagram" },
+        { icon: Facebook, href: "https://facebook.com/modernweblap", label: "Facebook" },
+        { icon: Linkedin, href: "https://linkedin.com/company/modernweblap", label: "LinkedIn" },
+        { icon: TikTokIcon, href: "https://tiktok.com/@modernweblap", label: "TikTok" },
     ];
 
     return (
         <footer className="py-12 border-t border-white/5 bg-black">
             <Container className="text-center">
                 <div className="flex items-center justify-center gap-2 mb-6 opacity-80">
-                    <div className="font-mono font-bold text-white text-xl">CyberLabs</div>
+                    <div className="font-mono font-bold text-white text-xl">Modernweblap</div>
                 </div>
 
                 {/* Social Media Icons */}
@@ -58,9 +58,11 @@ export const Footer = () => {
                 </div>
 
                 <div className="text-sm text-muted2">
-                    &copy; {new Date().getFullYear()} CyberLabs Studio. Minden jog fenntartva.
+                    &copy; {new Date().getFullYear()} Modernweblap. Minden jog fenntartva.
                 </div>
             </Container>
         </footer>
     );
 };
+
+

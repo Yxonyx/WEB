@@ -14,7 +14,7 @@ export const QuoteSection = () => {
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
+                        transition={{ duration: 0.5 }}
                     >
                         {/* Badges */}
                         <div className="flex flex-wrap gap-6 mb-8 justify-center lg:justify-start">
@@ -81,10 +81,10 @@ export const QuoteSection = () => {
 
                         {/* Card 1: Requirement - Enhanced */}
                         <motion.div
-                            initial={{ opacity: 0, y: 40, rotate: -6 }}
+                            initial={{ opacity: 0, y: 15, rotate: -6 }}
                             whileInView={{ opacity: 1, y: 0, rotate: -6 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
+                            transition={{ duration: 0.4, delay: 0.2 }}
                             className="absolute top-10 left-10 w-72 bg-[#0A0A15] border border-white/10 rounded-xl shadow-2xl z-10 overflow-hidden"
                         >
                             {/* Header */}
@@ -123,15 +123,15 @@ export const QuoteSection = () => {
 
                         {/* Card 2: Demo Build (Central) - Enhanced Web Page Mock */}
                         <motion.div
-                            initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                            initial={{ opacity: 0, y: 15, scale: 0.9 }}
                             whileInView={{ opacity: 1, y: 0, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
+                            transition={{ duration: 0.4, delay: 0.4 }}
                             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-[#0E0E1A] border border-neonBlue/30 rounded-2xl shadow-neonBlue/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] z-20 overflow-hidden"
                         >
                             {/* Title Bar */}
                             <div className="flex justify-between items-center px-4 py-3 border-b border-white/10 bg-[#0A0A15]">
-                                <div className="text-base font-mono text-neonBlue">demo_v1.build</div>
+                                <div className="text-base font-mono text-neonBlue">tesztoldal.hu</div>
                                 <div className="flex gap-1.5">
                                     <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
                                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
@@ -191,21 +191,21 @@ export const QuoteSection = () => {
                             <div className="flex items-center justify-between px-4 py-3 border-t border-white/10 bg-[#0A0A15]">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                    <span className="text-sm text-muted">Status: Ready</span>
+                                    <span className="text-sm text-muted">Állapot: Kész</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <span className="text-sm text-green-400 font-mono font-bold">98%</span>
-                                    <span className="text-sm text-muted">Match</span>
+                                    <span className="text-sm text-muted">Egyezés</span>
                                 </div>
                             </div>
                         </motion.div>
 
                         {/* Card 3: Feedback (Bottom) */}
                         <motion.div
-                            initial={{ opacity: 0, y: 40, rotate: 6 }}
+                            initial={{ opacity: 0, y: 15, rotate: 6 }}
                             whileInView={{ opacity: 1, y: 0, rotate: 6 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.6 }}
+                            transition={{ duration: 0.4, delay: 0.6 }}
                             className="absolute bottom-10 right-10 w-64 p-5 bg-[#0A0A15] border border-white/10 rounded-xl shadow-2xl z-10"
                         >
                             <div className="flex items-center gap-3 mb-4">
@@ -215,8 +215,8 @@ export const QuoteSection = () => {
                                 <div className="h-2 w-24 bg-white/10 rounded-full" />
                             </div>
                             <div className="flex gap-2">
-                                <div className="px-2 py-1 rounded bg-white/5 text-[10px] text-muted">Approved</div>
-                                <div className="px-2 py-1 rounded bg-neonBlue/10 text-[10px] text-neonBlue">Launch</div>
+                                <div className="px-2 py-1 rounded bg-white/5 text-[10px] text-muted">Elfogadva</div>
+                                <div className="px-2 py-1 rounded bg-neonBlue/10 text-[10px] text-neonBlue">Indítás</div>
                             </div>
                         </motion.div>
 
@@ -242,3 +242,5 @@ export const QuoteSection = () => {
         </Section>
     );
 };
+
+

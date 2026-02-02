@@ -85,12 +85,12 @@ export const RetroTerminal3D = () => {
             ctx.textAlign = 'left';
 
             const lines = [
-                '> CyberLabs Terminal v2.1',
+                '> Modernweblap Terminal v2.1',
                 '> Initializing system...',
                 '',
-                '╔══════════════════════════════════╗',
-                '║     CYBERLABS DIGITAL STUDIO     ║',
-                '╚══════════════════════════════════╝',
+                '╔════════════════════════════════════╗',
+                '║     MODERNWEBLAP DIGITAL STUDIO    ║',
+                '╚════════════════════════════════════╝',
                 '',
                 '> services.load()',
                 '  [✓] Weboldal fejlesztés',

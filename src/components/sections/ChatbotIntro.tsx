@@ -8,7 +8,7 @@ const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+        transition: { staggerChildren: 0.08, delayChildren: 0.1 }
     }
 };
 
@@ -17,7 +17,7 @@ const itemVariants: Variants = {
     visible: {
         opacity: 1,
         x: 0,
-        transition: { duration: 0.5, ease: "easeOut" }
+        transition: { duration: 0.4, ease: "easeOut" }
     }
 };
 
@@ -68,7 +68,7 @@ export const ChatbotIntro = () => {
                                         <Bot size={20} className="text-white" />
                                     </div>
                                     <div>
-                                        <div className="text-white font-bold">CyberLabs AI</div>
+                                        <div className="text-white font-bold">Modernweblap AI</div>
                                         <div className="text-sm text-neonBlue">Mindig elérhető asszisztens</div>
                                     </div>
                                 </div>
@@ -108,3 +108,5 @@ export const ChatbotIntro = () => {
         </Section>
     );
 };
+
+

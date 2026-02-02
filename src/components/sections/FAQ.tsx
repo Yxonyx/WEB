@@ -88,7 +88,7 @@ export const FAQ = () => {
                         initial={{ opacity: 0, x: 40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.4 }}
                     >
                         <h2 className="text-3xl font-bold text-white mb-8">Gyakori kérdések</h2>
                         <div className="bg-surface/30 backdrop-blur-sm rounded-2xl border border-white/5 p-6 sm:p-8">
@@ -104,7 +104,7 @@ export const FAQ = () => {
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.4 }}
                     >
                         <div className="lg:sticky lg:top-32">
                             {/* Outer glow */}
@@ -157,3 +157,5 @@ export const FAQ = () => {
         </Section>
     );
 };
+
+

@@ -1,6 +1,5 @@
 import { Container } from '../Container';
 import { Section } from '../Section';
-import { SignaturePanel } from '../ui/SignaturePanel';
 import { BracketFrame } from '../ui/BracketFrame';
 import { Button } from '../ui/Button';
 import { Check } from 'lucide-react';
@@ -11,32 +10,32 @@ const containerVariants: Variants = {
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.2,
+            staggerChildren: 0.08,
             delayChildren: 0.1,
         }
     }
 };
 
 const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    hidden: { opacity: 0, y: 15, scale: 0.95 },
     visible: {
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }
+        transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }
     }
 };
 
 export const Pricing = () => {
     return (
-        <Section id="arazas">
+        <Section id="arazas" withMeshGradient>
             <Container>
                 <motion.div
                     className="text-center max-w-2xl mx-auto mb-16"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.4 }}
                 >
                     <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Árazás</h2>
                     <p className="text-muted text-lg">
@@ -83,17 +82,32 @@ export const Pricing = () => {
                         className="lg:col-span-1 lg:-mt-8"
                         variants={cardVariants}
                     >
-                        <SignaturePanel label="Legnépszerűbb" highlight={true} className="bg-surface/80 relative overflow-hidden group/card shadow-[0_0_40px_-15px_rgba(189,0,255,0.3)] hover:shadow-[0_0_50px_-10px_rgba(189,0,255,0.5)] transition-shadow duration-500">
-                            {/* Animated Background Beam */}
-                            <div className="absolute -inset-[100%] animate-[spin_8s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#00F0FF_0%,#BD00FF_50%,#00F0FF_100%)] opacity-[0.03] group-hover/card:opacity-[0.08] transition-opacity" />
+                        <div className="relative rounded-2xl overflow-hidden group/card bg-gradient-to-br from-surface/90 via-surface/70 to-surface/80 border border-white/10 shadow-[0_0_60px_-20px_rgba(0,240,255,0.25),0_0_40px_-15px_rgba(189,0,255,0.2)] hover:shadow-[0_0_80px_-15px_rgba(0,240,255,0.35),0_0_60px_-10px_rgba(189,0,255,0.3)] transition-all duration-500">
+                            {/* Animated gradient border glow */}
+                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-neonBlue via-neonPurple to-neonBlue opacity-[0.15] blur-sm" />
 
-                            <div className="relative z-10">
-                                <div className="mb-2 inline-block px-3 py-1 rounded-full bg-neonPurple/20 text-neonPurple text-sm font-bold uppercase tracking-wider border border-neonPurple/30">
-                                    Legnépszerűbb
+                            {/* Inner glow effect */}
+                            <div className="absolute inset-[1px] rounded-2xl bg-gradient-to-br from-bg/95 via-surface/95 to-bg/90" />
+
+                            {/* Animated Background Beam */}
+                            <div className="absolute -inset-[100%] animate-[spin_12s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#00F0FF_0%,#BD00FF_50%,#00F0FF_100%)] opacity-[0.04] group-hover/card:opacity-[0.08] transition-opacity duration-700" />
+
+                            {/* Corner accent glow */}
+                            <div className="absolute -top-24 -right-24 w-48 h-48 bg-neonPurple/20 rounded-full blur-[80px] pointer-events-none" />
+                            <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-neonBlue/15 rounded-full blur-[60px] pointer-events-none" />
+
+                            <div className="relative z-10 p-8 sm:p-10">
+                                {/* Badge */}
+                                <div className="mb-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-neonBlue/20 to-neonPurple/20 border border-neonPurple/40 backdrop-blur-sm">
+                                    <span className="w-2 h-2 rounded-full bg-neonPurple animate-pulse" />
+                                    <span className="text-xs font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
+                                        Legnépszerűbb
+                                    </span>
                                 </div>
-                                <h3 className="text-2xl font-bold text-white mb-2">Céges weboldal</h3>
-                                <div className="flex items-baseline gap-1 mb-8">
-                                    <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
+
+                                <h3 className="text-2xl font-bold text-white mb-3">Céges weboldal</h3>
+                                <div className="flex items-baseline gap-2 mb-8">
+                                    <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-white to-neonPurple animate-gradient-shift" style={{ backgroundSize: '200% auto' }}>
                                         300 000 Ft
                                     </span>
                                     <span className="text-base text-muted">-tól</span>
@@ -101,20 +115,20 @@ export const Pricing = () => {
 
                                 <ul className="space-y-4 mb-10">
                                     {["reszponzív webdizájn", "mobilbarát és gyors kivitelezés", "AI-találhatóság", "admin felület (ha kéred)", "blog modul a növekedéshez"].map((feat, i) => (
-                                        <li key={i} className="flex items-start gap-3 text-white">
-                                            <div className="w-5 h-5 rounded-full bg-neonBlue/20 flex items-center justify-center shrink-0 mt-0.5">
-                                                <Check className="w-3 h-3 text-neonBlue" />
+                                        <li key={i} className="flex items-start gap-3 text-white group/item">
+                                            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-neonBlue/30 to-neonPurple/20 border border-neonBlue/40 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:border-neonBlue/60 transition-colors duration-300">
+                                                <Check className="w-3.5 h-3.5 text-neonBlue" />
                                             </div>
-                                            <span className="text-base">{feat}</span>
+                                            <span className="text-base text-white/90 group-hover/item:text-white transition-colors duration-300">{feat}</span>
                                         </li>
                                     ))}
                                 </ul>
 
-                                <Button href="#kapcsolat" variant="primary" className="w-full">
+                                <Button href="#kapcsolat" variant="primary" className="w-full shadow-lg shadow-neonBlue/20">
                                     Ajánlatot kérek
                                 </Button>
                             </div>
-                        </SignaturePanel>
+                        </div>
                     </motion.div>
 
                     {/* Plan 3 - Webshop (Bracket Frame) */}
@@ -308,3 +322,5 @@ export const Pricing = () => {
         </Section>
     );
 };
+
+
