@@ -3,11 +3,23 @@ import { Container } from '../Container';
 import { Section } from '../Section';
 import { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 // Lazy load the 3D component to improve initial page load speed
 const RetroTerminal3D = lazy(() => import('../ui/RetroTerminal3D').then(module => ({ default: module.RetroTerminal3D })));
 
 export const Hero = () => {
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsDesktop(window.innerWidth >= 1024); // lg breakpoint
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
     return (
         <Section id="hero" className="pt-32 pb-20 min-h-screen flex items-center relative overflow-hidden">
             {/* Background Elements - radial gradients for iOS performance (no blur filter needed) */}
@@ -73,13 +85,15 @@ export const Hero = () => {
                 >
                     {/* 3D Retro Terminal - No Frame */}
                     <div className="absolute top-10 left-10 right-10 bottom-10 z-10">
-                        <Suspense fallback={
-                            <div className="w-full h-full rounded-xl bg-white/5 animate-pulse border border-white/10 flex items-center justify-center">
-                                <span className="text-neonBlue font-mono text-sm">System Initializing...</span>
-                            </div>
-                        }>
-                            <RetroTerminal3D />
-                        </Suspense>
+                        {isDesktop && (
+                            <Suspense fallback={
+                                <div className="w-full h-full rounded-xl bg-white/5 animate-pulse border border-white/10 flex items-center justify-center">
+                                    <span className="text-neonBlue font-mono text-sm">System Initializing...</span>
+                                </div>
+                            }>
+                                <RetroTerminal3D />
+                            </Suspense>
+                        )}
                     </div>
 
 

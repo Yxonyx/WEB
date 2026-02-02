@@ -36,7 +36,7 @@
   <meta name="geo.placename" content="Hungary">
   <meta name="geo.position" content="47.1625;19.5033">
   <meta name="ICBM" content="47.1625, 19.5033">
-  <link rel="alternate" hreflang="hu" href="https://cyberlabsweb.com/">
+  <link rel="alternate" hreflang="hu-HU" href="https://cyberlabsweb.com/">
   <link rel="alternate" hreflang="x-default" href="https://cyberlabsweb.com/">
 
   <!-- ✅ Open Graph (Facebook, LinkedIn, Messenger, etc.) -->
@@ -188,20 +188,25 @@
 
 <!-- Voiceflow Chat Widget -->
 <script type="text/javascript">
-  (function (d, t) {
-    var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-    v.onload = function () {
-      window.voiceflow.chat.load({
-        verify: { projectID: '69728b40b960e41275e9bc0b' },
-        url: 'https://general-runtime.voiceflow.com',
-        versionID: 'production',
-        voice: {
-          url: "https://runtime-api.voiceflow.com"
+  // Defer Voiceflow loading to unblock Main Thread
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      (function (d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function () {
+          window.voiceflow.chat.load({
+            verify: { projectID: '69728b40b960e41275e9bc0b' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            voice: {
+              url: "https://runtime-api.voiceflow.com"
+            }
+          });
         }
-      });
-    }
-    v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-  })(document, 'script');
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    }, 3000); // 3 second delay allows the site to become interactive first
+  });
 </script>
 
 </html>

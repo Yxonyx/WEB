@@ -11,7 +11,7 @@ const TikTokIcon = () => (
 
 export const Footer = () => {
     const socialLinks = [
-        { icon: Instagram, href: "https://instagram.com/cyberlabs", label: "Instagram" },
+        { icon: Instagram, href: "https://www.instagram.com/cyberlabsweb?igsh=bjB3bmRtaHhqa250", label: "Instagram" },
         { icon: Facebook, href: "https://facebook.com/cyberlabs", label: "Facebook" },
         { icon: Linkedin, href: "https://linkedin.com/company/cyberlabs", label: "LinkedIn" },
         { icon: TikTokIcon, href: "https://tiktok.com/@cyberlabs", label: "TikTok" },
