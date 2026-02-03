@@ -52,16 +52,28 @@
   .gradient-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(60px);
+    /* Mobile: Reduced blur for performance */
+    filter: blur(30px);
     pointer-events: none;
+    /* GPU Acceleration Hints */
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  @screen lg {
+    .gradient-orb {
+      /* Desktop: Full quality blur */
+      filter: blur(60px);
+    }
   }
 
   .gradient-orb-blue {
-    background: radial-gradient(circle, rgba(0, 240, 255, 0.5) 0%, rgba(0, 240, 255, 0.1) 50%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.4) 0%, rgba(0, 240, 255, 0.05) 50%, transparent 70%);
   }
 
   .gradient-orb-purple {
-    background: radial-gradient(circle, rgba(189, 0, 255, 0.5) 0%, rgba(189, 0, 255, 0.1) 50%, transparent 70%);
+    background: radial-gradient(circle, rgba(189, 0, 255, 0.4) 0%, rgba(189, 0, 255, 0.05) 50%, transparent 70%);
   }
 
   /* Full-screen section */
@@ -205,4 +217,20 @@
 
 .animate-pulse-scale {
   animation: pulse-scale 8s ease-in-out infinite;
+}
+
+/* Progress bar animation - GPU accelerated */
+@keyframes progress-grow {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-progress {
+  transform-origin: left;
+  animation: progress-grow 0.8s ease-out forwards;
 }

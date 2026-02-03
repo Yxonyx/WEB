@@ -6,7 +6,7 @@ import { Button } from '../ui/Button';
 
 export const QuoteSection = () => {
     return (
-        <Section className="py-24 bg-[#050510]/20 backdrop-blur-sm border-t border-white/5 relative overflow-hidden">
+        <Section className="bg-[#050510]/20 backdrop-blur-sm border-t border-white/5 relative overflow-hidden">
             <Container>
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     {/* Left Column: Content */}
@@ -37,9 +37,9 @@ export const QuoteSection = () => {
                             "1 héten belül kapsz egy <span className="text-neonBlue">működő próbaverziót</span>."
                         </h2>
 
-                        <p className="text-lg text-muted mb-6 leading-relaxed">
+                        <p className="text-lg text-white/80 font-medium mb-6 leading-relaxed">
                             Addig finomítjuk, amíg tényleg olyan nem lesz, amilyet szeretnél.
-                            És <span className="text-white font-medium">csak akkor fizetsz, ha tetszik az alapváz.</span>
+                            És <span className="text-white font-semibold">csak akkor fizetsz, ha tetszik az alapváz.</span>
                         </p>
 
                         {/* Benefits List */}
@@ -54,7 +54,7 @@ export const QuoteSection = () => {
                                     "Kockázat nélkül vágsz bele: ha nem tetszik, nem fizetsz.",
                                     "A végeredmény nem „valahogy elkészül”, hanem addig csiszoljuk, amíg késznek nem érzed."
                                 ].map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-base text-muted/90">
+                                    <li key={i} className="flex items-start gap-3 text-base text-white/80">
                                         <div className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-neonBlue/10 flex items-center justify-center">
                                             <Check size={12} className="text-neonBlue" />
                                         </div>

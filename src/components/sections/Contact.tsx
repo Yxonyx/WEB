@@ -65,10 +65,10 @@ export const Contact = () => {
                                     <div className="relative w-12 h-12 shrink-0 flex items-center justify-center bg-gradient-to-br from-white to-neonBlue text-black font-bold font-mono text-xl leading-none">
                                         <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-black/20" />
                                         <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-black/20" />
-                                        MW
+                                        CL
                                     </div>
                                     <div>
-                                        <div className="text-white font-bold">Modernweblap</div>
+                                        <div className="text-white font-bold">Cyberlabs</div>
                                         <div className="text-sm text-neonBlue">Web & GEO Optimalizálás</div>
                                     </div>
                                 </div>
@@ -97,25 +97,25 @@ export const Contact = () => {
 
                             <motion.div className="grid sm:grid-cols-2 gap-6" variants={itemVariants}>
                                 <div className="space-y-2">
-                                    <label className="text-base font-medium text-muted">Teljes név *</label>
-                                    <input type="text" name="name" required className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors" />
+                                    <label className="text-base font-medium text-white/70">Teljes név *</label>
+                                    <input type="text" name="name" required className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-colors" />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-base font-medium text-muted">Cégnév</label>
-                                    <input type="text" name="company" className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors" />
+                                    <label className="text-base font-medium text-white/70">Cégnév</label>
+                                    <input type="text" name="company" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-colors" />
                                 </div>
                             </motion.div>
 
                             <motion.div className="space-y-2" variants={itemVariants}>
-                                <label className="text-base font-medium text-muted">Email cím *</label>
-                                <input type="email" name="email" required className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors" />
+                                <label className="text-base font-medium text-white/70">Email cím *</label>
+                                <input type="email" name="email" required className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-colors" />
                             </motion.div>
 
                             <motion.div className="grid sm:grid-cols-2 gap-6" variants={itemVariants}>
                                 <div className="space-y-2 group">
-                                    <label className="text-base font-medium text-muted group-focus-within:text-neonBlue transition-colors">Szolgáltatás</label>
+                                    <label className="text-base font-medium text-white/70 group-focus-within:text-neonBlue transition-colors">Szolgáltatás</label>
                                     <div className="relative">
-                                        <select name="service" className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-all appearance-none cursor-pointer hover:bg-black/80">
+                                        <select name="service" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-all appearance-none cursor-pointer hover:bg-white/10">
                                             <option className="bg-[#0A0A1F] text-white">Webfejlesztés</option>
                                             <option className="bg-[#0A0A1F] text-white">Webshop</option>
                                             <option className="bg-[#0A0A1F] text-white">SEO</option>
@@ -129,9 +129,9 @@ export const Contact = () => {
                                     </div>
                                 </div>
                                 <div className="space-y-2 group">
-                                    <label className="text-base font-medium text-muted group-focus-within:text-neonBlue transition-colors">Költségkeret</label>
+                                    <label className="text-base font-medium text-white/70 group-focus-within:text-neonBlue transition-colors">Költségkeret</label>
                                     <div className="relative">
-                                        <select name="budget" className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-all appearance-none cursor-pointer hover:bg-black/80">
+                                        <select name="budget" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-all appearance-none cursor-pointer hover:bg-white/10">
                                             <option className="bg-[#0A0A1F] text-white">150k – 300k</option>
                                             <option className="bg-[#0A0A1F] text-white">300k – 500k</option>
                                             <option className="bg-[#0A0A1F] text-white">500k – 1M+</option>
@@ -145,8 +145,8 @@ export const Contact = () => {
                             </motion.div>
 
                             <motion.div className="space-y-2" variants={itemVariants}>
-                                <label className="text-base font-medium text-muted">Projekt részletek *</label>
-                                <textarea name="message" required rows={4} className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue transition-colors resize-none"></textarea>
+                                <label className="text-base font-medium text-white/70">Projekt részletek *</label>
+                                <textarea name="message" required rows={4} className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-colors resize-none"></textarea>
                             </motion.div>
 
                             <motion.div variants={itemVariants}>

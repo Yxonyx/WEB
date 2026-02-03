@@ -30,6 +30,7 @@ export const Navbar = () => {
     const navLinks = [
         { label: 'árazás', href: '#arazas' },
         { label: 'referenciák', href: '#referenciak' },
+        { label: 'cikkek', href: '#insights' },
         { label: 'kapcsolat', href: '#kapcsolat' },
     ];
 
@@ -46,10 +47,10 @@ export const Navbar = () => {
                     <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-white to-neonBlue text-black font-bold font-mono text-lg leading-none transition-transform group-hover:scale-105">
                         <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-black/20" />
                         <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-black/20" />
-                        MW
+                        CL
                     </div>
-                    <span className="text-xl font-bold tracking-tight group-hover:text-neonBlue transition-colors">
-                        <span className="text-white">Modern</span><span className="text-neonBlue">weblap</span>
+                    <span className="text-xl font-bold tracking-tight group-hover:text-neonBlue transition-colors flex items-baseline">
+                        <span className="text-white">Cyber</span><span className="text-neonBlue">labs</span><span className="text-sm text-white/40 ml-1 font-normal lowercase">web</span>
                     </span>
                 </a>
 
@@ -105,6 +106,27 @@ export const Navbar = () => {
                             <span className="text-neonBlue/60">&lt;</span>{link.label}<span className="text-neonBlue/60">&gt;</span>
                         </a>
                     ))}
+
+                    {/* Language Selector */}
+                    <div className="flex items-center gap-3 pl-4 border-l border-white/10">
+                        <button className="relative w-6 h-4 overflow-hidden rounded-[2px] transition-transform hover:scale-110 opacity-100 ring-2 ring-neonBlue/50">
+                            <svg viewBox="0 0 64 32" className="w-full h-full">
+                                <rect fill="#fff" width="64" height="32" />
+                                <rect fill="#CE1126" width="64" height="10.666" />
+                                <rect fill="#008751" y="21.333" width="64" height="10.666" />
+                            </svg>
+                        </button>
+                        <button className="relative w-6 h-4 overflow-hidden rounded-[2px] transition-transform hover:scale-110 opacity-50 hover:opacity-100 grayscale hover:grayscale-0">
+                            <svg viewBox="0 0 60 30" className="w-full h-full">
+                                <rect fill="#012169" width="60" height="30" />
+                                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" />
+                                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" strokeWidth="4" />
+                                <path d="M30,0 L30,30 M0,15 L60,15" stroke="#fff" strokeWidth="10" />
+                                <path d="M30,0 L30,30 M0,15 L60,15" stroke="#C8102E" strokeWidth="6" />
+                            </svg>
+                        </button>
+                    </div>
+
                     <Button href="#kapcsolat" variant="primary" className="ml-4 py-2 px-5 text-base">
                         Beszéljünk
                     </Button>
@@ -160,6 +182,18 @@ export const Navbar = () => {
                                     <span className="font-mono text-neonBlue/50 ml-2">&gt;</span>
                                 </a>
                             ))}
+
+                            {/* Language Selector - Mobile */}
+                            <div className="flex items-center gap-3 pt-4 border-t border-white/10">
+                                <span className="text-xs font-mono text-white/40 uppercase tracking-widest">Nyelv:</span>
+                                <button className="flex items-center gap-1.5 px-2 py-1 rounded bg-neonBlue/10 border border-neonBlue/30 text-white text-sm font-medium">
+                                    🇭🇺 HU
+                                </button>
+                                <button className="flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 border border-white/10 text-white/50 text-sm hover:text-white hover:border-white/20 transition-colors">
+                                    🇬🇧 EN
+                                </button>
+                            </div>
+
                             <Button href="#kapcsolat" variant="primary" className="w-full justify-center mt-4">
                                 Beszéljünk
                             </Button>

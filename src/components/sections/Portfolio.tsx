@@ -39,7 +39,7 @@ export const Portfolio = () => {
                     transition={{ duration: 0.4 }}
                 >
                     <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Referenciák</h2>
-                    <p className="text-muted text-lg">Modern weboldalak, amik eredményt hoznak.</p>
+                    <p className="text-white/80 text-lg font-medium">Modern weboldalak, amik eredményt hoznak.</p>
                 </motion.div>
 
                 <motion.div

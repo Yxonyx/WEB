@@ -44,9 +44,9 @@ export const Process = () => {
     ];
 
     return (
-        <Section id="folyamat" className="pt-8 pb-10 sm:pt-10 sm:pb-12 lg:pt-12 lg:pb-16 bg-surface2 relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-neonBlue/5 rounded-full blur-[120px] pointer-events-none" />
+        <Section id="folyamat" className="bg-surface3 relative overflow-hidden">
+            {/* Background decoration - desktop only for performance */}
+            <div className="hidden lg:block absolute top-0 right-0 w-[500px] h-[500px] bg-neonBlue/5 rounded-full blur-[120px] pointer-events-none" />
 
             <Container>
                 <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
@@ -59,17 +59,17 @@ export const Process = () => {
                         transition={{ duration: 0.4 }}
                     >
                         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Hogyan dolgozunk?</h2>
-                        <p className="text-base text-muted mb-8 leading-relaxed">
+                        <p className="text-base text-white font-semibold mb-8 leading-relaxed">
                             Átlátható process, dedikált kapcsolattartás és folyamatos visszajelzés.
                             Nem tűnünk el, és tartjuk a határidőket.
                         </p>
 
-                        <div className="p-6 rounded-2xl bg-surface/40 border border-white/5 backdrop-blur-md shadow-2xl">
+                        <div className="p-6 rounded-2xl bg-black/60 border border-neonBlue/20 shadow-2xl">
                             <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                                 <span className="w-1.5 h-6 bg-neonBlue rounded-full"></span>
                                 Határidők & Gyorsítás
                             </h3>
-                            <div className="space-y-4 text-base text-muted">
+                            <div className="space-y-4 text-base text-white/80">
                                 <div>
                                     <div className="flex justify-between mb-1">
                                         <span className="text-white font-medium">Landing Page</span>
@@ -77,11 +77,11 @@ export const Process = () => {
                                     </div>
                                     <div className="h-1 bg-surface rounded-full overflow-hidden">
                                         <motion.div
-                                            className="h-full bg-neonBlue shadow-[0_0_10px_rgba(56,189,248,0.5)]"
+                                            className="h-full bg-neonBlue"
                                             initial={{ width: 0 }}
                                             whileInView={{ width: "30%" }}
                                             viewport={{ once: true }}
-                                            transition={{ duration: 1, delay: 0.2 }}
+                                            transition={{ duration: 0.5, ease: "easeOut" }}
                                         />
                                     </div>
                                 </div>
@@ -92,11 +92,11 @@ export const Process = () => {
                                     </div>
                                     <div className="h-1 bg-surface rounded-full overflow-hidden">
                                         <motion.div
-                                            className="h-full bg-neonBlue shadow-[0_0_10px_rgba(56,189,248,0.5)]"
+                                            className="h-full bg-neonBlue"
                                             initial={{ width: 0 }}
                                             whileInView={{ width: "60%" }}
                                             viewport={{ once: true }}
-                                            transition={{ duration: 1, delay: 0.4 }}
+                                            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
                                         />
                                     </div>
                                 </div>
@@ -107,11 +107,11 @@ export const Process = () => {
                                     </div>
                                     <div className="h-1 bg-surface rounded-full overflow-hidden">
                                         <motion.div
-                                            className="h-full bg-neonBlue shadow-[0_0_10px_rgba(56,189,248,0.5)]"
+                                            className="h-full bg-neonBlue"
                                             initial={{ width: 0 }}
                                             whileInView={{ width: "90%" }}
                                             viewport={{ once: true }}
-                                            transition={{ duration: 1, delay: 0.6 }}
+                                            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
                                         />
                                     </div>
                                 </div>

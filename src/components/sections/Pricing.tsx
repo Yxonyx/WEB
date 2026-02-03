@@ -38,7 +38,7 @@ export const Pricing = () => {
                     transition={{ duration: 0.4 }}
                 >
                     <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Árazás</h2>
-                    <p className="text-muted text-lg">
+                    <p className="text-white/80 text-lg font-medium">
                         Minden projekt egyedi, de az alábbi irányárak segítenek tervezni. A döntéshez alapvázat adunk így biztosan tudni fogod, mire számíts.
                     </p>
                 </motion.div>
@@ -65,7 +65,7 @@ export const Pricing = () => {
                             </div>
                             <ul className="space-y-3 mb-8">
                                 {["reszponzív webdizájn", "mobilbarát és gyors", "kapcsolat űrlap", "keresőbarát alapok"].map((feat, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-base text-muted">
+                                    <li key={i} className="flex items-center gap-3 text-base text-white/80">
                                         <Check className="w-4 h-4 text-neonBlue shrink-0" />
                                         {feat}
                                     </li>

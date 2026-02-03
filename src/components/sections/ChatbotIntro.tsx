@@ -38,7 +38,7 @@ export const ChatbotIntro = () => {
                             <Bot size={24} />
                         </div>
                         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">AI Chatbot Asszisztens</h2>
-                        <p className="text-muted text-lg mb-8 leading-relaxed">
+                        <p className="text-white/90 text-lg mb-8 leading-relaxed font-medium">
                             Weboldalba integrált, értékesítést segítő intelligens asszisztens. Nem alszik, nem megy szabadságra, és azonnal válaszol a látogatóid kérdéseire.
                         </p>
 
@@ -68,7 +68,7 @@ export const ChatbotIntro = () => {
                                         <Bot size={20} className="text-white" />
                                     </div>
                                     <div>
-                                        <div className="text-white font-bold">Modernweblap AI</div>
+                                        <div className="text-white font-bold">Cyberlabs AI</div>
                                         <div className="text-sm text-neonBlue">Mindig elérhető asszisztens</div>
                                     </div>
                                 </div>

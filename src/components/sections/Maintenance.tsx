@@ -116,7 +116,7 @@ export const Maintenance = () => {
                             <ShieldCheck size={24} />
                         </div>
                         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Karbantartás & Stabilitás</h2>
-                        <p className="text-muted text-lg mb-8 leading-relaxed">
+                        <p className="text-white/80 text-lg mb-8 leading-relaxed font-medium">
                             Frissítések, mentések, biztonság, sebesség-ellenőrzés, javítások. Hogy a weboldalad évek múlva is ugyanolyan gyors és megbízható legyen, mint az első napon.
                         </p>
 
@@ -127,7 +127,7 @@ export const Maintenance = () => {
                                 "ne lassuljon be az oldal",
                                 "biztonságban legyen az adatállomány"
                             ].map((item, i) => (
-                                <li key={i} className="flex items-center gap-3 text-muted">
+                                <li key={i} className="flex items-center gap-3 text-white/80">
                                     <CheckCircle2 className="w-4 h-4 text-neonPurple shrink-0" />
                                     <span>{item}</span>
                                 </li>

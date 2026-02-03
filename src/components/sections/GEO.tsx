@@ -39,7 +39,7 @@ export const GEO = () => {
                         <span className="text-sm font-bold text-highlight uppercase tracking-wider">Új korszak</span>
                     </div>
                     <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">AI-találhatóság, egyszerűen</h2>
-                    <p className="text-xl text-muted">
+                    <p className="text-xl text-white/80 font-medium">
                         Régen elég volt kulcsszavazni. Ma az számít, hogy a tartalom érthető, bizonyítható és jól felépített legyen.
                     </p>
                 </motion.div>
@@ -55,7 +55,7 @@ export const GEO = () => {
                     >
                         <div>
                             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">A Váltás</h3>
-                            <p className="text-muted text-lg leading-relaxed border-l-2 border-neonBlue/20 pl-6">
+                            <p className="text-white/80 text-lg leading-relaxed font-medium border-l-2 border-neonBlue/20 pl-6">
                                 AI-vezérelt tartalom: a klasszikus SEO önmagában már nem elég. Az algoritmusok már nem kulcsszavakat keresnek, hanem összefüggéseket.
                             </p>
                         </div>

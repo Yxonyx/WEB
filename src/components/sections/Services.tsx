@@ -26,7 +26,7 @@ const itemVariants: Variants = {
 
 export const Services = () => {
     return (
-        <Section id="szolgaltatasok" className="py-20 lg:py-32" withMeshGradient withOrbs>
+        <Section id="szolgaltatasok" withMeshGradient withOrbs>
 
             <Container>
                 {/* Header */}
@@ -41,7 +41,7 @@ export const Services = () => {
                         <span className="text-sm font-bold text-neonBlue uppercase tracking-wider">Megoldások</span>
                     </div>
                     <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">Szolgáltatások</h2>
-                    <p className="text-xl text-muted">
+                    <p className="text-xl text-white/80 font-medium">
                         Nem sablonokat gyártunk, hanem üzleti rendszereket építünk.
                     </p>
                 </motion.div>
@@ -62,7 +62,7 @@ export const Services = () => {
                             </div>
                             <h3 className="text-2xl sm:text-4xl font-bold text-white mb-4">Reszponzív weboldalak és webáruházak</h3>
                             <div className="text-neonBlue font-mono text-sm mb-6 tracking-wide">Keresőoptimalizálva • Kulcsrakészen</div>
-                            <p className="text-muted text-lg mb-8 leading-relaxed">
+                            <p className="text-white/80 text-lg mb-8 leading-relaxed font-medium">
                                 Mobilbarát és gyors weboldalak, amik üzleti célt szolgálnak (érdeklődő, ajánlatkérés, vásárlás).
                             </p>
 
@@ -73,7 +73,7 @@ export const Services = () => {
                                     "Több megkeresés",
                                     "Kevesebb elvesztett látogató"
                                 ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-muted">
+                                    <li key={i} className="flex items-center gap-3 text-white/80">
                                         <CheckCircle2 className="w-4 h-4 text-neonBlue shrink-0" />
                                         <span>{item}</span>
                                     </li>
