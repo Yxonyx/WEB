@@ -2,23 +2,14 @@ import { Button } from '../ui/Button';
 import { Container } from '../Container';
 import { Section } from '../Section';
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+
 import { useLanguage } from '../../context/LanguageContext';
 
 import { CssComputer } from '../ui/CssComputer';
 
 export const Hero = () => {
     const { t } = useLanguage();
-    const [isDesktop, setIsDesktop] = useState(() => typeof window !== 'undefined' ? window.innerWidth >= 1024 : false);
 
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsDesktop(window.innerWidth >= 1024); // lg breakpoint
-        };
-
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
-    }, []);
 
     return (
         <Section id="hero" className="min-h-[100dvh] flex items-center py-20" fullHeight withOrbs>
