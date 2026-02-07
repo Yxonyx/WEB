@@ -2,34 +2,64 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cyberlabsweb.hu/</loc>
-    <lastmod>2026-02-02</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://cyberlabsweb.hu/#szolgaltatasok</loc>
-    <lastmod>2026-02-02</lastmod>
+    <loc>https://cyberlabsweb.hu/hu/</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://cyberlabsweb.hu/en/</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Blog Posts (HU) -->
+  <url>
+    <loc>https://cyberlabsweb.hu/hu/blog/egyedi-weboldal-vs-sablon</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cyberlabsweb.hu/#geo</loc>
-    <lastmod>2026-02-02</lastmod>
+    <loc>https://cyberlabsweb.hu/hu/blog/keresooptimalizalas-2026</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cyberlabsweb.hu/#araink</loc>
-    <lastmod>2026-02-02</lastmod>
+    <loc>https://cyberlabsweb.hu/hu/blog/ai-korszak-geo-optimalizalas</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Posts (EN) -->
+  <url>
+    <loc>https://cyberlabsweb.hu/en/blog/egyedi-weboldal-vs-sablon</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cyberlabsweb.hu/#kapcsolat</loc>
-    <lastmod>2026-02-02</lastmod>
+    <loc>https://cyberlabsweb.hu/en/blog/keresooptimalizalas-2026</loc>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://cyberlabsweb.hu/en/blog/ai-korszak-geo-optimalizalas</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Static Pages -->
   <url>
     <loc>https://cyberlabsweb.hu/aszf.html</loc>
     <lastmod>2026-02-02</lastmod>

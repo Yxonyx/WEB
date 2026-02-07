@@ -31,7 +31,7 @@ export const Process = () => {
     }));
 
     return (
-        <Section id="folyamat" className="section-bg-mixed bg-surface3 relative overflow-hidden">
+        <Section id="folyamat" className="section-bg-mixed bg-surface3/20 relative overflow-hidden" withOrbs withMeshGradient>
             {/* Background decoration - desktop only for performance */}
             <div className="hidden lg:block absolute top-0 right-0 w-[500px] h-[500px] bg-neonBlue/5 rounded-full blur-[80px] pointer-events-none" />
 

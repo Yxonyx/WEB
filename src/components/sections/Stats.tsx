@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Container } from '../Container';
-import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion';
+import { motion, useInView, useSpring, useTransform } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 
 export const Stats = () => {
@@ -29,34 +29,37 @@ const StatItem = ({ end, suffix, label, sublabel }: { end: number, suffix: strin
     const ref = useRef<HTMLDivElement>(null);
     const isInView = useInView(ref, { once: true, margin: "-50px" });
 
-    const count = useMotionValue(0);
-    const rounded = useTransform(count, (latest) => Math.round(latest));
+    // Physics-based spring animation for smoother counting
+    const springValue = useSpring(0, {
+        stiffness: 40,
+        damping: 15,
+        mass: 1,
+        restDelta: 0.001
+    });
+
+    const displayValue = useTransform(springValue, (latest) => Math.round(latest));
 
     useEffect(() => {
         if (isInView) {
-            const controls = animate(count, end, {
-                duration: 2,
-                ease: "easeOut"
-            });
-            return controls.stop;
+            springValue.set(end);
         }
-    }, [isInView, end, count]);
+    }, [isInView, end, springValue]);
 
     return (
-        <div ref={ref} className="flex flex-col items-center text-center sm:flex-row sm:text-left sm:justify-center gap-3 py-2 md:py-0">
-            <div className="flex items-baseline gap-1">
-                <span className="text-3xl sm:text-4xl font-black text-white tracking-tighter tabular-nums">
-                    <motion.span>{rounded}</motion.span>
+        <div ref={ref} className="flex flex-col items-center justify-center text-center gap-2 py-6 first:pt-0 last:pb-0 md:py-0">
+            <div className="flex items-baseline justify-center gap-0.5">
+                <span className="text-4xl sm:text-5xl font-black text-white tracking-tighter tabular-nums">
+                    <motion.span>{displayValue}</motion.span>
                 </span>
-                <span className="text-neonBlue text-xl sm:text-2xl font-black">
+                <span className="text-neonBlue text-2xl sm:text-3xl font-black">
                     {suffix}
                 </span>
             </div>
-            <div>
-                <p className="text-base font-bold text-white uppercase tracking-widest leading-tight mb-1">
+            <div className="flex flex-col items-center">
+                <p className="text-sm sm:text-base font-bold text-white uppercase tracking-[0.2em] leading-tight">
                     {label}
                 </p>
-                <p className="text-sm text-muted/80 font-medium tracking-wide">
+                <p className="text-xs sm:text-sm text-muted/70 font-medium mt-1">
                     {sublabel}
                 </p>
             </div>

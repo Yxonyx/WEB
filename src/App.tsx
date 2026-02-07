@@ -19,17 +19,53 @@ const Team = lazy(() => import('./components/sections/Team').then(module => ({ d
 const Contact = lazy(() => import('./components/sections/Contact').then(module => ({ default: module.Contact })));
 const Footer = lazy(() => import('./components/sections/Footer').then(module => ({ default: module.Footer })));
 const QuoteSection = lazy(() => import('./components/sections/QuoteSection').then(module => ({ default: module.QuoteSection })));
+const BlogPost = lazy(() => import('./components/pages/BlogPost').then(module => ({ default: module.BlogPost })));
 
 import { CookieBanner } from './components/ui/CookieBanner';
 import { ParticleNetwork } from './components/ui/ParticleNetwork';
-import { LanguageProvider } from './context/LanguageContext';
+import { Helmet } from 'react-helmet-async';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
 // Loading fallback component
-const SectionLoader = () => <div className="w-full h-[50vh] flex items-center justify-center text-muted/30">Loading...</div>;
+const SectionLoader = () => <div className="w-full h-[10vh] animate-pulse bg-transparent"></div>;
 
 const MainContent = () => {
+  const { t, language } = useLanguage();
+  const currentLang = language || 'hu';
+  const metaTitle = ((t('meta.title') as string) || "CyberLabs Web");
+  const metaDesc = ((t('meta.description') as string) || "Custom websites.");
+  const currentUrl = `https://cyberlabsweb.hu/${currentLang}/`;
+
   return (
     <div className="min-h-screen bg-bgDeep text-white selection:bg-neonBlue/30 noise-overlay relative">
+      <Helmet>
+        {/* Basic SEO */}
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDesc} />
+        <link rel="canonical" href={currentUrl} />
+        <html lang={currentLang} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDesc} />
+        <meta property="og:url" content={currentUrl} />
+        <meta property="og:locale" content={currentLang === 'hu' ? 'hu_HU' : 'en_US'} />
+        <meta property="og:site_name" content="CyberLabs Web" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://cyberlabsweb.hu/og/cyberlabs-og.png" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metaTitle} />
+        <meta name="twitter:description" content={metaDesc} />
+        <meta name="twitter:image" content="https://cyberlabsweb.hu/og/cyberlabs-og.png" />
+
+        {/* Hreflang alternates */}
+        <link rel="alternate" hrefLang="hu" href="https://cyberlabsweb.hu/hu/" />
+        <link rel="alternate" hrefLang="en" href="https://cyberlabsweb.hu/en/" />
+        <link rel="alternate" hrefLang="x-default" href="https://cyberlabsweb.hu/hu/" />
+      </Helmet>
+
       <ParticleNetwork />
       <CookieBanner />
       <Navbar />
@@ -59,10 +95,19 @@ const MainContent = () => {
 function App() {
   return (
     <Routes>
+      {/* Blog Route - Specific path first */}
+      <Route path="/:lang/blog/:id" element={
+        <LanguageProvider>
+          <Suspense fallback={<SectionLoader />}>
+            <BlogPost />
+          </Suspense>
+        </LanguageProvider>
+      } />
+
       {/* Redirect root to /hu/ */}
       <Route path="/" element={<Navigate to="/hu/" replace />} />
 
-      {/* Language routes */}
+      {/* Language routes - Catch all */}
       <Route path="/:lang/*" element={
         <LanguageProvider>
           <MainContent />

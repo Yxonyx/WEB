@@ -5,12 +5,33 @@ import { Container } from '../Container';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
+import { useLocation } from 'react-router-dom';
 
 export const Navbar = () => {
     const { t, language, setLanguage } = useLanguage();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileOpen, setIsMobileOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
+    const location = useLocation();
+
+    const isHomePage = location.pathname === `/${language}` || location.pathname === `/${language}/`;
+
+    const getLink = (hash: string) => {
+        if (hash.startsWith('http')) return hash;
+        return isHomePage ? hash : `/${language}/${hash}`;
+    };
+
+    // Handle scroll to hash when navigating from another page
+    useEffect(() => {
+        if (location.hash) {
+            const element = document.getElementById(location.hash.substring(1));
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        }
+    }, [location]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -45,7 +66,7 @@ export const Navbar = () => {
         >
             <Container className="flex items-center justify-between">
                 {/* Logo */}
-                <a href="#" className="flex items-center gap-3 group">
+                <a href={`/${language}/`} className="flex items-center gap-3 group">
                     <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-white to-neonBlue text-black font-bold font-mono text-lg leading-none transition-transform group-hover:scale-105">
                         <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-black/20" />
                         <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-black/20" />
@@ -87,7 +108,7 @@ export const Navbar = () => {
                                     {serviceDropdown.map((item, index) => (
                                         <a
                                             key={index}
-                                            href={item.href}
+                                            href={getLink(item.href)}
                                             className="block px-5 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-all duration-150 border-l-2 border-transparent hover:border-neonBlue"
                                         >
                                             {item.label}
@@ -101,7 +122,7 @@ export const Navbar = () => {
                     {navLinks.map((link) => (
                         <a
                             key={link.label}
-                            href={link.href}
+                            href={getLink(link.href)}
                             className="text-sm font-semibold font-mono text-white/80 hover:text-neonBlue transition-all duration-200 lowercase tracking-widest antialiased"
                             style={{ textRendering: 'geometricPrecision' }}
                         >
@@ -141,7 +162,7 @@ export const Navbar = () => {
                         </button>
                     </div>
 
-                    <Button href="#kapcsolat" variant="primary" className="ml-4 py-2 px-5 text-base">
+                    <Button href={getLink('#kapcsolat')} variant="primary" className="ml-4 py-2 px-5 text-base">
                         {t('nav.cta')}
                     </Button>
                 </nav>
@@ -174,7 +195,7 @@ export const Navbar = () => {
                                     {serviceDropdown.map((item, index) => (
                                         <a
                                             key={index}
-                                            href={item.href}
+                                            href={getLink(item.href)}
                                             onClick={() => setIsMobileOpen(false)}
                                             className="text-base text-white/80 hover:text-neonBlue pl-3 border-l-2 border-white/10 hover:border-neonBlue transition-all"
                                         >
@@ -187,13 +208,13 @@ export const Navbar = () => {
                             {navLinks.map((link) => (
                                 <a
                                     key={link.label}
-                                    href={link.href}
+                                    href={getLink(link.href)}
                                     onClick={() => setIsMobileOpen(false)}
-                                    className="text-lg font-medium text-white hover:text-neonBlue capitalize"
+                                    className="text-lg font-medium text-white hover:text-neonBlue"
                                 >
-                                    <span className="font-mono text-neonBlue/50 mr-2">&lt;</span>
-                                    {link.label}
-                                    <span className="font-mono text-neonBlue/50 ml-2">&gt;</span>
+                                    <span className="font-mono text-neonBlue/50">&lt;</span>
+                                    <span className="mx-1">{link.label}</span>
+                                    <span className="font-mono text-neonBlue/50">&gt;</span>
                                 </a>
                             ))}
 
@@ -220,7 +241,7 @@ export const Navbar = () => {
                                 </button>
                             </div>
 
-                            <Button href="#kapcsolat" variant="primary" className="w-full justify-center mt-4">
+                            <Button href={getLink('#kapcsolat')} variant="primary" className="w-full justify-center mt-4">
                                 {t('nav.cta')}
                             </Button>
                         </Container>

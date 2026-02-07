@@ -2,6 +2,10 @@ export type Language = 'hu' | 'en';
 
 export const translations = {
     hu: {
+        meta: {
+            title: "Céges Weboldal Készítés Garanciával | CyberLabs Web",
+            description: "Nem jön elég ajánlatkérés? Olyan weboldalt építünk, ami elad helyetted. Villámgyors, modern és AI-optimalizált weboldal készítés garanciával."
+        },
         nav: {
             services: "szolgáltatások",
             pricing: "árazás",
@@ -403,6 +407,10 @@ export const translations = {
         }
     },
     en: {
+        meta: {
+            title: "Corporate Website Development in Hungary | CyberLabs Web",
+            description: "Custom website development and maintenance for businesses. Fast, modern, and SEO & AI-optimized solutions with guarantee."
+        },
         nav: {
             services: "services",
             pricing: "pricing",

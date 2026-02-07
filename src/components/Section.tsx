@@ -32,16 +32,14 @@ export const Section: React.FC<SectionProps> = ({
             {withOrbs && (
                 <>
                     <div
-                        className="absolute top-0 right-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] gradient-orb gradient-orb-blue lg:animate-float-slow opacity-30 lg:opacity-40"
+                        className="absolute top-0 right-0 -top-[20%] -right-[20%] w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] gradient-orb gradient-orb-blue lg:animate-float-zigzag opacity-30 lg:opacity-40"
                         style={{
-                            transform: 'translate(20%, -20%)',
                             filter: 'blur(30px)' // Lower blur for mobile
                         }}
                     />
                     <div
-                        className="absolute bottom-0 left-0 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] gradient-orb gradient-orb-purple lg:animate-float-slow opacity-30 lg:opacity-40"
+                        className="absolute bottom-0 left-0 -bottom-[20%] -left-[20%] w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] gradient-orb gradient-orb-purple lg:animate-float-zigzag opacity-30 lg:opacity-40"
                         style={{
-                            transform: 'translate(-20%, 20%)',
                             animationDelay: '-7s',
                             filter: 'blur(30px)' // Lower blur for mobile
                         }}

@@ -23,7 +23,7 @@ const itemVariants: Variants = {
 };
 
 export const ChatbotIntro = () => {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     return (
         <Section id="chatbot-intro" className="section-bg-cyan relative overflow-hidden">
@@ -92,7 +92,7 @@ export const ChatbotIntro = () => {
                                         <p>{t('chatbot_intro.visual.bot_msg_2')} <span className="text-neonBlue font-bold">{t('chatbot_intro.visual.bot_msg_highlight')}</span></p>
 
                                         <div className="mt-3 flex gap-2">
-                                            <button className="px-3 py-1.5 rounded-lg bg-neonBlue/10 text-neonBlue text-sm font-bold hover:bg-neonBlue/20 transition-colors">{t('chatbot_intro.visual.cta')}</button>
+                                            <a href={`/${language}/#kapcsolat`} className="px-3 py-1.5 rounded-lg bg-neonBlue/10 text-neonBlue text-sm font-bold hover:bg-neonBlue/20 transition-colors inline-block">{t('chatbot_intro.visual.cta')}</a>
                                         </div>
                                     </div>
                                 </div>

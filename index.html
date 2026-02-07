@@ -152,13 +152,54 @@
           "@type": "PostalAddress",
           "addressCountry": "HU"
         },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Hungary"
-        },
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "Hungary"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Pest megye"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Fejér megye"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Komárom-Esztergom megye"
+          },
+          {
+            "@type": "City",
+            "name": "Budapest"
+          },
+          {
+            "@type": "City",
+            "name": "Debrecen"
+          },
+          {
+            "@type": "City",
+            "name": "Győr"
+          },
+          {
+            "@type": "City",
+            "name": "Szeged"
+          },
+          {
+            "@type": "City",
+            "name": "Pécs"
+          }
+        ],
         "serviceType": ["Weboldal fejlesztés", "SEO optimalizálás", "GEO pozicionálás", "Weboldal karbantartás"],
         "email": "contact@cyberlabsweb.com",
-        "sameAs": []
+        "telephone": "+36703304445",
+        "sameAs": [
+          "https://www.instagram.com/cyberlabsweb",
+          "https://facebook.com/cyberlabsweb",
+          "https://linkedin.com/company/cyberlabsweb",
+          "https://tiktok.com/@cyberlabsweb",
+          "https://share.google/XmycjQhY3yK7y2R1p"
+        ]
       },
       {
         "@type": "Service",
@@ -189,53 +230,20 @@
   <!-- Voiceflow Chat Widget - Optimized Load -->
   <script type="text/javascript">
     window.addEventListener('load', function () {
-      // 1. Load Voiceflow
-      setTimeout(function () {
-        (function (d, t) {
-          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-          v.onload = function () {
-            window.voiceflow.chat.load({
-              verify: { projectID: '69728b40b960e41275e9bc0b' },
-              url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production',
-              voice: {
-                url: "https://runtime-api.voiceflow.com"
-              }
-            });
-          }
-          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-      }, 3000);
-
-      // 2. Fix Voiceflow Widget causing layout issues
-      // Use MutationObserver to watch for the widget injection
-      const observer = new MutationObserver((mutations) => {
-        const troublesomeDivs = document.querySelectorAll('#voiceflow-chat, #voiceFlow-chat, .vfrc-widget');
-        troublesomeDivs.forEach(div => {
-          // Force fixed positioning to remove it from document flow
-          div.style.position = 'fixed';
-          div.style.zIndex = '9999';
-          div.style.bottom = '20px'; // Ensure it stays actionable
-          div.style.right = '20px';
-
-          // Find the hidden textarea causing the spacing
-          const textarea = div.querySelector('textarea');
-          if (textarea) {
-            textarea.style.display = 'none'; // Completely hide it
-            textarea.style.position = 'fixed';
-          }
-        });
-
-        // Remove empty spacer divs often left by widgets
-        const spacers = document.querySelectorAll('body > div:last-child');
-        spacers.forEach(div => {
-          if (div.offsetHeight === 0 && div.innerHTML === '') {
-            div.style.display = 'none';
-          }
-        });
-      });
-
-      observer.observe(document.body, { childList: true, subtree: true });
+      (function (d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function () {
+          window.voiceflow.chat.load({
+            verify: { projectID: '69728b40b960e41275e9bc0b' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            voice: {
+              url: "https://runtime-api.voiceflow.com"
+            }
+          });
+        }
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
     });
   </script>
 </body>

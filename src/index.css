@@ -267,6 +267,30 @@
   }
 }
 
+@keyframes float-zigzag {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(15px, -15px);
+  }
+
+  50% {
+    transform: translate(-10px, -25px);
+  }
+
+  75% {
+    transform: translate(-20px, 10px);
+  }
+}
+
+.animate-float-zigzag {
+  animation: float-zigzag 20s ease-in-out infinite;
+}
+
 @keyframes pulse-scale {
 
   0%,

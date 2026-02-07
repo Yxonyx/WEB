@@ -4,6 +4,7 @@ import { Section } from '../Section';
 import { Button } from '../ui/Button';
 import { Plus, Minus, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../../context/LanguageContext';
 
 const FAQItem = ({ q, a, defaultOpen = false, index }: { q: string, a: string, defaultOpen?: boolean, index: number }) => {
@@ -53,14 +54,33 @@ const FAQItem = ({ q, a, defaultOpen = false, index }: { q: string, a: string, d
 export const FAQ = () => {
     const { t } = useLanguage();
 
-    // Using mapping to add defaultOpen property if needed, though mostly standard
-    const questions = (t('faq.questions') as unknown as any[]).map((q, i) => ({
+    const rawQuestions = (t('faq.questions') as unknown as any[]);
+
+    const questions = rawQuestions.map((q, i) => ({
         ...q,
-        defaultOpen: i === 0 // Open first item by default
+        defaultOpen: i === 0
     }));
+
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": rawQuestions.map((q: any) => ({
+            "@type": "Question",
+            "name": q.q,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": q.a
+            }
+        }))
+    };
 
     return (
         <Section id="gyik" className="section-bg-purple" withOrbs withMeshGradient>
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify(faqSchema)}
+                </script>
+            </Helmet>
             <Container>
                 <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                     {/* FAQ List - First on mobile, right on desktop */}

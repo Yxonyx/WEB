@@ -67,6 +67,12 @@ export const Footer = () => {
                 <div className="text-sm text-muted2">
                     &copy; {new Date().getFullYear()} CyberLabs Web. {t('footer.rights')}
                 </div>
+
+                {/* SEO: Service Areas - Subtle for users, visible for AI */}
+                <div className="mt-8 pt-8 border-t border-white/5 text-[10px] text-white/10 text-center font-mono leading-relaxed max-w-4xl mx-auto select-none">
+                    <span className="block mb-2 font-bold opacity-50">Kiemelt területek:</span>
+                    Budapest • Pest megye • Debrecen • Szeged • Miskolc • Pécs • Győr • Nyíregyháza • Kecskemét • Székesfehérvár • Szombathely • Érd • Szolnok • Tatabánya • Sopron • Kaposvár • Veszprém • Békéscsaba • Zalaegerszeg • Eger • Nagykanizsa
+                </div>
             </Container>
         </footer>
     );
