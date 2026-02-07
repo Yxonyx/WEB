@@ -1,7 +1,7 @@
 import { Button } from '../ui/Button';
 import { Container } from '../Container';
 import { Section } from '../Section';
-import { motion } from 'framer-motion';
+
 
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -64,12 +64,7 @@ export const Hero = () => {
             <Container className="relative z-10 h-full flex flex-col justify-center">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                     {/* Text Content */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="max-w-2xl text-center lg:text-left"
-                    >
+                    <div className="max-w-2xl text-center lg:text-left">
                         <div className="inline-flex items-center gap-2 mb-6 justify-center lg:justify-start">
                             <span className="text-sm font-mono text-neonBlue uppercase tracking-widest">{t('hero.tag')}</span>
                         </div>
@@ -103,15 +98,10 @@ export const Hero = () => {
                                 {t('hero.cta_secondary')}
                             </Button>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Visual Content - Geometric Composition */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        className="relative hidden lg:block h-[500px]"
-                    >
+                    <div className="relative hidden lg:block h-[500px]">
                         {/* CSS Computer - Monitor & Cable */}
                         <div className="absolute top-10 left-10 right-10 bottom-10 z-10 flex items-center justify-center">
                             <CssComputer />
@@ -124,7 +114,7 @@ export const Hero = () => {
                         {/* Floating Crosses */}
                         <div className="absolute top-1/4 -left-8 text-neonBlue/30 text-4xl font-mono animate-bounce">+</div>
                         <div className="absolute bottom-1/4 -right-8 text-neonPurple/30 text-4xl font-mono animate-bounce delay-700">+</div>
-                    </motion.div>
+                    </div>
                 </div>
             </Container>
         </Section>
