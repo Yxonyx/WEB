@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 
-import { RetroTerminal3D } from '../ui/RetroTerminal3D';
+import { CssComputer } from '../ui/CssComputer';
 
 export const Hero = () => {
     const { t } = useLanguage();
@@ -49,7 +49,7 @@ export const Hero = () => {
                 }}
             />
 
-            {/* Additional decorative orb - Desktop ONLY */}
+            {/* Additional decorative orb - Desktop ONLY */}{/* 
             {isDesktop && (
                 <motion.div
                     className="absolute top-[40%] left-[30%] w-[300px] h-[300px] rounded-full pointer-events-none opacity-30"
@@ -68,13 +68,14 @@ export const Hero = () => {
                     }}
                 />
             )}
+             */}
 
             <Container className="relative z-10 h-full flex flex-col justify-center">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
                     {/* Text Content */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="max-w-2xl text-center lg:text-left"
                     >
@@ -115,16 +116,14 @@ export const Hero = () => {
 
                     {/* Visual Content - Geometric Composition */}
                     <motion.div
-                        initial={{ opacity: 0, x: 100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                         className="relative hidden lg:block h-[500px]"
                     >
-                        {/* 3D Retro Terminal - No Frame */}
-                        <div className="absolute top-10 left-10 right-10 bottom-10 z-10">
-                            {isDesktop && (
-                                <RetroTerminal3D />
-                            )}
+                        {/* CSS Computer - Monitor & Cable */}
+                        <div className="absolute top-10 left-10 right-10 bottom-10 z-10 flex items-center justify-center">
+                            <CssComputer />
                         </div>
 
                         {/* Decorative Elements */}

@@ -9,6 +9,7 @@ export const RetroTerminal3D = () => {
         if (!containerRef.current) return;
 
         const container = containerRef.current;
+        let isVisible = true;
         const width = container.clientWidth || 400;
         const height = container.clientHeight || 300;
 
@@ -22,29 +23,28 @@ export const RetroTerminal3D = () => {
         camera.lookAt(0, 1, 0);
 
         // Renderer - optimized for performance
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // Re-enabled antialiasing for smooth edges
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
         renderer.setSize(width, height);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); // Lower pixel ratio
-        renderer.shadowMap.enabled = false; // Disabled shadows for performance
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+        renderer.shadowMap.enabled = false;
         container.appendChild(renderer.domElement);
 
         // Lighting
-        scene.add(new THREE.AmbientLight(0xffffff, 0.3));
+        scene.add(new THREE.AmbientLight(0xffffff, 0.4)); // Slightly brighter ambient
 
         const keyLight = new THREE.DirectionalLight(0xffffff, 0.8);
         keyLight.position.set(5, 8, 5);
-        keyLight.castShadow = true;
         scene.add(keyLight);
 
         const fillLight = new THREE.DirectionalLight(0x88ccff, 0.4);
         fillLight.position.set(-5, 2, -5);
         scene.add(fillLight);
 
-        const screenGlow = new THREE.PointLight(0x00ff88, 0.8);
+        const screenGlow = new THREE.PointLight(0x00ff88, 0.5); // Reduced intensity
         screenGlow.position.set(0, 2, 2);
         scene.add(screenGlow);
 
-        // Materials
+        // Materials - reused
         const beigePlastic = new THREE.MeshStandardMaterial({
             color: 0xe8e0d0,
             roughness: 0.6,
@@ -126,7 +126,6 @@ export const RetroTerminal3D = () => {
         const baseGeo = new RoundedBoxGeometry(4.5, 0.7, 2.2, 4, 0.15);
         const base = new THREE.Mesh(baseGeo, beigePlastic);
         base.position.set(0, 0.35, 0);
-        base.castShadow = true;
         computerGroup.add(base);
 
         // Keyboard recess
@@ -135,17 +134,38 @@ export const RetroTerminal3D = () => {
         recess.position.set(0, 0.71, 0.2);
         computerGroup.add(recess);
 
-        // Keys
+        // Keys - InstancedMesh optimization
         const keyGeo = new RoundedBoxGeometry(0.22, 0.12, 0.22, 2, 0.03);
+
+        const dummy = new THREE.Object3D();
+        const darkKeysCount = 4 * 14 - 2; // Total - 2 red keys
+        const redKeysCount = 2;
+
+        const darkKeysMesh = new THREE.InstancedMesh(keyGeo, darkPlastic, darkKeysCount);
+        const redKeysMesh = new THREE.InstancedMesh(keyGeo, redKey, redKeysCount);
+
+        let darkIdx = 0;
+        let redIdx = 0;
+
         for (let row = 0; row < 4; row++) {
             for (let col = 0; col < 14; col++) {
                 const isSpecial = (row === 0 && col >= 12);
-                const key = new THREE.Mesh(keyGeo, isSpecial ? redKey : darkPlastic);
-                key.position.set(-1.6 + col * 0.25 + row * 0.08, 0.76, -0.3 + row * 0.32);
-                key.castShadow = true;
-                computerGroup.add(key);
+
+                dummy.position.set(-1.6 + col * 0.25 + row * 0.08, 0.76, -0.3 + row * 0.32);
+                dummy.rotation.set(0, 0, 0);
+                dummy.scale.set(1, 1, 1);
+                dummy.updateMatrix();
+
+                if (isSpecial) {
+                    redKeysMesh.setMatrixAt(redIdx++, dummy.matrix);
+                } else {
+                    darkKeysMesh.setMatrixAt(darkIdx++, dummy.matrix);
+                }
             }
         }
+
+        computerGroup.add(darkKeysMesh);
+        computerGroup.add(redKeysMesh);
 
         // Monitor group
         const monitorGroup = new THREE.Group();
@@ -156,7 +176,6 @@ export const RetroTerminal3D = () => {
         const monitorCaseGeo = new RoundedBoxGeometry(3.2, 2.6, 2.2, 6, 0.2);
         const monitorCase = new THREE.Mesh(monitorCaseGeo, beigePlastic);
         monitorCase.position.y = 1.3;
-        monitorCase.castShadow = true;
         monitorGroup.add(monitorCase);
 
         // Screen bezel
@@ -188,14 +207,21 @@ export const RetroTerminal3D = () => {
 
         const animate = () => {
             animationId = requestAnimationFrame(animate);
-            time += 0.01;
 
-            computerGroup.rotation.y = Math.sin(time * 0.3) * 0.3; // Increased rotation amplitude
-            screenGlow.intensity = 0.8 + Math.sin(time * 2) * 0.2;
-
-            renderer.render(scene, camera);
+            if (isVisible) {
+                time += 0.01;
+                computerGroup.rotation.y = Math.sin(time * 0.3) * 0.3;
+                screenGlow.intensity = 0.8 + Math.sin(time * 2) * 0.2;
+                renderer.render(scene, camera);
+            }
         };
         animate();
+
+        // Intersection Observer to pause rendering when out of view
+        const observer = new IntersectionObserver(([entry]) => {
+            isVisible = entry.isIntersecting;
+        }, { threshold: 0 });
+        observer.observe(container);
 
         // Resize
         const handleResize = () => {
@@ -208,12 +234,27 @@ export const RetroTerminal3D = () => {
         window.addEventListener('resize', handleResize);
 
         return () => {
+            observer.disconnect();
             window.removeEventListener('resize', handleResize);
             cancelAnimationFrame(animationId);
             renderer.dispose();
+            renderer.forceContextLoss(); // Explicit context loss
             if (container.contains(renderer.domElement)) {
                 container.removeChild(renderer.domElement);
             }
+            // Dispose geometries/materials
+            baseGeo.dispose();
+            recessGeo.dispose();
+            keyGeo.dispose();
+            monitorCaseGeo.dispose();
+            bezelGeo.dispose();
+            screenGeo.dispose();
+
+            beigePlastic.dispose();
+            darkPlastic.dispose();
+            redKey.dispose();
+            screenMat.dispose();
+            screenTexture.dispose();
         };
     }, []);
 
