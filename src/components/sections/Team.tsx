@@ -1,6 +1,7 @@
 import { Container } from '../Container';
 import { Section } from '../Section';
 import { motion, type Variants } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -28,32 +29,34 @@ interface TeamMember {
     skills: string[];
 }
 
-const teamMembers: TeamMember[] = [
-    {
-        id: "SOMA",
-        name: "Vlaszaty Soma",
-        role: "STRATEGIST",
-        image: "/images/vlaszaty-soma.webp",
-        phone: "+36 70 330 4445",
-        skills: ["Koordináció", "Ügyfélkapcsolat", "Határidők_check"]
-    },
-    {
-        id: "BENI",
-        name: "Szappanos Benedek",
-        role: "FRONTEND_DEV",
-        image: "/images/beni.webp",
-        skills: ["UI/UX_Design", "React_Components", "Responsive_Web"]
-    },
-    {
-        id: "JONI",
-        name: "Kaiser Jonatán",
-        role: "DEVELOPER",
-        image: "/images/kaiser-jonatan.webp",
-        skills: ["System_Architecture", "Frontend_UI", "Backend_API"]
-    }
-];
-
 export const Team = () => {
+    const { t } = useLanguage();
+
+    const teamMembers: TeamMember[] = [
+        {
+            id: "SOMA",
+            name: "Vlaszaty Soma",
+            role: t('team.roles.STRATEGIST'),
+            image: "/images/vlaszaty soma.webp",
+            phone: "+36 70 330 4445",
+            skills: [t('team.skills.coord'), t('team.skills.client'), t('team.skills.deadline')]
+        },
+        {
+            id: "BENI",
+            name: "Szappanos Benedek",
+            role: t('team.roles.FRONTEND_DEV'),
+            image: "/images/beni.webp",
+            skills: [t('team.skills.uiux'), t('team.skills.reacts'), t('team.skills.resp')]
+        },
+        {
+            id: "JONI",
+            name: "Kaiser Jonatán",
+            role: t('team.roles.DEVELOPER'),
+            image: "/images/kaiser-jonatan.webp",
+            skills: [t('team.skills.arch'), t('team.skills.frontend'), t('team.skills.backend')]
+        }
+    ];
+
     return (
         <Section id="csapat" className="bg-gradient-to-b from-surface/30 to-bg">
             <Container>
@@ -78,7 +81,7 @@ export const Team = () => {
                                 <div className="absolute -bottom-px -left-px w-3 h-3 border-b-2 border-l-2 border-neonPurple" />
                                 {/* Header Bar */}
                                 <div className="flex items-center justify-between px-4 py-2 border-b border-white/5 bg-black/30">
-                                    <span className="font-mono text-sm text-muted2">AZONOSÍTÓ: {member.id}</span>
+                                    <span className="font-mono text-sm text-muted2">ID: {member.id}</span>
                                     <div className="w-2 h-2 rounded-full bg-neonBlue animate-pulse" />
                                 </div>
 

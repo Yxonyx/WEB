@@ -10,18 +10,16 @@ export const ParticleNetwork = () => {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        // Mobile detection
-        const isMobile = window.innerWidth < 1024 || 'ontouchstart' in window;
-
         let particles: Particle[] = [];
         let animationFrameId: number;
-        let mouse = { x: -1000, y: -1000 };
-        let frameCount = 0;
+        let canvasWidth = window.innerWidth;
+        let canvasHeight = window.innerHeight;
 
-        const fitCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
+        const isMobile = canvasWidth < 768;
+        const particleCount = isMobile ? 30 : 60; // 30 on mobile, 60 on desktop
+
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
 
         class Particle {
             x: number;
@@ -29,15 +27,19 @@ export const ParticleNetwork = () => {
             vx: number;
             vy: number;
             size: number;
+            color: string;
+            opacity: number;
 
             constructor() {
-                this.x = Math.random() * canvas!.width;
-                this.y = Math.random() * canvas!.height;
-                // Slower movement on mobile
-                const speed = isMobile ? 0.3 : 0.5;
-                this.vx = (Math.random() - 0.5) * speed;
-                this.vy = (Math.random() - 0.5) * speed;
+                this.x = Math.random() * canvasWidth;
+                this.y = Math.random() * canvasHeight;
+                this.vx = (Math.random() - 0.5) * 0.5; // Slightly faster
+                this.vy = (Math.random() - 0.5) * 0.5;
                 this.size = Math.random() * 2 + 1;
+                this.opacity = Math.random() * 0.5 + 0.1;
+                this.color = Math.random() > 0.5
+                    ? `rgba(0, 240, 255, ${this.opacity})` // Cyan
+                    : `rgba(189, 0, 255, ${this.opacity})`; // Purple
             }
 
             update() {
@@ -45,24 +47,20 @@ export const ParticleNetwork = () => {
                 this.y += this.vy;
 
                 // Bounce off edges
-                if (this.x < 0 || this.x > canvas!.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas!.height) this.vy *= -1;
+                if (this.x < 0 || this.x > canvasWidth) this.vx *= -1;
+                if (this.y < 0 || this.y > canvasHeight) this.vy *= -1;
             }
 
             draw() {
                 if (!ctx) return;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(0, 240, 255, 0.5)'; // Neon Blue
+                ctx.fillStyle = this.color;
                 ctx.fill();
             }
         }
 
         const initParticles = () => {
-            // Mobile: 15 particles, Desktop: up to 50
-            const particleCount = isMobile
-                ? Math.min(Math.floor(window.innerWidth / 50), 15)
-                : Math.min(Math.floor(window.innerWidth / 25), 50);
             particles = [];
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
@@ -70,97 +68,42 @@ export const ParticleNetwork = () => {
         };
 
         const animate = () => {
-            if (!canvas || !ctx) return;
+            ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-            frameCount++;
-
-            // Mobile: skip every other frame for performance (30fps instead of 60fps)
-            if (isMobile && frameCount % 2 !== 0) {
-                animationFrameId = requestAnimationFrame(animate);
-                return;
-            }
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Update and draw particles
             particles.forEach(particle => {
                 particle.update();
                 particle.draw();
             });
 
-            // Connection distance: shorter on mobile
-            const connectionDistance = isMobile ? 80 : 120;
-
-            // Draw connections between particles
-            particles.forEach((a, index) => {
-                for (let i = index + 1; i < particles.length; i++) {
-                    const b = particles[i];
-                    const dx = a.x - b.x;
-                    const dy = a.y - b.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < connectionDistance) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(0, 240, 255, ${0.1 * (1 - distance / connectionDistance)})`;
-                        ctx.lineWidth = 1;
-                        ctx.moveTo(a.x, a.y);
-                        ctx.lineTo(b.x, b.y);
-                        ctx.stroke();
-                    }
-                }
-            });
-
-            // Mouse interaction - only on desktop (no mouse on touch devices)
-            if (!isMobile) {
-                particles.forEach((a) => {
-                    const dx = a.x - mouse.x;
-                    const dy = a.y - mouse.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 150) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(189, 0, 255, ${0.15 * (1 - distance / 150)})`; // Neon Purple for interaction
-                        ctx.lineWidth = 1;
-                        ctx.moveTo(a.x, a.y);
-                        ctx.lineTo(mouse.x, mouse.y);
-                        ctx.stroke();
-
-                        // Gentle attraction to mouse
-                        if (distance > 50) {
-                            a.x -= dx * 0.005;
-                            a.y -= dy * 0.005;
-                        }
-                    }
-                });
-            }
-
             animationFrameId = requestAnimationFrame(animate);
         };
 
-        const handleMouseMove = (event: MouseEvent) => {
-            mouse.x = event.clientX;
-            mouse.y = event.clientY;
+        let resizeTimeout: ReturnType<typeof setTimeout>;
+        const handleResize = () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                canvasWidth = window.innerWidth;
+                canvasHeight = window.innerHeight;
+                canvas.width = canvasWidth;
+                canvas.height = canvasHeight;
+                initParticles();
+            }, 200);
         };
 
-        window.addEventListener('resize', () => {
-            fitCanvas();
-            initParticles();
-        });
-        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('resize', handleResize);
 
-        fitCanvas();
         initParticles();
         animate();
 
         return () => {
-            window.removeEventListener('resize', fitCanvas);
-            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('resize', handleResize);
             cancelAnimationFrame(animationFrameId);
+            clearTimeout(resizeTimeout);
         };
     }, []);
 
     return (
-        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" style={{ height: '100vh', width: '100vw' }}>
+        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden h-screen w-full">
             <canvas
                 ref={canvasRef}
                 className="absolute inset-0 opacity-40 mix-blend-screen"
@@ -172,3 +115,4 @@ export const ParticleNetwork = () => {
         </div>
     );
 };
+

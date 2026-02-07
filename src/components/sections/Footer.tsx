@@ -1,6 +1,7 @@
 
 import { Container } from '../Container';
 import { Instagram, Facebook, Linkedin } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 // Custom TikTok icon since lucide doesn't have it
 const TikTokIcon = () => (
@@ -10,18 +11,20 @@ const TikTokIcon = () => (
 );
 
 export const Footer = () => {
+    const { t } = useLanguage();
+
     const socialLinks = [
-        { icon: Instagram, href: "https://www.instagram.com/cyberlabs", label: "Instagram" },
-        { icon: Facebook, href: "https://facebook.com/cyberlabs", label: "Facebook" },
-        { icon: Linkedin, href: "https://linkedin.com/company/cyberlabs", label: "LinkedIn" },
-        { icon: TikTokIcon, href: "https://tiktok.com/@cyberlabs", label: "TikTok" },
+        { icon: Instagram, href: "https://www.instagram.com/cyberlabsweb", label: "Instagram" },
+        { icon: Facebook, href: "https://facebook.com/cyberlabsweb", label: "Facebook" },
+        { icon: Linkedin, href: "https://linkedin.com/company/cyberlabsweb", label: "LinkedIn" },
+        { icon: TikTokIcon, href: "https://tiktok.com/@cyberlabsweb", label: "TikTok" },
     ];
 
     return (
         <footer className="py-12 border-t border-white/5 bg-black">
             <Container className="text-center">
                 <div className="flex items-center justify-center gap-2 mb-6 opacity-80">
-                    <div className="font-mono font-bold text-white text-xl">Cyberlabs</div>
+                    <div className="font-mono font-bold text-white text-xl">CyberLabs Web</div>
                 </div>
 
                 {/* Social Media Icons */}
@@ -45,20 +48,24 @@ export const Footer = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-muted mb-8 text-base">
-                    <span>Inkább hívnál?</span>
+                    <span>{t('footer.call')}</span>
                     <a href="tel:+36703304445" className="text-white hover:text-neonBlue transition-colors font-mono">
                         +36 70 330 4445
+                    </a>
+                    <span className="hidden sm:inline opacity-30">|</span>
+                    <a href="mailto:contact@cyberlabsweb.com" className="text-white hover:text-neonBlue transition-colors font-mono">
+                        contact@cyberlabsweb.com
                     </a>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-muted2 mb-6">
-                    <a href="/aszf.html" className="hover:text-neonBlue transition-colors">ÁSZF</a>
+                    <a href="/aszf.html" className="hover:text-neonBlue transition-colors">{t('footer.terms')}</a>
                     <span className="opacity-30">|</span>
-                    <a href="/adatvedelem.html" className="hover:text-neonBlue transition-colors">Adatvédelem</a>
+                    <a href="/adatvedelem.html" className="hover:text-neonBlue transition-colors">{t('footer.privacy')}</a>
                 </div>
 
                 <div className="text-sm text-muted2">
-                    &copy; {new Date().getFullYear()} Cyberlabs. Minden jog fenntartva.
+                    &copy; {new Date().getFullYear()} CyberLabs Web. {t('footer.rights')}
                 </div>
             </Container>
         </footer>

@@ -13,6 +13,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
 
   <!-- ✅ Basic SEO -->
   <title>Céges Weboldal Készítés Garanciával | Szerezz Több Vevőt | CyberLabsWeb</title>
@@ -41,7 +42,7 @@
 
   <!-- ✅ Open Graph (Facebook, LinkedIn, Messenger, etc.) -->
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="CyberlabsWeb">
+  <meta property="og:site_name" content="CyberLabs Web">
   <meta property="og:title" content="Céges Weboldal Készítés Garanciával | Szerezz Több Vevőt | CyberLabsWeb">
   <meta property="og:description"
     content="Nem jön elég ajánlatkérés? Olyan weboldalt építünk, ami elad helyetted. Villámgyors, modern és AI-optimalizált weboldal készítés garanciával.">
@@ -50,11 +51,11 @@
   <meta property="og:image:secure_url" content="https://cyberlabsweb.hu/og/cyberlabs-og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Cyberlabs – Vevőszerző Weboldal Készítés Garanciával">
+  <meta property="og:image:alt" content="CyberLabs Web – Vevőszerző Weboldal Készítés Garanciával">
 
   <!-- ✅ Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Céges Weboldal Készítés Garanciával | CyberLabs">
+  <meta name="twitter:title" content="Céges Weboldal Készítés Garanciával | CyberLabs Web">
   <meta name="twitter:description"
     content="Nem jön elég ajánlatkérés? Olyan weboldalt építünk, ami elad helyetted. Garanciával.">
   <meta name="twitter:image" content="https://cyberlabsweb.hu/og/cyberlabs-og.png">
@@ -75,7 +76,6 @@
   <!-- ✅ Performance hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 
   <!-- ✅ Structured Data (JSON-LD) - Enhanced for Google Image Search -->
   <script type="application/ld+json">
@@ -85,8 +85,8 @@
       {
         "@type": "Organization",
         "@id": "https://cyberlabsweb.hu/#organization",
-        "name": "Cyberlabs",
-        "alternateName": "Cyberlabs Digital Studio",
+        "name": "CyberLabs Web",
+        "alternateName": "CyberLabs Web Digital Studio",
         "url": "https://cyberlabsweb.hu/",
         "logo": {
           "@type": "ImageObject",
@@ -95,7 +95,7 @@
           "contentUrl": "https://cyberlabsweb.hu/og/cyberlabs-og.png",
           "width": 1200,
           "height": 630,
-          "caption": "Cyberlabs - Webfejlesztés és SEO Magyarország"
+          "caption": "CyberLabs Web - Webfejlesztés és SEO Magyarország"
         },
         "image": {
           "@id": "https://cyberlabsweb.hu/#logo"
@@ -110,7 +110,7 @@
         "@type": "WebSite",
         "@id": "https://cyberlabsweb.hu/#website",
         "url": "https://cyberlabsweb.hu/",
-        "name": "Cyberlabs",
+        "name": "CyberLabs Web",
         "description": "Céges weboldal készítés, SEO és GEO optimalizálás magyar KKV-knak",
         "publisher": {
           "@id": "https://cyberlabsweb.hu/#organization"
@@ -121,7 +121,7 @@
         "@type": "WebPage",
         "@id": "https://cyberlabsweb.hu/#webpage",
         "url": "https://cyberlabsweb.hu/",
-        "name": "Céges weboldal készítés KKV-knak | SEO + GEO | Cyberlabs",
+        "name": "Céges weboldal készítés KKV-knak | SEO + GEO | CyberLabs Web",
         "description": "Modern, villámgyors céges weboldal fejlesztés és karbantartás magyar KKV-knak. Technikai SEO + GEO, hogy Google-ben és AI-találatokban is megtaláljanak.",
         "isPartOf": {
           "@id": "https://cyberlabsweb.hu/#website"
@@ -137,8 +137,8 @@
       {
         "@type": "LocalBusiness",
         "@id": "https://cyberlabsweb.hu/#business",
-        "name": "Cyberlabs",
-        "alternateName": "Cyberlabs Digital Studio",
+        "name": "CyberLabs Web",
+        "alternateName": "CyberLabs Web Digital Studio",
         "description": "Modern, villámgyors céges weboldal fejlesztés és karbantartás. Technikai SEO + GEO, hogy Google-ben és AI-találatokban is megtaláljanak.",
         "url": "https://cyberlabsweb.hu/",
         "logo": {
@@ -157,6 +157,7 @@
           "name": "Hungary"
         },
         "serviceType": ["Weboldal fejlesztés", "SEO optimalizálás", "GEO pozicionálás", "Weboldal karbantartás"],
+        "email": "contact@cyberlabsweb.com",
         "sameAs": []
       },
       {
@@ -184,29 +185,59 @@
 
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
-</body>
 
-<!-- Voiceflow Chat Widget -->
-<script type="text/javascript">
-  // Defer Voiceflow loading to unblock Main Thread
-  window.addEventListener('load', function () {
-    setTimeout(function () {
-      (function (d, t) {
-        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        v.onload = function () {
-          window.voiceflow.chat.load({
-            verify: { projectID: '69728b40b960e41275e9bc0b' },
-            url: 'https://general-runtime.voiceflow.com',
-            versionID: 'production',
-            voice: {
-              url: "https://runtime-api.voiceflow.com"
-            }
-          });
-        }
-        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-      })(document, 'script');
-    }, 3000); // 3 second delay allows the site to become interactive first
-  });
-</script>
+  <!-- Voiceflow Chat Widget - Optimized Load -->
+  <script type="text/javascript">
+    window.addEventListener('load', function () {
+      // 1. Load Voiceflow
+      setTimeout(function () {
+        (function (d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function () {
+            window.voiceflow.chat.load({
+              verify: { projectID: '69728b40b960e41275e9bc0b' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production',
+              voice: {
+                url: "https://runtime-api.voiceflow.com"
+              }
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+      }, 3000);
+
+      // 2. Fix Voiceflow Widget causing layout issues
+      // Use MutationObserver to watch for the widget injection
+      const observer = new MutationObserver((mutations) => {
+        const troublesomeDivs = document.querySelectorAll('#voiceflow-chat, #voiceFlow-chat, .vfrc-widget');
+        troublesomeDivs.forEach(div => {
+          // Force fixed positioning to remove it from document flow
+          div.style.position = 'fixed';
+          div.style.zIndex = '9999';
+          div.style.bottom = '20px'; // Ensure it stays actionable
+          div.style.right = '20px';
+
+          // Find the hidden textarea causing the spacing
+          const textarea = div.querySelector('textarea');
+          if (textarea) {
+            textarea.style.display = 'none'; // Completely hide it
+            textarea.style.position = 'fixed';
+          }
+        });
+
+        // Remove empty spacer divs often left by widgets
+        const spacers = document.querySelectorAll('body > div:last-child');
+        spacers.forEach(div => {
+          if (div.offsetHeight === 0 && div.innerHTML === '') {
+            div.style.display = 'none';
+          }
+        });
+      });
+
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  </script>
+</body>
 
 </html>

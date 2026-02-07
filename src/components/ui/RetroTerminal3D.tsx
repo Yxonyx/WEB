@@ -85,11 +85,11 @@ export const RetroTerminal3D = () => {
             ctx.textAlign = 'left';
 
             const lines = [
-                '> Cyberlabs Terminal v2.1',
+                '> CyberLabs Web Terminal v2.1',
                 '> Initializing system...',
                 '',
                 '╔════════════════════════════════════╗',
-                '║        CYBERLABS DIGITAL STUDIO    ║',
+                '║        CYBERLABS WEB DIGITAL STUDIO    ║',
                 '╚════════════════════════════════════╝',
                 '',
                 '> services.load()',

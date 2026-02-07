@@ -2,6 +2,7 @@ import { Container } from '../Container';
 import { Section } from '../Section';
 import { BracketFrame } from '../ui/BracketFrame';
 import { motion, type Variants } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -22,14 +23,16 @@ const itemVariants: Variants = {
 };
 
 const projects = [
-    { id: 1, name: "Projekt 01", image: "/images/project-1.gif" },
-    { id: 2, name: "Projekt 02", image: "/images/portfolio-2.webp" },
-    { id: 3, name: "Projekt 03", image: "/images/portfolio-3.png" }
+    { id: 1, name: "Projekt 01", image: "/images/projekt1.webp", type: "image" },
+    { id: 2, name: "Projekt 02", image: "/images/portfolio-2.webp", type: "image" },
+    { id: 3, name: "Projekt 03", image: "/images/portfolio3.webp", type: "image" }
 ];
 
 export const Portfolio = () => {
+    const { t } = useLanguage();
+
     return (
-        <Section id="referenciak" className="overflow-visible">
+        <Section id="referenciak" className="overflow-visible section-bg-mixed" withOrbs withMeshGradient>
             <Container>
                 <motion.div
                     className="mb-12"
@@ -38,8 +41,8 @@ export const Portfolio = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
                 >
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Referenciák</h2>
-                    <p className="text-white/80 text-lg font-medium">Modern weboldalak, amik eredményt hoznak.</p>
+                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t('portfolio.title')}</h2>
+                    <p className="text-white/80 text-lg font-medium">{t('portfolio.subtitle')}</p>
                 </motion.div>
 
                 <motion.div
@@ -55,14 +58,27 @@ export const Portfolio = () => {
                                 <div className="aspect-video bg-gradient-to-br from-surface2 to-surface rounded-lg mb-6 relative overflow-hidden group-hover:shadow-lg group-hover:shadow-neonBlue/20 transition-all">
                                     {project.image ? (
                                         <>
-                                            <img
-                                                src={project.image}
-                                                alt={project.name}
-                                                width={800}
-                                                height={600}
-                                                loading="lazy"
-                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                            />
+                                            {project.type === 'video' ? (
+                                                <video
+                                                    src={project.image}
+                                                    width={800}
+                                                    height={600}
+                                                    autoPlay
+                                                    loop
+                                                    muted
+                                                    playsInline
+                                                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                                                />
+                                            ) : (
+                                                <img
+                                                    src={project.image}
+                                                    alt={project.name}
+                                                    width={800}
+                                                    height={600}
+                                                    loading="lazy"
+                                                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                                                />
+                                            )}
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                                         </>
                                     ) : (

@@ -217,3 +217,26 @@ xl: 1280px
 ## 📄 Licenc
 
 MIT License
+
+---
+
+# 🆕 Legutóbbi Fejlesztések (2026.02)
+
+## 1. Particle Network (Kiber-por)
+Könnyűsúlyú, Canvas-alapú háttér részecske animáció.
+- **Teljesítmény:** GPU gyorsított, nincs DOM manipuláció.
+- **Adaptív:** Mobilon 30, Desktopon 60 részecske a stabil 60 FPS érdekében.
+- **Stílus:** Finom "kiber-por" hatás, ami életet visz a sötét terekbe.
+
+## 2. Kontraszt és Olvashatóság
+- **Világosabb szövegek:** `text-muted` (72% -> 85%) és `text-muted2` (55% -> 65%) átlátszatlanság növelése.
+- **Sötétebb panelek:** `bg-surface/98` használata a jobb szövegkontraszt érdekében az üveghatású kártyákon.
+- **Színesebb hátterek:** `section-bg-mixed`, `withOrbs` és `withMeshGradient` használata több szekciónál (GYIK, Árazás, Referenciák), hogy csökkentsük az "üres fekete" érzetet.
+
+## 3. Animáció Simítás
+- **Stats Counter:** `setInterval` helyett Framer Motion `useMotionValue` és `animate` hookok a vajpuha számlálóért.
+- **Görgetés:** A részecske animációk intelligensen kezelik a görgetést a teljesítmény megőrzése érdekében.
+
+## 4. Self-hosted Fontok
+- **Outfit Font:** Google Fonts helyett lokálisan hosztolt betűtípusok (`/fonts` mappa) a gyorsabb betöltés és GDPR megfelelés érdekében.
+

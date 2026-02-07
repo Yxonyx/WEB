@@ -3,6 +3,7 @@ import { Section } from '../Section';
 import { ShieldCheck, Zap, RefreshCw, CheckCircle2 } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 import { BracketFrame } from '../ui/BracketFrame';
+import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -22,10 +23,12 @@ const itemVariants: Variants = {
 };
 
 export const Maintenance = () => {
+    const { t } = useLanguage();
+
     return (
-        <Section id="karbantartas" className="relative overflow-hidden">
+        <Section id="karbantartas" className="section-bg-purple relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-neonPurple/5 rounded-full blur-[120px] pointer-events-none -translate-y-1/2" />
+            <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-neonPurple/5 rounded-full blur-[80px] pointer-events-none -translate-y-1/2" />
 
             <Container>
                 <motion.div
@@ -49,12 +52,12 @@ export const Maintenance = () => {
                                             <RefreshCw size={16} />
                                         </div>
                                         <div className="hidden sm:block">
-                                            <div className="font-bold text-white text-base">Rendszer</div>
-                                            <div className="text-[10px] text-muted">Frissítések</div>
+                                            <div className="font-bold text-white text-base">{t('maintenance_sec.dashboard.updates.title')}</div>
+                                            <div className="text-[10px] text-muted">{t('maintenance_sec.dashboard.updates.sub')}</div>
                                         </div>
-                                        <div className="sm:hidden font-bold text-white text-base">Frissítések</div>
+                                        <div className="sm:hidden font-bold text-white text-base">{t('maintenance_sec.dashboard.updates.sub')}</div>
                                     </div>
-                                    <span className="text-sm text-neonBlue font-mono bg-neonBlue/5 px-2 py-1 rounded border border-neonBlue/10">Naprakész</span>
+                                    <span className="text-sm text-neonBlue font-mono bg-neonBlue/5 px-2 py-1 rounded border border-neonBlue/10">{t('maintenance_sec.dashboard.updates.tag')}</span>
                                 </div>
 
                                 {/* Item 2: Biztonság */}
@@ -64,12 +67,12 @@ export const Maintenance = () => {
                                             <ShieldCheck size={16} />
                                         </div>
                                         <div className="hidden sm:block">
-                                            <div className="font-bold text-white text-base">Védelem</div>
-                                            <div className="text-[10px] text-muted">Biztonság</div>
+                                            <div className="font-bold text-white text-base">{t('maintenance_sec.dashboard.security.title')}</div>
+                                            <div className="text-[10px] text-muted">{t('maintenance_sec.dashboard.security.sub')}</div>
                                         </div>
-                                        <div className="sm:hidden font-bold text-white text-base">Biztonság</div>
+                                        <div className="sm:hidden font-bold text-white text-base">{t('maintenance_sec.dashboard.security.sub')}</div>
                                     </div>
-                                    <span className="text-sm text-neonPurple font-mono bg-neonPurple/5 px-2 py-1 rounded border border-neonPurple/10">Aktív</span>
+                                    <span className="text-sm text-neonPurple font-mono bg-neonPurple/5 px-2 py-1 rounded border border-neonPurple/10">{t('maintenance_sec.dashboard.security.tag')}</span>
                                 </div>
 
                                 {/* Item 3: Mentések */}
@@ -79,12 +82,12 @@ export const Maintenance = () => {
                                             <CheckCircle2 size={16} />
                                         </div>
                                         <div className="hidden sm:block">
-                                            <div className="font-bold text-white text-base">Adatbázis</div>
-                                            <div className="text-[10px] text-muted">Mentések</div>
+                                            <div className="font-bold text-white text-base">{t('maintenance_sec.dashboard.backup.title')}</div>
+                                            <div className="text-[10px] text-muted">{t('maintenance_sec.dashboard.backup.sub')}</div>
                                         </div>
-                                        <div className="sm:hidden font-bold text-white text-base">Mentések</div>
+                                        <div className="sm:hidden font-bold text-white text-base">{t('maintenance_sec.dashboard.backup.sub')}</div>
                                     </div>
-                                    <span className="text-sm text-green-500 font-mono bg-green-500/5 px-2 py-1 rounded border border-green-500/10">Napi</span>
+                                    <span className="text-sm text-green-500 font-mono bg-green-500/5 px-2 py-1 rounded border border-green-500/10">{t('maintenance_sec.dashboard.backup.tag')}</span>
                                 </div>
 
                                 {/* Item 4: Sebesség */}
@@ -94,10 +97,10 @@ export const Maintenance = () => {
                                             <Zap size={16} />
                                         </div>
                                         <div className="hidden sm:block">
-                                            <div className="font-bold text-white text-base">Teljesítmény</div>
-                                            <div className="text-[10px] text-muted">Sebesség</div>
+                                            <div className="font-bold text-white text-base">{t('maintenance_sec.dashboard.speed.title')}</div>
+                                            <div className="text-[10px] text-muted">{t('maintenance_sec.dashboard.speed.sub')}</div>
                                         </div>
-                                        <div className="sm:hidden font-bold text-white text-base">Sebesség</div>
+                                        <div className="sm:hidden font-bold text-white text-base">{t('maintenance_sec.dashboard.speed.sub')}</div>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="h-1.5 w-16 bg-surface rounded-full overflow-hidden">
@@ -115,18 +118,14 @@ export const Maintenance = () => {
                         <div className="w-12 h-12 rounded-xl bg-neonPurple/10 flex items-center justify-center mb-6 text-neonPurple">
                             <ShieldCheck size={24} />
                         </div>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Karbantartás & Stabilitás</h2>
+                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">{t('maintenance_sec.content.title')}</h2>
                         <p className="text-white/80 text-lg mb-8 leading-relaxed font-medium">
-                            Frissítések, mentések, biztonság, sebesség-ellenőrzés, javítások. Hogy a weboldalad évek múlva is ugyanolyan gyors és megbízható legyen, mint az első napon.
+                            {t('maintenance_sec.content.desc')}
                         </p>
 
-                        <div className="mb-4 text-base font-bold text-white uppercase tracking-wider">Miért kell ez neked?</div>
+                        <div className="mb-4 text-base font-bold text-white uppercase tracking-wider">{t('maintenance_sec.content.benefits_title')}</div>
                         <ul className="space-y-3">
-                            {[
-                                "ne törjön el semmi frissítés után",
-                                "ne lassuljon be az oldal",
-                                "biztonságban legyen az adatállomány"
-                            ].map((item, i) => (
+                            {(t('maintenance_sec.content.benefits') as unknown as string[]).map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-white/80">
                                     <CheckCircle2 className="w-4 h-4 text-neonPurple shrink-0" />
                                     <span>{item}</span>

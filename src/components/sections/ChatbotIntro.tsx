@@ -3,6 +3,7 @@ import { Section } from '../Section';
 import { Bot, CheckCircle2 } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 import { BracketFrame } from '../ui/BracketFrame';
+import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -22,8 +23,10 @@ const itemVariants: Variants = {
 };
 
 export const ChatbotIntro = () => {
+    const { t } = useLanguage();
+
     return (
-        <Section id="chatbot-intro" className="relative overflow-hidden">
+        <Section id="chatbot-intro" className="section-bg-cyan relative overflow-hidden">
             <Container>
                 <motion.div
                     className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
@@ -37,19 +40,14 @@ export const ChatbotIntro = () => {
                         <div className="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center mb-6 text-neonBlue">
                             <Bot size={24} />
                         </div>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">AI Chatbot Asszisztens</h2>
+                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">{t('chatbot_intro.content.title')}</h2>
                         <p className="text-white/90 text-lg mb-8 leading-relaxed font-medium">
-                            Weboldalba integrált, értékesítést segítő intelligens asszisztens. Nem alszik, nem megy szabadságra, és azonnal válaszol a látogatóid kérdéseire.
+                            {t('chatbot_intro.content.desc')}
                         </p>
 
-                        <div className="mb-4 text-sm font-bold text-white uppercase tracking-wider">Mit ad a vállalkozásodnak?</div>
+                        <div className="mb-4 text-sm font-bold text-white uppercase tracking-wider">{t('chatbot_intro.content.benefits_title')}</div>
                         <ul className="space-y-3">
-                            {[
-                                "Azonnali válaszok 0-24 órában",
-                                "Tehermentesíti az ügyfélszolgálatot",
-                                "Automatikusan gyűjti az érdeklődők adatait (Lead generálás)",
-                                "Ajánlatkérés felé tereli a látogatót"
-                            ].map((item, i) => (
+                            {(t('chatbot_intro.content.benefits') as unknown as string[]).map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-muted">
                                     <CheckCircle2 className="w-4 h-4 text-neonBlue shrink-0" />
                                     <span>{item}</span>
@@ -68,8 +66,8 @@ export const ChatbotIntro = () => {
                                         <Bot size={20} className="text-white" />
                                     </div>
                                     <div>
-                                        <div className="text-white font-bold">Cyberlabs AI</div>
-                                        <div className="text-sm text-neonBlue">Mindig elérhető asszisztens</div>
+                                        <div className="text-white font-bold">{t('chatbot_intro.visual.header_title')}</div>
+                                        <div className="text-sm text-neonBlue">{t('chatbot_intro.visual.header_sub')}</div>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +79,7 @@ export const ChatbotIntro = () => {
                                         <span className="text-sm font-bold text-white">U</span>
                                     </div>
                                     <div className="bg-white/5 border border-white/10 rounded-2xl rounded-tl-none p-3 text-sm text-white max-w-[80%]">
-                                        Mikor vagytok nyitva? És mennyi idő egy weboldal?
+                                        {t('chatbot_intro.visual.user_msg')}
                                     </div>
                                 </div>
 
@@ -90,11 +88,11 @@ export const ChatbotIntro = () => {
                                         <Bot size={16} className="text-white" />
                                     </div>
                                     <div className="bg-surface2 border border-neonBlue/20 rounded-2xl rounded-tr-none p-4 text-sm text-white max-w-[90%] shadow-lg">
-                                        <p className="mb-2">Hétköznap 9-17 óráig vagyunk elérhetőek.</p>
-                                        <p>Egy landing page jellemzően 5-7 munkanap, komplett weboldal 2 hét alatt készül el. <span className="text-neonBlue font-bold">Kérsz egy ingyenes tesztoldalt?</span></p>
+                                        <p className="mb-2">{t('chatbot_intro.visual.bot_msg_1')}</p>
+                                        <p>{t('chatbot_intro.visual.bot_msg_2')} <span className="text-neonBlue font-bold">{t('chatbot_intro.visual.bot_msg_highlight')}</span></p>
 
                                         <div className="mt-3 flex gap-2">
-                                            <button className="px-3 py-1.5 rounded-lg bg-neonBlue/10 text-neonBlue text-sm font-bold hover:bg-neonBlue/20 transition-colors">Igen, érdekel!</button>
+                                            <button className="px-3 py-1.5 rounded-lg bg-neonBlue/10 text-neonBlue text-sm font-bold hover:bg-neonBlue/20 transition-colors">{t('chatbot_intro.visual.cta')}</button>
                                         </div>
                                     </div>
                                 </div>

@@ -4,17 +4,10 @@ import { Button } from '../ui/Button';
 import { Container } from '../Container';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const serviceDropdown = [
-    { label: 'Weboldal készítés', href: '#arazas' },
-    { label: 'Webshop készítés', href: '#arazas' },
-    { label: 'SEO optimalizálás', href: '#szolgaltatasok' },
-    { label: 'AI-találhatóság (GEO)', href: '#geo' },
-    { label: 'Weboldal karbantartás', href: '#karbantartas' },
-    { label: 'AI Chatbot', href: '#chatbot-intro' },
-];
+import { useLanguage } from '../../context/LanguageContext';
 
 export const Navbar = () => {
+    const { t, language, setLanguage } = useLanguage();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileOpen, setIsMobileOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -27,18 +20,27 @@ export const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const serviceDropdown = [
+        { label: t('nav.dropdown.webdev'), href: '#arazas' },
+        { label: t('nav.dropdown.webshop'), href: '#arazas' },
+        { label: t('nav.dropdown.seo'), href: '#szolgaltatasok' },
+        { label: t('nav.dropdown.geo'), href: '#geo' },
+        { label: t('nav.dropdown.maintenance'), href: '#karbantartas' },
+        { label: t('nav.dropdown.chatbot'), href: '#chatbot-intro' },
+    ];
+
     const navLinks = [
-        { label: 'árazás', href: '#arazas' },
-        { label: 'referenciák', href: '#referenciak' },
-        { label: 'cikkek', href: '#insights' },
-        { label: 'kapcsolat', href: '#kapcsolat' },
+        { label: t('nav.pricing'), href: '#arazas' },
+        { label: t('nav.references'), href: '#referenciak' },
+        { label: t('nav.insights'), href: '#insights' },
+        { label: t('nav.contact'), href: '#kapcsolat' },
     ];
 
     return (
         <header
             className={clsx(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                isScrolled ? "bg-bg/80 backdrop-blur-md border-b border-white/5 py-4" : "bg-transparent py-6"
+                isScrolled ? "bg-[#0a0b10] shadow-lg py-4" : "bg-transparent py-6"
             )}
         >
             <Container className="flex items-center justify-between">
@@ -66,7 +68,7 @@ export const Navbar = () => {
                             className="text-sm font-semibold font-mono text-white/80 hover:text-neonBlue transition-all duration-200 lowercase tracking-widest antialiased flex items-center gap-1"
                             style={{ textRendering: 'geometricPrecision' }}
                         >
-                            <span className="text-neonBlue/60">&lt;</span>szolgáltatások<span className="text-neonBlue/60">&gt;</span>
+                            <span className="text-neonBlue/60">&lt;</span>{t('nav.services')}<span className="text-neonBlue/60">&gt;</span>
                             <ChevronDown className={clsx("w-4 h-4 transition-transform duration-200", isServicesOpen && "rotate-180")} />
                         </button>
 
@@ -109,14 +111,26 @@ export const Navbar = () => {
 
                     {/* Language Selector */}
                     <div className="flex items-center gap-3 pl-4 border-l border-white/10">
-                        <button className="relative w-6 h-4 overflow-hidden rounded-[2px] transition-transform hover:scale-110 opacity-100 ring-2 ring-neonBlue/50">
+                        <button
+                            onClick={() => setLanguage('hu')}
+                            className={clsx(
+                                "relative w-6 h-4 overflow-hidden rounded-[2px] transition-transform hover:scale-110",
+                                language === 'hu' ? "opacity-100 ring-2 ring-neonBlue/50" : "opacity-50 hover:opacity-100 grayscale hover:grayscale-0"
+                            )}
+                        >
                             <svg viewBox="0 0 64 32" className="w-full h-full">
                                 <rect fill="#fff" width="64" height="32" />
                                 <rect fill="#CE1126" width="64" height="10.666" />
                                 <rect fill="#008751" y="21.333" width="64" height="10.666" />
                             </svg>
                         </button>
-                        <button className="relative w-6 h-4 overflow-hidden rounded-[2px] transition-transform hover:scale-110 opacity-50 hover:opacity-100 grayscale hover:grayscale-0">
+                        <button
+                            onClick={() => setLanguage('en')}
+                            className={clsx(
+                                "relative w-6 h-4 overflow-hidden rounded-[2px] transition-transform hover:scale-110",
+                                language === 'en' ? "opacity-100 ring-2 ring-neonBlue/50" : "opacity-50 hover:opacity-100 grayscale hover:grayscale-0"
+                            )}
+                        >
                             <svg viewBox="0 0 60 30" className="w-full h-full">
                                 <rect fill="#012169" width="60" height="30" />
                                 <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" />
@@ -128,7 +142,7 @@ export const Navbar = () => {
                     </div>
 
                     <Button href="#kapcsolat" variant="primary" className="ml-4 py-2 px-5 text-base">
-                        Beszéljünk
+                        {t('nav.cta')}
                     </Button>
                 </nav>
 
@@ -154,7 +168,7 @@ export const Navbar = () => {
                             {/* Services Section */}
                             <div className="border-b border-white/10 pb-4">
                                 <span className="text-xs font-mono text-neonBlue/60 uppercase tracking-widest mb-3 block">
-                                    Szolgáltatások
+                                    {t('nav.services')}
                                 </span>
                                 <div className="flex flex-col gap-2">
                                     {serviceDropdown.map((item, index) => (
@@ -185,17 +199,29 @@ export const Navbar = () => {
 
                             {/* Language Selector - Mobile */}
                             <div className="flex items-center gap-3 pt-4 border-t border-white/10">
-                                <span className="text-xs font-mono text-white/40 uppercase tracking-widest">Nyelv:</span>
-                                <button className="flex items-center gap-1.5 px-2 py-1 rounded bg-neonBlue/10 border border-neonBlue/30 text-white text-sm font-medium">
+                                <span className="text-xs font-mono text-white/40 uppercase tracking-widest">{t('nav.language')}</span>
+                                <button
+                                    onClick={() => setLanguage('hu')}
+                                    className={clsx(
+                                        "flex items-center gap-1.5 px-2 py-1 rounded border text-sm font-medium transition-colors",
+                                        language === 'hu' ? "bg-neonBlue/10 border-neonBlue/30 text-white" : "bg-white/5 border-white/10 text-white/50 hover:text-white"
+                                    )}
+                                >
                                     🇭🇺 HU
                                 </button>
-                                <button className="flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 border border-white/10 text-white/50 text-sm hover:text-white hover:border-white/20 transition-colors">
+                                <button
+                                    onClick={() => setLanguage('en')}
+                                    className={clsx(
+                                        "flex items-center gap-1.5 px-2 py-1 rounded border text-sm font-medium transition-colors",
+                                        language === 'en' ? "bg-neonBlue/10 border-neonBlue/30 text-white" : "bg-white/5 border-white/10 text-white/50 hover:text-white"
+                                    )}
+                                >
                                     🇬🇧 EN
                                 </button>
                             </div>
 
                             <Button href="#kapcsolat" variant="primary" className="w-full justify-center mt-4">
-                                Beszéljünk
+                                {t('nav.cta')}
                             </Button>
                         </Container>
                     </motion.div>

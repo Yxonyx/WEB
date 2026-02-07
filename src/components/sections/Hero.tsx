@@ -1,65 +1,51 @@
 import { Button } from '../ui/Button';
 import { Container } from '../Container';
 import { Section } from '../Section';
-import { Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 
-// Lazy load the 3D component to improve initial page load speed
-const RetroTerminal3D = lazy(() => import('../ui/RetroTerminal3D').then(module => ({ default: module.RetroTerminal3D })));
+import { RetroTerminal3D } from '../ui/RetroTerminal3D';
 
 export const Hero = () => {
-    const [isDesktop, setIsDesktop] = useState(false);
+    const { t } = useLanguage();
+    const [isDesktop, setIsDesktop] = useState(() => typeof window !== 'undefined' ? window.innerWidth >= 1024 : false);
 
     useEffect(() => {
         const checkMobile = () => {
             setIsDesktop(window.innerWidth >= 1024); // lg breakpoint
         };
 
-        checkMobile();
         window.addEventListener('resize', checkMobile);
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
     return (
-        <Section id="hero" className="pt-32 pb-20" fullHeight withOrbs>
+        <Section id="hero" className="min-h-[100dvh] flex items-center py-20" fullHeight withOrbs>
             {/* Mesh gradient background */}
             <div className="absolute inset-0 bg-hero-gradient pointer-events-none" />
 
-            {/* Animated gradient orbs - optimized for mobile */}
-            <motion.div
-                className="absolute top-[-10%] right-[-10%] w-[300px] sm:w-[800px] h-[300px] sm:h-[800px] rounded-full pointer-events-none"
+            {/* Elegant aurora gradient orbs */}
+            <div
+                className="absolute -top-1/4 -right-1/4 w-[80vw] h-[80vh] pointer-events-none"
                 style={{
-                    background: 'radial-gradient(circle, rgba(0,240,255,0.2) 0%, rgba(0,240,255,0.02) 40%, transparent 70%)',
-                    filter: isDesktop ? 'blur(40px)' : 'blur(20px)'
-                }}
-                animate={isDesktop ? {
-                    x: [0, 50, 0],
-                    y: [0, 30, 0],
-                    scale: [1, 1.1, 1],
-                } : {}}
-                transition={{
-                    duration: 15,
-                    ease: "easeInOut",
-                    repeat: Infinity,
+                    background: 'radial-gradient(ellipse at center, rgba(0,240,255,0.25) 0%, rgba(0,240,255,0.05) 40%, transparent 70%)',
+                    filter: 'blur(60px)'
                 }}
             />
-            <motion.div
-                className="absolute bottom-[-15%] left-[-15%] w-[300px] sm:w-[700px] h-[300px] sm:h-[700px] rounded-full pointer-events-none"
+            <div
+                className="absolute -bottom-1/4 -left-1/4 w-[80vw] h-[80vh] pointer-events-none"
                 style={{
-                    background: 'radial-gradient(circle, rgba(189,0,255,0.2) 0%, rgba(189,0,255,0.02) 40%, transparent 70%)',
-                    filter: isDesktop ? 'blur(40px)' : 'blur(20px)'
+                    background: 'radial-gradient(ellipse at center, rgba(189,0,255,0.25) 0%, rgba(189,0,255,0.05) 40%, transparent 70%)',
+                    filter: 'blur(60px)'
                 }}
-                animate={isDesktop ? {
-                    x: [0, -40, 0],
-                    y: [0, -50, 0],
-                    scale: [1, 1.15, 1],
-                } : {}}
-                transition={{
-                    duration: 18,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                    delay: 2,
+            />
+            {/* Center subtle mix */}
+            <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[40vh] pointer-events-none opacity-30"
+                style={{
+                    background: 'radial-gradient(ellipse at center, rgba(99,102,241,0.3) 0%, transparent 60%)',
+                    filter: 'blur(80px)'
                 }}
             />
 
@@ -83,74 +69,73 @@ export const Hero = () => {
                 />
             )}
 
-            <Container className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-20">
-                {/* Text Content */}
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="text-center lg:text-left"
-                >
-                    <div className="mb-6">
-                        <span className="text-lg sm:text-base font-bold font-mono text-neonBlue uppercase tracking-wider">
-                            &lt; Web + SEO + GEO &gt;<span className="animate-pulse">_</span>
-                        </span>
-                    </div>
+            <Container className="relative z-10 h-full flex flex-col justify-center">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                    {/* Text Content */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="max-w-2xl text-center lg:text-left"
+                    >
+                        <div className="inline-flex items-center gap-2 mb-6 justify-center lg:justify-start">
+                            <span className="text-sm font-mono text-neonBlue uppercase tracking-widest">{t('hero.tag')}</span>
+                        </div>
 
-                    <h1 className="text-5xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-8 leading-[1.1]">
-                        Egyedi weboldal <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-accent1 to-neonPurple animate-gradient-shift" style={{ backgroundSize: '200% auto' }}>
-                            fejlesztés
-                        </span> & karbantartás
-                    </h1>
+                        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight">
+                            <span className="text-white">{t('hero.title_prefix')}</span>
+                            <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple animate-gradient-shift">
+                                {t('hero.title_gradient')}
+                            </span><span className="text-white"> &</span>
+                            <br />
+                            <span className="text-white">{t('hero.title_suffix')}</span>
+                        </h1>
 
-                    <div className="text-xl sm:text-lg md:text-xl text-white/70 mb-10 max-w-2xl leading-relaxed mx-auto lg:mx-0 font-display font-light">
-                        <p className="mb-4">
-                            <span className="text-neonPurple">Modern, mesterséges intelligencia</span> alapú megoldások.
+                        <p className="text-xl sm:text-2xl mb-6 leading-relaxed">
+                            <span className="text-neonPurple italic">{t('hero.subtitle_1')}</span>
+                            <span className="text-white font-medium">{t('hero.subtitle_highlight')}</span>
                         </p>
-                        <p>
-                            Weboldalad ott jelenik meg, ahol a döntések születnek: a <span className="text-neonBlue">Google keresésekben</span> és az <span className="text-neonPurple">AI-alapú találatokban</span>.
+                        <p className="text-lg sm:text-xl text-muted mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0">
+                            {t('hero.subtitle_desc_1')}
+                            <span className="text-neonBlue">{t('hero.subtitle_google')}</span>
+                            {t('hero.subtitle_desc_2')}
+                            <span className="text-neonPurple">{t('hero.subtitle_ai')}</span>.
                         </p>
-                    </div>
 
-                    <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                        <Button href="#kapcsolat" variant="primary">
-                            Beszéljünk
-                        </Button>
-                        <Button href="#arazas" variant="secondary">
-                            Válaszd ki a csomagod
-                        </Button>
-                    </div>
-                </motion.div>
+                        <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                            <Button href="#kapcsolat" variant="primary">
+                                {t('hero.cta_primary')}
+                            </Button>
+                            <Button href="#arazas" variant="secondary">
+                                {t('hero.cta_secondary')}
+                            </Button>
+                        </div>
+                    </motion.div>
 
-                {/* Visual Content - Geometric Composition */}
-                <motion.div
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-                    className="relative hidden lg:block h-[500px]"
-                >
-                    {/* 3D Retro Terminal - No Frame */}
-                    <div className="absolute top-10 left-10 right-10 bottom-10 z-10">
-                        {isDesktop && (
-                            <Suspense fallback={
-                                <div className="w-full h-full rounded-xl bg-white/5 animate-pulse border border-white/10 flex items-center justify-center">
-                                    <span className="text-neonBlue font-mono text-sm">System Initializing...</span>
-                                </div>
-                            }>
+                    {/* Visual Content - Geometric Composition */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+                        className="relative hidden lg:block h-[500px]"
+                    >
+                        {/* 3D Retro Terminal - No Frame */}
+                        <div className="absolute top-10 left-10 right-10 bottom-10 z-10">
+                            {isDesktop && (
                                 <RetroTerminal3D />
-                            </Suspense>
-                        )}
-                    </div>
+                            )}
+                        </div>
 
-                    {/* Decorative Elements */}
-                    <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-neonBlue rounded-tr-3xl opacity-50" />
-                    <div className="absolute bottom-0 left-0 w-24 h-24 border-b-2 border-l-2 border-neonPurple rounded-bl-3xl opacity-50" />
+                        {/* Decorative Elements */}
+                        <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-neonBlue rounded-tr-3xl opacity-50" />
+                        <div className="absolute bottom-0 left-0 w-24 h-24 border-b-2 border-l-2 border-neonPurple rounded-bl-3xl opacity-50" />
 
-                    {/* Floating Crosses */}
-                    <div className="absolute top-1/4 -left-8 text-neonBlue/30 text-4xl font-mono animate-bounce">+</div>
-                    <div className="absolute bottom-1/4 -right-8 text-neonPurple/30 text-4xl font-mono animate-bounce delay-700">+</div>
-                </motion.div>
+                        {/* Floating Crosses */}
+                        <div className="absolute top-1/4 -left-8 text-neonBlue/30 text-4xl font-mono animate-bounce">+</div>
+                        <div className="absolute bottom-1/4 -right-8 text-neonPurple/30 text-4xl font-mono animate-bounce delay-700">+</div>
+                    </motion.div>
+                </div>
             </Container>
         </Section>
     );

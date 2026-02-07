@@ -4,6 +4,7 @@ import { Section } from '../Section';
 import { Button } from '../ui/Button';
 import { Plus, Minus, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
 
 const FAQItem = ({ q, a, defaultOpen = false, index }: { q: string, a: string, defaultOpen?: boolean, index: number }) => {
     const [isOpen, setIsOpen] = useState(defaultOpen);
@@ -50,36 +51,16 @@ const FAQItem = ({ q, a, defaultOpen = false, index }: { q: string, a: string, d
 };
 
 export const FAQ = () => {
-    const questions = [
-        {
-            q: "Csak akkor fizetek, ha tetszik a próbaverzió?",
-            a: "Igen, a kockázat a miénk. Készítünk egy működő próbaverziót az igényeid alapján. Ha tetszik az irány, akkor szerződünk és folytatjuk a munkát. Ha nem, semmilyen kötelezettséged nincs.",
-            defaultOpen: true
-        },
-        {
-            q: "Mennyi idő alatt készül el egy weboldal?",
-            a: "Landing Page: kb. 5–7 munkanap, céges weboldal: 7–14 munkanap, webshop: 14–28 munkanap. A pontos ütemezés a projekt terjedelmétől és az anyagok rendelkezésre állásától függ."
-        },
-        {
-            q: "Lehet sürgősen kérni?",
-            a: "Igen. Felár ellenében, egyedi megbeszélés alapján gyorsítjuk a kivitelezést — jellemzően több fejlesztő párhuzamos ráállításával."
-        },
-        {
-            q: "Tudom később én is szerkeszteni a weboldalt?",
-            a: "Igen. Igény esetén admin felületet / blog modult adunk, és átadjuk a szerkesztés alapjait."
-        },
-        {
-            q: "Vállaltok karbantartást és frissítést?",
-            a: "Igen. Havi karbantartási csomagokkal biztosítjuk, hogy a reszponzív webdizájn mellett az oldal mobilbarát és gyors maradjon hosszú távon is."
-        },
-        {
-            q: "Készítetek AI chatbotot is?",
-            a: "Igen. Weboldalba integrált, értékesítést segítő chatbotot implementálunk, ami a weboldal tartalma alapján informál, kérdez és ajánlatkérésig terel."
-        }
-    ];
+    const { t } = useLanguage();
+
+    // Using mapping to add defaultOpen property if needed, though mostly standard
+    const questions = (t('faq.questions') as unknown as any[]).map((q, i) => ({
+        ...q,
+        defaultOpen: i === 0 // Open first item by default
+    }));
 
     return (
-        <Section id="gyik">
+        <Section id="gyik" className="section-bg-purple" withOrbs withMeshGradient>
             <Container>
                 <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
                     {/* FAQ List - First on mobile, right on desktop */}
@@ -90,7 +71,7 @@ export const FAQ = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.4 }}
                     >
-                        <h2 className="text-3xl font-bold text-white mb-8">Gyakori kérdések</h2>
+                        <h2 className="text-3xl font-bold text-white mb-8">{t('faq.title')}</h2>
                         <div className="bg-surface/30 backdrop-blur-sm rounded-2xl border border-white/5 p-6 sm:p-8">
                             {questions.map((faq, i) => (
                                 <FAQItem key={i} {...faq} index={i} />
@@ -132,12 +113,12 @@ export const FAQ = () => {
 
                                     {/* Title */}
                                     <h3 className="text-2xl md:text-3xl font-bold text-center mb-4 text-white font-display">
-                                        Minőségi garancia
+                                        {t('faq.guarantee.title')}
                                     </h3>
 
                                     {/* Description */}
                                     <p className="text-center text-muted text-lg mb-8 leading-relaxed">
-                                        Ha nem vagy elégedett a végeredménnyel, addig finomítunk, amíg tökéletes nem lesz. Célunk a 100%-os ügyfélelégedettség.
+                                        {t('faq.guarantee.desc')}
                                     </p>
 
                                     {/* CTA Button */}
@@ -146,7 +127,7 @@ export const FAQ = () => {
                                         variant="primary"
                                         className="w-full"
                                     >
-                                        Biztosra megyek
+                                        {t('faq.guarantee.cta')}
                                     </Button>
                                 </div>
                             </div>

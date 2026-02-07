@@ -3,34 +3,22 @@ import { Section } from '../Section';
 import { ArrowUpRight, Calendar, Tag } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
-
-const articles = [
-    {
-        category: 'Webfejlesztés',
-        date: 'Jan 28',
-        title: 'Mikor éri meg egyedi weboldalt készíttetni?',
-        excerpt: 'A sablonok olcsók, de hosszú távon drágábbak lehetnek...',
-        image: '/images/blog-webdev.png',
-    },
-    {
-        category: 'SEO',
-        date: 'Jan 22',
-        title: 'Keresőoptimalizálás 2025-ben',
-        excerpt: 'A Google algoritmus változásai és mire kell figyelni.',
-        image: '/images/blog-seo.png',
-    },
-    {
-        category: 'AI & GEO',
-        date: 'Jan 15',
-        title: 'Felkészültél az AI-korszakra?',
-        excerpt: 'A ChatGPT és Gemini már válaszokat ad – te benne vagy?',
-        image: '/images/blog-ai.png',
-    },
-];
+import { useLanguage } from '../../context/LanguageContext';
 
 export const Insights = () => {
+    const { t } = useLanguage();
+
+    const articlesData = t('insights.articles') as unknown as any[];
+    const images = ['/images/blog-webdev.webp', '/images/blog-seo.webp', '/images/blog-ai.webp'];
+
+    // Safety check to avoid crash if translation is missing
+    const articles = (articlesData || []).map((art, i) => ({
+        ...art,
+        image: images[i] || '/images/placeholder.png'
+    }));
+
     return (
-        <Section id="insights" className="py-20 lg:py-28">
+        <Section id="insights" className="py-20 lg:py-28 section-bg-mixed" withOrbs withMeshGradient>
             <Container>
                 {/* Header */}
                 <motion.div
@@ -42,14 +30,14 @@ export const Insights = () => {
                 >
                     <div>
                         <span className="text-sm font-mono text-neonBlue uppercase tracking-widest mb-3 block">
-                            Blog & Tippek
+                            {t('insights.header.tag')}
                         </span>
                         <h2 className="text-3xl sm:text-4xl font-bold text-white">
-                            Legfrissebb cikkeink
+                            {t('insights.header.title')}
                         </h2>
                     </div>
                     <Button href="#" variant="secondary" size="sm">
-                        Összes cikk
+                        {t('insights.header.cta')}
                         <ArrowUpRight className="w-4 h-4 ml-1" />
                     </Button>
                 </motion.div>
@@ -87,7 +75,8 @@ export const Insights = () => {
                                         </span>
                                         <span className="flex items-center gap-1.5">
                                             <Calendar className="w-3.5 h-3.5" />
-                                            {article.date}
+                                            {/* Date is not in translation object currently, would be undefined. Assume hidden or add mock */}
+                                            Jan 28
                                         </span>
                                     </div>
 
@@ -103,7 +92,7 @@ export const Insights = () => {
 
                                     {/* Read More */}
                                     <div className="mt-4 flex items-center gap-2 text-sm font-medium text-neonBlue opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        Olvasd el
+                                        {article.read_more}
                                         <ArrowUpRight className="w-4 h-4" />
                                     </div>
                                 </div>

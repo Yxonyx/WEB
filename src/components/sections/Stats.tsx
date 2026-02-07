@@ -1,96 +1,52 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Container } from '../Container';
-import { motion, useInView } from 'framer-motion';
-
-// Counter hook for counting animation
-const useCountUp = (end: number, duration: number = 2000, startOnView: boolean = true) => {
-    const [count, setCount] = useState(0);
-    const [hasStarted, setHasStarted] = useState(!startOnView);
-    const ref = useRef<HTMLDivElement>(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-    useEffect(() => {
-        if (startOnView && isInView && !hasStarted) {
-            setHasStarted(true);
-        }
-    }, [isInView, startOnView, hasStarted]);
-
-    useEffect(() => {
-        if (!hasStarted) return;
-
-        let startTime: number | null = null;
-        let animationFrame: number;
-
-        const animate = (timestamp: number) => {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-
-            // Easing function (ease-out cubic)
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(eased * end));
-
-            if (progress < 1) {
-                animationFrame = requestAnimationFrame(animate);
-            }
-        };
-
-        animationFrame = requestAnimationFrame(animate);
-
-        return () => cancelAnimationFrame(animationFrame);
-    }, [end, duration, hasStarted]);
-
-    return { count, ref };
-};
+import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const Stats = () => {
+    const { t } = useLanguage();
+
     return (
         <motion.div
-            className="border-y border-white/5 bg-[#020205]/80 backdrop-blur-sm relative z-20"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="border-y border-white/5 bg-[#020205]/80 relative z-20"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.3 }}
         >
             <Container>
                 <div className="py-6 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 divide-y md:divide-y-0 md:divide-x divide-white/10">
-                    {/* Stat 1 */}
-                    <StatItem
-                        end={7}
-                        suffix="+"
-                        label="Év tapasztalat"
-                        sublabel="Full-stack fejlesztésben"
-                        duration={1000}
-                    />
-
-                    {/* Stat 2 */}
-                    <StatItem
-                        end={44}
-                        suffix="+"
-                        label="Elégedett ügyfél"
-                        sublabel="Magyarországon és külföldön"
-                    />
-
-                    {/* Stat 3 */}
-                    <StatItem
-                        end={100}
-                        suffix="%"
-                        label="Garancia"
-                        sublabel="Pénzvisszafizetési opcióval"
-                    />
+                    <StatItem end={7} suffix="+" label={t('stats.years.label')} sublabel={t('stats.years.sub')} />
+                    <StatItem end={44} suffix="+" label={t('stats.clients.label')} sublabel={t('stats.clients.sub')} />
+                    <StatItem end={100} suffix="%" label={t('stats.guarantee.label')} sublabel={t('stats.guarantee.sub')} />
                 </div>
             </Container>
         </motion.div>
     );
 };
 
-const StatItem = ({ end, suffix, label, sublabel, duration = 2000 }: { end: number, suffix: string, label: string, sublabel: string, duration?: number }) => {
-    const { count, ref } = useCountUp(end, duration);
+const StatItem = ({ end, suffix, label, sublabel }: { end: number, suffix: string, label: string, sublabel: string }) => {
+    const ref = useRef<HTMLDivElement>(null);
+    const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+    const count = useMotionValue(0);
+    const rounded = useTransform(count, (latest) => Math.round(latest));
+
+    useEffect(() => {
+        if (isInView) {
+            const controls = animate(count, end, {
+                duration: 2,
+                ease: "easeOut"
+            });
+            return controls.stop;
+        }
+    }, [isInView, end, count]);
 
     return (
         <div ref={ref} className="flex flex-col items-center text-center sm:flex-row sm:text-left sm:justify-center gap-3 py-2 md:py-0">
             <div className="flex items-baseline gap-1">
                 <span className="text-3xl sm:text-4xl font-black text-white tracking-tighter tabular-nums">
-                    {count}
+                    <motion.span>{rounded}</motion.span>
                 </span>
                 <span className="text-neonBlue text-xl sm:text-2xl font-black">
                     {suffix}
@@ -107,5 +63,3 @@ const StatItem = ({ end, suffix, label, sublabel, duration = 2000 }: { end: numb
         </div>
     );
 };
-
-

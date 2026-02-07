@@ -3,6 +3,7 @@ import { Section } from '../Section';
 import { Button } from '../ui/Button';
 import { BracketFrame } from '../ui/BracketFrame';
 import { motion, type Variants } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -22,8 +23,13 @@ const itemVariants: Variants = {
 };
 
 export const Contact = () => {
+    const { t } = useLanguage();
+
+    const services = t('contact.services') as unknown as string[];
+    const budgets = t('contact.budgets') as unknown as string[];
+
     return (
-        <Section id="kapcsolat" withOrbs>
+        <Section id="kapcsolat" className="section-bg-cyan" withOrbs>
             <Container>
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
                     {/* Left Info */}
@@ -40,17 +46,32 @@ export const Contact = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.4 }}
                         >
-                            <span className="text-sm font-mono text-neonPurple uppercase tracking-widest">Kapcsolat</span>
+                            <span className="text-sm font-mono text-neonPurple uppercase tracking-widest">{t('contact.tag')}</span>
                         </motion.div>
                         <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-                            Van egy projekt ötleted? <br />
+                            {t('contact.title_line1')} <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
-                                Kérj ajánlatot!
+                                {t('contact.title_gradient')}
                             </span>
                         </h2>
-                        <p className="text-xl text-muted mb-12">
-                            Egyeztessünk egy rövid hívást, majd küldünk ajánlatot.
+                        <p className="text-xl text-muted mb-6">
+                            {t('contact.description')}
                         </p>
+
+                        <div className="flex flex-col gap-3 mb-12">
+                            <a href="mailto:contact@cyberlabsweb.com" className="flex items-center gap-3 text-white hover:text-neonBlue transition-colors group w-fit">
+                                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-neonBlue/10 transition-colors border border-white/10 group-hover:border-neonBlue/30">
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <span className="text-lg font-mono">contact@cyberlabsweb.com</span>
+                            </a>
+                            <a href="tel:+36703304445" className="flex items-center gap-3 text-white hover:text-neonBlue transition-colors group w-fit">
+                                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-neonBlue/10 transition-colors border border-white/10 group-hover:border-neonBlue/30">
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                </div>
+                                <span className="text-lg font-mono">+36 70 330 4445</span>
+                            </a>
+                        </div>
 
                         <motion.div
                             className="relative max-w-sm"
@@ -68,8 +89,8 @@ export const Contact = () => {
                                         CL
                                     </div>
                                     <div>
-                                        <div className="text-white font-bold">Cyberlabs</div>
-                                        <div className="text-sm text-neonBlue">Web & GEO Optimalizálás</div>
+                                        <div className="text-white font-bold">CyberLabs Web</div>
+                                        <div className="text-sm text-neonBlue">{t('contact.card_subtitle')}</div>
                                     </div>
                                 </div>
                             </BracketFrame>
@@ -97,31 +118,28 @@ export const Contact = () => {
 
                             <motion.div className="grid sm:grid-cols-2 gap-6" variants={itemVariants}>
                                 <div className="space-y-2">
-                                    <label className="text-base font-medium text-white/70">Teljes név *</label>
+                                    <label className="text-base font-medium text-white/70">{t('contact.form.name')}</label>
                                     <input type="text" name="name" required className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-colors" />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-base font-medium text-white/70">Cégnév</label>
+                                    <label className="text-base font-medium text-white/70">{t('contact.form.company')}</label>
                                     <input type="text" name="company" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-colors" />
                                 </div>
                             </motion.div>
 
                             <motion.div className="space-y-2" variants={itemVariants}>
-                                <label className="text-base font-medium text-white/70">Email cím *</label>
+                                <label className="text-base font-medium text-white/70">{t('contact.form.email')}</label>
                                 <input type="email" name="email" required className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-colors" />
                             </motion.div>
 
                             <motion.div className="grid sm:grid-cols-2 gap-6" variants={itemVariants}>
                                 <div className="space-y-2 group">
-                                    <label className="text-base font-medium text-white/70 group-focus-within:text-neonBlue transition-colors">Szolgáltatás</label>
+                                    <label className="text-base font-medium text-white/70 group-focus-within:text-neonBlue transition-colors">{t('contact.form.service')}</label>
                                     <div className="relative">
                                         <select name="service" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-all appearance-none cursor-pointer hover:bg-white/10">
-                                            <option className="bg-[#0A0A1F] text-white">Webfejlesztés</option>
-                                            <option className="bg-[#0A0A1F] text-white">Webshop</option>
-                                            <option className="bg-[#0A0A1F] text-white">SEO</option>
-                                            <option className="bg-[#0A0A1F] text-white">AI Chatbot</option>
-                                            <option className="bg-[#0A0A1F] text-white">GEO-optimalizálás</option>
-                                            <option className="bg-[#0A0A1F] text-white">Web + SEO + GEO (komplett)</option>
+                                            {services.map((service, i) => (
+                                                <option key={i} className="bg-[#0A0A1F] text-white">{service}</option>
+                                            ))}
                                         </select>
                                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-muted">
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -129,13 +147,12 @@ export const Contact = () => {
                                     </div>
                                 </div>
                                 <div className="space-y-2 group">
-                                    <label className="text-base font-medium text-white/70 group-focus-within:text-neonBlue transition-colors">Költségkeret</label>
+                                    <label className="text-base font-medium text-white/70 group-focus-within:text-neonBlue transition-colors">{t('contact.form.budget')}</label>
                                     <div className="relative">
                                         <select name="budget" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-all appearance-none cursor-pointer hover:bg-white/10">
-                                            <option className="bg-[#0A0A1F] text-white">150k – 300k</option>
-                                            <option className="bg-[#0A0A1F] text-white">300k – 500k</option>
-                                            <option className="bg-[#0A0A1F] text-white">500k – 1M+</option>
-                                            <option className="bg-[#0A0A1F] text-white">Egyedi</option>
+                                            {budgets.map((budget, i) => (
+                                                <option key={i} className="bg-[#0A0A1F] text-white">{budget}</option>
+                                            ))}
                                         </select>
                                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-muted">
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -145,13 +162,13 @@ export const Contact = () => {
                             </motion.div>
 
                             <motion.div className="space-y-2" variants={itemVariants}>
-                                <label className="text-base font-medium text-white/70">Projekt részletek *</label>
+                                <label className="text-base font-medium text-white/70">{t('contact.form.message')}</label>
                                 <textarea name="message" required rows={4} className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-colors resize-none"></textarea>
                             </motion.div>
 
                             <motion.div variants={itemVariants}>
                                 <Button type="submit" variant="primary" className="w-full py-4 text-lg">
-                                    Ajánlatot kérek
+                                    {t('contact.form.submit')}
                                 </Button>
                             </motion.div>
                         </motion.form>

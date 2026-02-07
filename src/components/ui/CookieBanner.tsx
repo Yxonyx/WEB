@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const CookieBanner = () => {
+    const { t } = useLanguage();
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -51,10 +53,10 @@ export const CookieBanner = () => {
                             {/* Content */}
                             <div className="p-4">
                                 <p className="text-muted leading-relaxed text-base sm:text-lg">
-                                    <span className="text-neonBlue">&gt;</span> Ez a weboldal sütiket használ a működéshez.
+                                    <span className="text-neonBlue">&gt;</span> {t('cookie.text')}
                                 </p>
                                 <div className="font-mono text-sm text-muted2 mb-4">
-                                    <span className="text-neonPurple/70">//</span> További info: <a href="/adatvedelem.html" className="text-neonBlue hover:underline">adatvedelem.html</a>
+                                    <span className="text-neonPurple/70">//</span> {t('cookie.more')} <a href="/adatvedelem.html" className="text-neonBlue hover:underline">adatvedelem.html</a>
                                 </div>
 
                                 {/* Buttons */}
@@ -63,13 +65,13 @@ export const CookieBanner = () => {
                                         onClick={handleDecline}
                                         className="px-4 py-2 text-muted hover:text-white border border-white/10 hover:border-white/30 rounded transition-colors"
                                     >
-                                        [ESC] Elutasít
+                                        [ESC] {t('cookie.decline')}
                                     </button>
                                     <button
                                         onClick={handleAccept}
                                         className="px-4 py-2 text-black font-medium bg-neonBlue hover:bg-neonBlue/90 rounded transition-colors"
                                     >
-                                        [ENTER] Elfogad
+                                        [ENTER] {t('cookie.accept')}
                                     </button>
                                 </div>
                             </div>
