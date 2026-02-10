@@ -132,9 +132,9 @@ export const BlogPost = () => {
                     <img
                         src="/images/blog-detail-bg.avif"
                         alt=""
-                        className="w-full h-full object-cover opacity-20 scale-105"
+                        className="w-full h-full object-cover opacity-30 scale-105"
                     />
-                    <div className="absolute inset-0 bg-[#050B14]/80 backdrop-blur-[2px]" />
+                    <div className="absolute inset-0 bg-[#050B14]/75 backdrop-blur-[1px]" />
                 </div>
 
                 {/* Mesh gradient background */}
