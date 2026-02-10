@@ -29,7 +29,7 @@ export const Services = () => {
     const { t } = useLanguage();
 
     return (
-        <Section id="szolgaltatasok" className="section-bg-cyan" withMeshGradient withOrbs>
+        <Section id="szolgaltatasok" className="section-bg-cyan py-16 lg:py-24" withMeshGradient withOrbs>
 
             <Container>
                 {/* Header */}

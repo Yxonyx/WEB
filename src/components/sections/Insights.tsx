@@ -14,13 +14,20 @@ export const Insights = () => {
     const currentLang = lang || 'hu';
 
     const articlesData = t('insights.articles') as unknown as any[];
-    const images = ['/images/blog-webdev.webp', '/images/blog-seo.webp', '/images/blog-ai.webp'];
 
-    // Safety check to avoid crash if translation is missing
-    const articles = (articlesData || []).map((art, i) => ({
-        ...art,
-        image: images[i] || '/images/placeholder.png'
-    }));
+    // Map over blogPosts to ensure we use control logic from data (images, ids)
+    // and fallback to translations for text if available
+    const activePosts = blogPosts.map((post, i) => {
+        const translated = articlesData?.[i];
+        return {
+            ...post,
+            title: translated?.title || post.title,
+            excerpt: translated?.excerpt || post.excerpt,
+            read_more: translated?.read_more || 'Olvass tovább',
+            // Use image from blogPosts (source of truth)
+            image: post.image,
+        };
+    });
 
     return (
         <Section id="insights" className="py-20 lg:py-28 section-bg-mixed" withOrbs withMeshGradient>
@@ -33,7 +40,7 @@ export const Insights = () => {
                     transition={{ duration: 0.4 }}
                     className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12"
                 >
-                    <div>
+                    <div className="flex-1">
                         <span className="text-sm font-mono text-neonBlue uppercase tracking-widest mb-3 block">
                             {t('insights.header.tag')}
                         </span>
@@ -41,7 +48,11 @@ export const Insights = () => {
                             {t('insights.header.title')}
                         </h2>
                     </div>
-                    <Button href="#" variant="secondary" size="sm">
+                    <Button
+                        onClick={() => navigate(`/${currentLang}/blog/all`)}
+                        variant="secondary"
+                        size="sm"
+                    >
                         {t('insights.header.cta')}
                         <ArrowUpRight className="w-4 h-4 ml-1" />
                     </Button>
@@ -49,14 +60,12 @@ export const Insights = () => {
 
                 {/* Cards Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {articles.map((article, index) => {
-                        // Match article to blogPost data by index
-                        const postData = blogPosts[index];
-                        const linkTo = `/${currentLang}/blog/${postData?.id}`;
+                    {activePosts.slice(0, 3).map((article) => {
+                        const linkTo = `/${currentLang}/blog/${article.id}`;
 
                         return (
                             <motion.div
-                                key={index}
+                                key={article.id}
                                 initial={{ opacity: 0, y: 15 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -72,6 +81,8 @@ export const Insights = () => {
                                         <img
                                             src={article.image}
                                             alt={article.title}
+                                            width="800"
+                                            height="600"
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                             loading="lazy"
                                         />
@@ -87,7 +98,7 @@ export const Insights = () => {
                                             </span>
                                             <span className="flex items-center gap-1.5">
                                                 <Calendar className="w-3.5 h-3.5" />
-                                                {postData ? postData.date : 'Jan 28'}
+                                                {article.date}
                                             </span>
                                         </div>
 
@@ -112,6 +123,7 @@ export const Insights = () => {
                         );
                     })}
                 </div>
+
             </Container>
         </Section>
     );

@@ -1,9 +1,21 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export const ParticleNetwork = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
+    const [isMobileDevice, setIsMobileDevice] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
+
     useEffect(() => {
+        const checkMobile = () => {
+            setIsMobileDevice(window.innerWidth < 768);
+        };
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    useEffect(() => {
+        if (isMobileDevice) return;
+
         const canvas = canvasRef.current;
         if (!canvas) return;
 
@@ -15,8 +27,7 @@ export const ParticleNetwork = () => {
         let canvasWidth = window.innerWidth;
         let canvasHeight = window.innerHeight;
 
-        const isMobile = canvasWidth < 768;
-        const particleCount = isMobile ? 30 : 60; // 30 on mobile, 60 on desktop
+        const particleCount = 60;
 
         canvas.width = canvasWidth;
         canvas.height = canvasHeight;
@@ -68,6 +79,8 @@ export const ParticleNetwork = () => {
         };
 
         const animate = () => {
+            if (isMobileDevice) return; // Stop animation loop on mobile
+
             ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
             particles.forEach(particle => {
@@ -100,7 +113,9 @@ export const ParticleNetwork = () => {
             cancelAnimationFrame(animationFrameId);
             clearTimeout(resizeTimeout);
         };
-    }, []);
+    }, [isMobileDevice]);
+
+    if (isMobileDevice) return null;
 
     return (
         <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden h-screen w-full">

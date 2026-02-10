@@ -16,7 +16,7 @@ export const Footer = () => {
     const socialLinks = [
         { icon: Instagram, href: "https://www.instagram.com/cyberlabsweb/", label: "Instagram" },
         { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61586980628114", label: "Facebook" },
-        { icon: Linkedin, href: "https://linkedin.com/company/cyberlabsweb", label: "LinkedIn" },
+        { icon: Linkedin, href: "https://www.linkedin.com/company/cyberlabs-web", label: "LinkedIn" },
         { icon: TikTokIcon, href: "https://tiktok.com/@cyberlabsweb", label: "TikTok" },
     ];
 

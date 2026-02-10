@@ -19,7 +19,7 @@
   <title>Céges Weboldal Készítés Garanciával | Szerezz Több Vevőt | CyberLabsWeb</title>
   <meta name="description"
     content="Nem jön elég ajánlatkérés? Olyan weboldalt építünk, ami elad helyetted. Villámgyors, modern és AI-optimalizált weboldal készítés garanciával.">
-  <link rel="canonical" href="https://cyberlabsweb.hu/">
+
   <meta name="keywords"
     content="céges weboldal készítés, vevőszerző weboldal, gyors weboldal készítés, weboldal készítés garanciával, webfejlesztés, weblap készítés, egyedi weblap, seo optimalizálás, kkv weboldal, cyberlabs, cyberlabsweb">
 
@@ -76,6 +76,14 @@
   <!-- ✅ Performance hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet">
+  </noscript>
 
   <!-- ✅ Structured Data (JSON-LD) - Enhanced for Google Image Search -->
   <script type="application/ld+json">
@@ -227,23 +235,25 @@
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 
-  <!-- Voiceflow Chat Widget - Optimized Load -->
+  <!-- Voiceflow Chat Widget - Optimized Load (Deferred) -->
   <script type="text/javascript">
     window.addEventListener('load', function () {
-      (function (d, t) {
-        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        v.onload = function () {
-          window.voiceflow.chat.load({
-            verify: { projectID: '69728b40b960e41275e9bc0b' },
-            url: 'https://general-runtime.voiceflow.com',
-            versionID: 'production',
-            voice: {
-              url: "https://runtime-api.voiceflow.com"
-            }
-          });
-        }
-        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-      })(document, 'script');
+      setTimeout(function () {
+        (function (d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function () {
+            window.voiceflow.chat.load({
+              verify: { projectID: '69728b40b960e41275e9bc0b' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production',
+              voice: {
+                url: "https://runtime-api.voiceflow.com"
+              }
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+      }, 2000); // Delay load by 2s to prioritize LCP
     });
   </script>
 </body>

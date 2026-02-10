@@ -1,6 +1,51 @@
+import { useState, useEffect, useRef } from 'react';
 
+const Typewriter = ({ text, delay = 0, onComplete, className = "" }: { text: string; delay?: number; onComplete?: () => void; className?: string }) => {
+    const [displayText, setDisplayText] = useState('');
+    const [started, setStarted] = useState(false);
+    const completedRef = useRef(false);
+
+    useEffect(() => {
+        let interval: any;
+        const startTimeout = setTimeout(() => {
+            setStarted(true);
+
+            interval = setInterval(() => {
+                setDisplayText((prev) => {
+                    const currentLength = prev.length;
+                    if (currentLength < text.length) {
+                        return prev + text.charAt(currentLength);
+                    } else {
+                        clearInterval(interval);
+                        return prev;
+                    }
+                });
+            }, 30);
+        }, delay);
+
+        return () => {
+            clearTimeout(startTimeout);
+            if (interval) clearInterval(interval);
+        };
+    }, [text, delay]);
+
+    useEffect(() => {
+        if (displayText.length === text.length && text.length > 0 && !completedRef.current) {
+            completedRef.current = true;
+            if (onComplete) onComplete();
+        }
+    }, [displayText, text, onComplete]);
+
+    return <span className={className}>{displayText}{started && displayText.length < text.length && <span className="animate-pulse">_</span>}</span>;
+};
 
 export const CssComputer = () => {
+    const [showLine1, setShowLine1] = useState(false);
+    const [showLine2, setShowLine2] = useState(false);
+    const [showLine3, setShowLine3] = useState(false);
+    const [showLine4, setShowLine4] = useState(false);
+    const [showPhone, setShowPhone] = useState(false);
+
     return (
         <div className="relative w-full h-full flex items-center justify-center p-4">
             {/* Monitor Container */}
@@ -21,7 +66,7 @@ export const CssComputer = () => {
                             <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] pointer-events-none z-0 opacity-20" />
 
                             {/* TERMINAL UI */}
-                            <div className="relative z-20 p-5 font-mono text-xs sm:text-sm space-y-1.5 text-gray-300 leading-relaxed">
+                            <div className="relative z-20 p-5 font-mono text-xs sm:text-sm space-y-1.5 text-gray-300 leading-relaxed font-medium">
                                 {/* Window Header */}
                                 <div className="flex items-center gap-1.5 mb-3 opacity-80">
                                     <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
@@ -30,25 +75,51 @@ export const CssComputer = () => {
                                 </div>
 
                                 {/* Code Lines */}
-                                <div className="opacity-90">
-                                    <span className="text-neonPurple">admin@cyberlabs</span><span className="text-gray-500">:</span><span className="text-neonBlue">~</span>$ <span className="text-white">./system_boot.sh</span>
+                                <div className="opacity-90 mb-2">
+                                    <span className="text-neonPurple">guest@cyberlabs</span><span className="text-gray-500">:</span><span className="text-neonBlue">~</span>$ <span className="text-white">./welcome_msg.sh</span>
                                 </div>
-                                <div className="text-gray-500 text-[10px] sm:text-xs pt-1">[10:42:01] Establishing secure connection...</div>
-                                <div className="flex items-center gap-2">
-                                    <span className="text-green-500">[OK]</span>
-                                    <span>Neural Interface Active</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="text-green-500">[OK]</span>
-                                    <span>Protocol v4.2 Loaded</span>
-                                </div>
-                                <div className="pt-2 flex items-center gap-2">
-                                    <span className="text-neonBlue">Loading:</span>
-                                    <div className="h-1.5 w-24 bg-gray-800 rounded-full overflow-hidden">
-                                        <div className="h-full bg-neonBlue w-full animate-[shimmer_2s_infinite]" />
+                                <div className="space-y-1 text-gray-300">
+                                    <div>
+                                        <span className="text-green-500/80 mr-2">[SYSTEM]</span>
+                                        <Typewriter text="Initializing secure message protocol..." delay={500} onComplete={() => setShowLine1(true)} />
                                     </div>
+
+                                    {showLine1 && (
+                                        <div>
+                                            <span className="text-neonBlue/80 mr-2">[MSG]</span>
+                                            <Typewriter text="Szia," delay={200} onComplete={() => setShowLine2(true)} />
+                                        </div>
+                                    )}
+
+                                    {showLine2 && (
+                                        <div>
+                                            <span className="text-neonBlue/80 mr-2">[MSG]</span>
+                                            <Typewriter text="Ha bármilyen weboldalra van szükséged," delay={200} onComplete={() => setShowLine3(true)} />
+                                        </div>
+                                    )}
+
+                                    {showLine3 && (
+                                        <div>
+                                            <span className="text-neonBlue/80 mr-2">[MSG]</span>
+                                            <Typewriter text="töltsd ki a lenti űrlapot," delay={200} onComplete={() => setShowLine4(true)} />
+                                        </div>
+                                    )}
+
+                                    {showLine4 && (
+                                        <div>
+                                            <span className="text-neonBlue/80 mr-2">[MSG]</span>
+                                            <span>vagy hívd a </span>
+                                            <Typewriter
+                                                text="+36 70 330 4445"
+                                                delay={200}
+                                                className="text-neonBlue font-bold"
+                                                onComplete={() => setShowPhone(true)}
+                                            />
+                                            {showPhone && <span> számot.</span>}
+                                        </div>
+                                    )}
                                 </div>
-                                <div className="animate-pulse text-neonPurple pt-2">_awaiting_command</div>
+                                <div className="animate-pulse text-neonPurple pt-2">_</div>
                             </div>
                         </div>
 

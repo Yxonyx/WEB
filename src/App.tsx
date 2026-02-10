@@ -20,6 +20,9 @@ const Contact = lazy(() => import('./components/sections/Contact').then(module =
 const Footer = lazy(() => import('./components/sections/Footer').then(module => ({ default: module.Footer })));
 const QuoteSection = lazy(() => import('./components/sections/QuoteSection').then(module => ({ default: module.QuoteSection })));
 const BlogPost = lazy(() => import('./components/pages/BlogPost').then(module => ({ default: module.BlogPost })));
+const AllArticles = lazy(() => import('./components/pages/AllArticles').then(module => ({ default: module.AllArticles })));
+const NotFound = lazy(() => import('./components/pages/NotFound').then(module => ({ default: module.NotFound })));
+import { WealthHero } from './components/experiments/WealthHero';
 
 import { CookieBanner } from './components/ui/CookieBanner';
 import { ParticleNetwork } from './components/ui/ParticleNetwork';
@@ -95,7 +98,16 @@ const MainContent = () => {
 function App() {
   return (
     <Routes>
-      {/* Blog Route - Specific path first */}
+      {/* Blog Routes */}
+      <Route path="/:lang/blog/all" element={
+        <LanguageProvider>
+          <Suspense fallback={<SectionLoader />}>
+            <AllArticles />
+          </Suspense>
+        </LanguageProvider>
+      } />
+
+      {/* Specific Blog Post - Must come AFTER /blog/all if using vague matching, but explicit path above handles it */}
       <Route path="/:lang/blog/:id" element={
         <LanguageProvider>
           <Suspense fallback={<SectionLoader />}>
@@ -108,9 +120,20 @@ function App() {
       <Route path="/" element={<Navigate to="/hu/" replace />} />
 
       {/* Language routes - Catch all */}
+      <Route path="/wealth-demo" element={<WealthHero />} />
+
       <Route path="/:lang/*" element={
         <LanguageProvider>
           <MainContent />
+        </LanguageProvider>
+      } />
+
+      {/* 404 Catch-all */}
+      <Route path="*" element={
+        <LanguageProvider>
+          <Suspense fallback={<SectionLoader />}>
+            <NotFound />
+          </Suspense>
         </LanguageProvider>
       } />
     </Routes>

@@ -3,6 +3,7 @@ import { twMerge } from 'tailwind-merge';
 
 interface SectionProps {
     children: React.ReactNode;
+    background?: React.ReactNode;
     className?: string;
     id?: string;
     fullHeight?: boolean;
@@ -12,6 +13,7 @@ interface SectionProps {
 
 export const Section: React.FC<SectionProps> = ({
     children,
+    background,
     className,
     id,
     fullHeight = false,
@@ -28,6 +30,7 @@ export const Section: React.FC<SectionProps> = ({
                 className
             )}
         >
+            {background}
             {/* Animated gradient orbs - optimized for mobile */}
             {withOrbs && (
                 <>

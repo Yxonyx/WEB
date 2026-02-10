@@ -12,54 +12,73 @@ export const Hero = () => {
 
 
     return (
-        <Section id="hero" className="min-h-[100dvh] flex items-center py-20" fullHeight withOrbs>
-            {/* Mesh gradient background */}
-            <div className="absolute inset-0 bg-hero-gradient pointer-events-none" />
+        <Section
+            id="hero"
+            className="min-h-[100dvh] flex items-center py-20"
+            fullHeight
+            withOrbs
+            background={
+                <>
+                    {/* Background Image with Overlay */}
+                    <div className="absolute inset-0 z-0 overflow-hidden">
+                        <img
+                            src="/images/hero-bg-v4.webp"
+                            alt=""
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/60 z-10" />
+                    </div>
 
-            {/* Elegant aurora gradient orbs */}
-            <div
-                className="absolute -top-1/4 -right-1/4 w-[80vw] h-[80vh] pointer-events-none"
-                style={{
-                    background: 'radial-gradient(ellipse at center, rgba(0,240,255,0.25) 0%, rgba(0,240,255,0.05) 40%, transparent 70%)',
-                    filter: 'blur(60px)'
-                }}
-            />
-            <div
-                className="absolute -bottom-1/4 -left-1/4 w-[80vw] h-[80vh] pointer-events-none"
-                style={{
-                    background: 'radial-gradient(ellipse at center, rgba(189,0,255,0.25) 0%, rgba(189,0,255,0.05) 40%, transparent 70%)',
-                    filter: 'blur(60px)'
-                }}
-            />
-            {/* Center subtle mix */}
-            <div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[40vh] pointer-events-none opacity-30"
-                style={{
-                    background: 'radial-gradient(ellipse at center, rgba(99,102,241,0.3) 0%, transparent 60%)',
-                    filter: 'blur(80px)'
-                }}
-            />
+                    {/* Gradient Overlays */}
+                    <div className="absolute inset-0 bg-hero-gradient pointer-events-none z-[5]" />
 
-            {/* Additional decorative orb - Desktop ONLY */}{/* 
-            {isDesktop && (
-                <motion.div
-                    className="absolute top-[40%] left-[30%] w-[300px] h-[300px] rounded-full pointer-events-none opacity-30"
-                    style={{
-                        background: 'radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%)',
-                        filter: 'blur(50px)'
-                    }}
-                    animate={{
-                        x: [0, 100, 0],
-                        y: [0, -80, 0],
-                    }}
-                    transition={{
-                        duration: 20,
-                        ease: "easeInOut",
-                        repeat: Infinity,
-                    }}
-                />
-            )}
-             */}
+                    {/* Complex Orbs - Desktop Only */}
+                    <div className="hidden lg:block absolute inset-0 z-[6] overflow-hidden pointer-events-none">
+                        <div
+                            className="absolute -top-1/4 -right-1/4 w-[80vw] h-[80vh]"
+                            style={{
+                                background: 'radial-gradient(ellipse at center, rgba(0,240,255,0.25) 0%, rgba(0,240,255,0.05) 40%, transparent 70%)',
+                                filter: 'blur(60px)'
+                            }}
+                        />
+                        <div
+                            className="absolute -bottom-1/4 -left-1/4 w-[80vw] h-[80vh]"
+                            style={{
+                                background: 'radial-gradient(ellipse at center, rgba(189,0,255,0.25) 0%, rgba(189,0,255,0.05) 40%, transparent 70%)',
+                                filter: 'blur(60px)'
+                            }}
+                        />
+                        <div
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[40vh] opacity-30"
+                            style={{
+                                background: 'radial-gradient(ellipse at center, rgba(99,102,241,0.3) 0%, transparent 60%)',
+                                filter: 'blur(80px)'
+                            }}
+                        />
+                    </div>
+
+                    {/* Mobile Simplified Background */}
+                    <div className="lg:hidden absolute inset-0 z-[6] pointer-events-none overflow-hidden">
+                        <div
+                            className="absolute top-[-20%] right-[-20%] w-[100%] h-[60%]"
+                            style={{
+                                background: 'radial-gradient(circle, rgba(0,240,255,0.1) 0%, transparent 70%)',
+                                filter: 'blur(60px)',
+                                transform: 'translateZ(0)'
+                            }}
+                        />
+                        <div
+                            className="absolute bottom-[-10%] left-[-20%] w-[100%] h-[60%]"
+                            style={{
+                                background: 'radial-gradient(circle, rgba(189,0,255,0.1) 0%, transparent 70%)',
+                                filter: 'blur(60px)',
+                                transform: 'translateZ(0)'
+                            }}
+                        />
+                    </div>
+                </>
+            }
+        >
 
             <Container className="relative z-10 h-full flex flex-col justify-center">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
@@ -80,7 +99,7 @@ export const Hero = () => {
                         </h1>
 
                         <p className="text-xl sm:text-2xl mb-6 leading-relaxed">
-                            <span className="text-neonPurple italic">{t('hero.subtitle_1')}</span>
+                            <span className="text-neonBlue italic">{t('hero.subtitle_1')}</span>
                             <span className="text-white font-medium">{t('hero.subtitle_highlight')}</span>
                         </p>
                         <p className="text-lg sm:text-xl text-muted mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0">

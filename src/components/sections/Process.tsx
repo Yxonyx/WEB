@@ -63,9 +63,9 @@ export const Process = () => {
                                     </div>
                                     <div className="h-1 bg-surface rounded-full overflow-hidden">
                                         <motion.div
-                                            className="h-full bg-neonBlue"
-                                            initial={{ width: 0 }}
-                                            whileInView={{ width: "30%" }}
+                                            className="h-full bg-neonBlue origin-left"
+                                            initial={{ scaleX: 0 }}
+                                            whileInView={{ scaleX: 0.3 }}
                                             viewport={{ once: true }}
                                             transition={{ duration: 0.5, ease: "easeOut" }}
                                         />
@@ -78,9 +78,9 @@ export const Process = () => {
                                     </div>
                                     <div className="h-1 bg-surface rounded-full overflow-hidden">
                                         <motion.div
-                                            className="h-full bg-neonBlue"
-                                            initial={{ width: 0 }}
-                                            whileInView={{ width: "60%" }}
+                                            className="h-full bg-neonBlue origin-left"
+                                            initial={{ scaleX: 0 }}
+                                            whileInView={{ scaleX: 0.6 }}
                                             viewport={{ once: true }}
                                             transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
                                         />
@@ -93,9 +93,9 @@ export const Process = () => {
                                     </div>
                                     <div className="h-1 bg-surface rounded-full overflow-hidden">
                                         <motion.div
-                                            className="h-full bg-neonBlue"
-                                            initial={{ width: 0 }}
-                                            whileInView={{ width: "90%" }}
+                                            className="h-full bg-neonBlue origin-left"
+                                            initial={{ scaleX: 0 }}
+                                            whileInView={{ scaleX: 0.9 }}
                                             viewport={{ once: true }}
                                             transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
                                         />
@@ -133,7 +133,7 @@ export const Process = () => {
                                     </div>
 
                                     {/* Content Card */}
-                                    <div className={`p-5 rounded-xl border transition-all duration-300 ${step.highlight ? 'bg-highlight/5 border-highlight/20' : 'bg-surface/30 border-white/5 hover:border-white/10 hover:bg-surface/50'}`}>
+                                    <div className={`p-5 rounded-xl border transition-all duration-300 ${step.highlight ? 'bg-black/60 border-highlight/40 shadow-[0_0_20px_rgba(216,255,87,0.05)]' : 'bg-black/60 border-white/10 hover:border-neonBlue/30 hover:bg-black/80 hover:shadow-lg hover:shadow-neonBlue/5'}`}>
                                         <h4 className={`text-lg font-bold mb-1 ${step.highlight ? 'text-highlight' : 'text-white'}`}>
                                             {step.title}
                                         </h4>

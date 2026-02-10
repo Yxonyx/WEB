@@ -6,6 +6,9 @@ export const translations = {
             title: "Céges Weboldal Készítés Garanciával | CyberLabs Web",
             description: "Nem jön elég ajánlatkérés? Olyan weboldalt építünk, ami elad helyetted. Villámgyors, modern és AI-optimalizált weboldal készítés garanciával."
         },
+        common: {
+            back: "Vissza a főoldalra"
+        },
         nav: {
             services: "szolgáltatások",
             pricing: "árazás",
@@ -24,7 +27,7 @@ export const translations = {
             }
         },
         hero: {
-            tag: "< Web + SEO + GEO >_",
+            tag: "< Web + SEO + GEO >",
             title_prefix: "Egyedi weboldal",
             title_gradient: "fejlesztés",
             title_suffix: "karbantartás",
@@ -327,7 +330,9 @@ export const translations = {
             header: {
                 tag: "Blog & Tippek",
                 title: "Legfrissebb cikkeink",
-                cta: "Összes cikk"
+                cta: "Összes cikk",
+                viewAll: "Összes cikk megtekintése",
+                subtitle: "Fedezd fel legújabb cikkeinket technológia, design és üzletfejlesztés témában."
             },
             articles: [
                 {
@@ -354,7 +359,7 @@ export const translations = {
             tag: "Kapcsolat",
             title_line1: "Van egy projekt ötleted?",
             title_gradient: "Kérj ajánlatot!",
-            description: "Egyeztessünk egy rövid hívást, majd küldünk ajánlatot.",
+            description: "Csak töltsd ki az űrlapot, és hamarosan felvesszük veled a kapcsolatot.",
             card_subtitle: "Web & GEO Optimalizálás",
             card_title: "CyberLabs Web",
             services: [
@@ -372,13 +377,15 @@ export const translations = {
                 "Egyedi"
             ],
             form: {
-                name: "Teljes név *",
+                name: "Név *",
                 company: "Cégnév",
-                email: "Email cím *",
-                service: "Szolgáltatás",
+                email: "E-Mail *",
+                phone: "Telefonszám",
+                service: "Miben segíthetünk?",
                 budget: "Költségkeret",
-                message: "Projekt részletek *",
-                submit: "Ajánlatot kérek"
+                message: "Üzenet",
+                privacy: "Elfogadom az adataimnak az adatvédelmi irányelvek szerinti tárolását",
+                submit: "Küldés"
             }
         },
         team: {
@@ -404,12 +411,20 @@ export const translations = {
             more: "További info:",
             decline: "Elutasít",
             accept: "Elfogad"
+        },
+        notFound: {
+            title: "404 - Az oldal nem található",
+            desc: "Sajnáljuk, de a keresett oldal nem létezik vagy el lett távolítva.",
+            back: "Vissza a főoldalra"
         }
     },
     en: {
         meta: {
             title: "Corporate Website Development in Hungary | CyberLabs Web",
             description: "Custom website development and maintenance for businesses. Fast, modern, and SEO & AI-optimized solutions with guarantee."
+        },
+        common: {
+            back: "Back to Home"
         },
         nav: {
             services: "services",
@@ -429,7 +444,7 @@ export const translations = {
             }
         },
         hero: {
-            tag: "< Web + SEO + GEO >_",
+            tag: "< Web + SEO + GEO >",
             title_prefix: "Custom website",
             title_gradient: "development",
             title_suffix: "maintenance",
@@ -732,7 +747,9 @@ export const translations = {
             header: {
                 tag: "Blog & Tips",
                 title: "Latest Articles",
-                cta: "All Articles"
+                cta: "All Articles",
+                viewAll: "View All Articles",
+                subtitle: "Discover our latest articles on technology, design and business development."
             },
             articles: [
                 {
@@ -789,13 +806,15 @@ export const translations = {
                 "Custom"
             ],
             form: {
-                name: "Full name *",
+                name: "Name *",
                 company: "Company",
-                email: "Email *",
-                service: "Service",
+                email: "E-Mail *",
+                phone: "Phone Number",
+                service: "How can we help?",
                 budget: "Budget",
-                message: "Project details *",
-                submit: "Request a Quote"
+                message: "Message",
+                privacy: "I accept the storage of my data according to the privacy policy",
+                submit: "Send"
             }
         },
         footer: {
@@ -809,6 +828,11 @@ export const translations = {
             more: "More info:",
             decline: "Decline",
             accept: "Accept"
+        },
+        notFound: {
+            title: "404 - Page Not Found",
+            desc: "Sorry, the page you are looking for does not exist or has been removed.",
+            back: "Back to Home"
         }
     }
 };

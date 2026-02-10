@@ -1,6 +1,6 @@
 import { Container } from '../Container';
 import { Section } from '../Section';
-import { Check, ShieldCheck, Clock, Layers } from 'lucide-react';
+import { Check, Layers } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { useLanguage } from '../../context/LanguageContext';
@@ -19,21 +19,7 @@ export const QuoteSection = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        {/* Badges */}
-                        <div className="flex flex-wrap gap-6 mb-8 justify-center lg:justify-start">
-                            <div className="inline-flex items-center gap-2 text-[#00F0FF] font-mono text-base font-semibold tracking-wider">
-                                <span>&lt;</span>
-                                <Clock size={16} />
-                                <span>{t('quote.badges.trial')}</span>
-                                <span>&gt;</span>
-                            </div>
-                            <div className="inline-flex items-center gap-2 text-[#BD00FF] font-mono text-base font-semibold tracking-wider">
-                                <span>&lt;</span>
-                                <ShieldCheck size={16} />
-                                <span>{t('quote.badges.payment')}</span>
-                                <span>&gt;</span>
-                            </div>
-                        </div>
+
 
                         {/* Heading */}
                         <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight font-display font-light">

@@ -92,6 +92,8 @@ export const Team = () => {
                                         <img
                                             src={member.image}
                                             alt={member.name}
+                                            width="80"
+                                            height="80"
                                             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                                         />
                                     </div>

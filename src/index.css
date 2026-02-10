@@ -66,15 +66,16 @@
 
   /* Enhanced glass panel with stronger blur - Desktop only performance optimization */
   .glass-panel-strong {
-    @apply bg-surface/98 border border-white/10;
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    @apply bg-surface/90 border border-white/10;
+    /* Removed expensive box-shadow on mobile */
   }
 
   @screen lg {
     .glass-panel-strong {
       @apply bg-surface/70 backdrop-blur-xl;
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
   }
 
@@ -225,6 +226,11 @@
 }
 
 /* Animated background gradients */
+/* Gradient orbs with GPU hint */
+.gradient-orb {
+  will-change: transform;
+}
+
 @keyframes gradient-move {
   0% {
     transform: translate(0, 0) rotate(0deg);

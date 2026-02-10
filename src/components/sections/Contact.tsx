@@ -26,7 +26,7 @@ export const Contact = () => {
     const { t } = useLanguage();
 
     const services = t('contact.services') as unknown as string[];
-    const budgets = t('contact.budgets') as unknown as string[];
+
 
     return (
         <Section id="kapcsolat" className="section-bg-cyan" withOrbs>
@@ -105,7 +105,7 @@ export const Contact = () => {
                         transition={{ duration: 0.4, delay: 0.2 }}
                     >
                         <motion.form
-                            className="bg-surface2/20 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-white/10 shadow-[0_0_50px_-12px_rgba(0,240,255,0.1)] space-y-6 sm:space-y-8 relative overflow-hidden"
+                            className="bg-surface2/20 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-white/10 shadow-[0_0_50px_-12px_rgba(0,240,255,0.1)] space-y-3 sm:space-y-4 relative overflow-hidden"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
@@ -116,58 +116,84 @@ export const Contact = () => {
                         >
                             <input type="hidden" name="form-name" value="contact" />
 
-                            <motion.div className="grid sm:grid-cols-2 gap-6" variants={itemVariants}>
+                            <motion.div variants={itemVariants} className="space-y-3 sm:space-y-4">
                                 <div className="space-y-2">
-                                    <label className="text-base font-medium text-white/70">{t('contact.form.name')}</label>
-                                    <input type="text" name="name" required className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-colors" />
+                                    <label className="text-sm font-bold text-white ml-4">{t('contact.form.name')}</label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        required
+                                        placeholder={t('contact.form.name')}
+                                        className="w-full bg-transparent border border-neonPurple/50 rounded-full px-5 py-2.5 text-white placeholder:text-white/20 focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all shadow-[0_0_15px_-3px_rgba(189,0,255,0.1)]"
+                                    />
                                 </div>
-                                <div className="space-y-2">
-                                    <label className="text-base font-medium text-white/70">{t('contact.form.company')}</label>
-                                    <input type="text" name="company" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-colors" />
+
+                                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold text-white ml-4">{t('contact.form.email')}</label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            required
+                                            placeholder={t('contact.form.email')}
+                                            className="w-full bg-transparent border border-neonPurple/50 rounded-full px-5 py-2.5 text-white placeholder:text-white/20 focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all shadow-[0_0_15px_-3px_rgba(189,0,255,0.1)]"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold text-white ml-4">{t('contact.form.phone')}</label>
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            placeholder={t('contact.form.phone')}
+                                            className="w-full bg-transparent border border-neonPurple/50 rounded-full px-5 py-2.5 text-white placeholder:text-white/20 focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all shadow-[0_0_15px_-3px_rgba(189,0,255,0.1)]"
+                                        />
+                                    </div>
                                 </div>
-                            </motion.div>
 
-                            <motion.div className="space-y-2" variants={itemVariants}>
-                                <label className="text-base font-medium text-white/70">{t('contact.form.email')}</label>
-                                <input type="email" name="email" required className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-colors" />
-                            </motion.div>
-
-                            <motion.div className="grid sm:grid-cols-2 gap-6" variants={itemVariants}>
                                 <div className="space-y-2 group">
-                                    <label className="text-base font-medium text-white/70 group-focus-within:text-neonBlue transition-colors">{t('contact.form.service')}</label>
+                                    <label className="text-sm font-bold text-white ml-4">{t('contact.form.service')}</label>
                                     <div className="relative">
-                                        <select name="service" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-all appearance-none cursor-pointer hover:bg-white/10">
+                                        <select
+                                            name="service"
+                                            className="w-full bg-transparent border border-neonPurple/50 rounded-full px-5 py-2.5 text-white focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all appearance-none cursor-pointer hover:bg-white/5 shadow-[0_0_15px_-3px_rgba(189,0,255,0.1)]"
+                                        >
                                             {services.map((service, i) => (
                                                 <option key={i} className="bg-[#0A0A1F] text-white">{service}</option>
                                             ))}
                                         </select>
-                                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-muted">
+                                        <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-neonPurple">
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="space-y-2 group">
-                                    <label className="text-base font-medium text-white/70 group-focus-within:text-neonBlue transition-colors">{t('contact.form.budget')}</label>
-                                    <div className="relative">
-                                        <select name="budget" className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-all appearance-none cursor-pointer hover:bg-white/10">
-                                            {budgets.map((budget, i) => (
-                                                <option key={i} className="bg-[#0A0A1F] text-white">{budget}</option>
-                                            ))}
-                                        </select>
-                                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-muted">
-                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-                                        </div>
-                                    </div>
+
+                                <div className="space-y-2">
+                                    <label className="text-sm font-bold text-white ml-4">{t('contact.form.message')}</label>
+                                    <textarea
+                                        name="message"
+                                        required
+                                        rows={3}
+                                        placeholder={t('contact.form.message')}
+                                        className="w-full bg-transparent border border-neonPurple/50 rounded-3xl px-5 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all resize-none shadow-[0_0_15px_-3px_rgba(189,0,255,0.1)]"
+                                    ></textarea>
                                 </div>
-                            </motion.div>
 
-                            <motion.div className="space-y-2" variants={itemVariants}>
-                                <label className="text-base font-medium text-white/70">{t('contact.form.message')}</label>
-                                <textarea name="message" required rows={4} className="w-full bg-white/5 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-neonBlue focus:ring-1 focus:ring-neonBlue focus:bg-white/10 transition-colors resize-none"></textarea>
-                            </motion.div>
+                                <div className="flex items-start gap-3 ml-2">
+                                    <div className="flex items-center h-5">
+                                        <input
+                                            id="privacy"
+                                            name="privacy"
+                                            type="checkbox"
+                                            required
+                                            className="w-4 h-4 border border-neonPurple/50 rounded bg-transparent focus:ring-neonPurple focus:ring-offset-0 text-neonPurple"
+                                        />
+                                    </div>
+                                    <label htmlFor="privacy" className="text-xs sm:text-sm text-white/80 select-none">
+                                        {t('contact.form.privacy')}
+                                    </label>
+                                </div>
 
-                            <motion.div variants={itemVariants}>
-                                <Button type="submit" variant="primary" className="w-full py-4 text-lg">
+                                <Button type="submit" variant="primary" className="w-full py-4 text-lg font-bold shadow-[0_0_20px_-5px_rgba(0,240,255,0.4)]">
                                     {t('contact.form.submit')}
                                 </Button>
                             </motion.div>
