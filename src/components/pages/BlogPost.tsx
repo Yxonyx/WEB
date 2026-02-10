@@ -127,24 +127,34 @@ export const BlogPost = () => {
             </Helmet>
             {/* Background decorative elements */}
             <div className="fixed inset-0 pointer-events-none z-0">
+                {/* Background Image with Overlay */}
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="/images/blog-detail-bg.avif"
+                        alt=""
+                        className="w-full h-full object-cover opacity-20 scale-105"
+                    />
+                    <div className="absolute inset-0 bg-[#050B14]/80 backdrop-blur-[2px]" />
+                </div>
+
                 {/* Mesh gradient background */}
-                <div className="absolute inset-0 mesh-gradient opacity-60" />
+                <div className="absolute inset-0 mesh-gradient opacity-60 z-10" />
 
                 {/* Gradient orbs */}
                 <div
-                    className="absolute top-[10%] right-[-10%] w-[600px] h-[600px] gradient-orb gradient-orb-blue opacity-30 animate-float-zigzag"
+                    className="absolute top-[10%] right-[-10%] w-[600px] h-[600px] gradient-orb gradient-orb-blue opacity-30 animate-float-zigzag z-10"
                 />
                 <div
-                    className="absolute bottom-[20%] left-[-15%] w-[500px] h-[500px] gradient-orb gradient-orb-purple opacity-25 animate-float-zigzag"
+                    className="absolute bottom-[20%] left-[-15%] w-[500px] h-[500px] gradient-orb gradient-orb-purple opacity-25 animate-float-zigzag z-10"
                     style={{ animationDelay: '-7s' }}
                 />
                 <div
-                    className="absolute top-[50%] right-[10%] w-[400px] h-[400px] gradient-orb gradient-orb-blue opacity-20"
+                    className="absolute top-[50%] right-[10%] w-[400px] h-[400px] gradient-orb gradient-orb-blue opacity-20 z-10"
                 />
 
                 {/* Accent glow near content */}
-                <div className="absolute top-[30%] left-[20%] w-96 h-96 bg-neonBlue/5 rounded-full blur-[100px]" />
-                <div className="absolute bottom-[40%] right-[15%] w-80 h-80 bg-neonPurple/5 rounded-full blur-[80px]" />
+                <div className="absolute top-[30%] left-[20%] w-96 h-96 bg-neonBlue/5 rounded-full blur-[100px] z-10" />
+                <div className="absolute bottom-[40%] right-[15%] w-80 h-80 bg-neonPurple/5 rounded-full blur-[80px] z-10" />
             </div>
 
             <Navbar />
