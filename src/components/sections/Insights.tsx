@@ -113,7 +113,7 @@ export const Insights = () => {
                                         </p>
 
                                         {/* Read More */}
-                                        <div className="mt-auto pt-4 flex items-center gap-2 text-sm font-medium text-neonBlue opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div className="mt-auto pt-4 flex items-center gap-2 text-sm font-medium text-neonBlue opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                                             {article.read_more}
                                             <ArrowUpRight className="w-4 h-4" />
                                         </div>

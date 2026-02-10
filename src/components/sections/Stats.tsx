@@ -80,7 +80,7 @@ const StatItem = ({ target, suffix, label, sublabel, delay }: StatItemProps) => 
                 </div>
 
                 {/* Subtext */}
-                <span className="text-[10px] sm:text-sm font-bold uppercase tracking-widest text-white/90 mt-1 md:mt-2 max-w-[100px] sm:max-w-none leading-tight">
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-white/90 mt-1 md:mt-2 max-w-[120px] sm:max-w-none leading-tight">
                     {label}
                 </span>
 

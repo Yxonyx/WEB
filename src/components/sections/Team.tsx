@@ -61,6 +61,24 @@ export const Team = () => {
         <Section id="csapat" className="bg-gradient-to-b from-surface/30 to-bg">
             <Container>
                 <motion.div
+                    className="mb-12"
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4 }}
+                >
+                    <span className="text-sm font-mono text-neonBlue uppercase tracking-widest mb-3 block">
+                        {t('team.tag') || '// Csapat'}
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                        {t('team.title') || 'Akik mögötted állnak'}
+                    </h2>
+                    <p className="text-white/80 text-lg font-medium max-w-2xl">
+                        {t('team.subtitle') || 'Fiatal, tapasztalt csapat — akik valóban törődnek a projekted sikerével.'}
+                    </p>
+                </motion.div>
+
+                <motion.div
                     className="grid md:grid-cols-3 gap-6 lg:gap-8"
                     initial="hidden"
                     whileInView="visible"

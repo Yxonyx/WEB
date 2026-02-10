@@ -22,7 +22,7 @@ export const QuoteSection = () => {
 
 
                         {/* Heading */}
-                        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight font-display font-light">
+                        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight font-display">
                             "{t('quote.title.prefix')}<span className="text-neonBlue">{t('quote.title.highlight')}</span>{t('quote.title.suffix')}"
                         </h2>
 
