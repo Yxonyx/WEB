@@ -1,6 +1,7 @@
+import { useRef } from 'react';
 import { Section } from '../Section';
 import { Container } from '../Container';
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -13,6 +14,7 @@ interface Testimonial {
 
 export const Testimonials = () => {
     const { language } = useLanguage();
+    const trackRef = useRef<HTMLDivElement>(null);
 
     const testimonials: Record<string, Testimonial[]> = {
         hu: [
@@ -71,6 +73,59 @@ export const Testimonials = () => {
 
     const currentTestimonials = testimonials[language] || testimonials.hu;
 
+    // Manual scroll via arrows — shift the track by pausing and repositioning
+    const scroll = (direction: 'left' | 'right') => {
+        const track = trackRef.current;
+        if (!track) return;
+
+        // Pause animation
+        track.style.animationPlayState = 'paused';
+
+        // Get current computed translateX
+        const style = window.getComputedStyle(track);
+        const matrix = new DOMMatrix(style.transform);
+        const currentX = matrix.m41;
+
+        // Card dimensions
+        const isMobile = window.innerWidth < 768;
+        const cardWidth = isMobile ? 300 : 400;
+        const gap = 12;
+        const step = cardWidth + gap;
+
+        // Viewport width
+        const viewportWidth = window.innerWidth;
+
+        // Calculate which card index is currently closest to center
+        // Center of viewport relative to track: viewportCenter - currentX
+        const viewportCenter = viewportWidth / 2;
+        const trackCenterOffset = viewportCenter - currentX;
+        const currentCardIndex = Math.round(trackCenterOffset / step);
+
+        // Move to next/previous card
+        const targetIndex = direction === 'right' ? currentCardIndex + 1 : currentCardIndex - 1;
+
+        // Calculate translateX to center that card
+        // Card center position = targetIndex * step + cardWidth / 2
+        // We want that at viewportCenter, so: translateX = viewportCenter - (targetIndex * step + cardWidth / 2)
+        const newX = viewportCenter - (targetIndex * step + cardWidth / 2);
+
+        // Apply the new position
+        track.style.animation = 'none';
+        track.style.transform = `translateX(${newX}px)`;
+
+        // Force reflow
+        void track.offsetHeight;
+
+        // Resume after 3 seconds
+        setTimeout(() => {
+            track.style.animation = '';
+            track.style.transform = '';
+        }, 1000);
+    };
+
+    // Total items rendered (2 copies for loop)
+    const items = [...currentTestimonials, ...currentTestimonials];
+
     return (
         <Section id="velemenyek" className="section-bg-mixed relative overflow-hidden">
             {/* Background decoration */}
@@ -83,7 +138,7 @@ export const Testimonials = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-8 md:mb-16"
                 >
                     <div className="inline-flex items-center gap-2 text-neonBlue font-mono text-sm mb-4 tracking-wider">
                         <span>&lt;</span>
@@ -96,59 +151,103 @@ export const Testimonials = () => {
                             {language === 'hu' ? ' az ügyfeleink?' : ' say about us?'}
                         </span>
                     </h2>
+
+                    {/* Navigation Arrows - Desktop (Centered below title) */}
+                    <div className="hidden md:flex justify-center gap-4 mt-6">
+                        <button
+                            onClick={() => scroll('left')}
+                            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group"
+                            aria-label="Previous testimonial"
+                        >
+                            <ChevronLeft className="w-6 h-6 text-white/70 group-hover:text-white transition-colors" />
+                        </button>
+                        <button
+                            onClick={() => scroll('right')}
+                            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group"
+                            aria-label="Next testimonial"
+                        >
+                            <ChevronRight className="w-6 h-6 text-white/70 group-hover:text-white transition-colors" />
+                        </button>
+                    </div>
                 </motion.div>
 
-                {/* Testimonials Grid */}
-                <div className="grid md:grid-cols-2 gap-8">
-                    {currentTestimonials.map((testimonial, index) => (
-                        <motion.div
+            </Container>
+
+            {/* Scrolling Marquee Container */}
+            <div className="relative w-full overflow-hidden mt-4">
+                {/* Gradient Masks for fade effect at edges */}
+                <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#050510] to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#050510] to-transparent z-10 pointer-events-none" />
+
+                {/* Mobile Navigation Arrows - Overlay on edges */}
+                <button
+                    onClick={() => scroll('left')}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/50 border border-white/20 text-white backdrop-blur-sm md:hidden"
+                    aria-label="Previous testimonial"
+                >
+                    <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                    onClick={() => scroll('right')}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/50 border border-white/20 text-white backdrop-blur-sm md:hidden"
+                    aria-label="Next testimonial"
+                >
+                    <ChevronRight className="w-5 h-5" />
+                </button>
+
+                {/* Animated track — pure CSS animation */}
+                <div
+                    ref={trackRef}
+                    className="flex gap-3 py-4 md:py-8 w-max animate-marquee hover:[animation-play-state:paused]"
+                >
+                    {items.map((testimonial, index) => (
+                        <div
                             key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group relative"
+                            className="w-[300px] md:w-[400px] shrink-0 group relative cursor-pointer"
                         >
                             {/* Gradient border effect */}
                             <div className="absolute -inset-[1px] bg-gradient-to-r from-neonBlue/50 via-neonPurple/50 to-neonBlue/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
 
-                            <div className="relative bg-[#0a0a18]/90 backdrop-blur-sm border border-white/10 rounded-2xl p-8 h-full group-hover:border-transparent transition-all duration-500">
+                            <div className="relative bg-[#0a0a18] border border-white/10 rounded-2xl p-8 h-full flex flex-col justify-between group-hover:border-transparent transition-all duration-500">
                                 {/* Quote icon */}
-                                <div className="absolute -top-4 -left-2 w-12 h-12 bg-gradient-to-br from-neonBlue to-neonPurple rounded-xl flex items-center justify-center shadow-lg shadow-neonPurple/20">
-                                    <Quote size={20} className="text-white" />
+                                <div className="absolute -top-4 -left-2 w-10 h-10 bg-gradient-to-br from-neonBlue to-neonPurple rounded-xl flex items-center justify-center shadow-lg shadow-neonPurple/20">
+                                    <Quote size={18} className="text-white" />
                                 </div>
 
-                                {/* Stars */}
-                                <div className="flex gap-1 mb-6 ml-8">
-                                    {[...Array(testimonial.rating)].map((_, i) => (
-                                        <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
-                                    ))}
-                                </div>
+                                <div>
+                                    {/* Stars */}
+                                    <div className="flex gap-1 mb-4 ml-8">
+                                        {[...Array(testimonial.rating)].map((_, i) => (
+                                            <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
+                                        ))}
+                                    </div>
 
-                                {/* Quote */}
-                                <p className="text-white/90 text-lg leading-relaxed mb-8">
-                                    "{testimonial.quote}"
-                                </p>
+                                    {/* Quote */}
+                                    <p className="text-white/90 text-base leading-relaxed mb-6 italic">
+                                        "{testimonial.quote}"
+                                    </p>
+                                </div>
 
                                 {/* Author */}
-                                <div className="flex items-center gap-4 pt-6 border-t border-white/10">
-                                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-neonBlue to-neonPurple p-[2px]">
+                                <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neonBlue to-neonPurple p-[2px] shrink-0">
                                         <div className="w-full h-full rounded-full bg-[#0a0a18] flex items-center justify-center">
-                                            <span className="text-white font-bold text-lg">
+                                            <span className="text-white font-bold text-sm">
                                                 {testimonial.name.charAt(0)}
                                             </span>
                                         </div>
                                     </div>
                                     <div>
-                                        <div className="text-white font-semibold text-lg">{testimonial.name}</div>
-                                        <div className="text-neonBlue/80 text-sm font-mono">{testimonial.role}</div>
+                                        <div className="text-white font-semibold text-base">{testimonial.name}</div>
+                                        <div className="text-neonBlue/80 text-xs font-mono">{testimonial.role}</div>
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
-            </Container>
+            </div>
+
         </Section>
     );
 };

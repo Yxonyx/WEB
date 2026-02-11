@@ -1,6 +1,7 @@
 import { Container } from '../Container';
 import { Section } from '../Section';
 import { motion, type Variants } from 'framer-motion';
+
 import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
@@ -20,10 +21,12 @@ const itemVariants: Variants = {
     }
 };
 
+
 interface TeamMember {
     id: string;
     name: string;
     role: string;
+    qualification: string;
     image: string;
     phone?: string;
     skills: string[];
@@ -37,6 +40,7 @@ export const Team = () => {
             id: "SOMA",
             name: "Vlaszaty Soma",
             role: t('team.roles.STRATEGIST'),
+            qualification: t('team.qualifications.SOMA'),
             image: "/images/vlaszaty soma.webp",
             phone: "+36 70 330 4445",
             skills: [t('team.skills.coord'), t('team.skills.client'), t('team.skills.deadline')]
@@ -45,6 +49,7 @@ export const Team = () => {
             id: "BENI",
             name: "Szappanos Benedek",
             role: t('team.roles.FRONTEND_DEV'),
+            qualification: t('team.qualifications.BENI'),
             image: "/images/beni.webp",
             skills: [t('team.skills.uiux'), t('team.skills.reacts'), t('team.skills.resp')]
         },
@@ -52,16 +57,47 @@ export const Team = () => {
             id: "JONI",
             name: "Kaiser Jonatán",
             role: t('team.roles.DEVELOPER'),
+            qualification: t('team.qualifications.JONI'),
             image: "/images/kaiser-jonatan.webp",
             skills: [t('team.skills.arch'), t('team.skills.frontend'), t('team.skills.backend')]
         }
     ];
 
     return (
-        <Section id="csapat" className="bg-gradient-to-b from-surface/30 to-bg">
+        <Section
+            id="csapat"
+            className="bg-gradient-to-b from-surface2/60 via-surface/40 to-bg relative overflow-hidden"
+        >
             <Container>
+                {/* Philosophy */}
                 <motion.div
-                    className="mb-12"
+                    className="mb-14 text-center max-w-3xl mx-auto"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={containerVariants}
+                >
+                    <motion.h3
+                        variants={itemVariants}
+                        className="text-lg font-mono text-neonPurple uppercase tracking-widest mb-6"
+                    >
+                        {t('team.philosophy.tag') || '// Filozófiánk'}
+                    </motion.h3>
+
+                    <motion.p
+                        variants={itemVariants}
+                        className="text-white/80 text-base sm:text-lg leading-relaxed sm:leading-loose"
+                    >
+                        <span className="text-white font-semibold">A piac aktuális trendjeit figyeljük</span>, és ennek megfelelő megoldásokat alkalmazunk minden projektben.{' '}
+                        Csapatunk <span className="text-neonBlue font-semibold">folyamatosan képzi magát</span>, hogy a legmodernebb technológiákat alkalmazza és a legjobb döntéseket hozza.{' '}
+                        Nyitottak vagyunk <span className="text-neonPurple font-semibold">kreatív ötletekre</span> és egyedi megoldásokra, nem sablonokban gondolkodunk.{' '}
+                        Amíg a projekt nincs teljesen kész és az ügyfél nem elégedett teljes mértékben, <span className="text-white font-semibold">mellette állunk</span>. Ez nem opció, ez <span className="text-neonBlue font-semibold">alapelv</span>.
+                    </motion.p>
+                </motion.div>
+
+                {/* Team header */}
+                <motion.div
+                    className="mb-12 text-center"
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -73,11 +109,12 @@ export const Team = () => {
                     <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                         {t('team.title') || 'Akik mögötted állnak'}
                     </h2>
-                    <p className="text-white/80 text-lg font-medium max-w-2xl">
+                    <p className="text-white/80 text-lg font-medium max-w-2xl mx-auto">
                         {t('team.subtitle') || 'Fiatal, tapasztalt csapat — akik valóban törődnek a projekted sikerével.'}
                     </p>
                 </motion.div>
 
+                {/* Team cards */}
                 <motion.div
                     className="grid md:grid-cols-3 gap-6 lg:gap-8"
                     initial="hidden"
@@ -92,7 +129,7 @@ export const Team = () => {
                             variants={itemVariants}
                         >
                             {/* Terminal Card */}
-                            <div className="relative bg-surface2/60 backdrop-blur-sm border border-white/10 rounded-lg h-full flex flex-col">
+                            <div className="relative bg-surface2/60 border border-white/10 rounded-lg h-full flex flex-col">
                                 {/* Corner Brackets - Top Right */}
                                 <div className="absolute -top-px -right-px w-3 h-3 border-t-2 border-r-2 border-neonPurple" />
                                 {/* Corner Brackets - Bottom Left */}
@@ -122,8 +159,13 @@ export const Team = () => {
                                     </h3>
 
                                     {/* Role */}
-                                    <p className="text-sm font-mono text-muted uppercase tracking-wider mb-4">
+                                    <p className="text-sm font-mono text-muted uppercase tracking-wider mb-1">
                                         ROLE: <span className="text-white">{member.role}</span>
+                                    </p>
+
+                                    {/* Qualification */}
+                                    <p className="text-xs font-mono text-muted2 italic mb-4">
+                                        {member.qualification}
                                     </p>
 
                                     {/* Phone (if available) */}

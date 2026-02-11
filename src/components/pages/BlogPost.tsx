@@ -89,8 +89,8 @@ export const BlogPost = () => {
         );
     }
 
-    const canonicalUrl = `https://cyberlabsweb.com/${lang || 'hu'}/blog/${post.id}`;
-    const ogImage = `https://cyberlabsweb.com${post.image}`;
+    const canonicalUrl = `https://cyberlabsweb.hu/${lang || 'hu'}/blog/${post.id}`;
+    const ogImage = `https://cyberlabsweb.hu${post.image}`;
 
     return (
         <div className="min-h-screen bg-bgDeep text-gray-200 font-sans selection:bg-neonBlue/30 noise-overlay relative overflow-hidden">

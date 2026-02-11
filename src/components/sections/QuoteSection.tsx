@@ -4,12 +4,20 @@ import { Check, Layers } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { useLanguage } from '../../context/LanguageContext';
+import { ParticleNetwork } from '../ui/ParticleNetwork';
 
 export const QuoteSection = () => {
     const { t } = useLanguage();
 
     return (
-        <Section className="bg-[#050510]/20 backdrop-blur-sm border-t border-white/5 relative overflow-hidden">
+        <Section
+            className="bg-[#050510]/20 relative overflow-hidden"
+            background={
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                    <ParticleNetwork />
+                </div>
+            }
+        >
             <Container>
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     {/* Left Column: Content */}

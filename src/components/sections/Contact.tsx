@@ -105,7 +105,7 @@ export const Contact = () => {
                         transition={{ duration: 0.4, delay: 0.2 }}
                     >
                         <motion.form
-                            className="bg-surface2/20 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-white/10 shadow-[0_0_50px_-12px_rgba(0,240,255,0.1)] space-y-3 sm:space-y-4 relative overflow-hidden"
+                            className="bg-surface2/20 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-white/10 shadow-[0_0_50px_-12px_rgba(0,240,255,0.1)] space-y-3 sm:space-y-4 relative overflow-hidden"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}

@@ -105,7 +105,7 @@ export const GEO = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
                         >
-                            <div className="active-card p-6 rounded-xl border border-neonPurple/30 bg-surface/80 backdrop-blur-md relative z-10">
+                            <div className="active-card p-6 rounded-xl border border-neonPurple/30 bg-surface/80 relative z-10">
                                 {/* Chat UI Mockup */}
                                 <div className="space-y-4">
                                     <div className="flex gap-3">

@@ -22,12 +22,17 @@ export const Hero = () => {
                     {/* Background Image with Overlay */}
                     <div className="absolute inset-0 z-0 overflow-hidden">
                         <img
-                            src="/images/hero-bg-v4.webp"
+                            src="/images/hero-bg-v5.avif"
                             alt=""
+                            width={1920}
+                            height={1080}
+                            fetchPriority="high"
                             className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-black/60 z-10" />
                     </div>
+
+
 
                     {/* Gradient Overlays */}
                     <div className="absolute inset-0 bg-hero-gradient pointer-events-none z-[5]" />
@@ -89,7 +94,9 @@ export const Hero = () => {
                         </div>
 
                         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight">
-                            <span className="text-white">{t('hero.title_prefix')}</span>
+                            <span className="text-white">{t('hero.title_prefix_1')}</span>
+                            <br className="sm:hidden" />
+                            <span className="text-white">{t('hero.title_prefix_2')}</span>
                             <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple animate-gradient-shift">
                                 {t('hero.title_gradient')}
@@ -99,12 +106,13 @@ export const Hero = () => {
                         </h1>
 
                         <p className="text-xl sm:text-2xl mb-6 leading-relaxed">
-                            <span className="text-neonBlue italic">{t('hero.subtitle_1')}</span>
-                            <span className="text-white font-medium">{t('hero.subtitle_highlight')}</span>
+                            <span className="text-neonBlue italic block sm:inline">{t('hero.subtitle_1')}</span>
+                            <span className="text-white font-medium block sm:inline">{t('hero.subtitle_highlight')}</span>
                         </p>
                         <p className="text-lg sm:text-xl text-muted mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0">
                             {t('hero.subtitle_desc_1')}
                             <span className="text-neonBlue">{t('hero.subtitle_google')}</span>
+                            <br className="sm:hidden" />
                             {t('hero.subtitle_desc_2')}
                             <span className="text-neonPurple">{t('hero.subtitle_ai')}</span>.
                         </p>

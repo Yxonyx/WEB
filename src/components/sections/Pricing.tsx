@@ -82,8 +82,8 @@ export const Pricing = () => {
                             {/* Inner glow effect */}
                             <div className="absolute inset-[1px] rounded-2xl bg-gradient-to-br from-bg/95 via-surface/95 to-bg/90" />
 
-                            {/* Animated Background Beam */}
-                            <div className="absolute -inset-[100%] animate-[spin_12s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#00F0FF_0%,#BD00FF_50%,#00F0FF_100%)] opacity-[0.04] group-hover/card:opacity-[0.08] transition-opacity duration-700" />
+                            {/* Subtle background glow */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/5 via-transparent to-neonPurple/5 opacity-50 group-hover/card:opacity-80 transition-opacity duration-700" />
 
                             {/* Corner accent glow */}
                             <div className="absolute -top-24 -right-24 w-48 h-48 bg-neonPurple/20 rounded-full blur-[80px] pointer-events-none" />

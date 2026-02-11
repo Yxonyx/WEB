@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/sections/Navbar';
 import { Hero } from './components/sections/Hero';
 import { Stats } from './components/sections/Stats';
+import { QuoteSection } from './components/sections/QuoteSection';
 import { Suspense, lazy } from 'react';
 
 // Lazy load below-the-fold components
@@ -18,19 +19,19 @@ const Insights = lazy(() => import('./components/sections/Insights').then(module
 const Team = lazy(() => import('./components/sections/Team').then(module => ({ default: module.Team })));
 const Contact = lazy(() => import('./components/sections/Contact').then(module => ({ default: module.Contact })));
 const Footer = lazy(() => import('./components/sections/Footer').then(module => ({ default: module.Footer })));
-const QuoteSection = lazy(() => import('./components/sections/QuoteSection').then(module => ({ default: module.QuoteSection })));
+
 const BlogPost = lazy(() => import('./components/pages/BlogPost').then(module => ({ default: module.BlogPost })));
 const AllArticles = lazy(() => import('./components/pages/AllArticles').then(module => ({ default: module.AllArticles })));
 const NotFound = lazy(() => import('./components/pages/NotFound').then(module => ({ default: module.NotFound })));
 import { WealthHero } from './components/experiments/WealthHero';
 
+
 import { CookieBanner } from './components/ui/CookieBanner';
-import { ParticleNetwork } from './components/ui/ParticleNetwork';
 import { Helmet } from 'react-helmet-async';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
-// Loading fallback component
-const SectionLoader = () => <div className="w-full h-[10vh] animate-pulse bg-transparent"></div>;
+// Loading fallback component — tall enough to prevent layout shift
+const SectionLoader = () => <div className="w-full min-h-[60vh]"></div>;
 
 const MainContent = () => {
   const { t, language } = useLanguage();
@@ -69,28 +70,26 @@ const MainContent = () => {
         <link rel="alternate" hrefLang="x-default" href="https://cyberlabsweb.hu/hu/" />
       </Helmet>
 
-      <ParticleNetwork />
+
       <CookieBanner />
       <Navbar />
       <Hero />
       <Stats />
 
-      <Suspense fallback={<SectionLoader />}>
-        <QuoteSection />
-        <Services />
-        <GEO />
-        <Maintenance />
-        <ChatbotIntro />
-        <Pricing />
-        <Portfolio />
-        <Process />
-        <Testimonials />
-        <FAQ />
-        <Insights />
-        <Contact />
-        <Team />
-        <Footer />
-      </Suspense>
+      <QuoteSection />
+      <Suspense fallback={<SectionLoader />}><Services /></Suspense>
+      <Suspense fallback={<SectionLoader />}><GEO /></Suspense>
+      <Suspense fallback={<SectionLoader />}><Maintenance /></Suspense>
+      <Suspense fallback={<SectionLoader />}><ChatbotIntro /></Suspense>
+      <Suspense fallback={<SectionLoader />}><Pricing /></Suspense>
+      <Suspense fallback={<SectionLoader />}><Portfolio /></Suspense>
+      <Suspense fallback={<SectionLoader />}><Process /></Suspense>
+      <Suspense fallback={<SectionLoader />}><Testimonials /></Suspense>
+      <Suspense fallback={<SectionLoader />}><FAQ /></Suspense>
+      <Suspense fallback={<SectionLoader />}><Insights /></Suspense>
+      <Suspense fallback={<SectionLoader />}><Contact /></Suspense>
+      <Suspense fallback={<SectionLoader />}><Team /></Suspense>
+      <Suspense fallback={<SectionLoader />}><Footer /></Suspense>
     </div>
   );
 };

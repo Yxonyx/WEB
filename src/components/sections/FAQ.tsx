@@ -92,7 +92,7 @@ export const FAQ = () => {
                         transition={{ duration: 0.4 }}
                     >
                         <h2 className="text-3xl font-bold text-white mb-8">{t('faq.title')}</h2>
-                        <div className="bg-surface/30 backdrop-blur-sm rounded-2xl border border-white/5 p-6 sm:p-8">
+                        <div className="bg-surface/30 rounded-2xl border border-white/5 p-6 sm:p-8">
                             {questions.map((faq, i) => (
                                 <FAQItem key={i} {...faq} index={i} />
                             ))}

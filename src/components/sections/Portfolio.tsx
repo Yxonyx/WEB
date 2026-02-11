@@ -26,9 +26,9 @@ const projects = [
     { id: 1, name: "Projekt 01", image: "/images/projekt1.webp", type: "image" },
     { id: 2, name: "Projekt 02", image: "/images/portfolio-2.webp", type: "image" },
     { id: 3, name: "Projekt 03", image: "/images/portfolio3.webp", type: "image" },
-    { id: 4, name: "Karaván Centrum", image: "/images/portfolio-karavan.png", type: "image" },
-    { id: 5, name: "Ingatlan Bemutató", image: "/images/portfolio-ingatlan.png", type: "image" },
-    { id: 6, name: "ForeverHugz Webshop", image: "/images/portfolio-projekt6.png", type: "image" }
+    { id: 4, name: "Karaván Centrum", image: "/images/portfolio-karavan.webp", type: "image" },
+    { id: 5, name: "Ingatlan Bemutató", image: "/images/portfolio-ingatlan.webp", type: "image" },
+    { id: 6, name: "ForeverHugz Webshop", image: "/images/portfolio-projekt6.webp", type: "image" }
 ];
 
 export const Portfolio = () => {

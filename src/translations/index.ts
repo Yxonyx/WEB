@@ -28,7 +28,8 @@ export const translations = {
         },
         hero: {
             tag: "< Web + SEO + GEO >",
-            title_prefix: "Egyedi weboldal",
+            title_prefix_1: "Egyedi",
+            title_prefix_2: " weboldal",
             title_gradient: "fejlesztés",
             title_suffix: "karbantartás",
             subtitle_1: "Modern, mesterséges intelligencia ",
@@ -389,15 +390,32 @@ export const translations = {
             }
         },
         team: {
+            tag: '// Csapat',
+            title: 'Akik mögötted állnak',
+            subtitle: 'Fiatal, tapasztalt csapat, akik valóban törődnek a projekted sikerével.',
             roles: {
                 STRATEGIST: "STRATEGIST",
                 FRONTEND_DEV: "FRONTEND_DEV",
                 DEVELOPER: "DEVELOPER"
             },
+            qualifications: {
+                SOMA: "Közgazdász",
+                BENI: "Mérnökinformatikus",
+                JONI: "Programtervező informatikus"
+            },
             skills: {
                 coord: "Koordináció", client: "Ügyfélkapcsolat", deadline: "Határidők_check",
                 uiux: "UI/UX_Design", reacts: "React_Components", resp: "Responsive_Web",
                 arch: "System_Architecture", frontend: "Frontend_UI", backend: "Backend_API"
+            },
+            philosophy: {
+                tag: '// Filozófiánk',
+                values: [
+                    { title: 'Trendek alapján tervezünk', desc: 'A piac aktuális trendjeit figyeljük, és ennek megfelelő megoldásokat alkalmazunk minden projektben.' },
+                    { title: 'Napi szintű fejlődés', desc: 'Csapatunk folyamatosan képzi magát, hogy a legmodernebb technológiákat alkalmazza és a legjobb döntéseket hozza.' },
+                    { title: 'Rugalmasság és kreativitás', desc: 'Nyitottak vagyunk kreatív ötletekre és egyedi megoldásokra. Nem sablonokban gondolkodunk.' },
+                    { title: 'Nem hagyjuk magára', desc: 'Amíg a projekt nincs teljesen kész és az ügyfél elégedett, mellette állunk. Ez nem opció, ez alapelv.' }
+                ]
             }
         },
         footer: {
@@ -445,7 +463,8 @@ export const translations = {
         },
         hero: {
             tag: "< Web + SEO + GEO >",
-            title_prefix: "Custom website",
+            title_prefix_1: "Custom",
+            title_prefix_2: " website",
             title_gradient: "development",
             title_suffix: "maintenance",
             subtitle_1: "Modern, AI-powered ",
@@ -773,15 +792,32 @@ export const translations = {
             ]
         },
         team: {
+            tag: '// Team',
+            title: 'The people behind your project',
+            subtitle: 'Young, experienced team who genuinely care about your project\'s success.',
             roles: {
                 STRATEGIST: "STRATEGIST",
                 FRONTEND_DEV: "FRONTEND_DEV",
                 DEVELOPER: "DEVELOPER"
             },
+            qualifications: {
+                SOMA: "Economist",
+                BENI: "Computer Engineer",
+                JONI: "Software Engineer"
+            },
             skills: {
                 coord: "Coordination", client: "Client_Relations", deadline: "Deadlines_check",
                 uiux: "UI/UX_Design", reacts: "React_Components", resp: "Responsive_Web",
                 arch: "System_Architecture", frontend: "Frontend_UI", backend: "Backend_API"
+            },
+            philosophy: {
+                tag: '// Our Philosophy',
+                values: [
+                    { title: 'Trend-driven design', desc: 'We follow current market trends and apply the right solutions for every project.' },
+                    { title: 'Daily growth', desc: 'Our team continuously learns to use the most modern technologies and make the best decisions.' },
+                    { title: 'Flexibility & creativity', desc: 'We are open to creative ideas and unique solutions. We don\'t think in templates.' },
+                    { title: 'We never leave you hanging', desc: 'Until the project is fully complete and you\'re satisfied, we stand by you. It\'s not optional, it\'s a principle.' }
+                ]
             }
         },
         contact: {

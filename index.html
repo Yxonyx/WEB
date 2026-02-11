@@ -2,13 +2,22 @@
 <html lang="hu">
 
 <head>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HGHHJY5WQR"></script>
+  <!-- Google Analytics - deferred to after page load -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-HGHHJY5WQR');
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-HGHHJY5WQR';
+        s.async = true;
+        document.head.appendChild(s);
+        s.onload = function () {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'G-HGHHJY5WQR');
+        };
+      }, 100);
+    });
   </script>
 
   <meta charset="UTF-8" />
@@ -74,6 +83,8 @@
   <link rel="manifest" href="/site.webmanifest">
 
   <!-- ✅ Performance hints -->
+  <link rel="preload" href="/fonts/Outfit-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/fonts/Outfit-Medium.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload"
@@ -235,26 +246,33 @@
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 
-  <!-- Voiceflow Chat Widget - Optimized Load (Deferred) -->
+  <!-- Voiceflow Chat Widget - Load on first user interaction -->
   <script type="text/javascript">
-    window.addEventListener('load', function () {
-      setTimeout(function () {
-        (function (d, t) {
-          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-          v.onload = function () {
-            window.voiceflow.chat.load({
-              verify: { projectID: '69728b40b960e41275e9bc0b' },
-              url: 'https://general-runtime.voiceflow.com',
-              versionID: 'production',
-              voice: {
-                url: "https://runtime-api.voiceflow.com"
-              }
-            });
-          }
-          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-      }, 2000); // Delay load by 2s to prioritize LCP
-    });
+    (function () {
+      var loaded = false;
+      function loadVoiceflow() {
+        if (loaded) return;
+        loaded = true;
+        document.removeEventListener('scroll', loadVoiceflow);
+        document.removeEventListener('click', loadVoiceflow);
+        document.removeEventListener('touchstart', loadVoiceflow);
+        var v = document.createElement('script');
+        v.onload = function () {
+          window.voiceflow.chat.load({
+            verify: { projectID: '69728b40b960e41275e9bc0b' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            voice: { url: "https://runtime-api.voiceflow.com" }
+          });
+        };
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+        v.type = "text/javascript";
+        document.body.appendChild(v);
+      }
+      document.addEventListener('scroll', loadVoiceflow, { once: true, passive: true });
+      document.addEventListener('click', loadVoiceflow, { once: true });
+      document.addEventListener('touchstart', loadVoiceflow, { once: true, passive: true });
+    })();
   </script>
 </body>
 

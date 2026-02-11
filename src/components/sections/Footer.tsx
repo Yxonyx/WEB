@@ -21,8 +21,16 @@ export const Footer = () => {
     ];
 
     return (
-        <footer className="py-12 border-t border-white/5 bg-black">
-            <Container className="text-center">
+        <footer className="relative py-12 border-t border-white/5 overflow-hidden">
+            {/* Background image */}
+            <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: "url('/images/philosophy-bg.webp')" }}
+            />
+            <div className="absolute inset-0 bg-black/80" />
+            {/* Top fade */}
+            <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#050508] to-transparent z-[1]" />
+            <Container className="relative z-10 text-center">
                 <div className="flex items-center justify-center gap-2 mb-6 opacity-80">
                     <div className="font-mono font-bold text-white text-xl">CyberLabs Web</div>
                 </div>

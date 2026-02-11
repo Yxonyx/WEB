@@ -27,7 +27,7 @@ export const ParticleNetwork = () => {
         let canvasWidth = window.innerWidth;
         let canvasHeight = window.innerHeight;
 
-        const particleCount = 60;
+        const particleCount = 30;
 
         canvas.width = canvasWidth;
         canvas.height = canvasHeight;
@@ -78,8 +78,16 @@ export const ParticleNetwork = () => {
             }
         };
 
+        let frameSkip = false;
         const animate = () => {
-            if (isMobileDevice) return; // Stop animation loop on mobile
+            if (isMobileDevice) return;
+
+            // Throttle to ~30fps for performance
+            frameSkip = !frameSkip;
+            if (frameSkip) {
+                animationFrameId = requestAnimationFrame(animate);
+                return;
+            }
 
             ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
@@ -118,7 +126,7 @@ export const ParticleNetwork = () => {
     if (isMobileDevice) return null;
 
     return (
-        <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden h-screen w-full">
+        <div className={`absolute inset-0 z-0 pointer-events-none overflow-hidden w-full h-full`}>
             <canvas
                 ref={canvasRef}
                 className="absolute inset-0 opacity-40 mix-blend-screen"
