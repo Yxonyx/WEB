@@ -2,8 +2,10 @@ import { Container } from '../Container';
 import { Section } from '../Section';
 import { Network, Cpu, Sparkles, ArrowRight, UserCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { lazy, Suspense } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { Robot3D } from '../ui/Robot3D';
+// Lazy load Robot3D to avoid loading Three.js in the main bundle
+const Robot3D = lazy(() => import('../ui/Robot3D').then(module => ({ default: module.Robot3D })));
 
 export const GEO = () => {
     const { t } = useLanguage();
@@ -30,7 +32,7 @@ export const GEO = () => {
                     {/* 1. The Shift (Problem/Solution) */}
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
-                            initial={{ opacity: 0, x: -30 }}
+                            initial={{ opacity: 0, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
@@ -42,17 +44,19 @@ export const GEO = () => {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 30 }}
+                            className="relative"
+                            initial={{ opacity: 0, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
-                            className="relative"
                         >
                             <div className="absolute inset-0 bg-neonBlue/20 blur-3xl rounded-full" />
                             <div className="relative flex items-center gap-6">
                                 {/* Robot 3D floating on left */}
                                 <div className="flex-shrink-0 w-[120px] h-[120px] sm:w-[180px] sm:h-[180px]">
-                                    <Robot3D size={180} />
+                                    <Suspense fallback={<div className="w-full h-full rounded-full bg-neonBlue/10 animate-pulse" />}>
+                                        <Robot3D size={180} />
+                                    </Suspense>
                                 </div>
                                 {/* Search Interface card on right */}
                                 <div className="flex-1 bg-surface border border-white/10 rounded-xl p-6 shadow-2xl">
@@ -74,7 +78,7 @@ export const GEO = () => {
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center lg:flex-row-reverse">
                         <motion.div
                             className="lg:order-2"
-                            initial={{ opacity: 0, x: 30 }}
+                            initial={{ opacity: 0, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
@@ -100,7 +104,7 @@ export const GEO = () => {
 
                         <motion.div
                             className="lg:order-1 relative"
-                            initial={{ opacity: 0, x: -30 }}
+                            initial={{ opacity: 0, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
@@ -139,7 +143,7 @@ export const GEO = () => {
                     {/* 3. Metrics (Trust & Quality) */}
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
-                            initial={{ opacity: 0, x: -30 }}
+                            initial={{ opacity: 0, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
@@ -162,7 +166,13 @@ export const GEO = () => {
                                         <span className="text-neonBlue">98%</span>
                                     </div>
                                     <div className="h-2 bg-white/5 rounded-full overflow-hidden">
-                                        <div className="h-full bg-neonBlue w-[98%]" />
+                                        <motion.div
+                                            className="h-full bg-neonBlue"
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: "98%" }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 1.5, ease: "easeOut" }}
+                                        />
                                     </div>
                                 </div>
                                 <div>
@@ -171,7 +181,13 @@ export const GEO = () => {
                                         <span className="text-green-500">{t('geo.what.metrics.trust_value')}</span>
                                     </div>
                                     <div className="h-2 bg-white/5 rounded-full overflow-hidden">
-                                        <div className="h-full bg-green-500 w-[95%]" />
+                                        <motion.div
+                                            className="h-full bg-green-500"
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: "95%" }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 1.5, ease: "easeOut" }}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +195,7 @@ export const GEO = () => {
 
                         <motion.div
                             className="relative"
-                            initial={{ opacity: 0, x: 30 }}
+                            initial={{ opacity: 0, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}

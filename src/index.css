@@ -33,6 +33,7 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    font-size: 105%;
   }
 
   body {

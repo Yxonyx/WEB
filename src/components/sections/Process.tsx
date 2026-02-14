@@ -12,7 +12,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, x: 30 },
+    hidden: { opacity: 0, x: 0 },
     visible: {
         opacity: 1,
         x: 0,
@@ -38,14 +38,8 @@ export const Process = () => {
             <Container>
                 <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
                     {/* Left Column: Info & Stats */}
-                    <motion.div
-                        className="lg:col-span-5"
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4 }}
-                    >
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">{t('process.title')}</h2>
+                    <div className="lg:col-span-5">
+                        <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">{t('process.title')}</h2>
                         <p className="text-base text-white font-semibold mb-8 leading-relaxed">
                             {t('process.desc')}
                         </p>
@@ -63,11 +57,11 @@ export const Process = () => {
                                     </div>
                                     <div className="h-1 bg-surface rounded-full overflow-hidden">
                                         <motion.div
-                                            className="h-full bg-neonBlue origin-left"
-                                            initial={{ scaleX: 0 }}
-                                            whileInView={{ scaleX: 0.3 }}
+                                            className="h-full bg-neonBlue"
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: "30%" }}
                                             viewport={{ once: true }}
-                                            transition={{ duration: 0.5, ease: "easeOut" }}
+                                            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
                                         />
                                     </div>
                                 </div>
@@ -78,11 +72,11 @@ export const Process = () => {
                                     </div>
                                     <div className="h-1 bg-surface rounded-full overflow-hidden">
                                         <motion.div
-                                            className="h-full bg-neonBlue origin-left"
-                                            initial={{ scaleX: 0 }}
-                                            whileInView={{ scaleX: 0.6 }}
+                                            className="h-full bg-neonBlue"
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: "60%" }}
                                             viewport={{ once: true }}
-                                            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                                            transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
                                         />
                                     </div>
                                 </div>
@@ -93,11 +87,11 @@ export const Process = () => {
                                     </div>
                                     <div className="h-1 bg-surface rounded-full overflow-hidden">
                                         <motion.div
-                                            className="h-full bg-neonBlue origin-left"
-                                            initial={{ scaleX: 0 }}
-                                            whileInView={{ scaleX: 0.9 }}
+                                            className="h-full bg-neonBlue"
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: "90%" }}
                                             viewport={{ once: true }}
-                                            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                                            transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
                                         />
                                     </div>
                                 </div>
@@ -107,7 +101,7 @@ export const Process = () => {
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Right Column: Steps Timeline */}
                     <div className="lg:col-span-7">

@@ -22,7 +22,7 @@ export const QuoteSection = () => {
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     {/* Left Column: Content */}
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
+                        initial={{ opacity: 0, x: 0 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
@@ -74,7 +74,7 @@ export const QuoteSection = () => {
                         {/* Card 1: Requirement - Enhanced */}
                         {/* Card 1: Requirement - Enhanced */}
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 0 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -116,7 +116,7 @@ export const QuoteSection = () => {
 
                         {/* Card 2: Demo Build (Central) - Enhanced Web Page Mock */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
+                            initial={{ opacity: 0, scale: 1 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
@@ -195,7 +195,7 @@ export const QuoteSection = () => {
 
                         {/* Card 3: Feedback (Bottom) */}
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 0 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}

@@ -13,7 +13,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 15, scale: 0.95 },
+    hidden: { opacity: 0, y: 0, scale: 1 },
     visible: {
         opacity: 1,
         y: 0,
@@ -39,12 +39,12 @@ export const Portfolio = () => {
             <Container>
                 <motion.div
                     className="mb-12"
-                    initial={{ opacity: 0, y: 15 }}
+                    initial={{ opacity: 0, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
                 >
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t('portfolio.title')}</h2>
+                    <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-4">{t('portfolio.title')}</h2>
                     <p className="text-white/80 text-lg font-medium">{t('portfolio.subtitle')}</p>
                 </motion.div>
 

@@ -141,6 +141,13 @@ blogPosts.forEach(post => {
     html = html.replace(/<meta property="og:image:secure_url"\s+content=".*?"/, `<meta property="og:image:secure_url" content="${fullImage}"`);
     html = html.replace(/<meta name="twitter:image"\s+content=".*?"/, `<meta name="twitter:image" content="${fullImage}"`);
 
+    // Remove default dimensions from template as they might not match the specific blog image
+    html = html.replace(/<meta property="og:image:width"\s+content=".*?"\s*\/?>/, '');
+    html = html.replace(/<meta property="og:image:height"\s+content=".*?"\s*\/?>/, '');
+
+    // Add explicit type for WebP
+    html = html.replace(/<meta property="og:image"\s+content="(.*?)"/, '<meta property="og:image" content="$1">\n  <meta property="og:image:type" content="image/webp">');
+
     // 4. URL (Canonical & OG)
     const fullUrl = `https://cyberlabsweb.com/${relativePath}`;
     html = html.replace(/<link rel="canonical" href=".*?"/, `<link rel="canonical" href="${fullUrl}"`);
@@ -155,3 +162,112 @@ blogPosts.forEach(post => {
 });
 
 console.log('🎉 Static generation complete!');
+
+// --- NEW: Generate Main Language Pages (/hu/, /en/) ---
+const mainPages = [
+    {
+        lang: 'hu',
+        path: 'hu',
+        title: 'Céges Weboldal Készítés Garanciával | CyberLabs Web',
+        description: 'Nem jön elég ajánlatkérés? Olyan weboldalt építünk, ami elad helyetted. Villámgyors, modern és AI-optimalizált weboldal készítés garanciával.',
+        canonical: 'https://cyberlabsweb.com/hu/'
+    },
+    {
+        lang: 'en',
+        path: 'en',
+        title: 'Custom Web Development with Guarantee | CyberLabs Web',
+        description: 'Need more leads? We build websites that sell for you. Blazing fast, modern, and AI-optimized web development with a guarantee.',
+        canonical: 'https://cyberlabsweb.com/en/'
+    }
+];
+
+console.log('🚀 Starting main page generation...');
+
+mainPages.forEach(page => {
+    const targetDir = path.join(distDir, page.path);
+    const targetFile = path.join(targetDir, 'index.html');
+
+    // Create directory
+    fs.mkdirSync(targetDir, { recursive: true });
+
+    let html = template;
+
+    // 1. Title
+    html = html.replace(/<title>.*?<\/title>/, `<title>${page.title}</title>`);
+    html = html.replace(/<meta property="og:title" content=".*?"/, `<meta property="og:title" content="${page.title}"`);
+    html = html.replace(/<meta name="twitter:title" content=".*?"/, `<meta name="twitter:title" content="${page.title}"`);
+
+    // 2. Description
+    html = html.replace(/<meta name="description"\s+content=".*?"/, `<meta name="description" content="${page.description}"`);
+    html = html.replace(/<meta property="og:description"\s+content=".*?"/, `<meta property="og:description" content="${page.description}"`);
+    html = html.replace(/<meta name="twitter:description"\s+content=".*?"/, `<meta name="twitter:description" content="${page.description}"`);
+
+    // 3. Language
+    html = html.replace(/<html lang="hu">/, `<html lang="${page.lang}">`);
+    html = html.replace(/<meta http-equiv="content-language" content="hu">/, `<meta http-equiv="content-language" content="${page.lang}">`);
+
+    // 4. Canonical & URL
+    html = html.replace(/<link rel="canonical" href=".*?"/, `<link rel="canonical" href="${page.canonical}"`);
+    html = html.replace(/<meta property="og:url" content=".*?"/, `<meta property="og:url" content="${page.canonical}"`);
+
+    // Write file
+    fs.writeFileSync(targetFile, html);
+    console.log(`✅ Generated: ${page.path}/index.html`);
+});
+
+console.log('🎉 Main page generation complete!');
+
+// --- NEW: Generate Sitemap.xml ---
+console.log('🗺️ Generating sitemap.xml...');
+
+const baseUrl = 'https://cyberlabsweb.com';
+const today = new Date().toISOString().split('T')[0];
+
+let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+`;
+
+// 1. Main Pages
+const staticPages = [
+    { url: '/', priority: '1.0', changefreq: 'daily' },
+    { url: '/hu/', priority: '1.0', changefreq: 'daily' },
+    { url: '/en/', priority: '1.0', changefreq: 'daily' },
+    { url: '/aszf.html', priority: '0.3', changefreq: 'yearly' },
+    { url: '/adatvedelem.html', priority: '0.3', changefreq: 'yearly' }
+];
+
+staticPages.forEach(page => {
+    sitemapContent += `  <url>
+    <loc>${baseUrl}${page.url}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>
+`;
+});
+
+// 2. Blog Posts (HU & EN)
+blogPosts.forEach(post => {
+    // HU
+    sitemapContent += `  <url>
+    <loc>${baseUrl}/hu/blog/${post.id}</loc>
+    <lastmod>${post.dateISO}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+`;
+    // EN
+    sitemapContent += `  <url>
+    <loc>${baseUrl}/en/blog/${post.id}</loc>
+    <lastmod>${post.dateISO}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+`;
+});
+
+sitemapContent += `</urlset>`;
+
+fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapContent);
+console.log('✅ Generated: sitemap.xml');
+

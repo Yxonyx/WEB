@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { useLocation, Navigate, Route, Routes } from 'react-router-dom';
 import { Navbar } from './components/sections/Navbar';
 import { Hero } from './components/sections/Hero';
 import { Stats } from './components/sections/Stats';
@@ -20,13 +20,17 @@ const Team = lazy(() => import('./components/sections/Team').then(module => ({ d
 const Contact = lazy(() => import('./components/sections/Contact').then(module => ({ default: module.Contact })));
 const Footer = lazy(() => import('./components/sections/Footer').then(module => ({ default: module.Footer })));
 
-const BlogPost = lazy(() => import('./components/pages/BlogPost').then(module => ({ default: module.BlogPost })));
-const AllArticles = lazy(() => import('./components/pages/AllArticles').then(module => ({ default: module.AllArticles })));
 const NotFound = lazy(() => import('./components/pages/NotFound').then(module => ({ default: module.NotFound })));
-import { WealthHero } from './components/experiments/WealthHero';
+const WealthHero = lazy(() => import('./components/experiments/WealthHero').then(module => ({ default: module.WealthHero })));
 
+import { BlogPost } from './components/pages/BlogPost';
+import { AllArticles } from './components/pages/AllArticles';
+import { GeoLanding } from './components/pages/GeoLanding';
+import { GeoThankYou } from './components/pages/GeoThankYou';
+import { GeoPDF } from './components/pages/GeoPDF';
 
 import { CookieBanner } from './components/ui/CookieBanner';
+import { GeoNotification } from './components/ui/GeoNotification';
 import { Helmet } from 'react-helmet-async';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 
@@ -35,10 +39,17 @@ const SectionLoader = () => <div className="w-full min-h-[60vh]"></div>;
 
 const MainContent = () => {
   const { t, language } = useLanguage();
+  const location = useLocation();
+
   const currentLang = language || 'hu';
   const metaTitle = ((t('meta.title') as string) || "CyberLabs Web");
   const metaDesc = ((t('meta.description') as string) || "Custom websites.");
-  const currentUrl = `https://cyberlabsweb.hu/${currentLang}/`;
+
+  // Construct current URL for canonical/og:url
+  // Ensure we handle the base URL correctly - in production it should be the full domain
+  const baseUrl = 'https://cyberlabsweb.com';
+  const currentPath = location.pathname === '/' ? `/${currentLang}/` : location.pathname;
+  const currentUrl = `${baseUrl}${currentPath}`;
 
   return (
     <div className="min-h-screen bg-bgDeep text-white selection:bg-neonBlue/30 noise-overlay relative">
@@ -56,22 +67,23 @@ const MainContent = () => {
         <meta property="og:locale" content={currentLang === 'hu' ? 'hu_HU' : 'en_US'} />
         <meta property="og:site_name" content="CyberLabs Web" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://cyberlabsweb.hu/og/cyberlabs-og.png" />
+        <meta property="og:image" content="https://cyberlabsweb.com/og/cyberlabs-main-og.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDesc} />
-        <meta name="twitter:image" content="https://cyberlabsweb.hu/og/cyberlabs-og.png" />
+        <meta name="twitter:image" content="https://cyberlabsweb.com/og/cyberlabs-main-og.png" />
 
         {/* Hreflang alternates */}
-        <link rel="alternate" hrefLang="hu" href="https://cyberlabsweb.hu/hu/" />
-        <link rel="alternate" hrefLang="en" href="https://cyberlabsweb.hu/en/" />
-        <link rel="alternate" hrefLang="x-default" href="https://cyberlabsweb.hu/hu/" />
+        <link rel="alternate" hrefLang="hu" href="https://cyberlabsweb.com/hu/" />
+        <link rel="alternate" hrefLang="en" href="https://cyberlabsweb.com/en/" />
+        <link rel="alternate" hrefLang="x-default" href="https://cyberlabsweb.com/hu/" />
       </Helmet>
 
 
       <CookieBanner />
+      <GeoNotification />
       <Navbar />
       <Hero />
       <Stats />
@@ -97,6 +109,11 @@ const MainContent = () => {
 function App() {
   return (
     <Routes>
+      {/* GEO Campaign Routes - Prioritized */}
+      <Route path="/geo-tudasanyag" element={<GeoLanding />} />
+      <Route path="/geo-tudasanyag/koszonjuk" element={<GeoThankYou />} />
+      <Route path="/geo-tudasanyag/pdf" element={<GeoPDF />} />
+
       {/* Blog Routes */}
       <Route path="/:lang/blog/all" element={
         <LanguageProvider>
@@ -119,7 +136,13 @@ function App() {
       <Route path="/" element={<Navigate to="/hu/" replace />} />
 
       {/* Language routes - Catch all */}
-      <Route path="/wealth-demo" element={<WealthHero />} />
+      <Route path="/wealth-demo" element={
+        <Suspense fallback={<SectionLoader />}>
+          <WealthHero />
+        </Suspense>
+      } />
+
+
 
       <Route path="/:lang/*" element={
         <LanguageProvider>

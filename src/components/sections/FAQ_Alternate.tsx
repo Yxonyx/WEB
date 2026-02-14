@@ -2,51 +2,41 @@ import { useState } from 'react';
 import { Container } from '../Container';
 import { Section } from '../Section';
 import { Plus, Minus } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
-const FAQItem = ({ q, a, defaultOpen = false, index }: { q: string, a: string, defaultOpen?: boolean, index: number }) => {
+// Nyers, tiszta struktúra a maximális teljesítményért
+const FAQItem = ({ q, a, defaultOpen = false }: { q: string, a: string, defaultOpen?: boolean }) => {
     const [isOpen, setIsOpen] = useState(defaultOpen);
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="mb-4"
-        >
+        <div className="mb-4">
             <div
-                className={`transition-all duration-300 rounded-xl border ${isOpen ? 'bg-surface2/40 border-highlight/30' : 'bg-surface/20 border-white/5 hover:border-white/10'}`}
+                className={`transition-colors duration-200 rounded-xl border ${isOpen
+                    ? 'bg-surface2/40 border-highlight/30'
+                    : 'bg-surface/20 border-white/5 hover:border-white/10'
+                    }`}
             >
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="w-full px-6 py-5 flex items-center justify-between text-left"
-                    aria-expanded={isOpen}
+                    className="w-full px-6 py-5 flex items-center justify-between text-left select-none"
+                    type="button"
                 >
-                    <span className={`text-lg font-medium transition-colors ${isOpen ? 'text-white' : 'text-muted hover:text-white'}`}>
+                    <span className={`text-lg font-medium transition-colors duration-200 ${isOpen ? 'text-white' : 'text-muted hover:text-white'}`}>
                         {q}
                     </span>
-                    <span className={`shrink-0 ml-4 transition-colors ${isOpen ? 'text-highlight' : 'text-muted2'}`}>
+                    <span className={`shrink-0 ml-4 transition-colors duration-200 ${isOpen ? 'text-highlight' : 'text-muted2'}`}>
                         {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                     </span>
                 </button>
-                <AnimatePresence>
-                    {isOpen && (
-                        <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="overflow-hidden"
-                        >
-                            <div className="px-6 pb-6 text-muted leading-relaxed border-t border-white/5 mt-[-8px] pt-4">
-                                {a}
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+
+                {/* Közvetlen renderelés animációs könyvtár nélkül a lag elkerülése érdekében */}
+                {isOpen && (
+                    <div className="px-6 pb-6 text-muted leading-relaxed border-t border-white/5 mt-[-8px] pt-4">
+                        {a}
+                    </div>
+                )}
             </div>
-        </motion.div>
+        </div>
     );
 };
 
@@ -81,18 +71,15 @@ export const FAQ_Alternate = () => {
 
     return (
         <Section id="gyik" className="relative overflow-hidden">
-            {/* Background Gradients */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-neonBlue/5 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-highlight/5 rounded-full blur-[100px] pointer-events-none" />
-
             <Container>
                 <div className="max-w-3xl mx-auto">
+                    {/* Fejléc - Egyszerű Fade In */}
                     <motion.div
                         className="text-center mb-16"
-                        initial={{ opacity: 0, y: 15 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.4 }}
+                        transition={{ duration: 0.5 }}
                     >
                         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Gyakori kérdések</h2>
                         <p className="text-xl text-muted">A legfontosabb válaszok, őszintén.</p>
@@ -100,7 +87,7 @@ export const FAQ_Alternate = () => {
 
                     <div className="space-y-2">
                         {questions.map((faq, i) => (
-                            <FAQItem key={i} {...faq} index={i} />
+                            <FAQItem key={i} {...faq} />
                         ))}
                     </div>
                 </div>
@@ -108,5 +95,3 @@ export const FAQ_Alternate = () => {
         </Section>
     );
 };
-
-

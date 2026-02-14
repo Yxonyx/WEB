@@ -17,7 +17,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 15 },
+    hidden: { opacity: 0, y: 0 },
     visible: {
         opacity: 1,
         y: 0,
@@ -29,30 +29,36 @@ export const Services = () => {
     const { t } = useLanguage();
 
     return (
-        <Section id="szolgaltatasok" className="section-bg-cyan py-16 lg:py-24" withMeshGradient withOrbs>
+        <Section id="szolgaltatasok" className="section-bg-cyan py-16 lg:py-24 pt-8 relative z-20" withMeshGradient withOrbs disableOrbAnimation>
 
             <Container>
                 {/* Header */}
                 <motion.div
-                    className="text-center max-w-3xl mx-auto mb-20 md:mb-32"
-                    initial={{ opacity: 0, y: 15 }}
+                    className="flex flex-col items-center max-w-3xl mx-auto mb-12 lg:mb-20"
+                    initial={{ opacity: 0, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
                 >
-                    <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-neonBlue/10 border border-neonBlue/20">
-                        <span className="text-sm font-bold text-neonBlue uppercase tracking-wider">{t('services.tag')}</span>
+                    {/* Tagline */}
+                    <span className="text-neonBlue font-mono text-sm tracking-widest uppercase mb-4 block">
+                        Hogyan segítünk cégednek?
+                    </span>
+
+                    {/* "Szolgáltatások" Heading with Underline */}
+                    <div className="relative inline-block mb-6 text-center">
+                        <h2 className="text-4xl sm:text-6xl font-bold font-display text-white relative z-10">{t('services.title')}</h2>
                     </div>
-                    <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">{t('services.title')}</h2>
-                    <p className="text-xl text-white/80 font-medium">
+
+                    <p className="text-xl text-center text-white/80 font-medium">
                         {t('services.subtitle')}
                     </p>
                 </motion.div>
 
-                <div className="space-y-32">
+                <div className="space-y-16 lg:space-y-24">
                     {/* Service 1: Egyedi weboldal (Text Left, Visual Right) */}
                     <motion.div
-                        className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+                        className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
@@ -146,7 +152,7 @@ export const Services = () => {
 
                     {/* Service 2: Keresőbarát beállítások (Text Right, Visual Left) */}
                     <motion.div
-                        className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+                        className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}

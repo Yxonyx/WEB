@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { blogPosts } from '../../data/blogPosts';
 import { Navbar } from '../sections/Navbar';
@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 
 export const BlogPost = () => {
     const { id, lang } = useParams();
-    const navigate = useNavigate();
+
     const post = blogPosts.find(p => p.id === id);
 
     // Scroll to top on mount
@@ -19,21 +19,7 @@ export const BlogPost = () => {
         window.scrollTo(0, 0);
     }, [id]);
 
-    // Handle back to articles - navigate and scroll to insights section
-    const handleBackToArticles = () => {
-        navigate(`/${lang || 'hu'}/`);
-        // Use longer delay and retry to ensure lazy-loaded content is ready
-        const scrollToInsights = (attempts = 0) => {
-            const insightsSection = document.getElementById('insights');
-            if (insightsSection) {
-                insightsSection.scrollIntoView({ behavior: 'smooth' });
-            } else if (attempts < 10) {
-                // Retry up to 10 times with 200ms intervals
-                setTimeout(() => scrollToInsights(attempts + 1), 200);
-            }
-        };
-        setTimeout(scrollToInsights, 300);
-    };
+
 
     // Generate JSON-LD structured data for the article
     const generateArticleSchema = () => {
@@ -78,12 +64,12 @@ export const BlogPost = () => {
                 <div className="text-center">
                     <h1 className="text-4xl font-bold mb-4">404</h1>
                     <p className="mb-8 text-muted">A keresett cikk nem található.</p>
-                    <button
-                        onClick={() => navigate(`/${lang || 'hu'}/`)}
+                    <Link
+                        to={`/${lang || 'hu'}/`}
                         className="text-neonBlue hover:underline"
                     >
                         Vissza a főoldalra
-                    </button>
+                    </Link>
                 </div>
             </div>
         );
@@ -162,13 +148,13 @@ export const BlogPost = () => {
             <main className="pt-28 pb-20 relative z-10">
                 <Container className="max-w-6xl">
                     {/* Back Link */}
-                    <button
-                        onClick={handleBackToArticles}
+                    <Link
+                        to={`/${lang || 'hu'}/#insights`}
                         className="inline-flex items-center gap-2 text-neonBlue hover:text-white transition-colors mb-8 font-medium group"
                     >
                         <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                         Vissza a cikkekhez
-                    </button>
+                    </Link>
 
                     {/* Hero Card with Overlay */}
                     <motion.div
@@ -280,23 +266,12 @@ export const BlogPost = () => {
                         <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
                             Ha szeretnéd, hogy a te vállalkozásod is hasonló színvonalon jelenjen meg az online térben, vedd fel velünk a kapcsolatot.
                         </p>
-                        <button
-                            onClick={() => {
-                                navigate(`/${lang || 'hu'}/`);
-                                const scrollToContact = (attempts = 0) => {
-                                    const contactSection = document.getElementById('kapcsolat');
-                                    if (contactSection) {
-                                        contactSection.scrollIntoView({ behavior: 'smooth' });
-                                    } else if (attempts < 10) {
-                                        setTimeout(() => scrollToContact(attempts + 1), 200);
-                                    }
-                                };
-                                setTimeout(scrollToContact, 300);
-                            }}
+                        <Link
+                            to={`/${lang || 'hu'}/#kapcsolat`}
                             className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-neonBlue text-[#050B14] font-bold hover:bg-neonBlue/90 transition-all hover:scale-105 shadow-[0_0_20px_rgba(0,255,255,0.3)]"
                         >
                             Ajánlatot kérek
-                        </button>
+                        </Link>
                     </div>
                 </Container>
             </main>

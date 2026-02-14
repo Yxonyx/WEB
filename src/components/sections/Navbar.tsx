@@ -134,6 +134,7 @@ export const Navbar = () => {
                     <div className="flex items-center gap-3 pl-4 border-l border-white/10">
                         <button
                             onClick={() => setLanguage('hu')}
+                            aria-label="Váltás magyar nyelvre"
                             className={clsx(
                                 "relative w-6 h-4 overflow-hidden rounded-[2px] transition-transform hover:scale-110",
                                 language === 'hu' ? "opacity-100 ring-2 ring-neonBlue/50" : "opacity-50 hover:opacity-100 grayscale hover:grayscale-0"
@@ -147,6 +148,7 @@ export const Navbar = () => {
                         </button>
                         <button
                             onClick={() => setLanguage('en')}
+                            aria-label="Switch to English"
                             className={clsx(
                                 "relative w-6 h-4 overflow-hidden rounded-[2px] transition-transform hover:scale-110",
                                 language === 'en' ? "opacity-100 ring-2 ring-neonBlue/50" : "opacity-50 hover:opacity-100 grayscale hover:grayscale-0"
@@ -171,6 +173,8 @@ export const Navbar = () => {
                 <button
                     className="lg:hidden text-white"
                     onClick={() => setIsMobileOpen(!isMobileOpen)}
+                    aria-label={isMobileOpen ? "Close menu" : "Open menu"}
+                    aria-expanded={isMobileOpen}
                 >
                     {isMobileOpen ? <X /> : <Menu />}
                 </button>

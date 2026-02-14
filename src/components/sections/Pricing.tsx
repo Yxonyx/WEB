@@ -18,7 +18,7 @@ const containerVariants: Variants = {
 };
 
 const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0, y: 0 },
     visible: {
         opacity: 1,
         y: 0,
@@ -34,12 +34,12 @@ export const Pricing = () => {
             <Container>
                 <motion.div
                     className="text-center max-w-2xl mx-auto mb-16"
-                    initial={{ opacity: 0, y: 15 }}
+                    initial={{ opacity: 0, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
                 >
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t('pricing.title')}</h2>
+                    <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-4">{t('pricing.title')}</h2>
                     <p className="text-white/80 text-lg font-medium">
                         {t('pricing.subtitle')}
                     </p>
@@ -48,7 +48,7 @@ export const Pricing = () => {
                 <div className="grid lg:grid-cols-3 gap-8 items-start">
                     {/* Plan 1 - Landing (Bracket Frame) */}
                     <div>
-                        <BracketFrame className="h-full">
+                        <BracketFrame className="h-full p-6 sm:p-8 flex flex-col hover:border-neonPurple/50 transition-colors duration-300">
                             <div className="mb-6">
                                 <span className="inline-block py-1 px-2 mb-2 rounded bg-white/10 text-sm font-bold text-white uppercase tracking-wider">
                                     {t('pricing.landing.tag')}
@@ -67,20 +67,22 @@ export const Pricing = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <Button href="#kapcsolat" variant="secondary" className="w-full">
-                                {t('pricing.landing.cta')}
-                            </Button>
+                            <div className="mt-auto">
+                                <Button href="#kapcsolat" variant="secondary" className="w-full">
+                                    {t('pricing.landing.cta')}
+                                </Button>
+                            </div>
                         </BracketFrame>
                     </div>
 
                     {/* Plan 2 - Corporate (Signature Panel) */}
                     <div className="lg:col-span-1 lg:-mt-8">
-                        <div className="relative rounded-2xl overflow-hidden group/card bg-gradient-to-br from-surface/90 via-surface/70 to-surface/80 border border-white/10 shadow-[0_0_60px_-20px_rgba(0,240,255,0.25),0_0_40px_-15px_rgba(189,0,255,0.2)] hover:shadow-[0_0_80px_-15px_rgba(0,240,255,0.35),0_0_60px_-10px_rgba(189,0,255,0.3)] transition-all duration-500">
+                        <div className="relative rounded-3xl overflow-hidden group/card bg-gradient-to-br from-surface/90 via-surface/70 to-surface/80 border border-white/10 shadow-[0_0_60px_-20px_rgba(0,240,255,0.25),0_0_40px_-15px_rgba(189,0,255,0.2)] hover:shadow-[0_0_80px_-15px_rgba(0,240,255,0.35),0_0_60px_-10px_rgba(189,0,255,0.3)] transition-all duration-500">
                             {/* Animated gradient border glow */}
-                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-neonBlue via-neonPurple to-neonBlue opacity-[0.15] blur-sm" />
+                            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-neonBlue via-neonPurple to-neonBlue opacity-[0.15] blur-sm" />
 
                             {/* Inner glow effect */}
-                            <div className="absolute inset-[1px] rounded-2xl bg-gradient-to-br from-bg/95 via-surface/95 to-bg/90" />
+                            <div className="absolute inset-[1px] rounded-3xl bg-gradient-to-br from-bg/95 via-surface/95 to-bg/90" />
 
                             {/* Subtle background glow */}
                             <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/5 via-transparent to-neonPurple/5 opacity-50 group-hover/card:opacity-80 transition-opacity duration-700" />
@@ -103,7 +105,6 @@ export const Pricing = () => {
                                     <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-white to-neonPurple animate-gradient-shift" style={{ backgroundSize: '200% auto' }}>
                                         {t('pricing.corporate.price')}
                                     </span>
-                                    <span className="text-base text-muted">-tól</span>
                                 </div>
 
                                 <ul className="space-y-4 mb-10">
@@ -126,7 +127,7 @@ export const Pricing = () => {
 
                     {/* Plan 3 - Webshop (Bracket Frame) */}
                     <div>
-                        <BracketFrame className="h-full">
+                        <BracketFrame className="h-full p-6 sm:p-8 flex flex-col hover:border-neonBlue/50 transition-colors duration-300">
                             <div className="mb-6">
                                 <span className="inline-block py-1 px-2 mb-2 rounded bg-white/10 text-sm font-bold text-white uppercase tracking-wider">
                                     {t('pricing.webshop.tag')}
@@ -152,9 +153,11 @@ export const Pricing = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <Button href="#kapcsolat" variant="secondary" className="w-full">
-                                {t('pricing.webshop.cta')}
-                            </Button>
+                            <div className="mt-auto">
+                                <Button href="#kapcsolat" variant="secondary" className="w-full">
+                                    {t('pricing.webshop.cta')}
+                                </Button>
+                            </div>
                         </BracketFrame>
                     </div>
                 </div>
@@ -168,7 +171,7 @@ export const Pricing = () => {
                     variants={containerVariants}
                 >
                     <motion.div variants={cardVariants} className="text-center max-w-2xl mx-auto mb-12">
-                        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">{t('pricing.chatbot.title')}</h3>
+                        <h3 className="text-2xl sm:text-3xl font-bold font-display text-white mb-4">{t('pricing.chatbot.title')}</h3>
                         <p className="text-muted">{t('pricing.chatbot.subtitle')}</p>
                     </motion.div>
 
@@ -180,7 +183,7 @@ export const Pricing = () => {
                             <motion.div
                                 key={i}
                                 variants={cardVariants}
-                                className={`p-6 rounded-xl border ${i === 1 ? 'bg-surface/80 border-neonBlue/30 shadow-lg shadow-neonBlue/10 relative overflow-hidden' : 'bg-surface/30 border-white/5'} flex flex-col`}
+                                className={`p-6 rounded-3xl border ${i === 1 ? 'bg-surface/80 border-neonBlue/30 shadow-lg shadow-neonBlue/10 relative overflow-hidden' : 'bg-surface/20 backdrop-blur-md border-white/5'} flex flex-col`}
                             >
                                 {i === 1 && (
                                     <div className="absolute top-0 right-0 bg-neonBlue text-black text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase tracking-wider">
@@ -192,7 +195,10 @@ export const Pricing = () => {
                                 </div>
                                 <div className="mb-6">
                                     <div className="text-2xl font-bold text-white">{plan.price}</div>
-                                    <div className="text-base text-muted">-tól</div>
+                                    {/* Csak akkor írjuk ki a "-tól"-t, ha nem "Egyedi árazás" (User kérés) */}
+                                    {!plan.price.toLowerCase().includes('egyedi') && !plan.price.toLowerCase().includes('custom') && (
+                                        <div className="text-base text-muted">-tól</div>
+                                    )}
                                 </div>
                                 <ul className="space-y-3 mb-6 flex-1">
                                     {plan.features.map((feat: string, fi: number) => (

@@ -8,19 +8,19 @@ export const Stats = () => {
     return (
         <section className="relative z-30 -mt-16 -mb-20 md:-mt-20 md:-mb-24 py-8 md:py-10 pointer-events-none">
             <div className="max-w-5xl mx-auto px-6">
-                <div className="flex items-center justify-center">
+                <div className="flex items-start justify-center gap-12 sm:gap-24 md:gap-32 lg:gap-48">
                     <StatItem
                         target={7}
                         suffix="+"
                         label={t('stats.years.label')}
                     />
-                    <div className="w-px h-12 bg-white/10 mx-8 sm:mx-12 md:mx-16" />
+
                     <StatItem
                         target={44}
                         suffix="+"
                         label={t('stats.clients.label')}
                     />
-                    <div className="w-px h-12 bg-white/10 mx-8 sm:mx-12 md:mx-16" />
+
                     <StatItem
                         target={100}
                         suffix="%"
@@ -77,7 +77,7 @@ const StatItem = ({ target, suffix, label }: StatItemProps) => {
     }, [isInView, animateCount]);
 
     return (
-        <div ref={containerRef} className="flex flex-col items-center text-center">
+        <div ref={containerRef} className="flex flex-col items-center text-center w-28 sm:w-40 md:w-52">
             <div className="flex items-baseline">
                 <span ref={numberRef} className="text-4xl sm:text-5xl md:text-6xl font-mono font-semibold tabular-nums text-neonBlue drop-shadow-[0_0_12px_rgba(0,240,255,0.3)]">
                     0
@@ -88,7 +88,11 @@ const StatItem = ({ target, suffix, label }: StatItemProps) => {
             </div>
 
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-white/50 mt-2 font-display font-medium">
-                {label}
+                {label.split('\n').map((line, i) => (
+                    <span key={i} className="block">
+                        {line}
+                    </span>
+                ))}
             </span>
         </div>
     );

@@ -42,8 +42,8 @@ export const translations = {
             cta_secondary: "Válaszd ki a csomagod"
         },
         stats: {
-            years: { label: "Év tapasztalat", sub: "Full-stack fejlesztésben" },
-            clients: { label: "Elégedett ügyfél", sub: "Magyarországon és külföldön" },
+            years: { label: "Év\ntapasztalat", sub: "Full-stack fejlesztésben" },
+            clients: { label: "Elégedett\nügyfél", sub: "Magyarországon és külföldön" },
             guarantee: { label: "Garancia", sub: "Pénzvisszafizetési opcióval" }
         },
         trustbar: {
@@ -116,7 +116,7 @@ export const translations = {
         },
         services: {
             tag: "Megoldások",
-            title: "Szolgáltatások",
+            title: "Szolgáltatásaink",
             subtitle: "Nem sablonokat gyártunk, hanem üzleti rendszereket építünk.",
             webdev: {
                 title: "Reszponzív weboldalak és webáruházak",
@@ -410,11 +410,12 @@ export const translations = {
             },
             philosophy: {
                 tag: '// Filozófiánk',
-                values: [
-                    { title: 'Trendek alapján tervezünk', desc: 'A piac aktuális trendjeit figyeljük, és ennek megfelelő megoldásokat alkalmazunk minden projektben.' },
-                    { title: 'Napi szintű fejlődés', desc: 'Csapatunk folyamatosan képzi magát, hogy a legmodernebb technológiákat alkalmazza és a legjobb döntéseket hozza.' },
-                    { title: 'Rugalmasság és kreativitás', desc: 'Nyitottak vagyunk kreatív ötletekre és egyedi megoldásokra. Nem sablonokban gondolkodunk.' },
-                    { title: 'Nem hagyjuk magára', desc: 'Amíg a projekt nincs teljesen kész és az ügyfél elégedett, mellette állunk. Ez nem opció, ez alapelv.' }
+                content: [
+                    { bold: "A piac aktuális trendjeit figyeljük", text: ", és ennek megfelelő megoldásokat alkalmazunk minden projektben. " },
+                    { bold: "Csapatunk folyamatosan képzi magát", text: ", hogy a legmodernebb technológiákat alkalmazza és a legjobb döntéseket hozza. " },
+                    { bold: "Nyitottak vagyunk kreatív ötletekre", text: " és egyedi megoldásokra, nem sablonokban gondolkodunk. " },
+                    { bold: "Mellette állunk", text: " amíg a projekt nincs teljesen kész és az ügyfél nem elégedett teljes mértékben. Ez nem opció, ez " },
+                    { bold: "alapelv", text: "." }
                 ]
             }
         },
@@ -477,8 +478,8 @@ export const translations = {
             cta_secondary: "Choose Your Plan"
         },
         stats: {
-            years: { label: "Years Exp", sub: "In full-stack development" },
-            clients: { label: "Happy Clients", sub: "Domestic and international" },
+            years: { label: "Years\nExp", sub: "In full-stack development" },
+            clients: { label: "Happy\nClients", sub: "Domestic and international" },
             guarantee: { label: "Guarantee", sub: "Money-back option" }
         },
         trustbar: {
@@ -812,11 +813,12 @@ export const translations = {
             },
             philosophy: {
                 tag: '// Our Philosophy',
-                values: [
-                    { title: 'Trend-driven design', desc: 'We follow current market trends and apply the right solutions for every project.' },
-                    { title: 'Daily growth', desc: 'Our team continuously learns to use the most modern technologies and make the best decisions.' },
-                    { title: 'Flexibility & creativity', desc: 'We are open to creative ideas and unique solutions. We don\'t think in templates.' },
-                    { title: 'We never leave you hanging', desc: 'Until the project is fully complete and you\'re satisfied, we stand by you. It\'s not optional, it\'s a principle.' }
+                content: [
+                    { bold: "We monitor current market trends", text: ", and apply appropriate solutions in every project. " },
+                    { bold: "Our team continuously educates itself", text: ", to apply the most modern technologies and make the best decisions. " },
+                    { bold: "We are open to creative ideas", text: " and unique solutions, we don't think in templates. " },
+                    { bold: "We stand by it", text: " until the project is fully complete and the client is 100% satisfied. This is not an option, it is a " },
+                    { bold: "principle", text: "." }
                 ]
             }
         },

@@ -14,7 +14,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, x: 20 },
+    hidden: { opacity: 0, x: 0 },
     visible: {
         opacity: 1,
         x: 0,
@@ -37,10 +37,10 @@ export const ChatbotIntro = () => {
                 >
                     {/* Content - Left Side */}
                     <motion.div variants={itemVariants}>
-                        <div className="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center mb-6 text-neonBlue">
+                        <div className="w-12 h-12 rounded-2xl bg-neonBlue/10 flex items-center justify-center mb-6 text-neonBlue">
                             <Bot size={24} />
                         </div>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">{t('chatbot_intro.content.title')}</h2>
+                        <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">{t('chatbot_intro.content.title')}</h2>
                         <p className="text-white/90 text-lg mb-8 leading-relaxed font-medium">
                             {t('chatbot_intro.content.desc')}
                         </p>

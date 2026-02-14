@@ -26,6 +26,11 @@
 
   <!-- ✅ Basic SEO -->
   <title>Céges Weboldal Készítés Garanciával | Szerezz Több Vevőt | CyberLabsWeb</title>
+
+  <!-- Preload Hero Image for LCP - Responsive -->
+  <link rel="preload" as="image" href="/images/hero-bg-v5.avif" fetchpriority="high" media="(min-width: 769px)">
+  <link rel="preload" as="image" href="/images/hero-bg-v5.webp" fetchpriority="high" media="(max-width: 768px)">
+
   <meta name="description"
     content="Nem jön elég ajánlatkérés? Olyan weboldalt építünk, ami elad helyetted. Villámgyors, modern és AI-optimalizált weboldal készítés garanciával.">
 
@@ -46,8 +51,10 @@
   <meta name="geo.placename" content="Hungary">
   <meta name="geo.position" content="47.1625;19.5033">
   <meta name="ICBM" content="47.1625, 19.5033">
-  <link rel="alternate" hreflang="hu-HU" href="https://cyberlabsweb.hu/">
-  <link rel="alternate" hreflang="x-default" href="https://cyberlabsweb.hu/">
+  <link rel="canonical" href="https://cyberlabsweb.com/hu/">
+  <link rel="alternate" hreflang="hu" href="https://cyberlabsweb.com/hu/">
+  <link rel="alternate" hreflang="en" href="https://cyberlabsweb.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://cyberlabsweb.com/hu/">
 
   <!-- ✅ Open Graph (Facebook, LinkedIn, Messenger, etc.) -->
   <meta property="og:type" content="website">
@@ -55,11 +62,10 @@
   <meta property="og:title" content="Céges Weboldal Készítés Garanciával | Szerezz Több Vevőt | CyberLabsWeb">
   <meta property="og:description"
     content="Nem jön elég ajánlatkérés? Olyan weboldalt építünk, ami elad helyetted. Villámgyors, modern és AI-optimalizált weboldal készítés garanciával.">
-  <meta property="og:url" content="https://cyberlabsweb.hu/">
-  <meta property="og:image" content="https://cyberlabsweb.hu/og/cyberlabs-og.png">
-  <meta property="og:image:secure_url" content="https://cyberlabsweb.hu/og/cyberlabs-og.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://cyberlabsweb.com/">
+  <meta property="og:image" content="https://cyberlabsweb.com/og/cyberlabs-main-og.png">
+  <meta property="og:image:secure_url" content="https://cyberlabsweb.com/og/cyberlabs-main-og.png">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:image:alt" content="CyberLabs Web – Vevőszerző Weboldal Készítés Garanciával">
 
   <!-- ✅ Twitter / X -->
@@ -67,7 +73,7 @@
   <meta name="twitter:title" content="Céges Weboldal Készítés Garanciával | CyberLabs Web">
   <meta name="twitter:description"
     content="Nem jön elég ajánlatkérés? Olyan weboldalt építünk, ami elad helyetted. Garanciával.">
-  <meta name="twitter:image" content="https://cyberlabsweb.hu/og/cyberlabs-og.png">
+  <meta name="twitter:image" content="https://cyberlabsweb.com/og/cyberlabs-main-og.png">
 
   <!-- ✅ Brand / UI -->
   <meta name="theme-color" content="#050508">
@@ -103,21 +109,19 @@
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://cyberlabsweb.hu/#organization",
+        "@id": "https://cyberlabsweb.com/#organization",
         "name": "CyberLabs Web",
         "alternateName": "CyberLabs Web Digital Studio",
-        "url": "https://cyberlabsweb.hu/",
+        "url": "https://cyberlabsweb.com/",
         "logo": {
           "@type": "ImageObject",
-          "@id": "https://cyberlabsweb.hu/#logo",
-          "url": "https://cyberlabsweb.hu/og/cyberlabs-og.png",
-          "contentUrl": "https://cyberlabsweb.hu/og/cyberlabs-og.png",
-          "width": 1200,
-          "height": 630,
+          "@id": "https://cyberlabsweb.com/#logo",
+          "url": "https://cyberlabsweb.com/og/cyberlabs-main-og.png",
+          "contentUrl": "https://cyberlabsweb.com/og/cyberlabs-main-og.png",
           "caption": "CyberLabs Web - Webfejlesztés és SEO Magyarország"
         },
         "image": {
-          "@id": "https://cyberlabsweb.hu/#logo"
+          "@id": "https://cyberlabsweb.com/#logo"
         },
         "description": "Modern, villámgyors céges weboldal fejlesztés és karbantartás. Technikai SEO + GEO.",
         "areaServed": {
@@ -127,44 +131,44 @@
       },
       {
         "@type": "WebSite",
-        "@id": "https://cyberlabsweb.hu/#website",
-        "url": "https://cyberlabsweb.hu/",
+        "@id": "https://cyberlabsweb.com/#website",
+        "url": "https://cyberlabsweb.com/",
         "name": "CyberLabs Web",
         "description": "Céges weboldal készítés, SEO és GEO optimalizálás magyar KKV-knak",
         "publisher": {
-          "@id": "https://cyberlabsweb.hu/#organization"
+          "@id": "https://cyberlabsweb.com/#organization"
         },
         "inLanguage": "hu-HU"
       },
       {
         "@type": "WebPage",
-        "@id": "https://cyberlabsweb.hu/#webpage",
-        "url": "https://cyberlabsweb.hu/",
+        "@id": "https://cyberlabsweb.com/#webpage",
+        "url": "https://cyberlabsweb.com/",
         "name": "Céges weboldal készítés KKV-knak | SEO + GEO | CyberLabs Web",
         "description": "Modern, villámgyors céges weboldal fejlesztés és karbantartás magyar KKV-knak. Technikai SEO + GEO, hogy Google-ben és AI-találatokban is megtaláljanak.",
         "isPartOf": {
-          "@id": "https://cyberlabsweb.hu/#website"
+          "@id": "https://cyberlabsweb.com/#website"
         },
         "about": {
-          "@id": "https://cyberlabsweb.hu/#organization"
+          "@id": "https://cyberlabsweb.com/#organization"
         },
         "primaryImageOfPage": {
-          "@id": "https://cyberlabsweb.hu/#logo"
+          "@id": "https://cyberlabsweb.com/#logo"
         },
         "inLanguage": "hu-HU"
       },
       {
         "@type": "LocalBusiness",
-        "@id": "https://cyberlabsweb.hu/#business",
+        "@id": "https://cyberlabsweb.com/#business",
         "name": "CyberLabs Web",
         "alternateName": "CyberLabs Web Digital Studio",
         "description": "Modern, villámgyors céges weboldal fejlesztés és karbantartás. Technikai SEO + GEO, hogy Google-ben és AI-találatokban is megtaláljanak.",
-        "url": "https://cyberlabsweb.hu/",
+        "url": "https://cyberlabsweb.com/",
         "logo": {
-          "@id": "https://cyberlabsweb.hu/#logo"
+          "@id": "https://cyberlabsweb.com/#logo"
         },
         "image": {
-          "@id": "https://cyberlabsweb.hu/#logo"
+          "@id": "https://cyberlabsweb.com/#logo"
         },
         "priceRange": "$$",
         "address": {
@@ -223,9 +227,9 @@
       {
         "@type": "Service",
         "name": "Egyedi weboldal készítés",
-        "provider": {"@id": "https://cyberlabsweb.hu/#business"},
+        "provider": {"@id": "https://cyberlabsweb.com/#business"},
         "description": "Reszponzív webdizájn, mobilbarát és gyors weboldalak fejlesztése üzleti célokra.",
-        "image": "https://cyberlabsweb.hu/og/cyberlabs-og.png"
+        "image": "https://cyberlabsweb.com/og/cyberlabs-main-og.png"
       }
     ]
   }

@@ -13,7 +13,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 15 },
+    hidden: { opacity: 0, y: 0 },
     visible: {
         opacity: 1,
         y: 0,
@@ -88,17 +88,22 @@ export const Team = () => {
                         variants={itemVariants}
                         className="text-white/80 text-base sm:text-lg leading-relaxed sm:leading-loose"
                     >
-                        <span className="text-white font-semibold">A piac aktuális trendjeit figyeljük</span>, és ennek megfelelő megoldásokat alkalmazunk minden projektben.{' '}
-                        Csapatunk <span className="text-neonBlue font-semibold">folyamatosan képzi magát</span>, hogy a legmodernebb technológiákat alkalmazza és a legjobb döntéseket hozza.{' '}
-                        Nyitottak vagyunk <span className="text-neonPurple font-semibold">kreatív ötletekre</span> és egyedi megoldásokra, nem sablonokban gondolkodunk.{' '}
-                        Amíg a projekt nincs teljesen kész és az ügyfél nem elégedett teljes mértékben, <span className="text-white font-semibold">mellette állunk</span>. Ez nem opció, ez <span className="text-neonBlue font-semibold">alapelv</span>.
+                        {(t('team.philosophy.content') as unknown as any[]).map((item, i) => {
+                            const colors = ["text-white", "text-neonBlue", "text-neonPurple", "text-white", "text-neonBlue"];
+                            return (
+                                <span key={i}>
+                                    <span className={`${colors[i % colors.length]} font-semibold`}>{item.bold}</span>
+                                    {item.text}
+                                </span>
+                            );
+                        })}
                     </motion.p>
                 </motion.div>
 
                 {/* Team header */}
                 <motion.div
                     className="mb-12 text-center"
-                    initial={{ opacity: 0, y: 15 }}
+                    initial={{ opacity: 0, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
@@ -106,7 +111,7 @@ export const Team = () => {
                     <span className="text-sm font-mono text-neonBlue uppercase tracking-widest mb-3 block">
                         {t('team.tag') || '// Csapat'}
                     </span>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                    <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-4">
                         {t('team.title') || 'Akik mögötted állnak'}
                     </h2>
                     <p className="text-white/80 text-lg font-medium max-w-2xl mx-auto">
@@ -128,15 +133,21 @@ export const Team = () => {
                             className="relative group h-full"
                             variants={itemVariants}
                         >
-                            {/* Terminal Card */}
-                            <div className="relative bg-surface2/60 border border-white/10 rounded-lg h-full flex flex-col">
-                                {/* Corner Brackets - Top Right */}
-                                <div className="absolute -top-px -right-px w-3 h-3 border-t-2 border-r-2 border-neonPurple" />
-                                {/* Corner Brackets - Bottom Left */}
-                                <div className="absolute -bottom-px -left-px w-3 h-3 border-b-2 border-l-2 border-neonPurple" />
+                            {/* Terminal Card replaced with Glass Card */}
+                            {/* Terminal Card - Tuned Up */}
+                            <div className="relative bg-[#0b0c15]/90 backdrop-blur-sm border border-white/10 rounded-xl h-full flex flex-col hover:border-neonBlue/40 transition-all duration-500 group-hover:shadow-[0_0_30px_-10px_rgba(0,240,255,0.15)]">
+                                {/* Corner Brackets - All 4 corners, Blue */}
+                                <div className="absolute -top-px -left-px w-4 h-4 border-t-2 border-l-2 border-neonBlue rounded-tl-lg" />
+                                <div className="absolute -top-px -right-px w-4 h-4 border-t-2 border-r-2 border-neonBlue rounded-tr-lg" />
+                                <div className="absolute -bottom-px -left-px w-4 h-4 border-b-2 border-l-2 border-neonBlue rounded-bl-lg" />
+                                <div className="absolute -bottom-px -right-px w-4 h-4 border-b-2 border-r-2 border-neonBlue rounded-br-lg" />
+
+                                {/* Scanline effect (subtle) */}
+                                <div className="absolute inset-0 bg-[linear-gradient(transparent_0%,rgba(0,240,255,0.03)_50%,transparent_100%)] bg-[length:100%_4px] pointer-events-none" />
+
                                 {/* Header Bar */}
                                 <div className="flex items-center justify-between px-4 py-2 border-b border-white/5 bg-black/30">
-                                    <span className="font-mono text-sm text-muted2">ID: {member.id}</span>
+                                    <span className="font-mono text-xs text-muted2">ID: {member.id}</span>
                                     <div className="w-2 h-2 rounded-full bg-neonBlue animate-pulse" />
                                 </div>
 

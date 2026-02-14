@@ -14,7 +14,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 15 },
+    hidden: { opacity: 0, y: 0 },
     visible: {
         opacity: 1,
         y: 0,
@@ -34,7 +34,7 @@ export const Contact = () => {
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
                     {/* Left Info */}
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
+                        initial={{ opacity: 0, x: 0 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4 }}
@@ -48,7 +48,7 @@ export const Contact = () => {
                         >
                             <span className="text-sm font-mono text-neonPurple uppercase tracking-widest">{t('contact.tag')}</span>
                         </motion.div>
-                        <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+                        <h2 className="text-4xl sm:text-5xl font-bold font-display text-white mb-6">
                             {t('contact.title_line1')} <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
                                 {t('contact.title_gradient')}
@@ -75,7 +75,7 @@ export const Contact = () => {
 
                         <motion.div
                             className="relative max-w-sm"
-                            initial={{ opacity: 0, y: 15 }}
+                            initial={{ opacity: 0, y: 0 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: 0.3 }}
@@ -99,7 +99,7 @@ export const Contact = () => {
 
                     {/* Right Form */}
                     <motion.div
-                        initial={{ opacity: 0, x: 30 }}
+                        initial={{ opacity: 0, x: 0 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: 0.2 }}
@@ -118,8 +118,9 @@ export const Contact = () => {
 
                             <motion.div variants={itemVariants} className="space-y-3 sm:space-y-4">
                                 <div className="space-y-2">
-                                    <label className="text-sm font-bold text-white ml-4">{t('contact.form.name')}</label>
+                                    <label htmlFor="name" className="text-sm font-bold text-white ml-4">{t('contact.form.name')}</label>
                                     <input
+                                        id="name"
                                         type="text"
                                         name="name"
                                         required
@@ -130,8 +131,9 @@ export const Contact = () => {
 
                                 <div className="grid grid-cols-2 gap-3 sm:gap-4">
                                     <div className="space-y-2">
-                                        <label className="text-sm font-bold text-white ml-4">{t('contact.form.email')}</label>
+                                        <label htmlFor="email" className="text-sm font-bold text-white ml-4">{t('contact.form.email')}</label>
                                         <input
+                                            id="email"
                                             type="email"
                                             name="email"
                                             required
@@ -140,8 +142,9 @@ export const Contact = () => {
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm font-bold text-white ml-4">{t('contact.form.phone')}</label>
+                                        <label htmlFor="phone" className="text-sm font-bold text-white ml-4">{t('contact.form.phone')}</label>
                                         <input
+                                            id="phone"
                                             type="tel"
                                             name="phone"
                                             placeholder={t('contact.form.phone')}
@@ -151,9 +154,10 @@ export const Contact = () => {
                                 </div>
 
                                 <div className="space-y-2 group">
-                                    <label className="text-sm font-bold text-white ml-4">{t('contact.form.service')}</label>
+                                    <label htmlFor="service" className="text-sm font-bold text-white ml-4">{t('contact.form.service')}</label>
                                     <div className="relative">
                                         <select
+                                            id="service"
                                             name="service"
                                             className="w-full bg-transparent border border-neonPurple/50 rounded-full px-5 py-2.5 text-white focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all appearance-none cursor-pointer hover:bg-white/5 shadow-[0_0_15px_-3px_rgba(189,0,255,0.1)]"
                                         >
@@ -168,8 +172,9 @@ export const Contact = () => {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-bold text-white ml-4">{t('contact.form.message')}</label>
+                                    <label htmlFor="message" className="text-sm font-bold text-white ml-4">{t('contact.form.message')}</label>
                                     <textarea
+                                        id="message"
                                         name="message"
                                         required
                                         rows={3}

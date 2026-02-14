@@ -102,18 +102,24 @@ export const Robot3D = ({ size = 200 }: Robot3DProps) => {
         animate();
 
         // Resize
-        const handleResize = () => {
-            const w = container.clientWidth || size;
-            const h = container.clientHeight || size;
-            camera.aspect = w / h;
-            camera.updateProjectionMatrix();
-            renderer.setSize(w, h);
-        };
-        window.addEventListener('resize', handleResize);
+        // ResizeObserver for better performance and to handle container resizing
+        const resizeObserver = new ResizeObserver((entries) => {
+            for (const entry of entries) {
+                const { width, height } = entry.contentRect;
+                // Only update if dimensions actually changed
+                if (width > 0 && height > 0) {
+                    camera.aspect = width / height;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(width, height);
+                }
+            }
+        });
+
+        resizeObserver.observe(container);
 
         return () => {
             cancelAnimationFrame(animationId);
-            window.removeEventListener('resize', handleResize);
+            resizeObserver.disconnect();
             renderer.dispose();
             if (container.contains(renderer.domElement)) {
                 container.removeChild(renderer.domElement);

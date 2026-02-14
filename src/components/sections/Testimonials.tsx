@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Section } from '../Section';
 import { Container } from '../Container';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -15,6 +15,7 @@ interface Testimonial {
 export const Testimonials = () => {
     const { language } = useLanguage();
     const trackRef = useRef<HTMLDivElement>(null);
+    const [isHovering, setIsHovering] = useState(false);
 
     const testimonials: Record<string, Testimonial[]> = {
         hu: [
@@ -73,58 +74,71 @@ export const Testimonials = () => {
 
     const currentTestimonials = testimonials[language] || testimonials.hu;
 
-    // Manual scroll via arrows — shift the track by pausing and repositioning
+    // Use a long list to simulate plenty of content (6x duplication)
+    const items = Array(6).fill(currentTestimonials).flat();
+
     const scroll = (direction: 'left' | 'right') => {
-        const track = trackRef.current;
-        if (!track) return;
+        if (!trackRef.current) return;
+        const container = trackRef.current;
 
-        // Pause animation
-        track.style.animationPlayState = 'paused';
-
-        // Get current computed translateX
-        const style = window.getComputedStyle(track);
-        const matrix = new DOMMatrix(style.transform);
-        const currentX = matrix.m41;
-
-        // Card dimensions
         const isMobile = window.innerWidth < 768;
         const cardWidth = isMobile ? 300 : 400;
-        const gap = 12;
-        const step = cardWidth + gap;
+        const gap = 12; // gap-3 is 0.75rem = 12px
+        const scrollAmount = cardWidth + gap;
 
-        // Viewport width
-        const viewportWidth = window.innerWidth;
+        // Calculate current index based on scroll position to align perfectly
+        const currentIndex = Math.round(container.scrollLeft / scrollAmount);
 
-        // Calculate which card index is currently closest to center
-        // Center of viewport relative to track: viewportCenter - currentX
-        const viewportCenter = viewportWidth / 2;
-        const trackCenterOffset = viewportCenter - currentX;
-        const currentCardIndex = Math.round(trackCenterOffset / step);
+        let targetIndex;
+        if (direction === 'right') {
+            targetIndex = currentIndex + 1;
+        } else {
+            targetIndex = currentIndex - 1;
+        }
 
-        // Move to next/previous card
-        const targetIndex = direction === 'right' ? currentCardIndex + 1 : currentCardIndex - 1;
+        // Loop logic for manual scrolling
+        const maxIndex = items.length - 1;
 
-        // Calculate translateX to center that card
-        // Card center position = targetIndex * step + cardWidth / 2
-        // We want that at viewportCenter, so: translateX = viewportCenter - (targetIndex * step + cardWidth / 2)
-        const newX = viewportCenter - (targetIndex * step + cardWidth / 2);
+        if (targetIndex > maxIndex) {
+            // Loop back to start smoothly
+            targetIndex = 0;
+            container.scrollTo({ left: 0, behavior: 'smooth' });
+            return;
+        }
 
-        // Apply the new position
-        track.style.animation = 'none';
-        track.style.transform = `translateX(${newX}px)`;
+        if (targetIndex < 0) {
+            // Loop to end smoothly
+            targetIndex = maxIndex;
+            container.scrollTo({ left: maxIndex * scrollAmount, behavior: 'smooth' });
+            return;
+        }
 
-        // Force reflow
-        void track.offsetHeight;
+        const targetScroll = targetIndex * scrollAmount;
 
-        // Resume after 3 seconds
-        setTimeout(() => {
-            track.style.animation = '';
-            track.style.transform = '';
-        }, 1000);
+        container.scrollTo({
+            left: targetScroll,
+            behavior: 'smooth'
+        });
     };
 
-    // Total items rendered (2 copies for loop)
-    const items = [...currentTestimonials, ...currentTestimonials];
+    // Auto-scroll functionality
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (!isHovering && trackRef.current) {
+                const container = trackRef.current;
+                const maxScroll = container.scrollWidth - container.clientWidth;
+
+                // If we are at the very end, jump to start
+                if (Math.abs(container.scrollLeft - maxScroll) < 5) {
+                    container.scrollTo({ left: 0, behavior: "smooth" }); // Rewind to start
+                } else {
+                    scroll('right');
+                }
+            }
+        }, 4000); // 4 seconds interval
+
+        return () => clearInterval(interval);
+    }, [isHovering]);
 
     return (
         <Section id="velemenyek" className="section-bg-mixed relative overflow-hidden">
@@ -135,7 +149,7 @@ export const Testimonials = () => {
             <Container>
                 {/* Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="text-center mb-8 md:mb-16"
@@ -156,14 +170,14 @@ export const Testimonials = () => {
                     <div className="hidden md:flex justify-center gap-4 mt-6">
                         <button
                             onClick={() => scroll('left')}
-                            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group"
+                            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group z-20"
                             aria-label="Previous testimonial"
                         >
                             <ChevronLeft className="w-6 h-6 text-white/70 group-hover:text-white transition-colors" />
                         </button>
                         <button
                             onClick={() => scroll('right')}
-                            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group"
+                            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group z-20"
                             aria-label="Next testimonial"
                         >
                             <ChevronRight className="w-6 h-6 text-white/70 group-hover:text-white transition-colors" />
@@ -173,11 +187,17 @@ export const Testimonials = () => {
 
             </Container>
 
-            {/* Scrolling Marquee Container */}
-            <div className="relative w-full overflow-hidden mt-4">
+            {/* Scrolling Carousel Container */}
+            <div
+                className="relative w-full mt-4"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+                onTouchStart={() => setIsHovering(true)}
+                onTouchEnd={() => setIsHovering(false)}
+            >
                 {/* Gradient Masks for fade effect at edges */}
-                <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#050510] to-transparent z-10 pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#050510] to-transparent z-10 pointer-events-none" />
+                <div className="absolute left-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-r from-[#050510] to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-l from-[#050510] to-transparent z-10 pointer-events-none" />
 
                 {/* Mobile Navigation Arrows - Overlay on edges */}
                 <button
@@ -195,15 +215,15 @@ export const Testimonials = () => {
                     <ChevronRight className="w-5 h-5" />
                 </button>
 
-                {/* Animated track — pure CSS animation */}
+                {/* Scrollable Track - Replaces CSS animation with native scroll */}
                 <div
                     ref={trackRef}
-                    className="flex gap-3 py-4 md:py-8 w-max animate-marquee hover:[animation-play-state:paused]"
+                    className="flex gap-3 py-4 md:py-8 w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
                 >
                     {items.map((testimonial, index) => (
                         <div
                             key={index}
-                            className="w-[300px] md:w-[400px] shrink-0 group relative cursor-pointer"
+                            className="w-[300px] md:w-[400px] shrink-0 group relative cursor-pointer snap-center select-none"
                         >
                             {/* Gradient border effect */}
                             <div className="absolute -inset-[1px] bg-gradient-to-r from-neonBlue/50 via-neonPurple/50 to-neonBlue/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />

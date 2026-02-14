@@ -1,53 +1,38 @@
 import { useState } from 'react';
 import { Container } from '../Container';
 import { Section } from '../Section';
-import { Button } from '../ui/Button';
 import { Plus, Minus, ShieldCheck } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Button } from '../ui/Button';
+import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../../context/LanguageContext';
 
-const FAQItem = ({ q, a, defaultOpen = false, index }: { q: string, a: string, defaultOpen?: boolean, index: number }) => {
+const FAQItem = ({ q, a, defaultOpen = false }: { q: string, a: string, defaultOpen?: boolean }) => {
     const [isOpen, setIsOpen] = useState(defaultOpen);
 
     return (
-        <motion.div
-            className="border-b border-white/10 last:border-0"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-        >
+        <div className="border-b border-white/10 last:border-0">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full py-4 flex items-center justify-between text-left group"
+                className="w-full py-4 flex items-center justify-between text-left group select-none"
                 aria-expanded={isOpen}
             >
-                <span className="text-lg font-medium text-white group-hover:text-neonBlue transition-colors">{q}</span>
-                <motion.span
-                    className="shrink-0 ml-4 text-muted2"
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
-                >
+                {/* Kontraszt javítása: text-white/80 helyett tiszta text-white */}
+                <span className={`text-lg transition-colors ${isOpen ? 'text-white font-bold' : 'text-white font-medium group-hover:text-neonBlue'}`}>
+                    {q}
+                </span>
+                <span className="shrink-0 ml-4 text-muted2 group-hover:text-white transition-colors">
                     {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-                </motion.span>
+                </span>
             </button>
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                    >
-                        <p className="pb-4 text-muted leading-relaxed">
-                            {a}
-                        </p>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </motion.div>
+
+            {/* Közvetlen renderelés animáció nélkül a maximális sebességért */}
+            {isOpen && (
+                <div className="pb-4 text-gray-200 leading-relaxed font-light text-base md:text-lg">
+                    {a}
+                </div>
+            )}
+        </div>
     );
 };
 
@@ -75,7 +60,12 @@ export const FAQ = () => {
     };
 
     return (
-        <Section id="gyik" className="section-bg-purple" withOrbs withMeshGradient>
+        // Háttér cseréje section-bg-mixed-re a Testimonials mintájára (User kérés)
+        <Section id="gyik" className="section-bg-mixed z-10 relative overflow-hidden">
+            {/* Background decoration - Same as Testimonials */}
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-neonBlue/10 rounded-full blur-[80px] pointer-events-none" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-neonPurple/10 rounded-full blur-[80px] pointer-events-none" />
+
             <Helmet>
                 <script type="application/ld+json">
                     {JSON.stringify(faqSchema)}
@@ -83,80 +73,68 @@ export const FAQ = () => {
             </Helmet>
             <Container>
                 <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-                    {/* FAQ List - First on mobile, right on desktop */}
+                    {/* FAQ List */}
                     <motion.div
                         className="lg:col-span-7 lg:order-2"
-                        initial={{ opacity: 0, x: 40 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4 }}
                     >
-                        <h2 className="text-3xl font-bold text-white mb-8">{t('faq.title')}</h2>
-                        <div className="bg-surface/30 rounded-2xl border border-white/5 p-6 sm:p-8">
+                        <h2 className="text-3xl font-bold font-display text-white mb-8">{t('faq.title')}</h2>
+                        {/* Designer update: Átlátszóbb üveg, hogy a szekció színe átüssön (User kérés) */}
+                        <div className="bg-black/30 backdrop-blur-md rounded-2xl border border-white/10 p-6 sm:p-8 shadow-2xl">
                             {questions.map((faq, i) => (
-                                <FAQItem key={i} {...faq} index={i} />
+                                <FAQItem key={i} {...faq} />
                             ))}
                         </div>
                     </motion.div>
 
-                    {/* Premium Guarantee Card */}
-                    <motion.div
-                        className="lg:col-span-5 lg:order-1"
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4 }}
-                    >
+                    {/* Premium Guarantee Card - Statikusabb verzió */}
+                    <div className="lg:col-span-5 lg:order-1">
                         <div className="lg:sticky lg:top-32">
-                            {/* Outer glow */}
                             <div className="relative group">
-                                <div className="absolute -inset-1 bg-gradient-to-r from-neonBlue/20 via-neonPurple/20 to-neonBlue/20 rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+                                {/* Háttér glow - Statikus */}
+                                <div className="absolute -inset-[1px] bg-gradient-to-br from-neonBlue/30 to-transparent rounded-2xl opacity-20 blur-sm" />
 
-                                {/* Card */}
-                                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-surface2 via-[#0a0b12] to-surface border border-white/10 p-8 shadow-2xl">
+                                <div className="relative overflow-hidden rounded-2xl bg-[#0a0b14]/95 backdrop-blur-xl border border-white/10 p-6 md:p-8 shadow-2xl">
 
-                                    {/* Corner decorations */}
-                                    <div className="absolute top-3 left-3 w-6 h-6 border-l-2 border-t-2 border-neonBlue/40" />
-                                    <div className="absolute top-3 right-3 w-6 h-6 border-r-2 border-t-2 border-neonBlue/40" />
-                                    <div className="absolute bottom-3 left-3 w-6 h-6 border-l-2 border-b-2 border-neonBlue/40" />
-                                    <div className="absolute bottom-3 right-3 w-6 h-6 border-r-2 border-b-2 border-neonBlue/40" />
+                                    {/* Ambient Light */}
+                                    <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-neonBlue/5 to-transparent pointer-events-none" />
 
-                                    {/* Icon with glow */}
-                                    <div className="flex justify-center mb-6">
-                                        <div className="relative">
-                                            <div className="absolute inset-0 bg-neonBlue/30 blur-2xl rounded-full scale-150" />
-                                            <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-neonBlue/20 to-neonPurple/20 border border-white/10 flex items-center justify-center">
-                                                <ShieldCheck className="w-10 h-10 text-neonBlue" strokeWidth={1.5} />
-                                            </div>
+                                    {/* Ikon - Kompakt és statikus */}
+                                    <div className="flex justify-center mb-6 relative z-10">
+                                        <div className="relative w-16 h-16 flex items-center justify-center bg-neonBlue/10 rounded-2xl border border-neonBlue/20 shadow-[0_0_15px_rgba(0,240,255,0.1)]">
+                                            <ShieldCheck className="w-8 h-8 text-neonBlue" strokeWidth={2} />
                                         </div>
                                     </div>
 
-                                    {/* Title */}
-                                    <h3 className="text-2xl md:text-3xl font-bold text-center mb-4 text-white font-display">
+                                    <h3 className="text-2xl md:text-3xl font-extrabold text-center mb-3 text-white font-display tracking-tight uppercase relative z-10">
                                         {t('faq.guarantee.title')}
                                     </h3>
 
-                                    {/* Description */}
-                                    <p className="text-center text-muted text-lg mb-8 leading-relaxed">
+                                    {/* Díszítő vonal a jobb elválasztásért */}
+                                    <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-neonBlue/50 to-transparent mx-auto mb-5 relative z-10"></div>
+
+                                    <p className="text-center text-gray-300 text-base md:text-lg mb-6 leading-relaxed relative z-10 px-2">
                                         {t('faq.guarantee.desc')}
                                     </p>
 
-                                    {/* CTA Button */}
-                                    <Button
-                                        href="#kapcsolat"
-                                        variant="primary"
-                                        className="w-full"
-                                    >
-                                        {t('faq.guarantee.cta')}
-                                    </Button>
+                                    <div className="relative z-10">
+                                        <Button
+                                            href="#kapcsolat"
+                                            variant="primary"
+                                            className="w-full py-3.5 text-base font-bold tracking-wide shadow-lg shadow-neonBlue/20 hover:shadow-neonBlue/40 transition-shadow"
+                                        >
+                                            {t('faq.guarantee.cta')}
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </Container>
         </Section>
     );
 };
-
-
