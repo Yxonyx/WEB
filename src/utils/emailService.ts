@@ -17,6 +17,8 @@ export const sendGeoGuideEmail = async (email: string) => {
             templateId,
             {
                 user_email: email,
+                to_email: email,
+                email: email, // Fallback common variable name
                 reply_to: 'cyberlabsweb@gmail.com',
                 message: 'Köszönjük, hogy letöltötted a GEO útmutatót!',
                 resource_link: `${window.location.origin}/geo-tudasanyag/pdf`,
