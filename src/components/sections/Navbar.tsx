@@ -66,15 +66,44 @@ export const Navbar = () => {
         >
             <Container className="flex items-center justify-between">
                 {/* Logo */}
+                {/* Logo */}
                 <a href={`/${language}/`} className="flex items-center gap-3 group">
-                    <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-white to-neonBlue text-black font-bold font-mono text-lg leading-none transition-transform group-hover:scale-105">
-                        <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-black/20" />
-                        <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-black/20" />
-                        CL
+                    {/* Custom Tech Logo - Engineered Feel & Symmetrical */}
+                    <div className="relative w-11 h-11 flex items-center justify-center bg-black/20 backdrop-blur-sm border border-white/5 rounded-sm -translate-y-[2px] transition-all duration-300 group-hover:border-neonBlue/30 group-hover:shadow-[0_0_20px_-10px_var(--neon-blue)]">
+
+                        {/* 1. Neon Grid Background (Subtle) */}
+                        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_50%,rgba(79,138,255,0.05)_50%)] bg-[length:4px_100%] pointer-events-none" />
+
+                        {/* 2. Symmetrical Tech Brackets (4 Corners) */}
+                        {/* Top Left */}
+                        <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-neonBlue/50 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonBlue group-hover:opacity-100 group-hover:rounded-sm" />
+                        {/* Top Right */}
+                        <div className="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-neonBlue/50 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonBlue group-hover:opacity-100 group-hover:rounded-sm" />
+                        {/* Bottom Left */}
+                        <div className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-neonPurple/50 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonPurple group-hover:opacity-100 group-hover:rounded-sm" />
+                        {/* Bottom Right */}
+                        <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-neonPurple/50 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonPurple group-hover:opacity-100 group-hover:rounded-sm" />
+
+                        {/* 3. Glitch Effect Container - Perfectly Centered */}
+                        <div className="relative z-10 font-bold font-mono text-xl tracking-tight leading-none text-white mix-blend-overlay group-hover:mix-blend-normal transition-all">
+                            <span className="relative inline-flex items-center justify-center">
+                                <span className="absolute text-neonBlue opacity-0 group-hover:opacity-70 group-hover:animate-pulse blur-[1px]">CL</span>
+                                <span className="absolute text-neonPurple opacity-0 group-hover:opacity-70 group-hover:animate-pulse blur-[1px]" style={{ animationDelay: '0.1s' }}>CL</span>
+                                <span className="relative z-10 group-hover:text-white drop-shadow-md">CL</span>
+                            </span>
+                        </div>
+
+
                     </div>
-                    <span className="text-xl font-bold tracking-tight group-hover:text-neonBlue transition-colors flex items-baseline">
-                        <span className="text-white">Cyber</span><span className="text-neonBlue">labs</span><span className="text-sm text-white/40 ml-1 font-normal lowercase">web</span>
-                    </span>
+
+                    <div className="flex flex-col">
+                        <span className="text-xl font-bold tracking-tight leading-none group-hover:text-neonBlue transition-colors flex items-baseline">
+                            <span className="text-white">Cyber</span><span className="text-neonBlue">Labs</span>
+                        </span>
+                        <span className="text-[10px] font-mono tracking-[0.2em] text-white/40 group-hover:text-neonPurple transition-colors duration-300 uppercase">
+                            WEB DEVELOPMENT
+                        </span>
+                    </div>
                 </a>
 
                 {/* Desktop Nav */}
@@ -96,24 +125,45 @@ export const Navbar = () => {
                         <AnimatePresence>
                             {isServicesOpen && (
                                 <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: 10 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="absolute top-full left-0 mt-2 w-64 py-3 bg-surface/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl shadow-black/50 overflow-hidden"
+                                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                                    className="absolute top-full left-0 mt-3 w-72 bg-[#0a1628]/98 backdrop-blur-2xl border border-neonBlue/20 rounded-lg shadow-2xl shadow-neonBlue/10 overflow-hidden"
                                 >
-                                    {/* Gradient accent line at top */}
-                                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-neonBlue via-neonPurple to-neonBlue" />
+                                    {/* Terminal header bar */}
+                                    <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/10 bg-white/[0.03]">
+                                        <div className="flex gap-1.5">
+                                            <div className="w-2.5 h-2.5 rounded-full bg-neonBlue/30" />
+                                            <div className="w-2.5 h-2.5 rounded-full bg-neonPurple/50" />
+                                            <div className="w-2.5 h-2.5 rounded-full bg-neonBlue/70" />
+                                        </div>
+                                        <span className="ml-2 text-[10px] font-mono text-white/30 tracking-wider uppercase">services.sh</span>
+                                    </div>
 
-                                    {serviceDropdown.map((item, index) => (
-                                        <a
-                                            key={index}
-                                            href={getLink(item.href)}
-                                            className="block px-5 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-all duration-150 border-l-2 border-transparent hover:border-neonBlue"
-                                        >
-                                            {item.label}
-                                        </a>
-                                    ))}
+                                    {/* Terminal body */}
+                                    <div className="py-1.5">
+                                        {serviceDropdown.map((item, index) => (
+                                            <a
+                                                key={index}
+                                                href={getLink(item.href)}
+                                                className="group flex items-center gap-3 px-4 py-2.5 text-sm font-mono text-white/70 hover:text-neonBlue hover:bg-neonBlue/[0.06] transition-all duration-200"
+                                            >
+                                                <span className="text-neonBlue/40 group-hover:text-neonBlue transition-colors text-xs">{'>'}_</span>
+                                                <span className="tracking-wide">{item.label}</span>
+                                                <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-neonBlue text-xs">↵</span>
+                                            </a>
+                                        ))}
+                                    </div>
+
+                                    {/* Bottom status bar */}
+                                    <div className="px-4 py-1.5 border-t border-white/[0.06] bg-white/[0.02] flex items-center justify-between">
+                                        <span className="text-[9px] font-mono text-white/20 tracking-wider">{serviceDropdown.length} items</span>
+                                        <span className="text-[9px] font-mono text-green-500/50 tracking-wider flex items-center gap-1">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-green-500/60 animate-pulse" />
+                                            READY
+                                        </span>
+                                    </div>
                                 </motion.div>
                             )}
                         </AnimatePresence>
@@ -192,17 +242,18 @@ export const Navbar = () => {
                         <Container className="py-8 flex flex-col gap-4">
                             {/* Services Section */}
                             <div className="border-b border-white/10 pb-4">
-                                <span className="text-xs font-mono text-neonBlue/60 uppercase tracking-widest mb-3 block">
-                                    {t('nav.services')}
+                                <span className="text-xs font-mono text-neonBlue/60 uppercase tracking-widest mb-3 block flex items-center gap-2">
+                                    <span className="text-neonBlue/40">$</span> {t('nav.services')}
                                 </span>
-                                <div className="flex flex-col gap-2">
+                                <div className="flex flex-col gap-1">
                                     {serviceDropdown.map((item, index) => (
                                         <a
                                             key={index}
                                             href={getLink(item.href)}
                                             onClick={() => setIsMobileOpen(false)}
-                                            className="text-base text-white/80 hover:text-neonBlue pl-3 border-l-2 border-white/10 hover:border-neonBlue transition-all"
+                                            className="group flex items-center gap-3 text-base font-mono text-white/70 hover:text-neonBlue pl-3 py-1.5 transition-all"
                                         >
+                                            <span className="text-neonBlue/30 group-hover:text-neonBlue text-xs transition-colors">{'>'}_</span>
                                             {item.label}
                                         </a>
                                     ))}

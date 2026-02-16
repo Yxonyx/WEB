@@ -27,9 +27,9 @@ export const Footer = () => {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: "url('/images/philosophy-bg.webp')" }}
             />
-            <div className="absolute inset-0 bg-black/80" />
+            <div className="absolute inset-0 bg-bgDeep/80" />
             {/* Top fade */}
-            <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#050508] to-transparent z-[1]" />
+            <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#040812] to-transparent z-[1]" />
             <Container className="relative z-10 text-center">
                 <div className="flex items-center justify-center gap-2 mb-6 opacity-80">
                     <div className="font-mono font-bold text-white text-xl">CyberLabs Web</div>
@@ -65,6 +65,8 @@ export const Footer = () => {
                         contact@cyberlabsweb.com
                     </a>
                 </div>
+
+
 
                 <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-muted2 mb-6">
                     <a href="/aszf.html" className="hover:text-neonBlue transition-colors">{t('footer.terms')}</a>

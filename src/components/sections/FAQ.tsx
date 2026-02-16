@@ -83,7 +83,7 @@ export const FAQ = () => {
                     >
                         <h2 className="text-3xl font-bold font-display text-white mb-8">{t('faq.title')}</h2>
                         {/* Designer update: Átlátszóbb üveg, hogy a szekció színe átüssön (User kérés) */}
-                        <div className="bg-black/30 backdrop-blur-md rounded-2xl border border-white/10 p-6 sm:p-8 shadow-2xl">
+                        <div className="bg-overlay/40 backdrop-blur-md rounded-2xl border border-white/10 p-6 sm:p-8 shadow-2xl">
                             {questions.map((faq, i) => (
                                 <FAQItem key={i} {...faq} />
                             ))}
@@ -104,7 +104,7 @@ export const FAQ = () => {
 
                                     {/* Ikon - Kompakt és statikus */}
                                     <div className="flex justify-center mb-6 relative z-10">
-                                        <div className="relative w-16 h-16 flex items-center justify-center bg-neonBlue/10 rounded-2xl border border-neonBlue/20 shadow-[0_0_15px_rgba(0,240,255,0.1)]">
+                                        <div className="relative w-16 h-16 flex items-center justify-center bg-neonBlue/10 rounded-2xl border border-neonBlue/20 shadow-[0_0_15px_rgba(79,138,255,0.08)]">
                                             <ShieldCheck className="w-8 h-8 text-neonBlue" strokeWidth={2} />
                                         </div>
                                     </div>

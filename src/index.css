@@ -1,12 +1,13 @@
 /* Fonts loaded via index.html preload + local @font-face below */
+/* Outfit = primary sans + display font. JetBrains Mono = monospace/tech only. */
 
-/* Self-hosted Outfit Font */
+/* Self-hosted Outfit Font — swap ensures text is always visible */
 @font-face {
   font-family: 'Outfit';
   src: url('/fonts/Outfit-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 
 @font-face {
@@ -14,7 +15,7 @@
   src: url('/fonts/Outfit-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 
 @font-face {
@@ -22,8 +23,10 @@
   src: url('/fonts/Outfit-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
+
+/* 600 and 700 weights loaded via Google Fonts stylesheet in index.html */
 
 @tailwind base;
 @tailwind components;
@@ -89,12 +92,12 @@
   /* Mesh gradient background */
   .mesh-gradient {
     background:
-      radial-gradient(at 40% 20%, rgba(0, 240, 255, 0.18) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, rgba(189, 0, 255, 0.15) 0px, transparent 50%),
-      radial-gradient(at 0% 50%, rgba(0, 240, 255, 0.12) 0px, transparent 50%),
-      radial-gradient(at 80% 50%, rgba(189, 0, 255, 0.14) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, rgba(0, 240, 255, 0.12) 0px, transparent 50%),
-      radial-gradient(at 80% 100%, rgba(189, 0, 255, 0.1) 0px, transparent 50%);
+      radial-gradient(at 40% 20%, rgba(79, 138, 255, 0.35) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, rgba(155, 114, 255, 0.30) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, rgba(79, 138, 255, 0.25) 0px, transparent 50%),
+      radial-gradient(at 80% 50%, rgba(155, 114, 255, 0.28) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(79, 138, 255, 0.22) 0px, transparent 50%),
+      radial-gradient(at 80% 100%, rgba(155, 114, 255, 0.20) 0px, transparent 50%);
   }
 
   /* Animated gradient orb */
@@ -118,11 +121,11 @@
   }
 
   .gradient-orb-blue {
-    background: radial-gradient(circle, rgba(0, 240, 255, 0.4) 0%, rgba(0, 240, 255, 0.05) 50%, transparent 70%);
+    background: radial-gradient(circle, rgba(79, 138, 255, 0.70) 0%, rgba(79, 138, 255, 0.18) 50%, transparent 70%);
   }
 
   .gradient-orb-purple {
-    background: radial-gradient(circle, rgba(189, 0, 255, 0.4) 0%, rgba(189, 0, 255, 0.05) 50%, transparent 70%);
+    background: radial-gradient(circle, rgba(155, 114, 255, 0.65) 0%, rgba(155, 114, 255, 0.18) 50%, transparent 70%);
   }
 
   /* Full-screen section */
@@ -138,44 +141,44 @@
   /* Section backgrounds - alternating colors */
   .section-bg-cyan {
     background: linear-gradient(180deg,
-        rgba(0, 240, 255, 0.12) 0%,
-        rgba(0, 240, 255, 0.05) 50%,
+        rgba(79, 138, 255, 0.18) 0%,
+        rgba(79, 138, 255, 0.06) 60%,
         transparent 100%);
   }
 
   .section-bg-purple {
     background: linear-gradient(180deg,
-        rgba(189, 0, 255, 0.12) 0%,
-        rgba(189, 0, 255, 0.05) 50%,
+        rgba(155, 114, 255, 0.16) 0%,
+        rgba(155, 114, 255, 0.05) 60%,
         transparent 100%);
   }
 
   .section-bg-mixed {
     background:
-      linear-gradient(135deg, rgba(0, 240, 255, 0.1) 0%, transparent 50%),
-      linear-gradient(225deg, rgba(189, 0, 255, 0.1) 0%, transparent 50%);
+      linear-gradient(135deg, rgba(79, 138, 255, 0.14) 0%, transparent 50%),
+      linear-gradient(225deg, rgba(155, 114, 255, 0.14) 0%, transparent 50%);
   }
 
   .section-bg-deep {
     background: linear-gradient(180deg,
-        rgba(10, 15, 30, 0.9) 0%,
-        rgba(5, 10, 20, 0.95) 100%);
+        rgba(8, 10, 20, 0.95) 0%,
+        rgba(5, 7, 16, 1) 100%);
   }
 }
 
 @layer utilities {
   .glow-blue {
-    box-shadow: 0 0 30px rgba(0, 240, 255, 0.25), 0 0 60px rgba(0, 240, 255, 0.1);
+    box-shadow: 0 0 50px rgba(79, 138, 255, 0.50), 0 0 100px rgba(79, 138, 255, 0.25);
   }
 
   .glow-purple {
-    box-shadow: 0 0 30px rgba(189, 0, 255, 0.2), 0 0 60px rgba(189, 0, 255, 0.1);
+    box-shadow: 0 0 50px rgba(155, 114, 255, 0.45), 0 0 100px rgba(155, 114, 255, 0.22);
   }
 
   .glow-mixed {
     box-shadow:
-      0 0 40px rgba(0, 240, 255, 0.15),
-      0 0 80px rgba(189, 0, 255, 0.1);
+      0 0 60px rgba(79, 138, 255, 0.35),
+      0 0 120px rgba(155, 114, 255, 0.28);
   }
 
   .glass-panel {
@@ -216,7 +219,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.5), rgba(189, 0, 255, 0.5));
+    background: linear-gradient(135deg, rgba(79, 138, 255, 0.5), rgba(155, 114, 255, 0.5));
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
@@ -340,34 +343,7 @@
   animation: progress-grow 0.8s ease-out forwards;
 }
 
-/* Voiceflow widget - prevent taking layout space */
-#voiceflow-chat,
-#voiceFlow-chat,
-.vfrc-widget,
-[class*="vfrc"],
-[id*="voiceflow"],
-[id*="voiceFlow"] {
-  position: fixed !important;
-  z-index: 9999 !important;
-}
 
-/* Hide Voiceflow hidden textarea that causes extra space */
-#voiceFlow-chat textarea,
-#voiceflow-chat textarea {
-  position: fixed !important;
-  top: -9999px !important;
-  left: -9999px !important;
-  width: 0 !important;
-  height: 0 !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-/* Hide any Voiceflow iframes that might add space */
-body>iframe[src*="voiceflow"],
-body>div[style*="position: absolute"]:empty {
-  display: none !important;
-}
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {

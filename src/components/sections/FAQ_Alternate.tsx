@@ -81,7 +81,7 @@ export const FAQ_Alternate = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Gyakori kérdések</h2>
+                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 font-display">Gyakori kérdések</h2>
                         <p className="text-xl text-muted">A legfontosabb válaszok, őszintén.</p>
                     </motion.div>
 

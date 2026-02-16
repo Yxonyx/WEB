@@ -20,7 +20,7 @@ export const GEO = () => {
                 {/* Header */}
                 <div className="text-center max-w-4xl mx-auto mb-20 lg:mb-32">
 
-                    <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">{t('geo.header.title')}</h2>
+                    <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6 font-display">{t('geo.header.title')}</h2>
                     <p className="text-xl text-white/80 font-medium">
                         {t('geo.header.desc')}
                     </p>
@@ -37,7 +37,7 @@ export const GEO = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
                         >
-                            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">{t('geo.shift.title')}</h3>
+                            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 font-display">{t('geo.shift.title')}</h3>
                             <p className="text-lg text-white/80 leading-relaxed font-medium">
                                 {t('geo.shift.desc')}
                             </p>
@@ -87,7 +87,7 @@ export const GEO = () => {
                                 <div className="p-3 rounded-lg bg-neonPurple/10 text-neonPurple">
                                     <Network size={32} />
                                 </div>
-                                <h3 className="text-2xl sm:text-3xl font-bold text-white">{t('geo.where.title')}</h3>
+                                <h3 className="text-2xl sm:text-3xl font-bold text-white font-display">{t('geo.where.title')}</h3>
                             </div>
                             <p className="text-lg text-white/80 leading-relaxed font-medium mb-6">
                                 {t('geo.where.desc')}
@@ -152,7 +152,7 @@ export const GEO = () => {
                                 <div className="p-3 rounded-lg bg-green-500/10 text-green-500">
                                     <Cpu size={32} />
                                 </div>
-                                <h3 className="text-2xl sm:text-3xl font-bold text-white">{t('geo.what.title')}</h3>
+                                <h3 className="text-2xl sm:text-3xl font-bold text-white font-display">{t('geo.what.title')}</h3>
                             </div>
                             <p className="text-lg text-white/80 leading-relaxed font-medium mb-8">
                                 {t('geo.what.desc')}
@@ -170,8 +170,8 @@ export const GEO = () => {
                                             className="h-full bg-neonBlue"
                                             initial={{ width: 0 }}
                                             whileInView={{ width: "98%" }}
-                                            viewport={{ once: true }}
-                                            transition={{ duration: 1.5, ease: "easeOut" }}
+                                            viewport={{ once: true, amount: 0.2 }}
+                                            transition={{ duration: 0.8, ease: "easeOut" }}
                                         />
                                     </div>
                                 </div>
@@ -185,8 +185,8 @@ export const GEO = () => {
                                             className="h-full bg-green-500"
                                             initial={{ width: 0 }}
                                             whileInView={{ width: "95%" }}
-                                            viewport={{ once: true }}
-                                            transition={{ duration: 1.5, ease: "easeOut" }}
+                                            viewport={{ once: true, amount: 0.2 }}
+                                            transition={{ duration: 0.8, ease: "easeOut" }}
                                         />
                                     </div>
                                 </div>

@@ -50,7 +50,7 @@ export const AllArticles = () => {
                 {/* Animated Orbs - Increased opacity and size */}
                 <div
                     className="absolute top-[-20%] right-[-10%] w-[80vw] h-[80vh] rounded-full opacity-50 blur-[100px] animate-pulse-slow"
-                    style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.5) 0%, transparent 70%)' }}
+                    style={{ background: 'radial-gradient(circle, rgba(79,138,255,0.5) 0%, transparent 70%)' }}
                 />
                 <div
                     className="absolute bottom-[-20%] left-[-10%] w-[80vw] h-[80vh] rounded-full opacity-50 blur-[100px] animate-pulse-slow delay-1000"

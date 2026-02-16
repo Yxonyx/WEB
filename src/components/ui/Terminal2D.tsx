@@ -7,9 +7,9 @@ export const Terminal2D = () => {
             <div className="bg-gray-900/95 rounded-xl overflow-hidden border border-white/10 shadow-2xl backdrop-blur-md">
                 {/* Header */}
                 <div className="bg-white/5 px-4 py-3 flex items-center gap-2 border-b border-white/5">
-                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-neonBlue/30" />
+                    <div className="w-3 h-3 rounded-full bg-neonPurple/50" />
+                    <div className="w-3 h-3 rounded-full bg-neonBlue/70" />
                     <div className="ml-auto text-xs text-white/30 font-mono tracking-wider">cyber_engine — bash</div>
                 </div>
 

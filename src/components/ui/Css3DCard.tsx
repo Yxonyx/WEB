@@ -59,9 +59,9 @@ export const Css3DCard = () => {
                 >
                     {/* Header */}
                     <div className="flex items-center gap-2 mb-4 border-b border-white/10 pb-4">
-                        <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                        <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                        <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                        <div className="w-3 h-3 rounded-full bg-neonBlue/30" />
+                        <div className="w-3 h-3 rounded-full bg-neonPurple/50" />
+                        <div className="w-3 h-3 rounded-full bg-neonBlue/70" />
                         <span className="ml-auto text-xs text-muted font-mono opacity-50">cyber_engine.tsx</span>
                     </div>
 

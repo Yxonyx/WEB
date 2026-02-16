@@ -273,8 +273,8 @@ export const translations = {
             vat_note: "Az árak az ÁFA-t nem tartalmazzák. Egyedi igény esetén kérj egyedi ajánlatot."
         },
         portfolio: {
-            title: "Referenciák",
-            subtitle: "Modern weboldalak, amik eredményt hoznak."
+            title: "Referenciák & Minták",
+            subtitle: "Modern weboldalak, amik eredményt hoznak. Tekintsd meg referenciáinkat és minta oldalainkat."
         },
         process: {
             title: "Hogyan dolgozunk?",
@@ -709,8 +709,8 @@ export const translations = {
             vat_note: "Prices do not include VAT. Request a custom quote for specific needs."
         },
         portfolio: {
-            title: "References",
-            subtitle: "Modern websites that deliver results."
+            title: "References & Samples",
+            subtitle: "Modern websites that deliver results. Explore our references and sample sites."
         },
         process: {
             title: "How do we work?",

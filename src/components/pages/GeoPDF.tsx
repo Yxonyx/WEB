@@ -120,11 +120,11 @@ export const GeoPDF = () => {
                                         <h4 className="text-gray-500 font-mono font-bold text-xs uppercase tracking-wider mb-3">Hagyományos SEO</h4>
                                         <div className="space-y-2">
                                             <div className="flex items-center gap-3 text-gray-400">
-                                                <div className="w-1.5 h-1.5 bg-red-500/50 rounded-full" />
+                                                <div className="w-1.5 h-1.5 bg-neonPurple/50 rounded-full" />
                                                 <span>Link rangsorolása (SERP)</span>
                                             </div>
                                             <div className="flex items-center gap-3 text-gray-400">
-                                                <div className="w-1.5 h-1.5 bg-red-500/50 rounded-full" />
+                                                <div className="w-1.5 h-1.5 bg-neonPurple/50 rounded-full" />
                                                 <span>Fókusz: Kulcsszavak & Backlinkek</span>
                                             </div>
                                         </div>

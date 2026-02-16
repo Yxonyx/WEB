@@ -101,11 +101,11 @@ export const Maintenance = () => {
                                         </div>
                                         <div className="sm:hidden font-bold text-white text-base">{t('maintenance_sec.dashboard.speed.sub')}</div>
                                     </div>
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex items-center gap-3 shrink-0 ml-4">
                                         <div className="h-1.5 w-16 bg-surface rounded-full overflow-hidden">
                                             <div className="h-full bg-yellow-500 w-[95%]" />
                                         </div>
-                                        <span className="text-sm text-yellow-500 font-mono">98/100</span>
+                                        <span className="text-sm text-yellow-500 font-mono whitespace-nowrap">98/100</span>
                                     </div>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@ export const Maintenance = () => {
                         <div className="w-12 h-12 rounded-xl bg-neonPurple/10 flex items-center justify-center mb-6 text-neonPurple">
                             <ShieldCheck size={24} />
                         </div>
-                        <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">{t('maintenance_sec.content.title')}</h2>
+                        <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">{t('maintenance_sec.content.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient-reverse">{t('maintenance_sec.content.title').split(' ').slice(-1)}</span></h2>
                         <p className="text-white/80 text-lg mb-8 leading-relaxed font-medium">
                             {t('maintenance_sec.content.desc')}
                         </p>

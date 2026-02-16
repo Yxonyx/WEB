@@ -105,7 +105,7 @@ export const Contact = () => {
                         transition={{ duration: 0.4, delay: 0.2 }}
                     >
                         <motion.form
-                            className="bg-surface2/20 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-white/10 shadow-[0_0_50px_-12px_rgba(0,240,255,0.1)] space-y-3 sm:space-y-4 relative overflow-hidden"
+                            className="bg-surface2/20 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-white/10 shadow-[0_0_50px_-12px_rgba(79,138,255,0.08)] space-y-3 sm:space-y-4 relative overflow-hidden"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
@@ -125,7 +125,7 @@ export const Contact = () => {
                                         name="name"
                                         required
                                         placeholder={t('contact.form.name')}
-                                        className="w-full bg-transparent border border-neonPurple/50 rounded-full px-5 py-2.5 text-white placeholder:text-white/20 focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all shadow-[0_0_15px_-3px_rgba(189,0,255,0.1)]"
+                                        className="w-full bg-transparent border border-neonPurple/50 rounded-full px-5 py-2.5 text-white placeholder:text-white/20 focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all shadow-[0_0_15px_-3px_rgba(155,114,255,0.1)]"
                                     />
                                 </div>
 
@@ -138,7 +138,7 @@ export const Contact = () => {
                                             name="email"
                                             required
                                             placeholder={t('contact.form.email')}
-                                            className="w-full bg-transparent border border-neonPurple/50 rounded-full px-5 py-2.5 text-white placeholder:text-white/20 focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all shadow-[0_0_15px_-3px_rgba(189,0,255,0.1)]"
+                                            className="w-full bg-transparent border border-neonPurple/50 rounded-full px-5 py-2.5 text-white placeholder:text-white/20 focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all shadow-[0_0_15px_-3px_rgba(155,114,255,0.1)]"
                                         />
                                     </div>
                                     <div className="space-y-2">
@@ -148,7 +148,7 @@ export const Contact = () => {
                                             type="tel"
                                             name="phone"
                                             placeholder={t('contact.form.phone')}
-                                            className="w-full bg-transparent border border-neonPurple/50 rounded-full px-5 py-2.5 text-white placeholder:text-white/20 focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all shadow-[0_0_15px_-3px_rgba(189,0,255,0.1)]"
+                                            className="w-full bg-transparent border border-neonPurple/50 rounded-full px-5 py-2.5 text-white placeholder:text-white/20 focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all shadow-[0_0_15px_-3px_rgba(155,114,255,0.1)]"
                                         />
                                     </div>
                                 </div>
@@ -159,10 +159,10 @@ export const Contact = () => {
                                         <select
                                             id="service"
                                             name="service"
-                                            className="w-full bg-transparent border border-neonPurple/50 rounded-full px-5 py-2.5 text-white focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all appearance-none cursor-pointer hover:bg-white/5 shadow-[0_0_15px_-3px_rgba(189,0,255,0.1)]"
+                                            className="w-full bg-transparent border border-neonPurple/50 rounded-full px-5 py-2.5 text-white focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all appearance-none cursor-pointer hover:bg-white/5 shadow-[0_0_15px_-3px_rgba(155,114,255,0.1)]"
                                         >
                                             {services.map((service, i) => (
-                                                <option key={i} className="bg-[#0A0A1F] text-white">{service}</option>
+                                                <option key={i} className="bg-overlay text-white">{service}</option>
                                             ))}
                                         </select>
                                         <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-neonPurple">
@@ -179,7 +179,7 @@ export const Contact = () => {
                                         required
                                         rows={3}
                                         placeholder={t('contact.form.message')}
-                                        className="w-full bg-transparent border border-neonPurple/50 rounded-3xl px-5 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all resize-none shadow-[0_0_15px_-3px_rgba(189,0,255,0.1)]"
+                                        className="w-full bg-transparent border border-neonPurple/50 rounded-3xl px-5 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-neonPurple focus:ring-1 focus:ring-neonPurple focus:bg-white/5 transition-all resize-none shadow-[0_0_15px_-3px_rgba(155,114,255,0.1)]"
                                     ></textarea>
                                 </div>
 
@@ -198,7 +198,7 @@ export const Contact = () => {
                                     </label>
                                 </div>
 
-                                <Button type="submit" variant="primary" className="w-full py-4 text-lg font-bold shadow-[0_0_20px_-5px_rgba(0,240,255,0.4)]">
+                                <Button type="submit" variant="primary" className="w-full py-4 text-lg font-bold shadow-[0_0_20px_-5px_rgba(79,138,255,0.35)]">
                                     {t('contact.form.submit')}
                                 </Button>
                             </motion.div>

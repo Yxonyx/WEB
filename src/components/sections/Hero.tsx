@@ -32,7 +32,7 @@ export const Hero = () => {
                                 className="w-full h-full object-cover"
                             />
                         </picture>
-                        <div className="absolute inset-0 bg-black/60 z-10" />
+                        <div className="absolute inset-0 bg-bgDeep/60 z-10" />
                     </div>
 
 
@@ -45,21 +45,21 @@ export const Hero = () => {
                         <div
                             className="absolute -top-1/4 -right-1/4 w-[80vw] h-[80vh]"
                             style={{
-                                background: 'radial-gradient(ellipse at center, rgba(0,240,255,0.25) 0%, rgba(0,240,255,0.05) 40%, transparent 70%)',
+                                background: 'radial-gradient(ellipse at center, rgba(79,138,255,0.10) 0%, rgba(79,138,255,0.03) 40%, transparent 70%)',
                                 filter: 'blur(60px)'
                             }}
                         />
                         <div
                             className="absolute -bottom-1/4 -left-1/4 w-[80vw] h-[80vh]"
                             style={{
-                                background: 'radial-gradient(ellipse at center, rgba(189,0,255,0.25) 0%, rgba(189,0,255,0.05) 40%, transparent 70%)',
+                                background: 'radial-gradient(ellipse at center, rgba(155,114,255,0.25) 0%, rgba(155,114,255,0.05) 40%, transparent 70%)',
                                 filter: 'blur(60px)'
                             }}
                         />
                         <div
                             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[40vh] opacity-30"
                             style={{
-                                background: 'radial-gradient(ellipse at center, rgba(99,102,241,0.3) 0%, transparent 60%)',
+                                background: 'radial-gradient(ellipse at center, rgba(155,114,255,0.3) 0%, transparent 60%)',
                                 filter: 'blur(80px)'
                             }}
                         />
@@ -70,7 +70,7 @@ export const Hero = () => {
                         <div
                             className="absolute top-[-20%] right-[-20%] w-[100%] h-[60%]"
                             style={{
-                                background: 'radial-gradient(circle, rgba(0,240,255,0.1) 0%, transparent 70%)',
+                                background: 'radial-gradient(circle, rgba(79,138,255,0.04) 0%, transparent 70%)',
                                 filter: 'blur(60px)',
                                 transform: 'translateZ(0)'
                             }}
@@ -78,7 +78,7 @@ export const Hero = () => {
                         <div
                             className="absolute bottom-[-10%] left-[-20%] w-[100%] h-[60%]"
                             style={{
-                                background: 'radial-gradient(circle, rgba(189,0,255,0.1) 0%, transparent 70%)',
+                                background: 'radial-gradient(circle, rgba(155,114,255,0.1) 0%, transparent 70%)',
                                 filter: 'blur(60px)',
                                 transform: 'translateZ(0)'
                             }}
@@ -96,19 +96,19 @@ export const Hero = () => {
                             <span className="text-sm font-mono text-neonBlue uppercase tracking-widest">{t('hero.tag')}</span>
                         </div>
 
-                        <h1 className="text-[3.15rem] sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight">
+                        <h1 className="text-[3.15rem] sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight font-display">
                             <span className="text-white">{t('hero.title_prefix_1')}</span>
                             <br className="sm:hidden" />
                             <span className="text-white">{t('hero.title_prefix_2')}</span>
                             <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple animate-gradient-shift">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-neonBlueDark to-neonHarvest animate-gradient-shift">
                                 {t('hero.title_gradient')}
                             </span><span className="text-white"> &</span>
                             <br />
                             <span className="text-white">{t('hero.title_suffix')}</span>
                         </h1>
 
-                        <p className="text-lg sm:text-2xl mb-6 leading-relaxed">
+                        <p className="text-lg sm:text-2xl mb-6 leading-relaxed font-display">
                             <span className="text-neonBlue italic block sm:inline">{t('hero.subtitle_1')}</span>
                             <span className="text-white font-medium block sm:inline">{t('hero.subtitle_highlight')}</span>
                         </p>

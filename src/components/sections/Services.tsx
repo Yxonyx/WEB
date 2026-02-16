@@ -57,7 +57,7 @@ export const Services = () => {
 
                 <div className="space-y-16 lg:space-y-24">
                     {/* Service 1: Egyedi weboldal (Text Left, Visual Right) */}
-                    <motion.div
+                    <motion.article
                         className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
                         initial="hidden"
                         whileInView="visible"
@@ -69,13 +69,13 @@ export const Services = () => {
                             <div className="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center mb-6 text-neonBlue">
                                 <Laptop size={24} />
                             </div>
-                            <h3 className="text-2xl sm:text-4xl font-bold text-white mb-4">{t('services.webdev.title')}</h3>
+                            <h3 className="text-2xl sm:text-4xl font-bold text-white mb-4 font-display">{t('services.webdev.title')}</h3>
                             <div className="text-neonBlue font-mono text-sm mb-6 tracking-wide">{t('services.webdev.tagline')}</div>
                             <p className="text-white/80 text-lg mb-8 leading-relaxed font-medium">
                                 {t('services.webdev.desc')}
                             </p>
 
-                            <div className="mb-4 text-base font-bold text-white uppercase tracking-wider">{t('services.webdev.benefits_title')}</div>
+                            <h4 className="mb-4 text-base font-bold text-white uppercase tracking-wider">{t('services.webdev.benefits_title')}</h4>
                             <ul className="space-y-3">
                                 {(t('services.webdev.benefits') as unknown as string[]).map((item, i) => (
                                     <li key={i} className="flex items-center gap-3 text-white/80">
@@ -148,10 +148,10 @@ export const Services = () => {
                                 </div>
                             </BracketFrame>
                         </motion.div>
-                    </motion.div>
+                    </motion.article>
 
                     {/* Service 2: Keresőbarát beállítások (Text Right, Visual Left) */}
-                    <motion.div
+                    <motion.article
                         className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
                         initial="hidden"
                         whileInView="visible"
@@ -187,17 +187,17 @@ export const Services = () => {
                             <div className="w-12 h-12 rounded-xl bg-neonPurple/10 flex items-center justify-center mb-6 text-neonPurple">
                                 <BarChart3 size={24} />
                             </div>
-                            <h3 className="text-2xl sm:text-4xl font-bold text-white mb-6">{t('services.seo.title')}</h3>
+                            <h3 className="text-2xl sm:text-4xl font-bold text-white mb-6 font-display">{t('services.seo.title')}</h3>
                             <p className="text-muted text-lg mb-8 leading-relaxed">
                                 {t('services.seo.desc')}
                             </p>
 
-                            <div className="mb-4 text-base font-bold text-white uppercase tracking-wider">{t('services.seo.benefits_title')}</div>
+                            <h4 className="mb-4 text-base font-bold text-white uppercase tracking-wider">{t('services.seo.benefits_title')}</h4>
                             <p className="text-muted leading-relaxed">
                                 {t('services.seo.why')}
                             </p>
                         </motion.div>
-                    </motion.div>
+                    </motion.article>
                 </div>
             </Container>
         </Section>

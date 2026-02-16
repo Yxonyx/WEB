@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge';
 import { motion } from 'framer-motion';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: 'primary' | 'secondary';
+    variant?: 'primary' | 'secondary' | 'harvest';
     size?: 'sm' | 'md' | 'lg';
     children: React.ReactNode;
     href?: string;
@@ -22,8 +22,9 @@ export const Button: React.FC<ButtonProps> = ({
     const baseStyles = "relative inline-flex items-center justify-center font-mono font-bold tracking-wider transition-all duration-300 group";
 
     const variants = {
-        primary: "bg-neonBlue text-black hover:bg-white hover:shadow-[0_0_30px_rgba(0,240,255,0.4)]",
+        primary: "bg-neonBlue text-white hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(77,148,255,0.45)]", // Super Lighter Electric Blue shadow
         secondary: "bg-surface/50 border border-white/10 text-white hover:bg-white/5 hover:border-white/20 hover:text-neonBlue",
+        harvest: "bg-neonHarvest text-white hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(204,0,255,0.45)]", // Vivid Purple shadow
     };
 
     const sizes = {

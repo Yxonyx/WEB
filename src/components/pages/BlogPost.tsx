@@ -156,66 +156,140 @@ export const BlogPost = () => {
                         Vissza a cikkekhez
                     </Link>
 
-                    {/* Hero Card with Overlay */}
+                    {/* Professional Article Header - No Image, CSS Background */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="rounded-3xl overflow-hidden mb-12 border border-white/10 shadow-2xl relative h-[400px] md:h-[500px] group"
+                        className="relative rounded-2xl overflow-hidden mb-12 border border-white/10"
                     >
-                        {/* Background Image */}
-                        <img
-                            src={post.image}
-                            alt={post.title}
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
+                        {/* CSS Generated Background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0d1f3c] to-[#0a0f1a]" />
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(79,138,255,0.08),transparent_50%)]" />
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(155,114,255,0.06),transparent_50%)]" />
+                        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(79,138,255,0.03)_50%,transparent_100%)] bg-[length:100%_4px]" />
 
-                        {/* Gradients for Readability */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#050B14] via-[#050B14]/40 to-transparent" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#050B14]/60 via-transparent to-transparent" />
+                        {/* Decorative Grid Lines */}
+                        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-                        {/* Content Overlay */}
-                        <div className="absolute bottom-0 left-0 w-full p-6 md:p-12">
+                        {/* Corner Accents */}
+                        <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-neonBlue/40" />
+                        <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-neonBlue/40" />
+                        <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-neonPurple/40" />
+                        <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-neonPurple/40" />
+
+                        {/* Header Content */}
+                        <div className="relative z-10 px-6 py-12 md:px-16 md:py-20">
+                            {/* Category & Date Row */}
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
+                                className="flex flex-wrap items-center gap-3 mb-6"
                             >
-                                <div className="flex items-center gap-4 text-sm text-neonBlue font-mono mb-4">
-                                    <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/40 border border-neonBlue/20 backdrop-blur-md">
-                                        <Tag className="w-3.5 h-3.5" />
-                                        {post.category}
-                                    </span>
-                                    <span className="flex items-center gap-1.5 text-gray-200 bg-black/40 px-3 py-1 rounded-full backdrop-blur-md whitespace-nowrap text-xs sm:text-sm">
-                                        <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" />
-                                        {post.date}
-                                    </span>
+                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-neonBlue/10 border border-neonBlue/30 text-neonBlue text-xs font-mono uppercase tracking-wider">
+                                    <Tag className="w-3 h-3" />
+                                    {post.category}
+                                </span>
+                                <time
+                                    dateTime={post.dateISO}
+                                    className="inline-flex items-center gap-1.5 text-gray-400 text-xs font-mono"
+                                >
+                                    <Calendar className="w-3 h-3" />
+                                    {post.date}
+                                </time>
+                            </motion.div>
+
+                            {/* Title */}
+                            <motion.h1
+                                initial={{ opacity: 0, y: 15 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight max-w-4xl mb-6"
+                            >
+                                {post.title}
+                            </motion.h1>
+
+                            {/* Lead / Meta Description */}
+                            {post.metaDescription && (
+                                <motion.p
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.4 }}
+                                    className="text-base md:text-lg text-gray-300/80 leading-relaxed max-w-3xl"
+                                >
+                                    {post.metaDescription}
+                                </motion.p>
+                            )}
+
+                            {/* Author mini-bar */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.5 }}
+                                className="flex items-center gap-3 mt-8 pt-6 border-t border-white/10"
+                            >
+                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-neonBlue/30 to-neonPurple/30 border border-white/10 flex items-center justify-center text-xs font-bold text-neonBlue">
+                                    CL
                                 </div>
-                                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-snug max-w-4xl drop-shadow-lg">
-                                    {post.title}
-                                </h1>
+                                <div>
+                                    <span className="text-sm text-white font-medium">{post.author}</span>
+                                    <span className="text-xs text-gray-500 ml-2 font-mono">// CyberLabs Web</span>
+                                </div>
                             </motion.div>
                         </div>
                     </motion.div>
 
-                    {/* Content Area */}
+                    {/* Content Area - Professional Article */}
                     <motion.article
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="prose prose-invert prose-base md:prose-lg max-w-none
-                            prose-headings:text-white prose-headings:font-bold prose-headings:mb-4 prose-headings:mt-8 md:prose-headings:mb-6 md:prose-headings:mt-12
-                            prose-p:text-gray-300 prose-p:leading-[1.75] prose-p:mb-4 md:prose-p:mb-6
-                            prose-a:text-neonBlue prose-a:no-underline hover:prose-a:underline
-                            prose-strong:text-white prose-li:text-gray-300
-                            prose-ul:my-4 md:prose-ul:my-6 prose-li:my-1.5 md:prose-li:my-2
-                            prose-blockquote:border-l-4 prose-blockquote:border-neonBlue prose-blockquote:bg-surface/30 prose-blockquote:p-4 md:prose-blockquote:p-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:text-gray-200
+                        className="prose prose-invert prose-base md:prose-lg max-w-4xl mx-auto
+                            prose-headings:text-white prose-headings:font-bold prose-headings:mb-4 prose-headings:mt-10 md:prose-headings:mb-6 md:prose-headings:mt-14
+                            prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:border-b prose-h2:border-white/10 prose-h2:pb-3
+                            prose-h3:text-xl md:prose-h3:text-2xl prose-h3:text-neonBlue/90
+                            prose-p:text-gray-200 prose-p:leading-[1.85] prose-p:mb-5 md:prose-p:mb-6 prose-p:text-base md:prose-p:text-[17px]
+                            prose-a:text-neonBlue prose-a:no-underline hover:prose-a:underline prose-a:font-medium
+                            prose-strong:text-white prose-strong:font-semibold
+                            prose-li:text-gray-200 prose-li:leading-[1.8]
+                            prose-ul:my-5 md:prose-ul:my-6 prose-li:my-1.5 md:prose-li:my-2
+                            prose-ol:my-5 md:prose-ol:my-6
+                            prose-blockquote:border-l-4 prose-blockquote:border-neonBlue prose-blockquote:bg-[#0d1f3c]/50 prose-blockquote:p-5 md:prose-blockquote:p-6 prose-blockquote:rounded-r-xl prose-blockquote:not-italic prose-blockquote:text-gray-200 prose-blockquote:shadow-lg
+                            prose-code:text-neonBlue prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
                             [&_.lead]:text-base [&_.lead]:md:text-lg [&_.lead]:text-gray-200 [&_.lead]:leading-relaxed [&_.lead]:font-normal"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     />
 
+                    {/* Author / Trust Box (GEO/E-E-A-T Signal) */}
+                    <div className="mt-16 mb-12 p-6 md:p-8 rounded-2xl bg-surface/30 border border-white/10 backdrop-blur-sm flex flex-col md:flex-row gap-6 items-center md:items-start">
+                        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-surface2 border-2 border-neonBlue/30 overflow-hidden flex-shrink-0">
+                            {/* Placeholder for Author Image - could be properly mapped from authors list later */}
+                            <div className="w-full h-full bg-gradient-to-br from-neonBlue/20 to-neonPurple/20 flex items-center justify-center text-neonBlue font-bold text-xl">
+                                CL
+                            </div>
+                        </div>
+                        <div className="flex-1 text-center md:text-left">
+                            <h3 className="text-white font-bold text-lg mb-1">
+                                {post.author}
+                            </h3>
+                            <div className="text-sm text-neonBlue mb-3 font-mono">
+                                // Digital Strategy Team
+                            </div>
+                            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                                A CyberLabs Web szakértői csapata. Prémium webfejlesztés, AI integráció és digitális stratégia kis- és középvállalkozásoknak. Cikkeinket a legfrissebb iparági trendek és valós tapasztalatok alapján írjuk.
+                            </p>
+                            <Link
+                                to={`/${lang || 'hu'}/#csapat`}
+                                className="text-sm text-white hover:text-neonBlue transition-colors underline decoration-white/20 hover:decoration-neonBlue underline-offset-4"
+                            >
+                                Ismerd meg a csapatot &rarr;
+                            </Link>
+                        </div>
+                    </div>
+
                     {/* Share Buttons */}
-                    <div className="mt-12 pt-8 border-t border-white/10">
+                    <div className="pt-8 border-t border-white/10">
                         <div className="flex items-center gap-4">
                             <span className="text-sm font-bold text-muted uppercase tracking-wider">Megosztás:</span>
                             <div className="flex gap-2">
@@ -259,6 +333,7 @@ export const BlogPost = () => {
                             </div>
                         </div>
                     </div>
+
 
                     {/* Footer CTA */}
                     <div className="mt-20 pt-10 border-t border-white/10 text-center">

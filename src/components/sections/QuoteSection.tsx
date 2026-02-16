@@ -30,7 +30,7 @@ export const QuoteSection = () => {
 
 
                         {/* Heading */}
-                        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight font-display">
+                        <h2 className="text-2xl lg:text-[2.5rem] font-bold text-white mb-6 leading-tight font-display">
                             "{t('quote.title.prefix')}<span className="text-neonBlue">{t('quote.title.highlight')}</span>{t('quote.title.suffix')}"
                         </h2>
 
@@ -126,9 +126,9 @@ export const QuoteSection = () => {
                             <div className="flex justify-between items-center px-4 py-3 border-b border-white/10 bg-[#0A0A15]">
                                 <div className="text-base font-mono text-neonBlue">{t('quote.cards.demo.title')}</div>
                                 <div className="flex gap-1.5">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                                    <div className="w-2.5 h-2.5 rounded-full bg-neonBlue/30" />
+                                    <div className="w-2.5 h-2.5 rounded-full bg-neonPurple/50" />
+                                    <div className="w-2.5 h-2.5 rounded-full bg-neonBlue/70" />
                                 </div>
                             </div>
 

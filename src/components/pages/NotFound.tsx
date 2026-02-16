@@ -16,7 +16,7 @@ export const NotFound = () => {
             <div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vh] pointer-events-none opacity-20"
                 style={{
-                    background: 'radial-gradient(ellipse at center, rgba(189,0,255,0.2) 0%, transparent 60%)',
+                    background: 'radial-gradient(ellipse at center, rgba(155,114,255,0.2) 0%, transparent 60%)',
                     filter: 'blur(80px)'
                 }}
             />

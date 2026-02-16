@@ -39,7 +39,7 @@ export const Pricing = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
                 >
-                    <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-4">{t('pricing.title')}</h2>
+                    <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-4">{t('pricing.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient">{t('pricing.title').split(' ').slice(-1)}</span></h2>
                     <p className="text-white/80 text-lg font-medium">
                         {t('pricing.subtitle')}
                     </p>
@@ -50,10 +50,10 @@ export const Pricing = () => {
                     <div>
                         <BracketFrame className="h-full p-6 sm:p-8 flex flex-col hover:border-neonPurple/50 transition-colors duration-300">
                             <div className="mb-6">
-                                <span className="inline-block py-1 px-2 mb-2 rounded bg-white/10 text-sm font-bold text-white uppercase tracking-wider">
+                                <span className="inline-block py-1 px-2 mb-2 rounded bg-neonPurple/15 text-sm font-bold text-neonPurple uppercase tracking-wider border border-neonPurple/20">
                                     {t('pricing.landing.tag')}
                                 </span>
-                                <h3 className="text-xl font-bold text-white">{t('pricing.landing.title')}</h3>
+                                <h3 className="text-xl font-bold text-white font-display">{t('pricing.landing.title')}</h3>
                                 <div className="mt-4 flex items-baseline gap-1">
                                     <span className="text-2xl font-bold text-neonBlue">{t('pricing.landing.price')}</span>
                                     <span className="text-base text-muted">-tól</span>
@@ -77,7 +77,7 @@ export const Pricing = () => {
 
                     {/* Plan 2 - Corporate (Signature Panel) */}
                     <div className="lg:col-span-1 lg:-mt-8">
-                        <div className="relative rounded-3xl overflow-hidden group/card bg-gradient-to-br from-surface/90 via-surface/70 to-surface/80 border border-white/10 shadow-[0_0_60px_-20px_rgba(0,240,255,0.25),0_0_40px_-15px_rgba(189,0,255,0.2)] hover:shadow-[0_0_80px_-15px_rgba(0,240,255,0.35),0_0_60px_-10px_rgba(189,0,255,0.3)] transition-all duration-500">
+                        <div className="relative rounded-3xl overflow-hidden group/card bg-gradient-to-br from-surface/90 via-surface/70 to-surface/80 border border-white/10 shadow-[0_0_60px_-20px_rgba(79,138,255,0.20),0_0_40px_-15px_rgba(155,114,255,0.15)] hover:shadow-[0_0_80px_-15px_rgba(79,138,255,0.30),0_0_60px_-10px_rgba(155,114,255,0.25)] transition-all duration-500">
                             {/* Animated gradient border glow */}
                             <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-neonBlue via-neonPurple to-neonBlue opacity-[0.15] blur-sm" />
 
@@ -100,7 +100,7 @@ export const Pricing = () => {
                                     </span>
                                 </div>
 
-                                <h3 className="text-2xl font-bold text-white mb-3">{t('pricing.corporate.title')}</h3>
+                                <h3 className="text-2xl font-bold text-white mb-3 font-display">{t('pricing.corporate.title')}</h3>
                                 <div className="flex items-baseline gap-2 mb-8">
                                     <span className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-white to-neonPurple animate-gradient-shift" style={{ backgroundSize: '200% auto' }}>
                                         {t('pricing.corporate.price')}
@@ -129,10 +129,10 @@ export const Pricing = () => {
                     <div>
                         <BracketFrame className="h-full p-6 sm:p-8 flex flex-col hover:border-neonBlue/50 transition-colors duration-300">
                             <div className="mb-6">
-                                <span className="inline-block py-1 px-2 mb-2 rounded bg-white/10 text-sm font-bold text-white uppercase tracking-wider">
+                                <span className="inline-block py-1 px-2 mb-2 rounded bg-neonBlue/15 text-sm font-bold text-neonBlue uppercase tracking-wider border border-neonBlue/20">
                                     {t('pricing.webshop.tag')}
                                 </span>
-                                <h3 className="text-xl font-bold text-white">{t('pricing.webshop.title')}</h3>
+                                <h3 className="text-xl font-bold text-white font-display">{t('pricing.webshop.title')}</h3>
                                 <div className="mt-4 flex items-baseline gap-1">
                                     <span className="text-2xl font-bold text-neonBlue">{t('pricing.webshop.price')}</span>
                                     <span className="text-base text-muted">-tól</span>

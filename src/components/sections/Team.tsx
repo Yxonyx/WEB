@@ -1,6 +1,7 @@
 import { Container } from '../Container';
 import { Section } from '../Section';
 import { motion, type Variants } from 'framer-motion';
+import { ParticleNetwork } from '../ui/ParticleNetwork';
 
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -58,7 +59,7 @@ export const Team = () => {
             name: "Kaiser Jonatán",
             role: t('team.roles.DEVELOPER'),
             qualification: t('team.qualifications.JONI'),
-            image: "/images/kaiser-jonatan.webp",
+            image: "/images/kaiser-jonatan-v2.webp",
             skills: [t('team.skills.arch'), t('team.skills.frontend'), t('team.skills.backend')]
         }
     ];
@@ -68,7 +69,8 @@ export const Team = () => {
             id="csapat"
             className="bg-gradient-to-b from-surface2/60 via-surface/40 to-bg relative overflow-hidden"
         >
-            <Container>
+            <ParticleNetwork />
+            <Container className="relative z-[2]">
                 {/* Philosophy */}
                 <motion.div
                     className="mb-14 text-center max-w-3xl mx-auto"
@@ -135,7 +137,11 @@ export const Team = () => {
                         >
                             {/* Terminal Card replaced with Glass Card */}
                             {/* Terminal Card - Tuned Up */}
-                            <div className="relative bg-[#0b0c15]/90 backdrop-blur-sm border border-white/10 rounded-xl h-full flex flex-col hover:border-neonBlue/40 transition-all duration-500 group-hover:shadow-[0_0_30px_-10px_rgba(0,240,255,0.15)]">
+                            <div
+                                className="relative bg-black/20 backdrop-blur-md border border-white/10 rounded-xl h-full flex flex-col hover:border-neonBlue/40 transition-all duration-500 group-hover:shadow-[0_0_30px_-10px_rgba(79,138,255,0.15)] touch-pan-y"
+                                itemScope
+                                itemType="https://schema.org/Person"
+                            >
                                 {/* Corner Brackets - All 4 corners, Blue */}
                                 <div className="absolute -top-px -left-px w-4 h-4 border-t-2 border-l-2 border-neonBlue rounded-tl-lg" />
                                 <div className="absolute -top-px -right-px w-4 h-4 border-t-2 border-r-2 border-neonBlue rounded-tr-lg" />
@@ -143,10 +149,10 @@ export const Team = () => {
                                 <div className="absolute -bottom-px -right-px w-4 h-4 border-b-2 border-r-2 border-neonBlue rounded-br-lg" />
 
                                 {/* Scanline effect (subtle) */}
-                                <div className="absolute inset-0 bg-[linear-gradient(transparent_0%,rgba(0,240,255,0.03)_50%,transparent_100%)] bg-[length:100%_4px] pointer-events-none" />
+                                <div className="absolute inset-0 bg-[linear-gradient(transparent_0%,rgba(79,138,255,0.03)_50%,transparent_100%)] bg-[length:100%_4px] pointer-events-none" />
 
                                 {/* Header Bar */}
-                                <div className="flex items-center justify-between px-4 py-2 border-b border-white/5 bg-black/30">
+                                <div className="flex items-center justify-between px-4 py-2 border-b border-white/5 bg-black/20">
                                     <span className="font-mono text-xs text-muted2">ID: {member.id}</span>
                                     <div className="w-2 h-2 rounded-full bg-neonBlue animate-pulse" />
                                 </div>
@@ -161,21 +167,25 @@ export const Team = () => {
                                             width="80"
                                             height="80"
                                             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                            itemProp="image"
                                         />
                                     </div>
 
                                     {/* Name */}
-                                    <h3 className="text-xl lg:text-2xl font-bold text-neonBlue mb-2 font-mono">
+                                    <h3
+                                        className="text-xl lg:text-2xl font-bold text-neonBlue mb-2 font-mono"
+                                        itemProp="name"
+                                    >
                                         &gt; {member.name}
                                     </h3>
 
                                     {/* Role */}
                                     <p className="text-sm font-mono text-muted uppercase tracking-wider mb-1">
-                                        ROLE: <span className="text-white">{member.role}</span>
+                                        ROLE: <span className="text-white" itemProp="jobTitle">{member.role}</span>
                                     </p>
 
                                     {/* Qualification */}
-                                    <p className="text-xs font-mono text-muted2 italic mb-4">
+                                    <p className="text-xs font-mono text-muted2 italic mb-4" itemProp="knowsAbout">
                                         {member.qualification}
                                     </p>
 
@@ -184,6 +194,7 @@ export const Team = () => {
                                         <a
                                             href={`tel:${member.phone.replace(/\s/g, '')}`}
                                             className="inline-block mb-4 px-3 py-1.5 rounded border border-white/20 bg-black/40 text-white font-mono text-base hover:border-neonBlue/50 hover:text-neonBlue transition-colors"
+                                            itemProp="telephone"
                                         >
                                             {member.phone}
                                         </a>
@@ -194,7 +205,7 @@ export const Team = () => {
                                         {member.skills.map((skill, j) => (
                                             <li key={j} className="flex items-center gap-2 text-muted">
                                                 <span className="text-neonBlue">[x]</span>
-                                                <span>{skill}</span>
+                                                <span itemProp="hasCredential">{skill}</span>
                                             </li>
                                         ))}
                                     </ul>

@@ -94,11 +94,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
     as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet">
   </noscript>
 
@@ -111,6 +111,7 @@
         "@type": "Organization",
         "@id": "https://cyberlabsweb.com/#organization",
         "name": "CyberLabs Web",
+        "legalName": "KYSO DIGITAL CONSULTING ZRT.",
         "alternateName": "CyberLabs Web Digital Studio",
         "url": "https://cyberlabsweb.com/",
         "logo": {
@@ -124,10 +125,28 @@
           "@id": "https://cyberlabsweb.com/#logo"
         },
         "description": "Modern, villámgyors céges weboldal fejlesztés és karbantartás. Technikai SEO + GEO.",
+        "taxID": "32797518-2-13",
+        "identifier": "13 10 042740",
+        "email": "contact@cyberlabsweb.com",
+        "telephone": "+36703304445",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Barackos út 155.",
+          "postalCode": "2000",
+          "addressLocality": "Szentendre",
+          "addressCountry": "HU"
+        },
         "areaServed": {
           "@type": "Country",
           "name": "Hungary"
-        }
+        },
+        "sameAs": [
+          "https://www.instagram.com/cyberlabsweb/",
+          "https://www.facebook.com/profile.php?id=61586980628114",
+          "https://linkedin.com/company/cyberlabsweb",
+          "https://tiktok.com/@cyberlabsweb",
+          "https://share.google/XmycjQhY3yK7y2R1p"
+        ]
       },
       {
         "@type": "WebSite",
@@ -250,34 +269,7 @@
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 
-  <!-- Voiceflow Chat Widget - Load on first user interaction -->
-  <script type="text/javascript">
-    (function () {
-      var loaded = false;
-      function loadVoiceflow() {
-        if (loaded) return;
-        loaded = true;
-        document.removeEventListener('scroll', loadVoiceflow);
-        document.removeEventListener('click', loadVoiceflow);
-        document.removeEventListener('touchstart', loadVoiceflow);
-        var v = document.createElement('script');
-        v.onload = function () {
-          window.voiceflow.chat.load({
-            verify: { projectID: '69728b40b960e41275e9bc0b' },
-            url: 'https://general-runtime.voiceflow.com',
-            versionID: 'production',
-            voice: { url: "https://runtime-api.voiceflow.com" }
-          });
-        };
-        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
-        v.type = "text/javascript";
-        document.body.appendChild(v);
-      }
-      document.addEventListener('scroll', loadVoiceflow, { once: true, passive: true });
-      document.addEventListener('click', loadVoiceflow, { once: true });
-      document.addEventListener('touchstart', loadVoiceflow, { once: true, passive: true });
-    })();
-  </script>
+
 </body>
 
 </html>

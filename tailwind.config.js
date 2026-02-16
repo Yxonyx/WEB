@@ -7,27 +7,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: "#050508",
-        bgDeep: "#020204",
-        surface: "#0A0B10",
-        surface2: "#0F1220",
-        surface3: "#141825",
-        border: "rgba(255,255,255,0.12)",
-        borderLight: "rgba(255,255,255,0.08)",
-        muted: "rgba(255,255,255,0.85)",
-        muted2: "rgba(255,255,255,0.65)",
-        neonBlue: "#00F0FF",
-        neonBlueDark: "#00B8C4",
-        neonPurple: "#BD00FF",
-        neonPurpleDark: "#9400C8",
-        highlight: "#D8FF57",
-        accent1: "#6366F1",
-        accent2: "#8B5CF6",
+        bg: "#030407", // Deep Rich Black
+        bgDeep: "#000000",
+        surface: "#0A0E17",
+        surface2: "#111625",
+        surface3: "#1C2438",
+        border: "rgba(77, 148, 255, 0.15)", // Super Lighter Electric Blue tint
+        borderLight: "rgba(77, 148, 255, 0.05)",
+        muted: "#9CA3AF",
+        muted2: "rgba(156, 163, 175, 0.6)",
+        neonBlue: "#4D94FF", // Super Lighter Electric Blue (Primary) - Maximum Glow
+        neonBlueDark: "#2E86FF", // Lighter Dark Blue
+        neonPurple: "#CC00FF", // Vivid Electric Purple (Secondary)
+        neonPurpleDark: "#8800AA",
+        neonHarvest: "#CC00FF", // Vivid Purple
+        neonSlate: "#1F2937",
+        highlight: "#FFFFFF",
+        accent1: "#4D94FF",
+        accent2: "#CC00FF",
+        overlay: "#000000",
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Outfit', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
-        display: ['Outfit', 'sans-serif'],
+        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         '7xl': '5rem',
@@ -40,27 +43,27 @@ export default {
         '5xl': '2.5rem',
       },
       backgroundImage: {
-        'accent-gradient': 'linear-gradient(90deg, #00F0FF 0%, #BD00FF 100%)',
-        'accent-gradient-reverse': 'linear-gradient(90deg, #BD00FF 0%, #00F0FF 100%)',
-        'radial-blue': 'radial-gradient(circle at center, rgba(0, 240, 255, 0.15) 0%, transparent 70%)',
-        'radial-purple': 'radial-gradient(circle at center, rgba(189, 0, 255, 0.15) 0%, transparent 70%)',
+        'accent-gradient': 'linear-gradient(90deg, #4D94FF 0%, #CC00FF 100%)',
+        'accent-gradient-reverse': 'linear-gradient(90deg, #CC00FF 0%, #4D94FF 100%)',
+        'radial-blue': 'radial-gradient(circle at center, rgba(77, 148, 255, 0.35) 0%, transparent 70%)',
+        'radial-purple': 'radial-gradient(circle at center, rgba(204, 0, 255, 0.35) 0%, transparent 70%)',
         'mesh-gradient': `
-          radial-gradient(at 40% 20%, rgba(0, 240, 255, 0.12) 0px, transparent 50%),
-          radial-gradient(at 80% 0%, rgba(189, 0, 255, 0.1) 0px, transparent 50%),
-          radial-gradient(at 0% 50%, rgba(0, 240, 255, 0.08) 0px, transparent 50%),
-          radial-gradient(at 100% 50%, rgba(189, 0, 255, 0.08) 0px, transparent 50%)
+          radial-gradient(at 40% 20%, rgba(77, 148, 255, 0.30) 0px, transparent 50%),
+          radial-gradient(at 80% 0%, rgba(204, 0, 255, 0.25) 0px, transparent 50%),
+          radial-gradient(at 0% 50%, rgba(77, 148, 255, 0.20) 0px, transparent 50%),
+          radial-gradient(at 100% 50%, rgba(204, 0, 255, 0.20) 0px, transparent 50%)
         `,
         'hero-gradient': `
-          radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 240, 255, 0.2) 0%, transparent 50%),
-          radial-gradient(ellipse 60% 40% at 100% 50%, rgba(189, 0, 255, 0.15) 0%, transparent 50%),
-          radial-gradient(ellipse 50% 30% at 0% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 50%)
+          radial-gradient(ellipse 80% 50% at 50% -20%, rgba(77, 148, 255, 0.20) 0%, transparent 50%),
+          radial-gradient(ellipse 60% 40% at 100% 50%, rgba(204, 0, 255, 0.15) 0%, transparent 50%),
+          radial-gradient(ellipse 50% 30% at 0% 80%, rgba(77, 148, 255, 0.10) 0%, transparent 50%)
         `,
       },
       boxShadow: {
-        'glow-blue': '0 0 40px rgba(0, 240, 255, 0.25), 0 0 80px rgba(0, 240, 255, 0.1)',
-        'glow-purple': '0 0 40px rgba(189, 0, 255, 0.2), 0 0 80px rgba(189, 0, 255, 0.1)',
-        'glow-mixed': '0 0 60px rgba(0, 240, 255, 0.15), 0 0 100px rgba(189, 0, 255, 0.1)',
-        'inner-glow': 'inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+        'glow-blue': '0 0 60px rgba(77, 148, 255, 0.50), 0 0 120px rgba(77, 148, 255, 0.25)',
+        'glow-purple': '0 0 60px rgba(204, 0, 255, 0.45), 0 0 120px rgba(204, 0, 255, 0.22)',
+        'glow-mixed': '0 0 80px rgba(77, 148, 255, 0.35), 0 0 140px rgba(204, 0, 255, 0.28)',
+        'inner-glow': 'inset 0 1px 0 rgba(255, 255, 255, 0.10)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

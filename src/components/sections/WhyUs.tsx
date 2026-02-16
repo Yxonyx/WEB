@@ -29,7 +29,7 @@ export function WhyUs() {
                                     <div className="w-12 h-12 rounded-lg bg-neonBlue/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                         <Icon className="w-6 h-6 text-neonBlue" />
                                     </div>
-                                    <h3 className="text-xl font-bold mb-3 text-white">
+                                    <h3 className="text-xl font-bold mb-3 text-white font-display">
                                         {feature.title}
                                         {feature.sub && <span className="text-sm font-normal text-gray-400 ml-2">{feature.sub}</span>}
                                     </h3>

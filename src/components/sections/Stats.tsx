@@ -79,10 +79,10 @@ const StatItem = ({ target, suffix, label }: StatItemProps) => {
     return (
         <div ref={containerRef} className="flex flex-col items-center text-center w-28 sm:w-40 md:w-52">
             <div className="flex items-baseline">
-                <span ref={numberRef} className="text-4xl sm:text-5xl md:text-6xl font-mono font-semibold tabular-nums text-neonBlue drop-shadow-[0_0_12px_rgba(0,240,255,0.3)]">
+                <span ref={numberRef} className="text-4xl sm:text-5xl md:text-6xl font-mono font-semibold tabular-nums text-neonBlue drop-shadow-[0_0_12px_rgba(79,138,255,0.25)]">
                     0
                 </span>
-                <span className="text-2xl sm:text-3xl md:text-4xl font-mono font-semibold text-neonBlue drop-shadow-[0_0_12px_rgba(0,240,255,0.3)]">
+                <span className="text-2xl sm:text-3xl md:text-4xl font-mono font-semibold text-neonBlue drop-shadow-[0_0_12px_rgba(79,138,255,0.25)]">
                     {suffix}
                 </span>
             </div>
