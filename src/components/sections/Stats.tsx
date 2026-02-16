@@ -8,7 +8,7 @@ export const Stats = () => {
     return (
         <section className="relative z-30 -mt-16 -mb-20 md:-mt-20 md:-mb-24 py-8 md:py-10 pointer-events-none">
             <div className="max-w-5xl mx-auto px-6">
-                <div className="flex items-start justify-center gap-12 sm:gap-24 md:gap-32 lg:gap-48">
+                <div className="grid grid-cols-3 gap-2 sm:gap-8 items-start justify-items-center w-full">
                     <StatItem
                         target={7}
                         suffix="+"
@@ -77,8 +77,8 @@ const StatItem = ({ target, suffix, label }: StatItemProps) => {
     }, [isInView, animateCount]);
 
     return (
-        <div ref={containerRef} className="flex flex-col items-center text-center w-28 sm:w-40 md:w-52">
-            <div className="flex items-baseline">
+        <div ref={containerRef} className="flex flex-col items-center text-center">
+            <div className="flex items-baseline justify-center w-full">
                 <span ref={numberRef} className="text-4xl sm:text-5xl md:text-6xl font-mono font-semibold tabular-nums text-neonBlue drop-shadow-[0_0_12px_rgba(79,138,255,0.25)]">
                     0
                 </span>
