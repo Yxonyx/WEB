@@ -217,6 +217,66 @@ mainPages.forEach(page => {
 
 console.log('🎉 Main page generation complete!');
 
+// --- Niche Landing Pages ---
+console.log('🏢 Generating niche landing pages...');
+
+const nichePages = [
+    { slug: 'ugyvedeknek', title: 'Weboldal Készítés Ügyvédeknek | Ügyvédi Weboldal | CyberLabs Web', metaDescription: 'Professzionális ügyvédi weboldal készítés, ami bizalmat épít és ügyfeleket hoz. Modern, gyors és GDPR-kompatibilis megoldás ügyvédi irodáknak.' },
+    { slug: 'fodraszoknak', title: 'Weboldal Készítés Fodrászoknak | Fodrász Weboldal | CyberLabs Web', metaDescription: 'Modern fodrász weboldal készítés online időpontfoglalóval. Mutasd meg munkáidat, szerezz új vendégeket és automatizáld a foglalásokat.' },
+    { slug: 'kivitelezoknek', title: 'Weboldal Készítés Kivitelezőknek | Építőipari Weboldal | CyberLabs Web', metaDescription: 'Építőipari weboldal készítés kivitelezőknek. Referenciák bemutatása, ajánlatkérő form és SEO, hogy a megrendelők megtaláljanak.' },
+    { slug: 'orvosoknak', title: 'Weboldal Készítés Orvosoknak | Orvosi Weboldal | CyberLabs Web', metaDescription: 'Professzionális orvosi weboldal készítés. Online időpontfoglalás, beteg-tájékoztató és GDPR-kompatibilis megoldás orvosoknak és rendelőknek.' },
+    { slug: 'ettermeknek', title: 'Weboldal Készítés Éttermeknek | Éttermi Weboldal | CyberLabs Web', metaDescription: 'Modern éttermi weboldal készítés online étlappal, asztalfoglalással és Google Térkép integrációval.' },
+    { slug: 'autoszereloknek', title: 'Weboldal Készítés Autószerelőknek | Autószerviz Weboldal | CyberLabs Web', metaDescription: 'Autószerviz weboldal készítés online időpontfoglalóval. Szolgáltatások bemutatása, árlista és Google megjelenés autószerelőknek.' },
+    { slug: 'ingatlanosoknak', title: 'Weboldal Készítés Ingatlanosoknak | Ingatlanos Weboldal | CyberLabs Web', metaDescription: 'Ingatlanközvetítő weboldal készítés ingatlan listázással, szűrőkkel és kapcsolatfelvételi lehetőséggel.' },
+    { slug: 'kozmetikusoknak', title: 'Weboldal Készítés Kozmetikusoknak | Kozmetikai Weboldal | CyberLabs Web', metaDescription: 'Kozmetikus weboldal készítés online időpontfoglalóval és szolgáltatás bemutatóval.' },
+    { slug: 'villanyszereloknek', title: 'Weboldal Készítés Villanyszerelőknek | Villanyszerelő Weboldal | CyberLabs Web', metaDescription: 'Villanyszerelő weboldal készítés ajánlatkérő formmal és helyi SEO-val.' },
+    { slug: 'szallodaknak', title: 'Weboldal Készítés Szállodáknak | Szálloda Weboldal | CyberLabs Web', metaDescription: 'Szálloda weboldal készítés közvetlen foglalási rendszerrel. Csökkentsd a közvetítői jutalékot!' },
+    { slug: 'gyogyszereszeknek', title: 'Weboldal Készítés Gyógyszerészeknek | Gyógyszertár Weboldal | CyberLabs Web', metaDescription: 'Gyógyszertár weboldal készítés nyitvatartással, ügyeleti renddel és termék információkkal.' },
+    { slug: 'epiteszeknek', title: 'Weboldal Készítés Építészeknek | Építész Portfólió Weboldal | CyberLabs Web', metaDescription: 'Építész portfólió weboldal készítés lenyűgöző projekt galériával.' },
+    { slug: 'konyvveloknek', title: 'Weboldal Készítés Könyvelőknek | Könyvelői Weboldal | CyberLabs Web', metaDescription: 'Könyvelő weboldal készítés, ami bizalmat épít és ügyfeleket hoz.' },
+    { slug: 'pszichologusoknak', title: 'Weboldal Készítés Pszichológusoknak | Pszichológus Weboldal | CyberLabs Web', metaDescription: 'Pszichológus weboldal készítés, ami bizalmat és nyugalmat sugároz.' },
+    { slug: 'marketing-ugynoksegeknek', title: 'Weboldal Készítés Marketing Ügynökségeknek | Ügynökségi Weboldal | CyberLabs Web', metaDescription: 'Marketing ügynökség weboldal készítés, ami a szakértelmedet tükrözi.' },
+    { slug: 'edzo-es-fitness', title: 'Weboldal Készítés Edzőknek | Fitness Weboldal | CyberLabs Web', metaDescription: 'Személyi edző és fitness weboldal készítés. Órarend, online foglalás, transzformációs galéria.' },
+    { slug: 'fotografusoknak', title: 'Weboldal Készítés Fotográfusoknak | Fotós Portfólió Weboldal | CyberLabs Web', metaDescription: 'Fotós portfólió weboldal készítés lenyűgöző galéria rendszerrel.' },
+    { slug: 'allatorvosoknak', title: 'Weboldal Készítés Állatorvosoknak | Állatorvosi Weboldal | CyberLabs Web', metaDescription: 'Állatorvosi weboldal készítés online időpontfoglalóval, ügyeleti információkkal.' },
+    { slug: 'webshopoknak', title: 'Webshop Készítés | E-commerce Weboldal | CyberLabs Web', metaDescription: 'Egyedi webshop készítés, ami elad. Modern design, gyors betöltés, mobilbarát.' },
+    { slug: 'peksegeknek', title: 'Weboldal Készítés Pékségeknek | Pékség Weboldal | CyberLabs Web', metaDescription: 'Pékség weboldal készítés online rendeléssel, termékkatalógussal és nyitvatartással.' },
+];
+
+nichePages.forEach(niche => {
+    const relativePath = `hu/weboldal-keszites/${niche.slug}`;
+    const targetDir = path.join(distDir, relativePath);
+    const targetFile = path.join(targetDir, 'index.html');
+
+    fs.mkdirSync(targetDir, { recursive: true });
+
+    let html = template;
+
+    // 1. Title
+    html = html.replace(/<title>.*?<\/title>/, `<title>${niche.title}</title>`);
+
+    // 2. Meta description
+    html = html.replace(/<meta name="description"\s+content=".*?"/, `<meta name="description" content="${niche.metaDescription}"`);
+
+    // 3. Open Graph
+    html = html.replace(/<meta property="og:title"\s+content=".*?"/, `<meta property="og:title" content="${niche.title}"`);
+    html = html.replace(/<meta property="og:description"\s+content=".*?"/, `<meta property="og:description" content="${niche.metaDescription}"`);
+
+    // 4. Canonical & URL
+    const canonical = `https://cyberlabsweb.com/${relativePath}`;
+    html = html.replace(/<link rel="canonical" href=".*?"/, `<link rel="canonical" href="${canonical}"`);
+    html = html.replace(/<meta property="og:url" content=".*?"/, `<meta property="og:url" content="${canonical}"`);
+
+    // 5. Twitter
+    html = html.replace(/<meta name="twitter:title"\s+content=".*?"/, `<meta name="twitter:title" content="${niche.title}"`);
+    html = html.replace(/<meta name="twitter:description"\s+content=".*?"/, `<meta name="twitter:description" content="${niche.metaDescription}"`);
+
+    fs.writeFileSync(targetFile, html);
+    console.log(`✅ Generated: ${relativePath}/index.html`);
+});
+
+console.log('🎉 Niche page generation complete!');
+
 // --- NEW: Generate Sitemap.xml ---
 console.log('🗺️ Generating sitemap.xml...');
 
@@ -261,6 +321,17 @@ blogPosts.forEach(post => {
     <loc>${baseUrl}/en/blog/${post.id}</loc>
     <lastmod>${post.dateISO}</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+`;
+});
+
+// 3. Niche Landing Pages
+nichePages.forEach(niche => {
+    sitemapContent += `  <url>
+    <loc>${baseUrl}/hu/weboldal-keszites/${niche.slug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 `;

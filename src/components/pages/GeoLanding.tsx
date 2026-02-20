@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Container } from '../Container';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Bot, CheckCircle2, Globe, Cpu } from 'lucide-react';
+import { ProIcon } from '../icons/ProIcon';
 import { Helmet } from 'react-helmet-async';
 import { sendGeoGuideEmail } from '../../utils/emailService';
 import { Button } from '../ui/Button';
@@ -102,18 +103,14 @@ export const GeoLanding = () => {
 
                             <div className="grid sm:grid-cols-2 gap-4 mb-8">
                                 <div className="bg-surface/50 border border-white/5 p-4 rounded-xl flex items-start gap-3 hover:border-neonBlue/30 transition-colors group">
-                                    <div className="bg-blue-500/10 p-2 rounded-lg group-hover:text-neonBlue transition-colors">
-                                        <Bot className="w-5 h-5 text-blue-400" />
-                                    </div>
+                                    <ProIcon icon={Bot} color="neonBlue" size={32} />
                                     <div>
                                         <h3 className="font-bold text-sm text-white mb-1">AI Kompatibilitás</h3>
                                         <p className="text-xs text-gray-500 leading-snug">Optimalizálás ChatGPT-re, Gemini-re és Perplexity-re.</p>
                                     </div>
                                 </div>
                                 <div className="bg-surface/50 border border-white/5 p-4 rounded-xl flex items-start gap-3 hover:border-purple-500/30 transition-colors group">
-                                    <div className="bg-purple-500/10 p-2 rounded-lg group-hover:text-purple-400 transition-colors">
-                                        <Cpu className="w-5 h-5 text-purple-400" />
-                                    </div>
+                                    <ProIcon icon={Cpu} color="neonPurple" size={32} />
                                     <div>
                                         <h3 className="font-bold text-sm text-white mb-1">Strukturált Adatok</h3>
                                         <p className="text-xs text-gray-500 leading-snug">Hogyan tedd az adataidat "gép által olvashatóvá".</p>

@@ -1,6 +1,7 @@
 import { Container } from '../Container';
 import { Section } from '../Section';
 import { Network, Cpu, Sparkles, ArrowRight, UserCheck } from 'lucide-react';
+import { ProIcon } from '../icons/ProIcon';
 import { motion } from 'framer-motion';
 import { lazy, Suspense } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
@@ -84,9 +85,7 @@ export const GEO = () => {
                             transition={{ duration: 0.5 }}
                         >
                             <div className="flex items-center gap-4 mb-6">
-                                <div className="p-3 rounded-lg bg-neonPurple/10 text-neonPurple">
-                                    <Network size={32} />
-                                </div>
+                                <ProIcon icon={Network} color="neonPurple" size={32} />
                                 <h3 className="text-2xl sm:text-3xl font-bold text-white font-display">{t('geo.where.title')}</h3>
                             </div>
                             <p className="text-lg text-white/80 leading-relaxed font-medium mb-6">
@@ -149,9 +148,7 @@ export const GEO = () => {
                             transition={{ duration: 0.5 }}
                         >
                             <div className="flex items-center gap-4 mb-6">
-                                <div className="p-3 rounded-lg bg-green-500/10 text-green-500">
-                                    <Cpu size={32} />
-                                </div>
+                                <ProIcon icon={Cpu} color="green" size={32} />
                                 <h3 className="text-2xl sm:text-3xl font-bold text-white font-display">{t('geo.what.title')}</h3>
                             </div>
                             <p className="text-lg text-white/80 leading-relaxed font-medium mb-8">

@@ -3,6 +3,7 @@ import { Section } from '../Section';
 import { Laptop, BarChart3, CheckCircle2 } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 import { BracketFrame } from '../ui/BracketFrame';
+import { WebDevGraphic } from '../ui/WebDevGraphic';
 import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
@@ -87,66 +88,12 @@ export const Services = () => {
                         </motion.div>
 
                         {/* Visual */}
-                        <motion.div variants={itemVariants} className="relative">
-                            <BracketFrame className="bg-surface/30 p-8 min-h-[300px] flex items-center justify-center">
-                                <div className="absolute top-0 right-0 p-32 bg-neonBlue/5 rounded-full blur-3xl pointer-events-none" />
-                                {/* Mini Browser Visual */}
-                                <div className="space-y-4 w-full relative z-10">
-                                    <div className="bg-[#0b0b14] border border-white/10 rounded-xl overflow-hidden shadow-2xl transform rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
-                                        {/* Browser Toolbar */}
-                                        <div className="bg-[#151520] px-3 py-2.5 flex items-center gap-2 border-b border-white/5">
-                                            <div className="flex gap-1.5">
-                                                <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
-                                                <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-                                                <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-                                            </div>
-                                            <div className="ml-4 flex-1 h-5 bg-[#050510] rounded border border-white/5 flex items-center px-2">
-                                                <div className="w-3 h-3 rounded-full bg-white/10" />
-                                                <div className="ml-2 w-20 h-1 bg-white/5 rounded-full" />
-                                            </div>
-                                        </div>
-
-                                        {/* Website Mockup Content */}
-                                        <div className="p-4 space-y-4 bg-surface2/20">
-                                            {/* Mock Nav */}
-                                            <div className="flex justify-between items-center mb-2">
-                                                <span className="text-xs font-bold text-white/80">{t('services.mock.nav.name')}</span>
-                                                <div className="flex gap-3 text-[9px] text-white/40">
-                                                    <span>{t('services.mock.nav.about')}</span>
-                                                    <span>{t('services.mock.nav.services')}</span>
-                                                    <span className="text-neonBlue">{t('services.mock.nav.book')}</span>
-                                                </div>
-                                            </div>
-
-                                            {/* Mock Hero */}
-                                            <div className="w-full h-28 bg-gradient-to-br from-neonBlue/10 to-neonPurple/5 rounded-lg border border-white/5 flex items-center p-4 relative overflow-hidden">
-                                                <div className="relative z-10 w-2/3 space-y-1.5">
-                                                    <div className="text-[11px] font-bold text-white leading-tight">{t('services.mock.hero.title')}</div>
-                                                    <div className="text-[11px] text-neonBlue font-bold leading-tight">{t('services.mock.hero.loc')}</div>
-                                                    <div className="text-[8px] text-white/50 mt-1">{t('services.mock.hero.desc')}</div>
-                                                    <div className="mt-2 px-2 py-1 text-[8px] bg-neonBlue/20 rounded border border-neonBlue/30 text-neonBlue inline-block">{t('services.mock.hero.cta')}</div>
-                                                </div>
-                                                {/* Decorative elements */}
-                                                <div className="absolute right-0 bottom-0 w-20 h-20 bg-neonBlue/10 rounded-full blur-xl transform translate-x-1/2 translate-y-1/2" />
-                                            </div>
-
-                                            {/* Mock Cards */}
-                                            <div className="grid grid-cols-2 gap-3">
-                                                <div className="h-20 bg-[#151520] rounded-lg border border-white/5 p-2.5 flex flex-col gap-1.5">
-                                                    <div className="w-5 h-5 rounded bg-neonBlue/20 flex items-center justify-center text-[8px] text-neonBlue">🩺</div>
-                                                    <div className="text-[10px] font-bold text-white/80">{t('services.mock.cards.c1')}</div>
-                                                    <div className="text-[8px] text-white/40">{t('services.mock.cards.c1s')}</div>
-                                                </div>
-                                                <div className="h-20 bg-[#151520] rounded-lg border border-white/5 p-2.5 flex flex-col gap-1.5">
-                                                    <div className="w-5 h-5 rounded bg-neonPurple/20 flex items-center justify-center text-[8px] text-neonPurple">📅</div>
-                                                    <div className="text-[10px] font-bold text-white/80">{t('services.mock.cards.c2')}</div>
-                                                    <div className="text-[8px] text-white/40">{t('services.mock.cards.c2s')}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </BracketFrame>
+                        <motion.div variants={itemVariants} className="relative flex items-center justify-center min-h-[400px]">
+                            <div className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-neonBlue/10 rounded-full blur-[100px] pointer-events-none" />
+                            {/* Abstract Isometric Graphic */}
+                            <div className="w-full max-w-[650px] aspect-[4/3] relative z-10 flex items-center justify-center">
+                                <WebDevGraphic />
+                            </div>
                         </motion.div>
                     </motion.article>
 

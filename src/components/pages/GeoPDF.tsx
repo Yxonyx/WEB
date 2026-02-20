@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Download, Check, MessageSquare, Globe, Zap, ExternalLink, FileText } from 'lucide-react';
+import { ProIcon } from '../icons/ProIcon';
 import { Button } from '../ui/Button';
 import { Container } from '../Container';
 
@@ -108,8 +109,8 @@ export const GeoPDF = () => {
 
                         {/* Section 2: SEO vs GEO */}
                         <div className="bg-surface/30 border border-white/5 p-8 relative overflow-hidden group hover:border-neonBlue/30 transition-colors duration-500">
-                            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                                <Zap className="w-40 h-40" />
+                            <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none">
+                                <ProIcon icon={Zap} color="neonBlue" size={64} className="scale-150" />
                             </div>
                             <div className="relative z-10">
                                 <span className="text-neonBlue font-mono font-bold mb-4 block text-sm tracking-wider">02 // PARADIGMAVÁLTÁS</span>

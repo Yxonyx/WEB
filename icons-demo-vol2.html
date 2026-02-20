@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 ÚJ SVG Ikon Stílus - Minta Vol. 2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono&display=swap');
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #0a0a12;
+            color: #ffffff;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #4f8aff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #4f8aff;
+            background: rgba(79, 138, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .icon-wrapper svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .desc {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Új Stílus Minták (Vol. 2)</h1>
+        <p>Íme 10 teljesen új, alternatív digitális és tech SVG minta. Még extrémebb és profibb textúrákkal,
+            "glassmorphism", "wireframe", és "hi-tech" koncepciókkal.</p>
+    </div>
+
+    <div class="grid">
+
+        <!-- 11. Glassmorphism Poly (Üveges Polygon) -->
+        <div class="card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <defs>
+                        <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="rgba(255,255,255,0.4)" />
+                            <stop offset="100%" stop-color="rgba(255,255,255,0.05)" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Back layer -->
+                    <polygon points="12,2 22,8 22,20 12,14" fill="#4f8aff" opacity="0.3" />
+                    <!-- Front Glass layer -->
+                    <polygon points="2,8 12,14 12,22 2,16" fill="url(#glass)" stroke="rgba(255,255,255,0.5)"
+                        stroke-width="1" stroke-linejoin="round" style="backdrop-filter: blur(4px);" />
+                    <!-- Wireframe accent -->
+                    <circle cx="12" cy="14" r="2" fill="#ffffff" />
+                    <line x1="2" y1="8" x2="12" y2="2" stroke="rgba(255,255,255,0.3)" stroke-width="1"
+                        stroke-dasharray="2" />
+                </svg>
+            </div>
+            <div class="title">11. Üveges Polygon (Glassmorphism)</div>
+            <div class="desc">Térhatású áttetsző rétegek opálos (frost) üvegfestéssel.</div>
+        </div>
+
+        <!-- 12. Hexagon Wireframe (Hologramos rács) -->
+        <div class="card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke="#4f8aff" stroke-linejoin="round">
+                    <polygon points="12,2 21,7 21,17 12,22 3,17 3,7" stroke="rgba(79,138,255,0.3)"
+                        fill="rgba(79,138,255,0.05)" />
+                    <!-- Inner grid -->
+                    <line x1="12" y1="2" x2="12" y2="22" stroke="rgba(79,138,255,0.4)" />
+                    <line x1="3" y1="7" x2="21" y2="17" stroke="rgba(79,138,255,0.4)" />
+                    <line x1="3" y1="17" x2="21" y2="7" stroke="rgba(79,138,255,0.4)" />
+                    <!-- Solid symbol over it -->
+                    <rect x="9" y="10" width="6" height="4" fill="#ffffff" stroke="none" rx="1" />
+                    <circle cx="12" cy="12" r="1.5" fill="#0a0a12" stroke="none" />
+                </svg>
+            </div>
+            <div class="title">12. Hexagon Wireframe</div>
+            <div class="desc">Technológiai "drótváz" hatszög, fénylő adatközpontos érzet.</div>
+        </div>
+
+        <!-- 13. Blob / Organic Fluid (Organikus Cseppek) -->
+        <div class="card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <!-- Organic background shape -->
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12C2 17.52 7.48 22 13 22C18.52 22 22 17.52 22 12C22 7.48 17.52 2 12 2Z"
+                        fill="#a855f7" opacity="0.15" />
+                    <path d="M17.5 15C16.5 18 12.5 19.5 9 17.5C5.5 15.5 5 11 7 8C9 5 13 4 16 6.5C19 9 18.5 12 17.5 15Z"
+                        fill="#4f8aff" opacity="0.4" />
+                    <!-- Sharp vector over organic -->
+                    <polyline points="9 16 5 12 9 8" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <polyline points="15 8 19 12 15 16" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+            <div class="title">13. Organikus Folyadék (Fluid Blob)</div>
+            <div class="desc">A formátlan áttetsző buborékok szép kontrasztot adnak a mérnöki alakzatoknak.</div>
+        </div>
+
+        <!-- 14. Split Line / Offset (Elcsúsztatott Neon) -->
+        <div class="card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- RGB Offset Effect -->
+                    <path d="M4 14L12 6L20 14" stroke="rgba(255,0,0,0.5)" transform="translate(-1, 0)" />
+                    <path d="M4 14L12 6L20 14" stroke="rgba(0,100,255,0.5)" transform="translate(1, 0)" />
+                    <path d="M4 14L12 6L20 14" stroke="#ffffff" />
+
+                    <path d="M8 20V12" stroke="rgba(255,0,0,0.5)" transform="translate(-1, 0)" />
+                    <path d="M8 20V12" stroke="rgba(0,100,255,0.5)" transform="translate(1, 0)" />
+                    <path d="M8 20V12" stroke="#ffffff" />
+
+                    <path d="M16 20V12" stroke="rgba(255,0,0,0.5)" transform="translate(-1, 0)" />
+                    <path d="M16 20V12" stroke="rgba(0,100,255,0.5)" transform="translate(1, 0)" />
+                    <path d="M16 20V12" stroke="#ffffff" />
+                </svg>
+            </div>
+            <div class="title">14. RGB Glitch (Cyberpunk Offset)</div>
+            <div class="desc">Hacker/Glitch stílusú, vizuális elcsúsztatással a tiszta vonalak mögött.</div>
+        </div>
+
+        <!-- 15. Stacked Cards (Egymásra tolt Rétegek) -->
+        <div class="card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Bottom card -->
+                    <rect x="2" y="8" width="16" height="14" rx="2" stroke="rgba(168,85,247,0.5)"
+                        fill="rgba(168,85,247,0.1)" transform="rotate(-15 10 15)" />
+                    <!-- Top card -->
+                    <rect x="6" y="4" width="14" height="16" rx="2" stroke="#ffffff" fill="#0a0a12" />
+                    <line x1="9" y1="8" x2="17" y2="8" stroke="#4f8aff" />
+                    <line x1="9" y1="12" x2="14" y2="12" stroke="#4f8aff" />
+                    <circle cx="17" cy="17" r="1.5" fill="#4f8aff" stroke="none" />
+                </svg>
+            </div>
+            <div class="title">15. Rétegzett Lapok (Stacked Cards)</div>
+            <div class="desc">Egymáson elforgatott kártyák dinamikus kinézete (UI designerek kedvence).</div>
+        </div>
+
+        <!-- 16. Sci-Fi Retina (Célkereszt) -->
+        <div class="card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#4f8aff" stroke-width="1.5">
+                    <!-- Frame brackets -->
+                    <path d="M4 8V4H8 M16 4H20V8 M20 16V20H16 M8 20H4V16" stroke="#ffffff" />
+                    <!-- Center reticle -->
+                    <circle cx="12" cy="12" r="6" stroke-dasharray="2 3" />
+                    <circle cx="12" cy="12" r="2" fill="rgba(79,138,255,0.4)" stroke="none" />
+                    <line x1="12" y1="9" x2="12" y2="15" />
+                    <line x1="9" y1="12" x2="15" y2="12" />
+                </svg>
+            </div>
+            <div class="title">16. Sci-Fi Retina / Célkereszt</div>
+            <div class="desc">Taktikai interfészeket idéző futurisztikus scan minta.</div>
+        </div>
+
+        <!-- 17. Duotone Asymmetric (Aszimmetrikus Block) -->
+        <div class="card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <!-- Solid block offset -->
+                    <path d="M8 6H22V20L8 6Z" fill="#a855f7" opacity="0.2" />
+                    <!-- Main lineart -->
+                    <rect x="2" y="4" width="16" height="16" rx="2" stroke="#ffffff" stroke-width="2" />
+                    <circle cx="10" cy="12" r="3" stroke="#ffffff" stroke-width="2" />
+                    <line x1="13" y1="15" x2="17" y2="19" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="title">17. Aszimmetrikus Árnyék</div>
+            <div class="desc">Egy éles színfolt "esik ki" lazán a pontos SVG vonalak mögül.</div>
+        </div>
+
+        <!-- 18. Data Matrix (Kód Mátrix) -->
+        <div class="card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="#ffffff">
+                    <!-- Binary grid dots -->
+                    <rect x="2" y="2" width="4" height="4" rx="1" fill="#4f8aff" opacity="0.3" />
+                    <rect x="10" y="2" width="4" height="4" rx="1" />
+                    <rect x="18" y="2" width="4" height="4" rx="1" fill="#4f8aff" opacity="0.3" />
+
+                    <rect x="2" y="10" width="4" height="4" rx="1" />
+                    <rect x="10" y="10" width="4" height="4" rx="1" fill="#a855f7" />
+                    <rect x="18" y="10" width="4" height="4" rx="1" />
+
+                    <rect x="2" y="18" width="4" height="4" rx="1" fill="#4f8aff" opacity="0.3" />
+                    <rect x="10" y="18" width="4" height="4" rx="1" />
+                    <rect x="18" y="18" width="4" height="4" rx="1" fill="#a855f7" opacity="0.3" />
+                </svg>
+            </div>
+            <div class="title">18. Data / LED Mátrix</div>
+            <div class="desc">Digitális kijelzőkre / adatblokkokra hajazó pöttyös felépítés.</div>
+        </div>
+
+        <!-- 19. Node Map (Séma / Adatfolyam) -->
+        <div class="card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round">
+                    <circle cx="5" cy="12" r="3" fill="rgba(79,138,255,0.3)" stroke="#4f8aff" />
+                    <circle cx="19" cy="5" r="3" fill="rgba(168,85,247,0.3)" stroke="#a855f7" />
+                    <circle cx="19" cy="19" r="3" fill="rgba(168,85,247,0.3)" stroke="#a855f7" />
+
+                    <!-- Curved bezier connections -->
+                    <path d="M8 12 Q 13 12, 16 7" stroke="rgba(255,255,255,0.4)" stroke-dasharray="2 2" />
+                    <path d="M8 12 Q 13 12, 16 17" stroke="rgba(255,255,255,0.4)" stroke-dasharray="2 2" />
+
+                    <!-- Passing signal -->
+                    <circle cx="13" cy="9" r="1.5" fill="#ffffff" stroke="none" />
+                </svg>
+            </div>
+            <div class="title">19. Neural / Node Szignál</div>
+            <div class="desc">Neurális hálók és szerveradatbázisok görbe összekötései.</div>
+        </div>
+
+        <!-- 20. Thick Monochrome (Brutalista Monokróm) -->
+        <div class="card">
+            <div class="icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square"
+                    stroke-linejoin="miter">
+                    <rect x="3" y="3" width="18" height="18" />
+                    <polyline points="8 12 12 16 16 8" />
+                </svg>
+            </div>
+            <div class="title">20. Brutalista Monokróm</div>
+            <div class="desc">Vastag (3px) vonalak, semmi szín, éles, erőszakos kódolt "Brutalism" jelleg.</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

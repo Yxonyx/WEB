@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Container } from '../Container';
 import { Section } from '../Section';
 import { Plus, Minus, ShieldCheck } from 'lucide-react';
+import { ProIcon } from '../icons/ProIcon';
 import { Button } from '../ui/Button';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
@@ -102,11 +103,8 @@ export const FAQ = () => {
                                     {/* Ambient Light */}
                                     <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-neonBlue/5 to-transparent pointer-events-none" />
 
-                                    {/* Ikon - Kompakt és statikus */}
                                     <div className="flex justify-center mb-6 relative z-10">
-                                        <div className="relative w-16 h-16 flex items-center justify-center bg-neonBlue/10 rounded-2xl border border-neonBlue/20 shadow-[0_0_15px_rgba(79,138,255,0.08)]">
-                                            <ShieldCheck className="w-8 h-8 text-neonBlue" strokeWidth={2} />
-                                        </div>
+                                        <ProIcon icon={ShieldCheck} color="neonBlue" size={48} glow={true} />
                                     </div>
 
                                     <h3 className="text-2xl md:text-3xl font-extrabold text-center mb-3 text-white font-display tracking-tight uppercase relative z-10">

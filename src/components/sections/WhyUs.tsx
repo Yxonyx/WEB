@@ -1,5 +1,6 @@
 import { Zap, Search, Bot, Database, Shield } from 'lucide-react';
 import { BracketFrame } from '../ui/BracketFrame';
+import { ProIcon } from '../icons/ProIcon';
 import { useLanguage } from '../../context/LanguageContext';
 
 export function WhyUs() {
@@ -26,9 +27,7 @@ export function WhyUs() {
                         return (
                             <div key={index} className="h-full">
                                 <BracketFrame className="h-full p-8 hover:bg-neonBlue/5 transition-colors group">
-                                    <div className="w-12 h-12 rounded-lg bg-neonBlue/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                        <Icon className="w-6 h-6 text-neonBlue" />
-                                    </div>
+                                    <ProIcon icon={Icon} color="neonBlue" size={32} containerClassName="mb-6 mx-auto sm:mx-0" />
                                     <h3 className="text-xl font-bold mb-3 text-white font-display">
                                         {feature.title}
                                         {feature.sub && <span className="text-sm font-normal text-gray-400 ml-2">{feature.sub}</span>}

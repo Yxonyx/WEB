@@ -1,6 +1,7 @@
 import { Container } from '../Container';
 import { Section } from '../Section';
 import { ShieldCheck, Zap, RefreshCw, CheckCircle2 } from 'lucide-react';
+import { ProIcon } from '../icons/ProIcon';
 import { motion, type Variants } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -62,9 +63,7 @@ export const Maintenance = () => {
                                 {/* Item 2: Biztonság */}
                                 <div className="flex items-center justify-between p-3 rounded-2xl bg-surface2/50 border border-white/5 group hover:border-neonPurple/30 transition-colors">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-lg bg-neonPurple/10 flex items-center justify-center text-neonPurple group-hover:text-white group-hover:bg-neonPurple transition-colors">
-                                            <ShieldCheck size={16} />
-                                        </div>
+                                        <ProIcon icon={ShieldCheck} color="neonPurple" size={24} />
                                         <div className="hidden sm:block">
                                             <div className="font-bold text-white text-base">{t('maintenance_sec.dashboard.security.title')}</div>
                                             <div className="text-[10px] text-muted">{t('maintenance_sec.dashboard.security.sub')}</div>
@@ -92,9 +91,7 @@ export const Maintenance = () => {
                                 {/* Item 4: Sebesség */}
                                 <div className="flex items-center justify-between p-3 rounded-2xl bg-surface2/50 border border-white/5 group hover:border-yellow-500/30 transition-colors">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center text-yellow-500 group-hover:text-white group-hover:bg-yellow-500 transition-colors">
-                                            <Zap size={16} />
-                                        </div>
+                                        <ProIcon icon={Zap} color="yellow" size={24} />
                                         <div className="hidden sm:block">
                                             <div className="font-bold text-white text-base">{t('maintenance_sec.dashboard.speed.title')}</div>
                                             <div className="text-[10px] text-muted">{t('maintenance_sec.dashboard.speed.sub')}</div>
@@ -114,9 +111,7 @@ export const Maintenance = () => {
 
                     {/* Content - Right Side */}
                     <motion.div variants={itemVariants} className="order-1 lg:order-2">
-                        <div className="w-12 h-12 rounded-xl bg-neonPurple/10 flex items-center justify-center mb-6 text-neonPurple">
-                            <ShieldCheck size={24} />
-                        </div>
+                        <ProIcon icon={ShieldCheck} color="neonPurple" size={32} containerClassName="mb-6" />
                         <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">{t('maintenance_sec.content.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient-reverse">{t('maintenance_sec.content.title').split(' ').slice(-1)}</span></h2>
                         <p className="text-white/80 text-lg mb-8 leading-relaxed font-medium">
                             {t('maintenance_sec.content.desc')}

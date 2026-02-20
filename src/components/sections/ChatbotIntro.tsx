@@ -1,6 +1,7 @@
 import { Container } from '../Container';
 import { Section } from '../Section';
 import { Bot, CheckCircle2 } from 'lucide-react';
+import { ProIcon } from '../icons/ProIcon';
 import { motion, type Variants } from 'framer-motion';
 import { BracketFrame } from '../ui/BracketFrame';
 import { useLanguage } from '../../context/LanguageContext';
@@ -37,9 +38,7 @@ export const ChatbotIntro = () => {
                 >
                     {/* Content - Left Side */}
                     <motion.div variants={itemVariants}>
-                        <div className="w-12 h-12 rounded-2xl bg-neonBlue/10 flex items-center justify-center mb-6 text-neonBlue">
-                            <Bot size={24} />
-                        </div>
+                        <ProIcon icon={Bot} color="neonBlue" size={32} containerClassName="mb-6" />
                         <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">{t('chatbot_intro.content.title')}</h2>
                         <p className="text-white/90 text-lg mb-8 leading-relaxed font-medium">
                             {t('chatbot_intro.content.desc')}
@@ -62,9 +61,7 @@ export const ChatbotIntro = () => {
                             {/* Chatbot Header */}
                             <div className="mb-6 pb-4 border-b border-white/10">
                                 <div className="flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neonBlue to-neonPurple flex items-center justify-center shadow-lg shadow-neonBlue/20">
-                                        <Bot size={20} className="text-white" />
-                                    </div>
+                                    <ProIcon icon={Bot} color="neonPurple" size={24} />
                                     <div>
                                         <div className="text-white font-bold">{t('chatbot_intro.visual.header_title')}</div>
                                         <div className="text-sm text-neonBlue">{t('chatbot_intro.visual.header_sub')}</div>
@@ -84,9 +81,7 @@ export const ChatbotIntro = () => {
                                 </div>
 
                                 <div className="flex items-start gap-3 flex-row-reverse">
-                                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-neonBlue to-neonPurple flex items-center justify-center shrink-0 shadow-lg shadow-neonBlue/20">
-                                        <Bot size={16} className="text-white" />
-                                    </div>
+                                    <ProIcon icon={Bot} color="neonBlue" size={24} />
                                     <div className="bg-surface2 border border-neonBlue/20 rounded-2xl rounded-tr-none p-4 text-sm text-white max-w-[90%] shadow-lg">
                                         <p className="mb-2">{t('chatbot_intro.visual.bot_msg_1')}</p>
                                         <p>{t('chatbot_intro.visual.bot_msg_2')} <span className="text-neonBlue font-bold">{t('chatbot_intro.visual.bot_msg_highlight')}</span></p>
