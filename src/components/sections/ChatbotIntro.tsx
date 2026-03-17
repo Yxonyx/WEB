@@ -39,7 +39,7 @@ export const ChatbotIntro = () => {
                     {/* Content - Left Side */}
                     <motion.div variants={itemVariants}>
                         <ProIcon icon={Bot} color="neonBlue" size={32} containerClassName="mb-6" />
-                        <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">{t('chatbot_intro.content.title')}</h2>
+                        <h3 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">{t('chatbot_intro.content.title')}</h3>
                         <p className="text-white/90 text-lg mb-8 leading-relaxed font-medium">
                             {t('chatbot_intro.content.desc')}
                         </p>

@@ -25,7 +25,7 @@ export const Hero = () => {
                             <source media="(max-width: 768px)" srcSet="/images/hero-bg-v5.webp" />
                             <img
                                 src="/images/hero-bg-v5.avif"
-                                alt=""
+                                alt="CyberLabs Web - Professzionális weboldal készítés háttér"
                                 width={1920}
                                 height={1080}
                                 fetchPriority="high"

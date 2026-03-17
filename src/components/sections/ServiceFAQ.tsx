@@ -35,9 +35,9 @@ export const ServiceFAQ = () => {
                         <span className="text-neonBlue font-mono text-sm tracking-widest uppercase mb-3 block">
                             GEO Knowledge Base
                         </span>
-                        <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-6">
+                        <h3 className="text-3xl md:text-5xl font-bold font-display text-white mb-6">
                             Gyakori Kérdések & <span className="text-gradient-cyan">AI Válaszok</span>
-                        </h2>
+                        </h3>
                         <p className="text-xl text-gray-400 leading-relaxed font-light">
                             Pontos, idézhető válaszok a szolgáltatásainkról.
                             Így látnak minket (és így fognak látni téged is) a modern keresőmotorok.

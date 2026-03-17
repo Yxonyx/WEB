@@ -113,9 +113,9 @@ export const Team = () => {
                     <span className="text-sm font-mono text-neonBlue uppercase tracking-widest mb-3 block">
                         {t('team.tag') || '// Csapat'}
                     </span>
-                    <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-4">
+                    <h3 className="text-3xl sm:text-4xl font-bold font-display text-white mb-4">
                         {t('team.title') || 'Akik mögötted állnak'}
-                    </h2>
+                    </h3>
                     <p className="text-white/80 text-lg font-medium max-w-2xl mx-auto">
                         {t('team.subtitle') || 'Fiatal, tapasztalt csapat — akik valóban törődnek a projekted sikerével.'}
                     </p>
@@ -164,6 +164,7 @@ export const Team = () => {
                                         <img
                                             src={member.image}
                                             alt={member.name}
+                                            loading="lazy"
                                             width="80"
                                             height="80"
                                             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"

@@ -159,12 +159,12 @@ export const Testimonials = () => {
                         <span>REVIEWS</span>
                         <span>/&gt;</span>
                     </div>
-                    <h2 className="text-3xl lg:text-5xl font-bold text-white font-display">
+                    <h3 className="text-3xl lg:text-5xl font-bold text-white font-display">
                         {language === 'hu' ? 'Mit mondanak rólunk' : 'What our clients'}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
                             {language === 'hu' ? ' az ügyfeleink?' : ' say about us?'}
                         </span>
-                    </h2>
+                    </h3>
 
                     {/* Navigation Arrows - Desktop (Centered below title) */}
                     <div className="hidden md:flex justify-center gap-4 mt-6">

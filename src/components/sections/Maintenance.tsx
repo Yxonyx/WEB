@@ -112,7 +112,7 @@ export const Maintenance = () => {
                     {/* Content - Right Side */}
                     <motion.div variants={itemVariants} className="order-1 lg:order-2">
                         <ProIcon icon={ShieldCheck} color="neonPurple" size={32} containerClassName="mb-6" />
-                        <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">{t('maintenance_sec.content.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient-reverse">{t('maintenance_sec.content.title').split(' ').slice(-1)}</span></h2>
+                        <h3 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">{t('maintenance_sec.content.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient-reverse">{t('maintenance_sec.content.title').split(' ').slice(-1)}</span></h3>
                         <p className="text-white/80 text-lg mb-8 leading-relaxed font-medium">
                             {t('maintenance_sec.content.desc')}
                         </p>

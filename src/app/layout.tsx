@@ -57,15 +57,22 @@ export default function RootLayout({
           type="font/ttf"
           crossOrigin="anonymous"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
-          rel="stylesheet"
+        <Script
+          id="google-fonts"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap';
+              document.head.appendChild(link);
+            `,
+          }}
         />
       </head>
       <body className="bg-bg text-white font-sans antialiased selection:bg-neonBlue/20 selection:text-white text-base sm:text-lg leading-relaxed">
