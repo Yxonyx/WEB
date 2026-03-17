@@ -4,7 +4,7 @@ export const translations = {
     hu: {
         meta: {
             title: "Céges Weboldal Készítés Garanciával | CyberLabs Web",
-            description: "Nem jön elég ajánlatkérés? Olyan weboldalt építünk, ami elad helyetted. Villámgyors, modern és AI-optimalizált weboldal készítés garanciával."
+            description: "Nem jön elég ajánlatkérés? Olyan céges weboldalt építünk, ami tényleg elad helyetted. Villámgyors, modern és AI-optimalizált professzionális weboldal készítés garanciával Budapesten."
         },
         common: {
             back: "Vissza a főoldalra"

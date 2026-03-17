@@ -11,8 +11,18 @@ export const GeoNotification = () => {
     // Only show on main pages, not on GEO pages themselves
     const shouldShow = !pathname.includes('/geo-tudasanyag');
 
+    const handleDismiss = () => {
+        setIsVisible(false);
+        try { localStorage.setItem('geo_popup_dismissed', '1'); } catch {}
+    };
+
     useEffect(() => {
-        // Show after a delay
+        // Check if already dismissed
+        try {
+            if (localStorage.getItem('geo_popup_dismissed')) return;
+        } catch {}
+
+        // Show after a delay (only once)
         const timer = setTimeout(() => {
             setIsVisible(true);
         }, 10000);
@@ -39,7 +49,7 @@ export const GeoNotification = () => {
                     transition={{ duration: 0.4, type: "spring", bounce: 0.4 }}
                     className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm"
                     onClick={(e) => {
-                        if (e.target === e.currentTarget) setIsVisible(false);
+                        if (e.target === e.currentTarget) handleDismiss();
                     }}
                 >
                     {/* Gradient Border Wrapper */}
@@ -53,7 +63,7 @@ export const GeoNotification = () => {
 
                             {/* Close Button */}
                             <button
-                                onClick={() => setIsVisible(false)}
+                                onClick={handleDismiss}
                                 className="absolute top-3 right-3 p-2 text-white/60 hover:text-white transition-colors rounded-full hover:bg-white/10 z-20"
                             >
                                 <X size={20} />
