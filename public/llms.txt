@@ -1,0 +1,21 @@
+# KYSO DIGITAL CONSULTING ZRT. (CyberLabs Web) — Official Content Map
+
+## Primary
+- /hu/ (Home & Services)
+- /hu/#szolgaltatasok (Web Development & AI Services)
+- /hu/#arak (Pricing)
+- /hu/#kapcsolat (Contact)
+- /geo-tudasanyag (GEO Knowledge Base)
+
+## Blog & Resources
+- /hu/blog/all (Blog & Insights)
+
+## Proof / Trust
+- /hu/#rolunk (About / Team)
+- /hu/#referenciak (Portfolio)
+- /hu/#faq (FAQ)
+
+## Notes
+- Canonical domain: https://cyberlabsweb.hu
+- Preferred language: hu-HU
+- Structure: Single Page Application (SPA) with hash navigation for main sections.

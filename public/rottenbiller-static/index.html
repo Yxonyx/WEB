@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polgári Elegancia Modern Köntösben - Rottenbiller utca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button id="lang-btn-hu" class="lang-btn active" aria-label="Magyar">
+            <img src="https://flagcdn.com/w40/hu.png" alt="HU" class="lang-flag-img">
+            <span class="lang-text">HU</span>
+        </button>
+        <button id="lang-btn-en" class="lang-btn" aria-label="English">
+            <img src="https://flagcdn.com/w40/gb.png" alt="EN" class="lang-flag-img">
+            <span class="lang-text">EN</span>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg active" style="background-image: url('assets/017.webp');"></div>
+        <div class="hero-bg" style="background-image: url('assets/011.webp');"></div>
+        <div class="hero-bg" style="background-image: url('assets/016.webp');"></div>
+        <div class="hero-bg" style="background-image: url('assets/018.webp');"></div>
+        <div class="hero-bg" style="background-image: url('assets/029.webp');"></div>
+        <div class="hero-bg" style="background-image: url('assets/052.webp');"></div>
+
+
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Budapest • VII. kerület</p>
+            <h1 class="hero-title" data-i18n="hero_headline">
+                Polgári elegancia <br>
+                <span>modern köntösben.</span>
+            </h1>
+            <p class="hero-description" data-i18n="hero_desc">
+                Egy 92 m²-es, teljes körűen felújított otthon az Állatorvostudományi Egyetem szomszédságában.
+            </p>
+        </div>
+        <button class="scroll-indicator" onclick="scrollToContent()">
+            <span data-i18n="scroll_text">Felfedezés</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+            </svg>
+        </button>
+    </section>
+
+    <!-- Content Sections -->
+    <div id="content-start"></div>
+
+    <!-- Key Stats Bar -->
+    <section class="key-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">92 m²</div>
+                    <div class="stat-label" data-i18n="stat_area">Alapterület</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label" data-i18n="stat_bath">Fürdőszoba</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" data-i18n="stat_sauna_val">Szauna</div>
+                    <div class="stat-label" data-i18n="stat_sauna_lbl">Beépített</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">40 m²</div>
+                    <div class="stat-label" data-i18n="stat_cellar">Pince</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" data-i18n="stat_ac_val">Klíma</div>
+                    <div class="stat-label" data-i18n="stat_ac_lbl">Minden szobában</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Előtér, Nappali & Konyha -->
+    <section class="section bg-dark-alt">
+        <div class="container">
+            <div class="split-layout">
+                <div class="text-content">
+                    <h2 data-i18n="living_title">Előtér, Nappali & Konyha</h2>
+                    <p data-i18n="living_desc1">Tágas, világos élettér, amely a lakás központi része. A nagy belmagasság
+                        és a hatalmas ablakok
+                        biztosítják a természetes fényt.</p>
+                    <p data-i18n="living_desc2">A konyha jelenleg szerkezetkész, az új tulajdonos saját ízlése szerint
+                        alakíthatja ki álmai
+                        konyháját.</p>
+                </div>
+                <div class="carousel-container" id="carousel-nappali">
+                    <button class="carousel-btn prev"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m15 18-6-6 6-6" />
+                        </svg></button>
+                    <div class="carousel-track">
+                        <img src="assets/006.webp" loading="lazy">
+                        <img src="assets/007.webp" loading="lazy">
+                        <img src="assets/008.webp" loading="lazy">
+                        <img src="assets/009.webp" loading="lazy">
+                        <img src="assets/010.webp" loading="lazy">
+                        <img src="assets/011.webp" loading="lazy">
+                        <img src="assets/012.webp" loading="lazy">
+                        <img src="assets/013.webp" loading="lazy">
+                        <img src="assets/014.webp" loading="lazy">
+                        <img src="assets/015.webp" loading="lazy">
+                        <img src="assets/016.webp" loading="lazy">
+                        <img src="assets/017.webp" loading="lazy">
+                        <img src="assets/018.webp" loading="lazy">
+                        <img src="assets/020.webp" loading="lazy">
+                        <img src="assets/021.webp" loading="lazy">
+                        <img src="assets/022.webp" loading="lazy">
+                        <img src="assets/023.webp" loading="lazy">
+                        <img src="assets/024.webp" loading="lazy">
+                    </div>
+                    <button class="carousel-btn next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m9 18 6-6-6-6" />
+                        </svg></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Hálószoba (Nagy) -->
+    <section class="section bg-dark">
+        <div class="container">
+            <div class="split-layout reverse">
+                <div class="text-content">
+                    <h2 data-i18n="bed1_title">1. Hálószoba</h2>
+                    <p data-i18n="bed1_desc1">Saját, privát fürdőszobával (zuhanyzó, bidé, Ariston vízmelegítő)
+                        rendelkezik.</p>
+                    <p data-i18n="bed1_desc2">Ez a kialakítás biztosítja a teljes intimitást és kényelmet a
+                        mindennapokban.</p>
+                </div>
+                <div class="carousel-container" id="carousel-halo1">
+                    <button class="carousel-btn prev"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m15 18-6-6 6-6" />
+                        </svg></button>
+                    <div class="carousel-track">
+                        <img src="assets/026.webp" loading="lazy">
+                        <img src="assets/027.webp" loading="lazy">
+                        <img src="assets/028.webp" loading="lazy">
+                        <img src="assets/029.webp" loading="lazy">
+                        <img src="assets/030.webp" loading="lazy">
+                        <img src="assets/031.webp" loading="lazy">
+                        <img src="assets/033.webp" loading="lazy">
+                        <img src="assets/034.webp" loading="lazy">
+                        <img src="assets/035.webp" loading="lazy">
+                    </div>
+                    <button class="carousel-btn next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m9 18 6-6-6-6" />
+                        </svg></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Hálószoba -->
+    <section class="section bg-dark-alt">
+        <div class="container">
+            <div class="split-layout">
+                <div class="text-content">
+                    <h2 data-i18n="bed2_title">2. Hálószoba</h2>
+                    <p data-i18n="bed2_desc1">Második, különálló hálószoba saját kijárattal és privát térrel.</p>
+                    <p data-i18n="bed2_desc2">Ideális vendégszobának, gyerekszobának, vagy irodaként való használatra.
+                    </p>
+                </div>
+                <div class="carousel-container" id="carousel-halo2">
+                    <button class="carousel-btn prev"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m15 18-6-6 6-6" />
+                        </svg></button>
+                    <div class="carousel-track">
+                        <img src="assets/036.webp" loading="lazy">
+                        <img src="assets/037.webp" loading="lazy">
+                        <img src="assets/038.webp" loading="lazy">
+                        <img src="assets/039.webp" loading="lazy">
+                    </div>
+                    <button class="carousel-btn next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m9 18 6-6-6-6" />
+                        </svg></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Hálószoba -->
+    <section class="section bg-dark">
+        <div class="container">
+            <div class="split-layout reverse">
+                <div class="text-content">
+                    <h2 data-i18n="bed3_title">3. Hálószoba</h2>
+                    <p data-i18n="bed3_desc1">Harmadik szoba, amely további rugalmasságot biztosít.</p>
+                    <p data-i18n="bed3_desc2">A lakás sokoldalúságát mutatja: akár dolgozószoba, gardrób, vagy további
+                        alvóhely.</p>
+                </div>
+                <div class="carousel-container" id="carousel-halo3">
+                    <button class="carousel-btn prev"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m15 18-6-6 6-6" />
+                        </svg></button>
+                    <div class="carousel-track">
+                        <img src="assets/040.webp" loading="lazy">
+                        <img src="assets/041.webp" loading="lazy">
+                        <img src="assets/042.webp" loading="lazy">
+                        <img src="assets/043.webp" loading="lazy">
+                        <img src="assets/044.webp" loading="lazy">
+                    </div>
+                    <button class="carousel-btn next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m9 18 6-6-6-6" />
+                        </svg></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fürdőszobák & Wellness -->
+    <section class="section bg-dark-alt">
+        <div class="container">
+            <div class="split-layout">
+                <div class="text-content">
+                    <h2 data-i18n="bath_title">Fürdőszobák & Wellness</h2>
+                    <p><span data-i18n="bath_desc1_pre">A lakásban </span><strong data-i18n="bath_desc1_bold1">2
+                            fürdőszoba</strong><span data-i18n="bath_desc1_mid"> található. A második a nappaliból
+                            nyílik, és egy </span><strong data-i18n="bath_desc1_bold2">beépített szaunával</strong><span
+                            data-i18n="bath_desc1_post"> van felszerelve a teljes wellness élményért.</span></p>
+                    <p><span data-i18n="bath_desc2_pre">Mindkét fürdőszobában </span><strong
+                            data-i18n="bath_desc2_bold">elektromos padlófűtés</strong><span data-i18n="bath_desc2_post">
+                            (fűtőszőnyeg) található külön termosztáttal.</span></p>
+                </div>
+                <div class="carousel-container" id="carousel-furdo">
+                    <button class="carousel-btn prev"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m15 18-6-6 6-6" />
+                        </svg></button>
+                    <div class="carousel-track">
+                        <img src="assets/052.webp" loading="lazy">
+                        <img src="assets/044.webp" loading="lazy">
+                        <img src="assets/045.webp" loading="lazy">
+                        <img src="assets/046.webp" loading="lazy">
+                        <img src="assets/047.webp" loading="lazy">
+                        <img src="assets/048.webp" loading="lazy">
+                        <img src="assets/049.webp" loading="lazy">
+                        <img src="assets/050.webp" loading="lazy">
+                        <img src="assets/051.webp" loading="lazy">
+                        <img src="assets/053.webp" loading="lazy">
+                        <img src="assets/054.webp" loading="lazy">
+                        <img src="assets/055.webp" loading="lazy">
+                        <img src="assets/056.webp" loading="lazy">
+                        <img src="assets/057.webp" loading="lazy">
+                        <img src="assets/058.webp" loading="lazy">
+                        <img src="assets/059.webp" loading="lazy">
+                    </div>
+                    <button class="carousel-btn next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m9 18 6-6-6-6" />
+                        </svg></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Műszaki -->
+    <section class="section bg-dark-alt">
+        <div class="container">
+            <div class="split-layout">
+                <div class="text-content">
+                    <h2 data-i18n="tech_title">Műszaki Tartalom & Extrák</h2>
+                    <ul class="feature-list">
+                        <li data-i18n="tech_li1">Minden helyiségben <strong>Gree hűtő-fűtő klíma</strong>, <strong>H
+                                tarifás</strong>,
+                            kedvezményes éjszakai árammal üzemeltethető, minimális rezsiköltséggel.</li>
+                        <li data-i18n="tech_li2">A klímák fűtésre és hűtésre is alkalmasak, <strong>nincs szükség
+                                gázra</strong>, az egész
+                            lakás elektromosan, modern és energiatakarékos módon üzemeltethető.</li>
+                        <li data-i18n="tech_li3">Mindkét fürdőszobában <strong>elektromos padlófűtés</strong>
+                            (fűtőszőnyeg) külön
+                            termosztáttal.</li>
+                        <li data-i18n="tech_li4">Modern, rejtett <strong>LED világítás</strong> biztosítja a hangulatos,
+                            energiahatékony
+                            tereket.</li>
+                        <li data-i18n="tech_li5">Az ingatlanhoz tartozik egy kb. <strong>40 m²-es
+                                pincehelyiség</strong>, kiváló tárolási
+                            lehetőség.</li>
+                        <li data-i18n="tech_li6">Zárt <strong>udvari beálló</strong> biztosított a parkoláshoz.</li>
+                        <li data-i18n="tech_li7">Részben bútorozottan eladó.</li>
+                    </ul>
+                </div>
+                <div class="carousel-container" id="carousel-muszaki">
+                    <button class="carousel-btn prev"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m15 18-6-6 6-6" />
+                        </svg></button>
+                    <div class="carousel-track">
+                        <img src="assets/furdőszauna/csap.webp" loading="lazy">
+                        <img src="assets/furdőszauna/csapzuhany.webp" loading="lazy">
+                        <img src="assets/furdőszauna/szaunakozeli.webp" loading="lazy">
+                    </div>
+                    <button class="carousel-btn next"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m9 18 6-6-6-6" />
+                        </svg></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Részletes Leírás (Moved & Formatted) -->
+    <section class="section bg-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="desc_title">Részletes Leírás</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-col">
+                    <h3 data-i18n="desc_prop_title">Ingatlan Jellemzői</h3>
+                    <ul class="about-list">
+                        <li data-i18n="desc_prop_li1"><strong>Lokáció:</strong> Budapest VII. kerület, Rottenbiller utca
+                            (Állatorvostudományi
+                            Egyetemmel szemben).</li>
+                        <li data-i18n="desc_prop_li2"><strong>Méret:</strong> 92 m², teljes körűen felújított polgári
+                            lakás.</li>
+                        <li data-i18n="desc_prop_li3"><strong>Wellness:</strong> 2 fürdőszoba, egyikben beépített
+                            szauna.</li>
+                        <li data-i18n="desc_prop_li4"><strong>Komfort:</strong> Padlófűtés, Gree hűtő-fűtő klíma (H
+                            tarifa), rejtett LED
+                            világítás.</li>
+                    </ul>
+                </div>
+                <div class="about-col">
+                    <h3 data-i18n="desc_extra_title">Extrák & Potenciál</h3>
+                    <ul class="about-list">
+                        <li data-i18n="desc_extra_li1"><strong>Konyha:</strong> Szerkezetkész, szabadon alakítható.</li>
+                        <li data-i18n="desc_extra_li2"><strong>Tárolás & Parkolás:</strong> 40 m²-es pincehelyiség +
+                            zárt udvari beálló.</li>
+                        <li data-i18n="desc_extra_li3"><strong>Hasznosítás:</strong> Airbnb nem engedélyezett – ideális
+                            saját otthonnak vagy hosszú
+                            távú bérbeadásra.</li>
+                        <li data-i18n="desc_extra_li4"><strong>Kiemelt:</strong> Modern, energiatudatos, azonnal
+                            költözhető.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="about-footer">
+                <p data-i18n="desc_footer"><strong>Modern, komfortos és energiatudatos belvárosi otthon kiváló
+                        lokációban.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section bg-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="gallery_title">Galéria</h2>
+            </div>
+            <!-- Dynamic Gallery Grid -->
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Images will be loaded here by script.js -->
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-controls" id="pagination-controls">
+                <!-- JS will generate numbered page buttons here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="section bg-dark-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="loc_title">Lokáció</h2>
+                <div class="location-details">
+                    <p class="location-main">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <span data-i18n="loc_main">Budapest VII. kerület — Rottenbiller utca</span>
+                    </p>
+                    <p data-i18n="loc_univ">Állatorvostudományi Egyetemmel szemben</p>
+                    <p class="location-sub" data-i18n="loc_sub">Közlekedés, egyetemek, szolgáltatások gyorsan elérhetők
+                    </p>
+                </div>
+            </div>
+            <div class="map-placeholder">
+                <iframe width="100%" height="100%" style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);"
+                    loading="lazy" allowfullscreen
+                    src="https://maps.google.com/maps?q=Budapest,+Rottenbiller+u.&t=&z=17&ie=UTF8&iwloc=&output=embed">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-inner">
+                <div class="cta-line"></div>
+                <h2 data-i18n="cta_title">Felkeltette érdeklődésed?</h2>
+                <p class="cta-desc" data-i18n="cta_desc">Ez az otthon nem csak egy ingatlan, hanem egy életérzés.<br
+                        class="desktop-only">
+                    Gyere el, nézd meg személyesen, és <strong>tegyél árajánlatot.</strong></p>
+                <div class="cta-buttons">
+                    <a href="tel:+36209622608" class="cta-btn cta-btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                        +36 20 962 2608
+                    </a>
+                    <a href="mailto:kaiserjonatan911@gmail.com" class="cta-btn cta-btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                        <span data-i18n="cta_call">Email küldése</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Section -->
+    <section class="promo-section">
+        <div class="container">
+            <div class="promo-card">
+                <p class="promo-badge" data-i18n="promo_badge">CyberLabsWeb</p>
+                <h3 data-i18n="promo_title">Szeretnéd te is így eladni ingatlanodat?</h3>
+                <p data-i18n="promo_desc">Vagy ingatlanos vagy, és szeretnéd így hirdetni ügyfeleid ingatlanját?
+                    QR-alapú, egyedi landing oldalak, amelyek kiemelik az otthonokat a tömegből.</p>
+                <div class="promo-actions">
+                    <a href="https://cyberlabsweb.com/hu/" target="_blank" class="promo-link-btn"
+                        data-i18n="promo_btn">Megoldást kérek →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <a href="https://cyberlabsweb.com/hu/" target="_blank">CyberLabsWeb</a>
+                    <span class="footer-dot">•</span>
+                    <span data-i18n="footer_brand">QR-alapú ingatlan landing oldalak</span>
+                </div>
+                <div class="footer-legal">
+                    <p data-i18n="footer_legal1">Az adatok tájékoztató jellegűek, a változtatás jogát fenntartjuk.</p>
+                    <p data-i18n="footer_legal2">Airbnb korlátozás: a társasházi szabályozás szerint.</p>
+                </div>
+                <p class="footer-copy" data-i18n="footer_copy">© 2026 CyberLabsWeb • Budapest</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <!-- Mobile Stickey Bar -->
+    <div class="mobile-sticky-bar">
+        <a href="tel:+36209622608" class="mobile-action">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <span data-i18n="mobile_call">Hívás</span>
+        </a>
+
+        <a href="mailto:kaiserjonatan911@gmail.com" class="mobile-action">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            <span data-i18n="mobile_email">Email</span>
+        </a>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div id="callbackModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+            <h3 data-i18n="modal_title">Kapcsolatfelvétel</h3>
+            <p data-i18n="modal_desc">Hívjon minket, vagy írjon emailt — szívesen segítünk!</p>
+            <div class="modal-contact-list">
+                <a href="tel:+36209622608" class="modal-contact-item">
+                    <div class="modal-contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                    </div>
+                    <div class="modal-contact-info">
+                        <span class="modal-contact-label" data-i18n="modal_phone_label">Telefonszám</span>
+                        <span class="modal-contact-value">+36 20 962 2608</span>
+                    </div>
+                </a>
+                <a href="mailto:kaiserjonatan911@gmail.com" class="modal-contact-item">
+                    <div class="modal-contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                    </div>
+                    <div class="modal-contact-info">
+                        <span class="modal-contact-label" data-i18n="modal_email_label">Email cím</span>
+                        <span class="modal-contact-value">kaiserjonatan911@gmail.com</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18" />
+                <path d="m6 6 18 18" />
+            </svg>
+        </button>
+        <button class="lightbox-nav prev" onclick="prevImage(event)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6" />
+            </svg>
+        </button>
+        <img id="lightboxImage" src="" alt="Galéria" onclick="event.stopPropagation()">
+        <button class="lightbox-nav next" onclick="nextImage(event)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6" />
+            </svg>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

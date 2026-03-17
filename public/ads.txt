@@ -1,0 +1,6 @@
+# ads.txt placeholder
+# Replace the lines below with your specific publisher IDs
+# Format: <Field #1>, <Field #2>, <Field #3>, <Field #4>
+# Example: google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+
+# google.com, pub-placeholder-id, DIRECT, f08c47fec0942fa0
