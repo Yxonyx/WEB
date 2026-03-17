@@ -1,25 +1,24 @@
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "CyberLabs Web - Céges Weboldal Készítés Garanciával",
-  description:
-    "Professzionális weboldal készítés garanciával. Modern, AI-optimalizált weboldalak céges ügyfeleknek Budapesten.",
-  alternates: {
-    canonical: "https://cyberlabsweb.com/hu/",
-  },
-  other: {
-    "refresh": "0;url=/hu/",
-  },
-};
+import { useEffect } from "react";
+import Head from "next/head";
 
 export default function RootPage() {
+  useEffect(() => {
+    window.location.replace("/hu/");
+  }, []);
+
   return (
-    <main>
-      <h1>CyberLabs Web - Weboldal Készítés Garanciával</h1>
-      <p>
-        Professzionális céges weboldal készítés Budapesten. 
-        Átirányítás folyamatban a <a href="/hu/">magyar oldalra</a>...
-      </p>
-    </main>
+    <>
+      <Head>
+        <title>CyberLabs Web - Céges Weboldal Készítés Garanciával</title>
+        <meta name="description" content="Professzionális weboldal készítés garanciával. Modern, AI-optimalizált weboldalak céges ügyfeleknek Budapesten." />
+        <link rel="canonical" href="https://cyberlabsweb.com/hu/" />
+        <meta httpEquiv="refresh" content="0;url=/hu/" />
+      </Head>
+      <main className="min-h-screen bg-[#040812] flex items-center justify-center text-white">
+        <div className="w-8 h-8 rounded-full border-2 border-[#4F8AFF] border-t-transparent animate-spin" />
+      </main>
+    </>
   );
 }
