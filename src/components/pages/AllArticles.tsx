@@ -4,8 +4,6 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Calendar, Tag, ArrowLeft } from 'lucide-react';
-import { Navbar } from '../sections/Navbar';
-import { Footer } from '../sections/Footer';
 import { Container } from '../Container';
 import { useLanguage } from '../../context/LanguageContext';
 import { blogPosts } from '../../data/blogPosts';
@@ -60,10 +58,7 @@ export const AllArticles = () => {
                 {/* Grid Overlay - Increased opacity */}
                 <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.15]" />
             </div>
-
-            <Navbar />
-
-            <main className="pt-32 pb-20">
+<main className="pt-32 pb-20">
                 <Container>
                     {/* Header */}
                     <div className="mb-12">
@@ -162,7 +157,6 @@ export const AllArticles = () => {
                     </div>
                 </Container>
             </main>
-            <Footer />
-        </div>
+</div>
     );
 };

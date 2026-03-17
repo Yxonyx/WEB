@@ -4,8 +4,6 @@ import { Container } from '../Container';
 import { QRCodeSVG } from 'qrcode.react';
 import { Download, QrCode as QrIcon, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
-import { Navbar } from '../sections/Navbar';
-import { Footer } from '../sections/Footer';
 
 const AnimatedQRLogo = () => {
     return (
@@ -86,9 +84,7 @@ export const QrGeneratorTool = () => {
 
     return (
         <div className="min-h-screen bg-bgDeep text-white selection:bg-neonBlue/30 noise-overlay flex flex-col relative overflow-hidden font-sans">
-<Navbar />
-
-            {/* STUNNING ANIMATED MESH BACKGROUND */}
+{/* STUNNING ANIMATED MESH BACKGROUND */}
 
             {/* Animated Color Orbs */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -224,8 +220,6 @@ export const QrGeneratorTool = () => {
                     </div>
                 </Container>
             </main>
-
-            <Footer />
-        </div >
+</div >
     );
 };

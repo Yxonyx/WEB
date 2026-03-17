@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { blogPosts } from '../../data/blogPosts';
-import { Navbar } from '../sections/Navbar';
-import { Footer } from '../sections/Footer';
 
 import { Container } from '../Container';
 import { motion } from 'framer-motion';
@@ -107,10 +105,7 @@ export const BlogPost = () => {
                 <div className="absolute top-[30%] left-[20%] w-96 h-96 bg-neonBlue/5 rounded-full blur-[100px] z-10" />
                 <div className="absolute bottom-[40%] right-[15%] w-80 h-80 bg-neonPurple/5 rounded-full blur-[80px] z-10" />
             </div>
-
-            <Navbar />
-
-            <main className="pt-28 pb-20 relative z-10">
+<main className="pt-28 pb-20 relative z-10">
                 <Container className="max-w-6xl">
                     {/* Back Link */}
                     <Link href={`/${lang || 'hu'}/#insights`}
@@ -312,7 +307,6 @@ export const BlogPost = () => {
                     </div>
                 </Container>
             </main>
-            <Footer />
-        </div>
+</div>
     );
 };

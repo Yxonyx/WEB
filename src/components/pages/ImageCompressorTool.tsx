@@ -3,8 +3,6 @@ import { useLanguage } from '../../context/LanguageContext';
 import { Container } from '../Container';
 import { Download, ArrowLeft, Image as ImageIcon, Trash2, DownloadCloud, Settings2, ShieldCheck, Play, Maximize } from 'lucide-react';
 import Link from 'next/link';
-import { Navbar } from '../sections/Navbar';
-import { Footer } from '../sections/Footer';
 
 // ─── Types ───────────────────────────────────────────────────
 interface ImageItem {
@@ -275,9 +273,7 @@ export const ImageCompressorTool = () => {
 
     return (
         <div className="min-h-screen bg-bgDeep text-white selection:bg-neonBlue/30 noise-overlay flex flex-col relative overflow-hidden font-sans">
-<Navbar />
-
-            {/* Animated Background */}
+{/* Animated Background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-600/30 blur-[120px] mix-blend-screen animate-blob opacity-70" />
                 <div className="absolute top-[20%] right-[-10%] w-[45%] h-[45%] rounded-full bg-cyan-500/25 blur-[120px] mix-blend-screen animate-blob animation-delay-2000 opacity-60" />
@@ -589,7 +585,6 @@ export const ImageCompressorTool = () => {
                     </div>
                 </Container>
             </main>
-            <Footer />
-        </div>
+</div>
     );
 };

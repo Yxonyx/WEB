@@ -1,8 +1,6 @@
 import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { nichePages } from '../../data/nichePages';
-import { Navbar } from '../sections/Navbar';
-import { Footer } from '../sections/Footer';
 import { Container } from '../Container';
 import {
     Shield, Search, Clock, Lock, Scissors, Calendar, MapPin, Star,
@@ -109,10 +107,7 @@ export const NicheLanding = () => {
             {/* SEO: JSON-LD structured data injected via dangerouslySetInnerHTML */}
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJsonLd) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaJsonLd) }} />
-
-            <Navbar />
-
-            {/* Hero Section */}
+{/* Hero Section */}
             <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
                 {/* Background glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neonBlue/5 rounded-full blur-[120px] pointer-events-none" />
@@ -263,8 +258,6 @@ export const NicheLanding = () => {
                     </a>
                 </Container>
             </section>
-
-            <Footer />
-        </div>
+</div>
     );
 };
