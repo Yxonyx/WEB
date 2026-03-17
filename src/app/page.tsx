@@ -1,18 +1,25 @@
-"use client";
+import type { Metadata } from "next";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+export const metadata: Metadata = {
+  title: "CyberLabs Web - Céges Weboldal Készítés Garanciával",
+  description:
+    "Professzionális weboldal készítés garanciával. Modern, AI-optimalizált weboldalak céges ügyfeleknek Budapesten.",
+  alternates: {
+    canonical: "https://cyberlabsweb.com/hu/",
+  },
+  other: {
+    "refresh": "0;url=/hu/",
+  },
+};
 
 export default function RootPage() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.replace("/hu/");
-  }, [router]);
-
   return (
-    <div className="min-h-screen bg-[#040812] flex items-center justify-center">
-      <div className="w-8 h-8 rounded-full border-2 border-[#4F8AFF] border-t-transparent animate-spin" />
-    </div>
+    <main>
+      <h1>CyberLabs Web - Weboldal Készítés Garanciával</h1>
+      <p>
+        Professzionális céges weboldal készítés Budapesten. 
+        Átirányítás folyamatban a <a href="/hu/">magyar oldalra</a>...
+      </p>
+    </main>
   );
 }

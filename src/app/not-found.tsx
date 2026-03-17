@@ -1,25 +1,33 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function NotFound() {
+  const pathname = usePathname();
+  const isEn = pathname?.startsWith("/en");
+
   return (
-    <html lang="hu">
-      <body className="bg-black text-white font-sans antialiased">
-        <div className="min-h-screen flex flex-col items-center justify-center p-8">
-          <h1 className="text-6xl font-bold mb-4 bg-gradient-to-r from-[#4D94FF] to-[#CC00FF] bg-clip-text text-transparent">
-            404
-          </h1>
-          <p className="text-xl text-gray-400 mb-8 text-center max-w-md">
-            Sajnáljuk, de a keresett oldal nem létezik vagy el lett
-            távolítva.
-          </p>
-          <Link
-            href="/hu/"
-            className="px-6 py-3 bg-gradient-to-r from-[#4D94FF] to-[#CC00FF] rounded-full text-white font-medium hover:opacity-90 transition-opacity"
-          >
-            Vissza a főoldalra
-          </Link>
-        </div>
-      </body>
-    </html>
+    <div className="min-h-screen bg-[#040812] flex items-center justify-center text-white px-4">
+      <div className="max-w-xl text-center">
+        <h1 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4F8AFF] to-[#9B72FF] mb-6">
+          404
+        </h1>
+        <h2 className="text-3xl font-semibold mb-6">
+          {isEn ? "Page Not Found" : "Az oldal nem található"}
+        </h2>
+        <p className="text-gray-400 mb-8 text-lg">
+          {isEn
+            ? "Sorry, but the page you are looking for has been moved or doesn't exist anymore."
+            : "Sajnáljuk, de a keresett oldal valószínűleg megszűnt vagy áthelyezésre került."}
+        </p>
+        <Link
+          href={isEn ? "/en/" : "/hu/"}
+          className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#4F8AFF] text-white font-medium hover:bg-opacity-90 transition-colors"
+        >
+          {isEn ? "Return to Homepage" : "Vissza a főoldalra"}
+        </Link>
+      </div>
+    </div>
   );
 }

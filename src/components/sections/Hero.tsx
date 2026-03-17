@@ -14,7 +14,7 @@ export const Hero = () => {
     return (
         <Section
             id="hero"
-            className="min-h-[100dvh] flex items-center py-20"
+            className="min-h-screen flex items-center py-20"
             fullHeight
             withOrbs
             background={
