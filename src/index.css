@@ -1,32 +1,6 @@
-/* Fonts loaded via index.html preload + local @font-face below */
-/* Outfit = primary sans + display font. JetBrains Mono = monospace/tech only. */
+/* Inter = primary sans + display font (loaded via Google Fonts in layout.tsx). JetBrains Mono = monospace/tech only. */
 
-/* Self-hosted Outfit Font — swap ensures text is always visible */
-@font-face {
-  font-family: 'Outfit';
-  src: url('/fonts/Outfit-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
 
-@font-face {
-  font-family: 'Outfit';
-  src: url('/fonts/Outfit-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Outfit';
-  src: url('/fonts/Outfit-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* 600 and 700 weights loaded via Google Fonts stylesheet in index.html */
 
 @tailwind base;
 @tailwind components;
@@ -37,6 +11,20 @@
     scroll-behavior: smooth;
     overflow-x: hidden;
     font-size: 105%;
+  }
+
+  /* Silver metallic gradient on all headings */
+  h1, h2, h3, h4 {
+    background-image: linear-gradient(180deg, #ffffff 0%, #d8d8d8 60%, #c0c0c0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  @screen lg {
+    h1, h2, h3, h4 {
+      background-image: linear-gradient(180deg, #ffffff 0%, #c0c0c0 50%, #a0a0a0 100%);
+    }
   }
 
   body {

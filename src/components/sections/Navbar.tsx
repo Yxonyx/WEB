@@ -64,9 +64,8 @@ export const Navbar = () => {
                 isScrolled ? "bg-[#0a0b10] shadow-md py-3" : "bg-transparent py-4"
             )}
         >
-            <Container className="flex items-center justify-between">
-                {/* Logo */}
-                {/* Logo */}
+            <Container className="flex items-center justify-between lg:grid lg:grid-cols-[auto_1fr_auto]">
+                {/* Logo - Column 1 */}
                 <a href={`/${language}/`} className="flex items-center gap-3 group">
                     {/* Custom Tech Logo - Engineered Feel & Symmetrical */}
                     <div className="relative w-11 h-11 flex items-center justify-center bg-black/20 backdrop-blur-sm border border-white/5 rounded-sm -translate-y-[2px] transition-all duration-300 group-hover:border-neonBlue/30 group-hover:shadow-[0_0_20px_-10px_var(--neon-blue)]">
@@ -106,8 +105,8 @@ export const Navbar = () => {
                     </div>
                 </a>
 
-                {/* Desktop Nav */}
-                <nav className="hidden lg:flex items-center gap-8">
+                {/* Desktop Nav - Column 2 (Centered) */}
+                <nav className="hidden lg:flex items-center justify-center gap-10">
                     {/* Services Dropdown */}
                     <div
                         className="relative"
@@ -115,10 +114,9 @@ export const Navbar = () => {
                         onMouseLeave={() => setIsServicesOpen(false)}
                     >
                         <button
-                            className="text-sm font-semibold font-mono text-white/80 hover:text-neonBlue transition-all duration-200 lowercase tracking-widest antialiased flex items-center gap-1"
-                            style={{ textRendering: 'geometricPrecision' }}
+                            className="text-[17px] font-medium text-white/70 hover:text-white transition-all duration-300 tracking-wide flex items-center gap-1.5 group/nav"
                         >
-                            <span className="text-neonBlue/60">&lt;</span>{t('nav.services')}<span className="text-neonBlue/60">&gt;</span>
+                            <span className="text-neonBlue/40 font-mono text-xs group-hover/nav:text-neonBlue/80 transition-colors">&lt;</span><span className="group-hover/nav:drop-shadow-[0_0_8px_rgba(79,138,255,0.4)]">{t('nav.services')}</span><span className="text-neonBlue/40 font-mono text-xs group-hover/nav:text-neonBlue/80 transition-colors">&gt;</span>
                             <ChevronDown className={clsx("w-4 h-4 transition-transform duration-200", isServicesOpen && "rotate-180")} />
                         </button>
 
@@ -129,7 +127,7 @@ export const Navbar = () => {
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                     transition={{ duration: 0.2, ease: 'easeOut' }}
-                                    className="absolute top-full left-0 mt-3 w-72 bg-[#0a1628]/98 backdrop-blur-2xl border border-neonBlue/20 rounded-lg shadow-2xl shadow-neonBlue/10 overflow-hidden"
+                                    className="absolute top-full left-0 mt-3 w-72 bg-[#0a1628]/40 backdrop-blur-xl border border-white/15 rounded-lg shadow-2xl shadow-black/30 overflow-hidden"
                                 >
                                     {/* Terminal header bar */}
                                     <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/10 bg-white/[0.03]">
@@ -173,15 +171,20 @@ export const Navbar = () => {
                         <a
                             key={link.label}
                             href={getLink(link.href)}
-                            className="text-sm font-semibold font-mono text-white/80 hover:text-neonBlue transition-all duration-200 lowercase tracking-widest antialiased"
-                            style={{ textRendering: 'geometricPrecision' }}
+                            className="group/link text-[15px] font-medium text-white/70 hover:text-white transition-all duration-300 tracking-wide relative"
                         >
-                            <span className="text-neonBlue/60">&lt;</span>{link.label}<span className="text-neonBlue/60">&gt;</span>
+                            <span className="text-neonBlue/40 font-mono text-xs group-hover/link:text-neonBlue/80 transition-colors">&lt;</span>
+                            <span className="group-hover/link:drop-shadow-[0_0_8px_rgba(79,138,255,0.4)]">{link.label}</span>
+                            <span className="text-neonBlue/40 font-mono text-xs group-hover/link:text-neonBlue/80 transition-colors">&gt;</span>
+                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gradient-to-r from-transparent via-neonBlue/60 to-transparent group-hover/link:w-full transition-all duration-300" />
                         </a>
                     ))}
+                </nav>
 
+                {/* Right side: Language + CTA - Column 3 */}
+                <div className="hidden lg:flex items-center gap-4 justify-end">
                     {/* Language Selector */}
-                    <div className="flex items-center gap-3 pl-4 border-l border-white/10">
+                    <div className="flex items-center gap-3 pr-4 border-r border-white/10">
                         <button
                             onClick={() => setLanguage('hu')}
                             aria-label="Váltás magyar nyelvre"
@@ -214,10 +217,10 @@ export const Navbar = () => {
                         </button>
                     </div>
 
-                    <Button href={getLink('#kapcsolat')} variant="primary" className="ml-4 py-2 px-5 text-base">
+                    <Button href={getLink('#kapcsolat')} variant="primary" className="py-2 px-5 text-base">
                         {t('nav.cta')}
                     </Button>
-                </nav>
+                </div>
 
                 {/* Mobile Toggle */}
                 <button

@@ -1,7 +1,7 @@
 "use client";
 
 import { Hero } from "@/components/sections/Hero";
-import { Stats } from "@/components/sections/Stats";
+
 import { QuoteSection } from "@/components/sections/QuoteSection";
 import { Services } from "@/components/sections/Services";
 import { GEO } from "@/components/sections/GEO";
@@ -20,7 +20,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Stats />
+
       <QuoteSection />
       <Services />
       <GEO />

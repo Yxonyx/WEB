@@ -18,13 +18,11 @@ export const GeoLanding = () => {
 
         try {
             await sendGeoGuideEmail(email);
-            console.log('Form submitted:', email);
             setStatus('success');
             router.push('/geo-tudasanyag/koszonjuk');
         } catch (error) {
             console.error('Error submitting form:', error);
             setStatus('error');
-            // For testing: setStatus('success'); router.push('/geo-tudasanyag/koszonjuk');
         }
     };
 

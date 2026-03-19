@@ -78,7 +78,7 @@ export const QuoteSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
-                            className="absolute top-0 left-10 w-72 bg-[#0A0A15] border border-white/10 rounded-xl shadow-2xl z-10 overflow-hidden hidden lg:block" // Moved up by 10% (top-10 -> top-0)
+                            className="glass-card absolute top-0 left-10 w-72 rounded-xl shadow-2xl z-10 overflow-hidden hidden lg:block"
                         >
                             {/* Header */}
                             <div className="flex items-center gap-3 px-4 py-3 border-b border-white/5">
@@ -120,7 +120,7 @@ export const QuoteSection = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                            className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-[#0E0E1A] border border-neonBlue/30 rounded-2xl shadow-neonBlue/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] z-20 overflow-hidden hidden lg:block" // Moved up by 10%
+                            className="glass-card absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.3)] z-20 overflow-hidden hidden lg:block"
                         >
                             {/* Title Bar */}
                             <div className="flex justify-between items-center px-4 py-3 border-b border-white/10 bg-[#0A0A15]">
@@ -199,7 +199,7 @@ export const QuoteSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-                            className="absolute bottom-10 right-10 w-64 p-5 bg-[#0A0A15] border border-white/10 rounded-xl shadow-2xl z-10 hidden lg:block"
+                            className="glass-card absolute bottom-10 right-10 w-64 p-5 rounded-xl shadow-2xl z-10 hidden lg:block"
                         >
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">

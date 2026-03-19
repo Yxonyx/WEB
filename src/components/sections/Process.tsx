@@ -172,9 +172,9 @@ export const Process = () => {
                                         </div>
 
                                         {/* Content Card - each step has a unique color tint */}
-                                        <div className={`p-5 rounded-xl border-l-[3px] border transition-all duration-300 ${step.highlight
-                                            ? `${tint.bg} border-l-neonPurple border-neonPurple/25 shadow-[0_0_25px_rgba(155,114,255,0.1)]`
-                                            : `${tint.bg} ${tint.borderL} ${tint.borderRest} ${tint.hoverBorder} ${tint.shadow} hover:bg-black/80`
+                                        <div className={`glass-card p-5 rounded-xl transition-all duration-300 ${step.highlight
+                                            ? `shadow-[0_0_25px_rgba(155,114,255,0.15)] !border-neonPurple/30`
+                                            : `${tint.shadow} hover:!border-white/20`
                                             }`}>
                                             <h4 className={`text-lg font-bold mb-1 ${step.highlight ? 'text-neonPurple' : 'text-white'}`}>
                                                 {step.title}
