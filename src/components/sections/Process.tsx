@@ -83,18 +83,18 @@ export const Process = () => {
                             {t('process.desc')}
                         </p>
 
-                        <div className="p-6 rounded-2xl bg-gradient-to-br from-[#0E1428]/90 via-[#111830]/85 to-[#0C1225]/90 border border-neonBlue/20 shadow-2xl backdrop-blur-sm">
-                            <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <div className="p-6 rounded-2xl bg-black/30 backdrop-blur-sm border border-white/15 shadow-2xl">
+                            <h3 className="text-xl font-bold text-white mb-5 flex items-center gap-2">
                                 <span className="w-1.5 h-6 bg-accent-gradient rounded-full"></span>
                                 {t('process.card.title')}
                             </h3>
-                            <div className="space-y-4 text-base text-white/80">
+                            <div className="space-y-5 text-lg text-white/80">
                                 <div>
-                                    <div className="flex justify-between mb-1">
+                                    <div className="flex justify-between mb-1.5">
                                         <span className="text-white font-medium">{t('process.card.landing')}</span>
-                                        <span className="text-neonBlue font-mono">5–7 munkanap</span>
+                                        <span className="text-neonBlue font-mono text-base">5–7 munkanap</span>
                                     </div>
-                                    <div className="h-1.5 bg-surface/60 rounded-full overflow-hidden">
+                                    <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
                                         <motion.div
                                             className="h-full bg-gradient-to-r from-neonBlue to-neonBlue/70 rounded-full"
                                             initial={{ width: 0 }}
@@ -105,11 +105,11 @@ export const Process = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <div className="flex justify-between mb-1">
+                                    <div className="flex justify-between mb-1.5">
                                         <span className="text-white font-medium">{t('process.card.corporate')}</span>
-                                        <span className="text-accent1 font-mono">7–14 munkanap</span>
+                                        <span className="text-accent1 font-mono text-base">7–14 munkanap</span>
                                     </div>
-                                    <div className="h-1.5 bg-surface/60 rounded-full overflow-hidden">
+                                    <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
                                         <motion.div
                                             className="h-full bg-gradient-to-r from-neonBlue to-neonPurple/70 rounded-full"
                                             initial={{ width: 0 }}
@@ -120,11 +120,11 @@ export const Process = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <div className="flex justify-between mb-1">
+                                    <div className="flex justify-between mb-1.5">
                                         <span className="text-white font-medium">{t('process.card.webshop')}</span>
-                                        <span className="text-neonPurple font-mono">14–28 munkanap</span>
+                                        <span className="text-neonPurple font-mono text-base">14–28 munkanap</span>
                                     </div>
-                                    <div className="h-1.5 bg-surface/60 rounded-full overflow-hidden">
+                                    <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
                                         <motion.div
                                             className="h-full bg-gradient-to-r from-neonBlue via-accent1 to-neonPurple rounded-full"
                                             initial={{ width: 0 }}
@@ -134,7 +134,7 @@ export const Process = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className="pt-3 text-sm text-muted2 italic border-t border-white/5 flex items-start gap-2">
+                                <div className="pt-3 text-base text-muted2 italic border-t border-white/10 flex items-start gap-2">
                                     <div className="shrink-0 w-3.5 h-3.5 rounded-full bg-highlight/20 flex items-center justify-center mt-0.5 text-[10px] font-bold text-highlight">!</div>
                                     {t('process.card.urgent')}
                                 </div>
@@ -172,14 +172,14 @@ export const Process = () => {
                                         </div>
 
                                         {/* Content Card - each step has a unique color tint */}
-                                        <div className={`glass-card p-5 rounded-xl transition-all duration-300 ${step.highlight
-                                            ? `shadow-[0_0_25px_rgba(155,114,255,0.15)] !border-neonPurple/30`
-                                            : `${tint.shadow} hover:!border-white/20`
+                                        <div className={`glass-card p-5 rounded-xl transition-all duration-300 border ${step.highlight
+                                            ? `border-neonPurple/30 shadow-[0_0_25px_rgba(155,114,255,0.15)]`
+                                            : `border-white/15 ${tint.shadow} hover:border-white/25`
                                             }`}>
-                                            <h4 className={`text-lg font-bold mb-1 ${step.highlight ? 'text-neonPurple' : 'text-white'}`}>
+                                            <h4 className={`text-xl font-bold mb-1 ${step.highlight ? 'text-neonPurple' : 'text-white'}`}>
                                                 {step.title}
                                             </h4>
-                                            <p className="text-base text-muted leading-relaxed">
+                                            <p className="text-lg text-muted leading-relaxed">
                                                 {step.desc}
                                             </p>
                                         </div>

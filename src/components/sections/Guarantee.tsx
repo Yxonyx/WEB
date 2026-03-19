@@ -10,10 +10,7 @@ export function Guarantee() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-neonBlue/10 rounded-full blur-[100px] -z-10" />
 
             <div className="max-w-4xl mx-auto">
-                <div className="relative overflow-hidden rounded-3xl bg-gradient-to-b from-white/[0.08] to-transparent p-1 md:p-[2px]">
-                    <div className="absolute inset-0 bg-gradient-to-r from-neonBlue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                    <div className="relative h-full bg-[#050508] rounded-[22px] p-8 md:p-12 overflow-hidden">
+                <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-black/30 backdrop-blur-sm p-8 md:p-12">
                         {/* Ambient Background Light */}
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-neonBlue/5 blur-[80px] pointer-events-none" />
 
@@ -37,7 +34,6 @@ export function Guarantee() {
                         >
                             {t('guarantee.cta')}
                         </a>
-                    </div>
                 </div>
             </div>
         </section>

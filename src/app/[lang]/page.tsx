@@ -10,6 +10,7 @@ import { ChatbotIntro } from "@/components/sections/ChatbotIntro";
 import { Pricing } from "@/components/sections/Pricing";
 import { Portfolio } from "@/components/sections/Portfolio";
 import { Process } from "@/components/sections/Process";
+import { TechStack } from "@/components/sections/TechStack";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { Insights } from "@/components/sections/Insights";
@@ -29,6 +30,7 @@ export default function HomePage() {
       <Pricing />
       <Portfolio />
       <Process />
+      <TechStack />
       <Testimonials />
       <FAQ />
       <Insights />

@@ -22,6 +22,7 @@ export async function generateMetadata({
   return {
     title: dict.meta.title,
     description: dict.meta.description,
+    keywords: dict.meta.keywords,
     alternates: {
       canonical: currentUrl,
       languages: {
@@ -43,12 +44,6 @@ export async function generateMetadata({
           alt: "CyberLabs Web",
         },
       ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: dict.meta.title,
-      description: dict.meta.description,
-      images: ["https://cyberlabsweb.com/og/cyberlabs-main-og.png"],
     },
     robots: {
       index: true,
@@ -81,6 +76,7 @@ export default async function LangLayout({
 
   return (
     <LanguageProvider lang={lang as Language}>
+      <JsonLd />
       <ClientLayout>{children}</ClientLayout>
     </LanguageProvider>
   );

@@ -3,8 +3,9 @@ export type Language = 'hu' | 'en';
 export const translations = {
     hu: {
         meta: {
-            title: "Céges Weboldal Készítés Garanciával | CyberLabs Web",
-            description: "Nem jön elég ajánlatkérés? Olyan céges weboldalt építünk, ami tényleg elad helyetted. Villámgyors, modern és AI-optimalizált professzionális weboldal készítés garanciával Budapesten."
+            title: "Céges Weboldal & Webshop Készítés | WordPress, Shopify | CyberLabs Web",
+            description: "Egyedi weboldal és webshop fejlesztés WordPress, WooCommerce és Shopify alapon. SEO + GEO optimalizált, villámgyors, modern megoldások garanciával.",
+            keywords: "weboldal készítés, webshop készítés, egyedi weboldal készítés vállalkozásnak, wordpress weboldal, shopify fejlesztő budapest, wordpress webshop javítás, webshop készítés utánvéttel, shopify egyedi téma fejlesztés, wordpress sebesség optimalizálás, woocommerce webáruház, seo optimalizálás, geo pozicionálás, céges weboldal, weboldal karbantartás"
         },
         common: {
             back: "Vissza a főoldalra"
@@ -293,6 +294,37 @@ export const translations = {
                 { title: "Finomítás & átadás", desc: "Addig csiszoljuk, amíg késznek érzed. 100% elégedettségi garancia." }
             ]
         },
+        techStack: {
+            tag: "Tech Stack",
+            title: "Amivel dolgozunk",
+            subtitle: "Modern frontend, backend és e-commerce stack valós projektekre optimalizálva.",
+            custom: {
+                title: "Egyedi fejlesztés",
+                tagline: "Modern keretrendszerek • Skálázható architektúra",
+                desc: "Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon. A frontend, backend és integrációs réteg egységesen van megtervezve, így a végeredmény gyors, stabil és hosszú távon is bővíthető.",
+                features: [
+                    "Egyedi frontend és komponensrendszer reszponzív, mobile-first kivitelezéssel",
+                    "Backend logika, adatmodellezés és jogosultságkezelés strukturált architektúrával",
+                    "API-, webhook- és fizetési integrációk valós üzleti folyamatokra szabva",
+                    "Technikai SEO már fejlesztési szinten: metadata, sitemap, robots, Open Graph, JSON-LD",
+                    "Verziókezelt fejlesztési és élesítési workflow biztonságos publikálással"
+                ],
+                sidebar: "Fejlesztői stack"
+            },
+            platform: {
+                title: "WordPress, WooCommerce & Shopify",
+                tagline: "Tárhelyalapú webáruházak • Fejlesztői szintű implementáció",
+                desc: "WordPress és Shopify alapú webshopokat nem pagebuilder szinten, hanem fejlesztői megközelítéssel építünk. Saját tárhelyen futó WooCommerce rendszerek, egyedi Shopify Liquid sablonok, üzleti logikára szabott integrációk. Nem összekattintott sablonok, hanem karbantartható, skálázható architektúra.",
+                features: [
+                    "Egyedi Shopify Liquid és WordPress testreszabás, nem dobozos sablonlogikával",
+                    "Fizetés, szállítás, automatizmusok és adminfolyamatok üzleti működéshez igazítva",
+                    "Tudatos plugin- és app-használat felesleges technikai adósság nélkül",
+                    "Headless vagy hibrid architektúra, ha a projekt ezt valóban indokolja",
+                    "Teljesítmény, biztonság, frissítések és fejlesztői kontroll hosszú távra"
+                ],
+                sidebar: "E-commerce stack"
+            }
+        },
         faq: {
             title: "Gyakori kérdések",
             questions: [
@@ -495,8 +527,9 @@ export const translations = {
     },
     en: {
         meta: {
-            title: "Corporate Website Development in Hungary | CyberLabs Web",
-            description: "Custom website development and maintenance for businesses. Fast, modern, and SEO & AI-optimized solutions with guarantee."
+            title: "Website & E-commerce Development | WordPress, Shopify | CyberLabs Web",
+            description: "Custom website and e-commerce development on WordPress, WooCommerce, and Shopify. SEO & GEO optimized, blazing fast, modern solutions with guarantee.",
+            keywords: "website development, e-commerce development, custom website for business, wordpress website, shopify developer budapest, wordpress webshop repair, e-commerce with cash on delivery, shopify custom theme development, wordpress speed optimization, woocommerce store, seo optimization, geo positioning, corporate website, website maintenance"
         },
         common: {
             back: "Back to Home"
@@ -784,6 +817,37 @@ export const translations = {
                 { title: "Trial Version in 1 week", desc: "First working version. Not a static plan, but clickable reality." },
                 { title: "Refinement & Handover", desc: "We polish it until you feel it's ready. 100% satisfaction guarantee." }
             ]
+        },
+        techStack: {
+            tag: "Tech Stack",
+            title: "What We Work With",
+            subtitle: "Modern frontend, backend, and e-commerce stack optimized for real-world projects.",
+            custom: {
+                title: "Custom Development",
+                tagline: "Modern Frameworks • Scalable Architecture",
+                desc: "We build high-performance web systems and custom business platforms on Next.js, React, and TypeScript. Frontend, backend, and integration layers are designed as a unified system — resulting in fast, stable, and long-term scalable solutions.",
+                features: [
+                    "Custom frontend and component systems with responsive, mobile-first execution",
+                    "Backend logic, data modeling, and access control with structured architecture",
+                    "API, webhook, and payment integrations tailored to real business workflows",
+                    "Technical SEO built into development: metadata, sitemap, robots, Open Graph, JSON-LD",
+                    "Version-controlled development and deployment workflow with safe publishing"
+                ],
+                sidebar: "Developer Stack"
+            },
+            platform: {
+                title: "WordPress, WooCommerce & Shopify",
+                tagline: "Self-hosted stores • Developer-grade implementation",
+                desc: "We build WordPress and Shopify stores at the code level, not the pagebuilder level. Self-hosted WooCommerce systems, custom Shopify Liquid templates, business-logic integrations — not assembled templates, but maintainable, scalable architecture.",
+                features: [
+                    "Custom Shopify Liquid and WordPress theming — not out-of-the-box template logic",
+                    "Payment, shipping, automation, and admin flows tailored to business operations",
+                    "Deliberate plugin and app usage without unnecessary technical debt",
+                    "Headless or hybrid architecture when the project truly warrants it",
+                    "Performance, security, updates, and developer control for the long term"
+                ],
+                sidebar: "E-commerce Stack"
+            }
         },
         faq: {
             title: "FAQ",

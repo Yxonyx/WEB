@@ -12,8 +12,8 @@ const FAQItem = ({ q, a, defaultOpen = false }: { q: string, a: string, defaultO
         <div className="mb-4">
             <div
                 className={`transition-colors duration-200 rounded-xl border ${isOpen
-                    ? 'bg-surface2/40 border-highlight/30'
-                    : 'bg-surface/20 border-white/5 hover:border-white/10'
+                    ? 'bg-surface2/40 border-highlight/40'
+                    : 'bg-surface/20 border-white/15 hover:border-white/25'
                     }`}
             >
                 <button
@@ -46,6 +46,14 @@ export const FAQ_Alternate = () => {
             q: "Csak akkor fizetek, ha tetszik a próbaverzió?",
             a: "Igen, a kockázat a miénk. Készítünk egy működő próbaverziót az igényeid alapján. Ha tetszik az irány, akkor szerződünk és folytatjuk a munkát. Ha nem, semmilyen kötelezettséged nincs.",
             defaultOpen: true
+        },
+        {
+            q: "WordPress vagy egyedi fejlesztés? Melyiket válasszam?",
+            a: "Ha gyors piacra lépés a cél és webshop kell, a WordPress + WooCommerce az ideális. Ha egyedi funkciók, maximális teljesítmény és skálázhatóság kell, egyedi fejlesztést javaslunk React/Next.js alapon. Mindkettőt fejlesztői szinten építjük."
+        },
+        {
+            q: "Készítetek WooCommerce vagy Shopify webshopot?",
+            a: "Igen. WordPress WooCommerce és Shopify alapú webáruházakat fejlesztői megközelítéssel építünk, saját tárhelyen. Nem összekattintott sablonok, hanem karbantartható, skálázható architektúra egyedi Liquid sablonokkal és üzleti logikára szabott integrációkkal."
         },
         {
             q: "Mennyi idő alatt készül el egy weboldal?",
