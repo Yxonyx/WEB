@@ -1,11 +1,6 @@
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
+import AllArticlesClient from "./AllArticlesClient";
 import type { Metadata } from "next";
-
-const AllArticlesClient = lazy(() =>
-  import("@/components/pages/AllArticles").then((m) => ({
-    default: m.AllArticles,
-  }))
-);
 
 export async function generateMetadata({
   params,
