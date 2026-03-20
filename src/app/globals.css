@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Better line breaking — prevents orphan words and awkward mobile breaks */
+p, li, span {
+    text-wrap: pretty;
+}
+h1, h2, h3, h4 {
+    text-wrap: balance;
+}
+
 /* Desktop body text bump — larger, more readable on lg+ screens */
 /* Excludes testimonials (#velemenyek) */
 @media (min-width: 1024px) {

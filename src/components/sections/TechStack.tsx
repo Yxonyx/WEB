@@ -115,22 +115,20 @@ export const TechStack = () => {
                             <div className="text-neonBlue font-mono text-xs mb-4 tracking-wide">
                                 {t('techStack.custom.tagline') as string}
                             </div>
-                            <p className="text-white/70 text-sm md:text-base mb-4 md:mb-6 leading-relaxed">
-                                {t('techStack.custom.desc') as string}
-                            </p>
+                            <p className="text-white/70 text-[0.9375rem] md:text-base mb-4 md:mb-6 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('techStack.custom.desc') as string }} />
 
                             <ul className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
                                 {customFeatures.map((feat, i) => (
-                                    <li key={i} className="flex items-start gap-2 md:gap-2.5 text-white/70 text-sm md:text-base">
+                                    <li key={i} className="flex items-start gap-2 md:gap-2.5 text-white/70 text-[0.9375rem] md:text-base">
                                         <CheckCircle2 className="w-3.5 h-3.5 text-neonBlue shrink-0 mt-0.5" />
-                                        <span>{feat}</span>
+                                        <span dangerouslySetInnerHTML={{ __html: feat }} />
                                     </li>
                                 ))}
                             </ul>
 
                             {/* Tech icons grid */}
                             <div className="mt-auto pt-5 border-t border-white/5">
-                                <div className="text-[10px] font-mono text-muted2 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                                <div className="text-[13px] font-mono text-muted2 uppercase tracking-widest mb-3 flex items-center gap-1.5">
                                     <span className="w-1 h-1 rounded-full bg-neonBlue" />
                                     {t('techStack.custom.sidebar') as string}
                                 </div>
@@ -182,22 +180,20 @@ export const TechStack = () => {
                             <div className="text-neonPurple font-mono text-xs mb-4 tracking-wide">
                                 {t('techStack.platform.tagline') as string}
                             </div>
-                            <p className="text-white/70 text-sm md:text-base mb-4 md:mb-6 leading-relaxed">
-                                {t('techStack.platform.desc') as string}
-                            </p>
+                            <p className="text-white/70 text-[0.9375rem] md:text-base mb-4 md:mb-6 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('techStack.platform.desc') as string }} />
 
                             <ul className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
                                 {platformFeatures.map((feat, i) => (
-                                    <li key={i} className="flex items-start gap-2 md:gap-2.5 text-white/70 text-sm md:text-base">
+                                    <li key={i} className="flex items-start gap-2 md:gap-2.5 text-white/70 text-[0.9375rem] md:text-base">
                                         <CheckCircle2 className="w-3.5 h-3.5 text-neonPurple shrink-0 mt-0.5" />
-                                        <span>{feat}</span>
+                                        <span dangerouslySetInnerHTML={{ __html: feat }} />
                                     </li>
                                 ))}
                             </ul>
 
                             {/* Platform icons */}
                             <div className="mt-auto pt-5 border-t border-white/5">
-                                <div className="text-[10px] font-mono text-muted2 uppercase tracking-widest mb-3 flex items-center gap-1.5">
+                                <div className="text-[13px] font-mono text-muted2 uppercase tracking-widest mb-3 flex items-center gap-1.5">
                                     <span className="w-1 h-1 rounded-full bg-neonPurple" />
                                     {t('techStack.platform.sidebar') as string}
                                 </div>
@@ -220,7 +216,7 @@ export const TechStack = () => {
                                                     className={`w-6 h-6 object-contain ${(tech as any).invert ? 'brightness-0 invert' : ''} transition-opacity duration-300`}
                                                 />
                                             </div>
-                                            <span className="text-[8px] text-muted2/60 group-hover:text-white/60 transition-colors text-center leading-tight">
+                                            <span className="text-[11px] text-muted2/60 group-hover:text-white/60 transition-colors text-center leading-tight">
                                                 {tech.name}
                                             </span>
                                         </motion.div>

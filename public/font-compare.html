@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Font Kombináció Összehasonlítás — CyberLabs Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&family=Nunito+Sans:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&family=Albert+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fira+Code:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #030407; color: #fff; padding: 40px 20px; }
+.container { max-width: 1200px; margin: 0 auto; }
+.page-title { font-size: 2rem; font-weight: 700; margin-bottom: 8px; color: #4D94FF; font-family: Inter, sans-serif; }
+.page-sub { font-size: 1rem; color: #9CA3AF; margin-bottom: 48px; font-family: Inter, sans-serif; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 32px; }
+@media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+    background: linear-gradient(160deg, rgba(30,40,80,0.55), rgba(15,20,50,0.45));
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    transition: border-color 0.3s;
+}
+.card:hover { border-color: rgba(77,148,255,0.3); }
+.card.current { border-color: rgba(77,148,255,0.5); }
+.card.current::after {
+    content: "JELENLEGI";
+    position: absolute; top: 16px; right: 16px;
+    background: #4D94FF; color: #fff; font-size: 10px; font-weight: 700;
+    padding: 4px 10px; border-radius: 6px; letter-spacing: 1px;
+    font-family: Inter, sans-serif;
+}
+
+.combo-name { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #4D94FF; margin-bottom: 4px; font-family: Inter, sans-serif; }
+.combo-fonts { font-size: 0.75rem; color: #9CA3AF; margin-bottom: 24px; font-family: Inter, sans-serif; }
+
+.preview-heading { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.1; }
+.preview-tagline { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #CC00FF; margin-bottom: 16px; }
+.preview-body { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.65; margin-bottom: 20px; }
+.preview-feature { font-size: 0.9375rem; color: rgba(255,255,255,0.7); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.preview-feature::before { content: "✓"; color: #4D94FF; font-weight: 700; flex-shrink: 0; }
+.preview-code { font-size: 0.8125rem; color: rgba(156,163,175,0.8); padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; margin-top: 16px; }
+.divider { height: 1px; background: rgba(255,255,255,0.06); margin: 20px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1 class="page-title">Font Kombináció Összehasonlítás</h1>
+    <p class="page-sub">Válaszd ki a legjobban illő font párosítást a CyberLabs Web-hez</p>
+
+    <div class="grid">
+
+        <!-- 1. Current: Inter + JetBrains Mono -->
+        <div class="card current">
+            <div class="combo-name">A · Jelenlegi</div>
+            <div class="combo-fonts">Heading: Inter · Body: Inter · Mono: JetBrains Mono</div>
+            <div style="font-family: 'Inter', sans-serif;">
+                <div class="preview-heading">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'JetBrains Mono', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'JetBrains Mono', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+        <!-- 2. Outfit + JetBrains Mono -->
+        <div class="card">
+            <div class="combo-name">B · Outfit</div>
+            <div class="combo-fonts">Heading: Outfit · Body: Outfit · Mono: JetBrains Mono</div>
+            <div style="font-family: 'Outfit', sans-serif;">
+                <div class="preview-heading">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'JetBrains Mono', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'JetBrains Mono', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+        <!-- 3. Space Grotesk + Fira Code -->
+        <div class="card">
+            <div class="combo-name">C · Space Grotesk</div>
+            <div class="combo-fonts">Heading: Space Grotesk · Body: Space Grotesk · Mono: Fira Code</div>
+            <div style="font-family: 'Space Grotesk', sans-serif;">
+                <div class="preview-heading">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'Fira Code', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'Fira Code', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+        <!-- 4. Plus Jakarta Sans + JetBrains Mono -->
+        <div class="card">
+            <div class="combo-name">D · Plus Jakarta Sans</div>
+            <div class="combo-fonts">Heading: Plus Jakarta Sans · Body: Plus Jakarta Sans · Mono: JetBrains Mono</div>
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                <div class="preview-heading">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'JetBrains Mono', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'JetBrains Mono', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+        <!-- 5. Sora + IBM Plex Mono -->
+        <div class="card">
+            <div class="combo-name">E · Sora</div>
+            <div class="combo-fonts">Heading: Sora · Body: Sora · Mono: IBM Plex Mono</div>
+            <div style="font-family: 'Sora', sans-serif;">
+                <div class="preview-heading">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'IBM Plex Mono', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'IBM Plex Mono', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+        <!-- 6. Manrope + Fira Code -->
+        <div class="card">
+            <div class="combo-name">F · Manrope</div>
+            <div class="combo-fonts">Heading: Manrope · Body: Manrope · Mono: Fira Code</div>
+            <div style="font-family: 'Manrope', sans-serif;">
+                <div class="preview-heading">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'Fira Code', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'Fira Code', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+        <!-- 7. Raleway + JetBrains Mono -->
+        <div class="card">
+            <div class="combo-name">G · Raleway</div>
+            <div class="combo-fonts">Heading: Raleway · Body: Raleway · Mono: JetBrains Mono</div>
+            <div style="font-family: 'Raleway', sans-serif;">
+                <div class="preview-heading">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'JetBrains Mono', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'JetBrains Mono', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+        <!-- 8. DM Sans + Source Code Pro -->
+        <div class="card">
+            <div class="combo-name">H · DM Sans</div>
+            <div class="combo-fonts">Heading: DM Sans · Body: DM Sans · Mono: Source Code Pro</div>
+            <div style="font-family: 'DM Sans', sans-serif;">
+                <div class="preview-heading">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'Source Code Pro', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'Source Code Pro', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+        <!-- 9. Urbanist + Fira Code -->
+        <div class="card">
+            <div class="combo-name">I · Urbanist</div>
+            <div class="combo-fonts">Heading: Urbanist · Body: Urbanist · Mono: Fira Code</div>
+            <div style="font-family: 'Urbanist', sans-serif;">
+                <div class="preview-heading">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'Fira Code', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'Fira Code', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+        <!-- 10. Mix: Space Grotesk heading + Inter body -->
+        <div class="card">
+            <div class="combo-name">J · Mix: Space Grotesk + Inter</div>
+            <div class="combo-fonts">Heading: Space Grotesk · Body: Inter · Mono: JetBrains Mono</div>
+            <div>
+                <div class="preview-heading" style="font-family: 'Space Grotesk', sans-serif;">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'JetBrains Mono', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body" style="font-family: 'Inter', sans-serif;">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature" style="font-family: 'Inter', sans-serif;">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature" style="font-family: 'Inter', sans-serif;">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'JetBrains Mono', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+        <!-- 11. Nunito Sans - naturally thick -->
+        <div class="card">
+            <div class="combo-name">🟢 K · Nunito Sans</div>
+            <div class="combo-fonts">Heading: Nunito Sans · Body: Nunito Sans · Mono: JetBrains Mono — <strong style="color:#4D94FF">Vastag, lágy</strong></div>
+            <div style="font-family: 'Nunito Sans', sans-serif;">
+                <div class="preview-heading">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'JetBrains Mono', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'JetBrains Mono', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+        <!-- 12. Rubik - geometric, heavy -->
+        <div class="card">
+            <div class="combo-name">🟢 L · Rubik</div>
+            <div class="combo-fonts">Heading: Rubik · Body: Rubik · Mono: Fira Code — <strong style="color:#4D94FF">Vastag, geometrikus</strong></div>
+            <div style="font-family: 'Rubik', sans-serif;">
+                <div class="preview-heading">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'Fira Code', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'Fira Code', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+        <!-- 13. Work Sans - sturdy, solid -->
+        <div class="card">
+            <div class="combo-name">🟢 M · Work Sans</div>
+            <div class="combo-fonts">Heading: Work Sans · Body: Work Sans · Mono: JetBrains Mono — <strong style="color:#4D94FF">Vastag, stabil</strong></div>
+            <div style="font-family: 'Work Sans', sans-serif;">
+                <div class="preview-heading">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'JetBrains Mono', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'JetBrains Mono', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+        <!-- 14. Inter Medium - same font, weight 500 body -->
+        <div class="card">
+            <div class="combo-name">🟢 N · Inter Medium (font-weight: 500)</div>
+            <div class="combo-fonts">Heading: Inter · Body: Inter <strong>weight 500</strong> · Mono: JetBrains Mono — <strong style="color:#4D94FF">Jelenlegi font, vastagabb</strong></div>
+            <div style="font-family: 'Inter', sans-serif;">
+                <div class="preview-heading">Egyedi fejlesztés</div>
+                <div class="preview-tagline" style="font-family: 'JetBrains Mono', monospace;">Modern keretrendszerek • Skálázható architektúra</div>
+                <div class="preview-body" style="font-weight: 500;">Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon.</div>
+                <div class="divider"></div>
+                <div class="preview-feature" style="font-weight: 500;">Egyedi frontend és komponensrendszer reszponzív kivitelezéssel</div>
+                <div class="preview-feature" style="font-weight: 500;">Backend logika, adatmodellezés és jogosultságkezelés</div>
+                <div class="preview-code" style="font-family: 'JetBrains Mono', monospace;">FEJLESZTŐI STACK · Next.js · React · TypeScript</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

@@ -27,9 +27,9 @@ module.exports = {
         overlay: "#000000",
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Work Sans', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
-        display: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Work Sans', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         '7xl': '5rem',

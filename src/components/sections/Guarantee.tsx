@@ -24,7 +24,7 @@ export function Guarantee() {
                             {t('guarantee.title')}
                         </h3>
 
-                        <p className="text-lg md:text-xl text-neutral-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-base md:text-xl text-neutral-400 mb-10 max-w-2xl mx-auto leading-relaxed">
                             {t('guarantee.desc')}
                         </p>
 

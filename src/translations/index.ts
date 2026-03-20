@@ -122,13 +122,13 @@ export const translations = {
             webdev: {
                 title: "Reszponzív weboldalak és webáruházak",
                 tagline: "Keresőoptimalizálva • Kulcsrakészen",
-                desc: "Mobilbarát és gyors weboldalak, amik üzleti célt szolgálnak (érdeklődő, ajánlatkérés, vásárlás).",
+                desc: "Mobilbarát és gyors weboldalak, amik <strong class='text-white'>üzleti célt szolgálnak</strong> (érdeklődő, ajánlatkérés, vásárlás).",
                 benefits_title: "Miért jó ez neked?",
                 benefits: ["Profibb első benyomás", "Több megkeresés", "Kevesebb elvesztett látogató"]
             },
             seo: {
                 title: "Keresőbarát beállítások",
-                desc: "Úgy alakítjuk ki az oldalt, hogy a Google könnyen értse, miről szól, és esélye legyen jó helyen megjelenni.",
+                desc: "Úgy alakítjuk ki az oldalt, hogy a <strong class='text-white'>Google könnyen értse</strong>, miről szól, és esélye legyen <strong class='text-white'>jó helyen megjelenni</strong>.",
                 benefits_title: "Miért kell ez neked?",
                 why: "Mert a legtöbb ügyfél a Google-ben kezd, és általában az első találatokból választ.",
                 flow: [
@@ -147,17 +147,17 @@ export const translations = {
             header: {
                 tag: "Új korszak",
                 title: "AI-találhatóság, egyszerűen",
-                desc: "Régen elég volt kulcsszavazni. Ma az számít, hogy a tartalom érthető, bizonyítható és jól felépített legyen."
+                desc: "Régen elég volt kulcsszavazni. Ma az számít, hogy a tartalom <strong class='text-white'>érthető, bizonyítható</strong> és jól felépített legyen."
             },
             shift: {
                 title: "A Váltás",
-                desc: "AI-vezérelt tartalom: a klasszikus SEO önmagában már nem elég. Az algoritmusok már nem kulcsszavakat keresnek, hanem összefüggéseket.",
+                desc: "AI-vezérelt tartalom: a klasszikus SEO önmagában már nem elég. Az algoritmusok már nem kulcsszavakat keresnek, hanem <strong class='text-white'>összefüggéseket</strong>.",
                 visual_search: "KERESÉS:",
                 visual_query: "\"Hogyan működnek a modern keresők?\""
             },
             where: {
                 title: "Hol kell megjelenned?",
-                desc: "Nemcsak a Google listában, hanem az AI-válaszokban is, ahol az emberek konkrét kérdéseket tesznek fel.",
+                desc: "Nemcsak a Google listában, hanem az AI\u2011válaszokban is, ahol az emberek konkrét kérdéseket tesznek fel.",
                 list: ["Google keresési találatok", "ChatGPT / Gemini válaszok"],
                 dialog: {
                     q1: { label: "Kérdés", text: "\"Melyik a legjobb kivitelező X városban?\"" },
@@ -167,7 +167,7 @@ export const translations = {
             },
             what: {
                 title: "Mi mit csinálunk?",
-                desc: "Úgy építjük fel a szöveget és az oldalt, hogy a keresők és az AI-rendszerek is könnyen feldolgozzák, hiteles forrásként kezeljék.",
+                desc: "Úgy építjük fel a szöveget és az oldalt, hogy a keresők és az <strong class='text-white'>AI-rendszerek</strong> is könnyen feldolgozzák, <strong class='text-white'>hiteles forrásként</strong> kezeljék.",
                 metrics: {
                     content: "Tartalom Minősége",
                     trust: "Online Megbízhatóság",
@@ -191,7 +191,7 @@ export const translations = {
             },
             content: {
                 title: "Karbantartás & Stabilitás",
-                desc: "Frissítések, mentések, biztonság, sebesség-ellenőrzés, javítások. Hogy a weboldalad évek múlva is ugyanolyan gyors és megbízható legyen, mint az első napon.",
+                desc: "Frissítések, mentések, biztonság, sebesség-ellenőrzés, javítások. Hogy a weboldalad évek múlva is <strong class='text-white'>ugyanolyan gyors és megbízható</strong> legyen, mint az első napon.",
                 benefits_title: "Miért kell ez neked?",
                 benefits: [
                     "ne törjön el semmi frissítés után",
@@ -203,7 +203,7 @@ export const translations = {
         chatbot_intro: {
             content: {
                 title: "AI Chatbot Asszisztens",
-                desc: "Weboldalba integrált, értékesítést segítő intelligens asszisztens. Nem alszik, nem megy szabadságra, és azonnal válaszol a látogatóid kérdéseire.",
+                desc: "Weboldalba integrált, értékesítést segítő <strong class='text-white'>intelligens asszisztens</strong>. Nem alszik, nem megy szabadságra, és <strong class='text-white'>azonnal válaszol</strong> a látogatóid kérdéseire.",
                 benefits_title: "Mit ad a vállalkozásodnak?",
                 benefits: [
                     "Azonnali válaszok 0-24 órában",
@@ -297,30 +297,30 @@ export const translations = {
         techStack: {
             tag: "Tech Stack",
             title: "Amivel dolgozunk",
-            subtitle: "Modern frontend, backend és e-commerce stack valós projektekre optimalizálva.",
+            subtitle: "Modern frontend, backend és e\u2011commerce stack valós projektekre optimalizálva.",
             custom: {
                 title: "Egyedi fejlesztés",
                 tagline: "Modern keretrendszerek • Skálázható architektúra",
-                desc: "Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk Next.js, React és TypeScript alapon. A frontend, backend és integrációs réteg egységesen van megtervezve, így a végeredmény gyors, stabil és hosszú távon is bővíthető.",
+                desc: "Nagy teljesítményű webes rendszereket és egyedi üzleti platformokat fejlesztünk <strong class='text-white'>Next.js, React és TypeScript</strong> alapon. A frontend, backend és integrációs réteg egységesen van megtervezve, így a végeredmény <strong class='text-white'>gyors, stabil</strong> és hosszú távon is bővíthető.",
                 features: [
-                    "Egyedi frontend és komponensrendszer reszponzív, mobile-first kivitelezéssel",
-                    "Backend logika, adatmodellezés és jogosultságkezelés strukturált architektúrával",
-                    "API-, webhook- és fizetési integrációk valós üzleti folyamatokra szabva",
-                    "Technikai SEO már fejlesztési szinten: metadata, sitemap, robots, Open Graph, JSON-LD",
-                    "Verziókezelt fejlesztési és élesítési workflow biztonságos publikálással"
+                    "<strong class='text-white'>Egyedi frontend</strong> és komponensrendszer reszponzív, mobile-first kivitelezéssel",
+                    "<strong class='text-white'>Backend logika</strong>, adatmodellezés és jogosultságkezelés strukturált architektúrával",
+                    "<strong class='text-white'>API-, webhook-</strong> és fizetési integrációk valós üzleti folyamatokra szabva",
+                    "<strong class='text-white'>Technikai SEO</strong> már fejlesztési szinten: metadata, sitemap, robots, Open Graph, JSON-LD",
+                    "<strong class='text-white'>Verziókezelt</strong> fejlesztési és élesítési workflow biztonságos publikálással"
                 ],
                 sidebar: "Fejlesztői stack"
             },
             platform: {
                 title: "WordPress, WooCommerce & Shopify",
                 tagline: "Tárhelyalapú webáruházak • Fejlesztői szintű implementáció",
-                desc: "WordPress és Shopify alapú webshopokat nem pagebuilder szinten, hanem fejlesztői megközelítéssel építünk. Saját tárhelyen futó WooCommerce rendszerek, egyedi Shopify Liquid sablonok, üzleti logikára szabott integrációk. Nem összekattintott sablonok, hanem karbantartható, skálázható architektúra.",
+                desc: "<strong class='text-white'>WordPress és Shopify</strong> alapú webshopokat nem pagebuilder szinten, hanem <strong class='text-white'>fejlesztői megközelítéssel</strong> építünk. Saját tárhelyen futó WooCommerce rendszerek, egyedi Shopify Liquid sablonok, üzleti logikára szabott integrációk. Nem összekattintott sablonok, hanem <strong class='text-white'>karbantartható, skálázható</strong> architektúra.",
                 features: [
-                    "Egyedi Shopify Liquid és WordPress testreszabás, nem dobozos sablonlogikával",
-                    "Fizetés, szállítás, automatizmusok és adminfolyamatok üzleti működéshez igazítva",
-                    "Tudatos plugin- és app-használat felesleges technikai adósság nélkül",
-                    "Headless vagy hibrid architektúra, ha a projekt ezt valóban indokolja",
-                    "Teljesítmény, biztonság, frissítések és fejlesztői kontroll hosszú távra"
+                    "Egyedi <strong class='text-white'>Shopify Liquid</strong> és <strong class='text-white'>WordPress</strong> testreszabás, nem dobozos sablonlogikával",
+                    "<strong class='text-white'>Fizetés, szállítás</strong>, automatizmusok és adminfolyamatok üzleti működéshez igazítva",
+                    "Tudatos <strong class='text-white'>plugin- és app-használat</strong> felesleges technikai adósság nélkül",
+                    "<strong class='text-white'>Headless vagy hibrid</strong> architektúra, ha a projekt ezt valóban indokolja",
+                    "<strong class='text-white'>Teljesítmény, biztonság</strong>, frissítések és fejlesztői kontroll hosszú távra"
                 ],
                 sidebar: "E-commerce stack"
             }

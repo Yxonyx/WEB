@@ -22,9 +22,7 @@ export const GEO = () => {
                 <div className="text-center max-w-4xl mx-auto mb-20 lg:mb-32">
 
                     <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6 font-display">{t('geo.header.title')}</h2>
-                    <p className="text-xl text-white/80 font-medium">
-                        {t('geo.header.desc')}
-                    </p>
+                    <p className="text-xl text-white/80 font-medium" dangerouslySetInnerHTML={{ __html: t('geo.header.desc') as string }} />
                 </div>
 
                 {/* Main Content Grid */}
@@ -39,9 +37,7 @@ export const GEO = () => {
                             transition={{ duration: 0.5 }}
                         >
                             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 font-display">{t('geo.shift.title')}</h3>
-                            <p className="text-lg text-white/80 leading-relaxed font-medium">
-                                {t('geo.shift.desc')}
-                            </p>
+                            <p className="text-lg text-white/80 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: t('geo.shift.desc') as string }} />
                         </motion.div>
 
                         <motion.div
@@ -151,9 +147,7 @@ export const GEO = () => {
                                 <ProIcon icon={Cpu} color="green" size={32} />
                                 <h3 className="text-2xl sm:text-3xl font-bold text-white font-display">{t('geo.what.title')}</h3>
                             </div>
-                            <p className="text-lg text-white/80 leading-relaxed font-medium mb-8">
-                                {t('geo.what.desc')}
-                            </p>
+                            <p className="text-lg text-white/80 leading-relaxed font-medium mb-8" dangerouslySetInnerHTML={{ __html: t('geo.what.desc') as string }} />
 
                             {/* Metrics mockup */}
                             <div className="bg-surface border border-white/10 rounded-xl p-4 space-y-4">

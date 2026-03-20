@@ -113,9 +113,7 @@ export const Maintenance = () => {
                     <motion.div variants={itemVariants} className="order-1 lg:order-2">
                         <ProIcon icon={ShieldCheck} color="neonPurple" size={32} containerClassName="mb-6" />
                         <h3 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">{t('maintenance_sec.content.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient-reverse">{t('maintenance_sec.content.title').split(' ').slice(-1)}</span></h3>
-                        <p className="text-white/80 text-lg mb-8 leading-relaxed font-medium">
-                            {t('maintenance_sec.content.desc')}
-                        </p>
+                        <p className="text-white/80 text-lg mb-8 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: t('maintenance_sec.content.desc') as string }} />
 
                         <div className="mb-4 text-base font-bold text-white uppercase tracking-wider">{t('maintenance_sec.content.benefits_title')}</div>
                         <ul className="space-y-3">

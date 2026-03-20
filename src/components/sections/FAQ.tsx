@@ -18,7 +18,7 @@ const FAQItem = ({ q, a, defaultOpen = false }: { q: string, a: string, defaultO
                 aria-expanded={isOpen}
             >
                 {/* Kontraszt javítása: text-white/80 helyett tiszta text-white */}
-                <span className={`text-lg transition-colors ${isOpen ? 'text-white font-bold' : 'text-white font-medium group-hover:text-neonBlue'}`}>
+                <span className={`text-base md:text-lg transition-colors ${isOpen ? 'text-white font-bold' : 'text-white font-medium group-hover:text-neonBlue'}`}>
                     {q}
                 </span>
                 <span className="shrink-0 ml-4 text-muted2 group-hover:text-white transition-colors">
@@ -28,7 +28,7 @@ const FAQItem = ({ q, a, defaultOpen = false }: { q: string, a: string, defaultO
 
             {/* Közvetlen renderelés animáció nélkül a maximális sebességért */}
             {isOpen && (
-                <div className="pb-4 text-gray-200 leading-relaxed font-light text-base md:text-lg">
+                <div className="pb-4 text-gray-200 leading-relaxed font-light text-[0.9375rem] md:text-lg">
                     {a}
                 </div>
             )}
@@ -107,7 +107,7 @@ export const FAQ = () => {
                                     {/* Díszítő vonal a jobb elválasztásért */}
                                     <div className="h-0.5 w-16 bg-gradient-to-r from-transparent via-neonBlue/50 to-transparent mx-auto mb-5 relative z-10"></div>
 
-                                    <p className="text-center text-gray-300 text-base md:text-lg mb-6 leading-relaxed relative z-10 px-2">
+                                    <p className="text-center text-gray-300 text-[0.9375rem] md:text-lg mb-6 leading-relaxed relative z-10 px-2">
                                         {t('faq.guarantee.desc')}
                                     </p>
 

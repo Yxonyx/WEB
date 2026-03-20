@@ -40,7 +40,7 @@ export const Pricing = () => {
                     transition={{ duration: 0.4 }}
                 >
                     <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-4">{t('pricing.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient">{t('pricing.title').split(' ').slice(-1)}</span></h2>
-                    <p className="text-white/80 text-lg font-medium">
+                    <p className="text-white/80 text-base md:text-lg font-medium">
                         {t('pricing.subtitle')}
                     </p>
                 </motion.div>
@@ -61,7 +61,7 @@ export const Pricing = () => {
                             </div>
                             <ul className="space-y-3 mb-8">
                                 {(t('pricing.landing.features') as unknown as string[]).map((feat, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-base text-white/80">
+                                    <li key={i} className="flex items-center gap-3 text-[0.9375rem] md:text-base text-white/80">
                                         <Check className="w-4 h-4 text-neonBlue shrink-0" />
                                         {feat}
                                     </li>
@@ -113,7 +113,7 @@ export const Pricing = () => {
                                             <div className="w-6 h-6 rounded-full bg-gradient-to-br from-neonBlue/30 to-neonPurple/20 border border-neonBlue/40 flex items-center justify-center shrink-0 mt-0.5 group-hover/item:border-neonBlue/60 transition-colors duration-300">
                                                 <Check className="w-3.5 h-3.5 text-neonBlue" />
                                             </div>
-                                            <span className="text-base text-white/90 group-hover/item:text-white transition-colors duration-300">{feat}</span>
+                                            <span className="text-[0.9375rem] md:text-base text-white/90 group-hover/item:text-white transition-colors duration-300">{feat}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -147,7 +147,7 @@ export const Pricing = () => {
 
                             <ul className="space-y-3 mb-8">
                                 {(t('pricing.webshop.features') as unknown as string[]).map((feat, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-base text-muted">
+                                    <li key={i} className="flex items-center gap-3 text-[0.9375rem] md:text-base text-muted">
                                         <Check className="w-4 h-4 text-neonBlue shrink-0" />
                                         {feat}
                                     </li>
@@ -202,7 +202,7 @@ export const Pricing = () => {
                                 </div>
                                 <ul className="space-y-3 mb-6 flex-1">
                                     {plan.features.map((feat: string, fi: number) => (
-                                        <li key={fi} className="flex items-start gap-2 text-base text-muted">
+                                        <li key={fi} className="flex items-start gap-2 text-[0.9375rem] md:text-base text-muted">
                                             <Check className="w-4 h-4 text-neonBlue mt-0.5 shrink-0" />
                                             <span>{feat}</span>
                                         </li>

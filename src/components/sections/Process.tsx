@@ -79,7 +79,7 @@ export const Process = () => {
                     {/* Left Column: Info & Stats */}
                     <div className="lg:col-span-5">
                         <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">{t('process.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient">{t('process.title').split(' ').slice(-1)}</span></h2>
-                        <p className="text-base text-white font-semibold mb-8 leading-relaxed">
+                        <p className="text-base md:text-base text-white font-semibold mb-8 leading-relaxed">
                             {t('process.desc')}
                         </p>
 
@@ -179,7 +179,7 @@ export const Process = () => {
                                             <h4 className={`text-xl font-bold mb-1 ${step.highlight ? 'text-neonPurple' : 'text-white'}`}>
                                                 {step.title}
                                             </h4>
-                                            <p className="text-lg text-muted leading-relaxed">
+                                            <p className="text-base md:text-lg text-muted leading-relaxed">
                                                 {step.desc}
                                             </p>
                                         </div>
