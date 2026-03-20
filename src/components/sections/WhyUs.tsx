@@ -13,9 +13,9 @@ export function WhyUs() {
         <section id="miert-minket" className="py-24 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h3 className="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
                         {t('whyus.title_prefix')} <span className="text-neonBlue">{t('whyus.title_highlight')}</span> {t('whyus.title_suffix')}
-                    </h3>
+                    </h2>
                     <p className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto font-display font-light">
                         {t('whyus.subtitle_1')} <span className="text-white font-bold decoration-neonBlue underline underline-offset-4">{t('whyus.subtitle_highlight')}</span>{t('whyus.subtitle_2')}
                     </p>

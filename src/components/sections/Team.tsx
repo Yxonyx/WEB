@@ -79,12 +79,12 @@ export const Team = () => {
                     viewport={{ once: true, margin: "-50px" }}
                     variants={containerVariants}
                 >
-                    <motion.h3
+                    <motion.span
                         variants={itemVariants}
-                        className="text-lg font-mono text-neonPurple uppercase tracking-widest mb-6"
+                        className="text-lg font-mono text-neonPurple uppercase tracking-widest mb-6 block"
                     >
                         {t('team.philosophy.tag') || '// Filozófiánk'}
-                    </motion.h3>
+                    </motion.span>
 
                     <motion.p
                         variants={itemVariants}
@@ -113,9 +113,9 @@ export const Team = () => {
                     <span className="text-sm font-mono text-neonBlue uppercase tracking-widest mb-3 block">
                         {t('team.tag') || '// Csapat'}
                     </span>
-                    <h3 className="text-3xl sm:text-4xl font-bold font-display text-white mb-4">
+                    <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-4">
                         {t('team.title') || 'Akik mögötted állnak'}
-                    </h3>
+                    </h2>
                     <p className="text-white/80 text-lg font-medium max-w-2xl mx-auto">
                         {t('team.subtitle') || 'Fiatal, tapasztalt csapat — akik valóban törődnek a projekted sikerével.'}
                     </p>

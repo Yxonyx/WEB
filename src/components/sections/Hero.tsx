@@ -42,26 +42,26 @@ export const Hero = () => {
                     <div className="absolute inset-0 bg-hero-gradient pointer-events-none z-[5]" />
 
                     {/* Complex Orbs - Desktop Only */}
-                    <div className="hidden lg:block absolute inset-0 z-[6] overflow-hidden pointer-events-none" style={{ contain: 'layout style', willChange: 'auto' }}>
+                    <div className="hidden lg:block absolute inset-0 z-[6] overflow-hidden pointer-events-none" style={{ contain: 'layout style' }}>
                         <div
-                            className="absolute -top-1/4 -right-1/4 w-[80vw] h-[80vh]"
+                            className="absolute -top-1/4 -right-1/4 w-[80vw] h-[80vh] will-change-transform"
                             style={{
-                                background: 'radial-gradient(ellipse at center, rgba(79,138,255,0.10) 0%, rgba(79,138,255,0.03) 40%, transparent 70%)',
-                                filter: 'blur(60px)'
+                                background: 'radial-gradient(ellipse at center, rgba(79,138,255,0.08) 0%, rgba(79,138,255,0.02) 30%, transparent 60%)',
+                                transform: 'translateZ(0)',
                             }}
                         />
                         <div
-                            className="absolute -bottom-1/4 -left-1/4 w-[80vw] h-[80vh]"
+                            className="absolute -bottom-1/4 -left-1/4 w-[80vw] h-[80vh] will-change-transform"
                             style={{
-                                background: 'radial-gradient(ellipse at center, rgba(155,114,255,0.25) 0%, rgba(155,114,255,0.05) 40%, transparent 70%)',
-                                filter: 'blur(60px)'
+                                background: 'radial-gradient(ellipse at center, rgba(155,114,255,0.18) 0%, rgba(155,114,255,0.04) 30%, transparent 60%)',
+                                transform: 'translateZ(0)',
                             }}
                         />
                         <div
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[40vh] opacity-30"
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[40vh] opacity-30 will-change-transform"
                             style={{
-                                background: 'radial-gradient(ellipse at center, rgba(155,114,255,0.3) 0%, transparent 60%)',
-                                filter: 'blur(80px)'
+                                background: 'radial-gradient(ellipse at center, rgba(155,114,255,0.2) 0%, transparent 50%)',
+                                transform: 'translateZ(0)',
                             }}
                         />
                     </div>
@@ -69,19 +69,17 @@ export const Hero = () => {
                     {/* Mobile Simplified Background */}
                     <div className="lg:hidden absolute inset-0 z-[6] pointer-events-none overflow-hidden">
                         <div
-                            className="absolute top-[-20%] right-[-20%] w-[100%] h-[60%]"
+                            className="absolute top-[-20%] right-[-20%] w-[100%] h-[60%] will-change-transform"
                             style={{
-                                background: 'radial-gradient(circle, rgba(79,138,255,0.04) 0%, transparent 70%)',
-                                filter: 'blur(60px)',
-                                transform: 'translateZ(0)'
+                                background: 'radial-gradient(circle, rgba(79,138,255,0.04) 0%, transparent 60%)',
+                                transform: 'translateZ(0)',
                             }}
                         />
                         <div
-                            className="absolute bottom-[-10%] left-[-20%] w-[100%] h-[60%]"
+                            className="absolute bottom-[-10%] left-[-20%] w-[100%] h-[60%] will-change-transform"
                             style={{
-                                background: 'radial-gradient(circle, rgba(155,114,255,0.1) 0%, transparent 70%)',
-                                filter: 'blur(60px)',
-                                transform: 'translateZ(0)'
+                                background: 'radial-gradient(circle, rgba(155,114,255,0.1) 0%, transparent 60%)',
+                                transform: 'translateZ(0)',
                             }}
                         />
                     </div>

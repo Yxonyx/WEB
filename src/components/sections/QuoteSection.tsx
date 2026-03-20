@@ -30,9 +30,9 @@ export const QuoteSection = () => {
 
 
                         {/* Heading */}
-                        <h3 className="text-2xl lg:text-[2.5rem] font-bold text-white mb-6 leading-tight font-display">
+                        <h2 className="text-2xl lg:text-[2.5rem] font-bold text-white mb-6 leading-tight font-display">
                             "{t('quote.title.prefix')}<span className="text-neonBlue">{t('quote.title.highlight')}</span>{t('quote.title.suffix')}"
-                        </h3>
+                        </h2>
 
                         <p className="text-lg text-white/80 font-medium mb-6 leading-relaxed">
                             {t('quote.subtitle')}

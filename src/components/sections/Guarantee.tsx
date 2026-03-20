@@ -20,9 +20,9 @@ export function Guarantee() {
                             <ShieldCheck className="w-16 h-16 md:w-20 md:h-20 text-neonBlue relative z-10 drop-shadow-[0_0_15px_rgba(79,138,255,0.5)]" />
                         </div>
 
-                        <h3 className="text-3xl md:text-5xl font-bold mb-6 text-white font-display tracking-tight">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white font-display tracking-tight">
                             {t('guarantee.title')}
-                        </h3>
+                        </h2>
 
                         <p className="text-base md:text-xl text-neutral-400 mb-10 max-w-2xl mx-auto leading-relaxed">
                             {t('guarantee.desc')}

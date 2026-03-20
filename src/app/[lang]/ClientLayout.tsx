@@ -4,6 +4,7 @@ import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { CookieBanner } from "@/components/ui/CookieBanner";
 import { GeoNotification } from "@/components/ui/GeoNotification";
+import { MotionProvider } from "@/components/MotionProvider";
 
 export default function ClientLayout({
   children,
@@ -11,13 +12,15 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-bgDeep text-white selection:bg-neonBlue/30 noise-overlay relative">
-      <CookieBanner />
-      <GeoNotification />
-      <Navbar />
-      {children}
-      <Footer />
-    </div>
+    <MotionProvider>
+      <div className="min-h-screen bg-bgDeep text-white selection:bg-neonBlue/30 noise-overlay relative">
+        <CookieBanner />
+        <GeoNotification />
+        <Navbar />
+        {children}
+        <Footer />
+      </div>
+    </MotionProvider>
   );
 }
 
