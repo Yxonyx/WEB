@@ -7,7 +7,7 @@ import { BracketFrame } from '../ui/BracketFrame';
 import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
         opacity: 1,
         transition: { staggerChildren: 0.08, delayChildren: 0.1 }
@@ -15,7 +15,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, x: 0 },
+    hidden: { opacity: 1, x: 0 },
     visible: {
         opacity: 1,
         x: 0,

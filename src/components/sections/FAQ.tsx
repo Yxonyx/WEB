@@ -70,14 +70,14 @@ export const FAQ = () => {
                     {/* FAQ List */}
                     <motion.div
                         className="lg:col-span-7 lg:order-2"
-                        initial={{ opacity: 0 }}
+                        initial={{ opacity: 1 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4 }}
                     >
                         <h2 className="text-3xl font-bold font-display text-white mb-8">{t('faq.title')}</h2>
                         {/* Designer update: Átlátszóbb üveg, hogy a szekció színe átüssön (User kérés) */}
-                        <div className="bg-overlay/40 backdrop-blur-md rounded-2xl border border-white/10 p-6 sm:p-8 shadow-2xl">
+                        <div className="bg-[#0a0e1a] rounded-2xl border border-white/10 p-6 sm:p-8 shadow-2xl">
                             {questions.map((faq, i) => (
                                 <FAQItem key={i} {...faq} />
                             ))}

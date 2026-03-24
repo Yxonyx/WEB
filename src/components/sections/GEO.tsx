@@ -31,7 +31,7 @@ export const GEO = () => {
                     {/* 1. The Shift (Problem/Solution) */}
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
-                            initial={{ opacity: 0, x: 0 }}
+                            initial={{ opacity: 1, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
@@ -42,7 +42,7 @@ export const GEO = () => {
 
                         <motion.div
                             className="relative"
-                            initial={{ opacity: 0, x: 0 }}
+                            initial={{ opacity: 1, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
@@ -75,7 +75,7 @@ export const GEO = () => {
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center lg:flex-row-reverse">
                         <motion.div
                             className="lg:order-2"
-                            initial={{ opacity: 0, x: 0 }}
+                            initial={{ opacity: 1, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
@@ -99,7 +99,7 @@ export const GEO = () => {
 
                         <motion.div
                             className="lg:order-1 relative"
-                            initial={{ opacity: 0, x: 0 }}
+                            initial={{ opacity: 1, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
@@ -138,7 +138,7 @@ export const GEO = () => {
                     {/* 3. Metrics (Trust & Quality) */}
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
-                            initial={{ opacity: 0, x: 0 }}
+                            initial={{ opacity: 1, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
@@ -186,7 +186,7 @@ export const GEO = () => {
 
                         <motion.div
                             className="relative"
-                            initial={{ opacity: 0, x: 0 }}
+                            initial={{ opacity: 1, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}

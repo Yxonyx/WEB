@@ -158,7 +158,7 @@ export const Hero = () => {
                             <span className="text-sm font-mono text-neonBlue uppercase tracking-widest">{t('hero.tag')}</span>
                         </div>
 
-                        <h1 className="text-7xl font-bold leading-[1.1] mb-6 tracking-tight font-display">
+                        <h1 className="text-6xl font-bold leading-[1.1] mb-6 tracking-tight font-display">
                             <span>{t('hero.title_prefix_1')}</span>
                             <span>{t('hero.title_prefix_2')}</span>
                             <br />
@@ -169,11 +169,11 @@ export const Hero = () => {
                             <span>{t('hero.title_suffix')}</span>
                         </h1>
 
-                        <p className="text-2xl mb-6 leading-relaxed font-display">
+                        <p className="text-xl mb-5 leading-relaxed font-display">
                             <span className="text-neonBlue italic">{t('hero.subtitle_1')}</span>{' '}
                             <span className="text-white font-medium">{t('hero.subtitle_highlight')}</span>
                         </p>
-                        <p className="text-xl text-muted mb-10 leading-relaxed max-w-lg">
+                        <p className="text-lg text-muted mb-8 leading-relaxed max-w-lg">
                             {t('hero.subtitle_desc_1')}
                             <span className="text-neonBlue">{t('hero.subtitle_google')}</span>
                             {t('hero.subtitle_desc_2')}

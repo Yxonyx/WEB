@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { twMerge } from 'tailwind-merge';
 import { motion } from 'framer-motion';
@@ -45,9 +45,39 @@ export const Button: React.FC<ButtonProps> = ({
 
     const combinedClassName = twMerge(baseStyles, variants[variant], sizes[size], className);
 
+    const handleHashClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (!href || !href.startsWith('#')) return;
+        e.preventDefault();
+        const targetId = href.slice(1);
+
+        // Try to find element immediately
+        let target = document.getElementById(targetId);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            return;
+        }
+
+        // Element not in DOM yet (lazy loaded) — force all lazy sections to render
+        window.dispatchEvent(new CustomEvent('force-lazy-load'));
+
+        // Wait for lazy sections to render, then scroll
+        const maxAttempts = 20;
+        let attempt = 0;
+        const interval = setInterval(() => {
+            target = document.getElementById(targetId);
+            attempt++;
+            if (target) {
+                clearInterval(interval);
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else if (attempt >= maxAttempts) {
+                clearInterval(interval);
+            }
+        }, 100);
+    }, [href]);
+
     if (href) {
         return (
-            <a href={href} className={combinedClassName}>
+            <a href={href} onClick={href.startsWith('#') ? handleHashClick : undefined} className={combinedClassName}>
                 <Brackets />
                 <span className="relative z-10 flex items-center">
                     {children}

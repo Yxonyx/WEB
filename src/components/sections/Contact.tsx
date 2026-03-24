@@ -6,7 +6,7 @@ import { motion, type Variants } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
         opacity: 1,
         transition: { staggerChildren: 0.1, delayChildren: 0.1 }
@@ -14,7 +14,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 0 },
+    hidden: { opacity: 1, y: 0 },
     visible: {
         opacity: 1,
         y: 0,
@@ -34,14 +34,14 @@ export const Contact = () => {
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
                     {/* Left Info */}
                     <motion.div
-                        initial={{ opacity: 0, x: 0 }}
+                        initial={{ opacity: 1, x: 0 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4 }}
                     >
                         <motion.div
                             className="inline-block px-3 py-1 mb-6 rounded-full bg-neonPurple/10 border border-neonPurple/20"
-                            initial={{ opacity: 0, scale: 0.8 }}
+                            initial={{ opacity: 1, scale: 0.8 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.4 }}
@@ -75,7 +75,7 @@ export const Contact = () => {
 
                         <motion.div
                             className="relative max-w-sm"
-                            initial={{ opacity: 0, y: 0 }}
+                            initial={{ opacity: 1, y: 0 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: 0.3 }}
@@ -99,7 +99,7 @@ export const Contact = () => {
 
                     {/* Right Form */}
                     <motion.div
-                        initial={{ opacity: 0, x: 0 }}
+                        initial={{ opacity: 1, x: 0 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: 0.2 }}

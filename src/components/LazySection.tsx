@@ -34,6 +34,13 @@ export function LazySection({ children, fallback, rootMargin = '200px' }: LazySe
     return () => observer.disconnect();
   }, [rootMargin]);
 
+  // Force render when hash navigation targets a lazy-loaded section
+  useEffect(() => {
+    const handleForce = () => setIsVisible(true);
+    window.addEventListener('force-lazy-load', handleForce);
+    return () => window.removeEventListener('force-lazy-load', handleForce);
+  }, []);
+
   return (
     <div ref={ref} style={{ minHeight: isVisible ? 'auto' : '100vh' }}>
       {isVisible ? children : (fallback ?? <div style={{ minHeight: '100vh' }} />)}

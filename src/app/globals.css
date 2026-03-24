@@ -17,7 +17,7 @@ h1, h2, h3, h4 {
     section:not(#velemenyek) > div > div p,
     section:not(#velemenyek) > div > div > div p,
     section:not(#velemenyek) > div li {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         line-height: 1.75;
     }
 }

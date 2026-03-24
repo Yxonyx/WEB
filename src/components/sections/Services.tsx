@@ -7,7 +7,7 @@ import { WebDevGraphic } from '../ui/WebDevGraphic';
 import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
         opacity: 1,
         transition: {
@@ -18,7 +18,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 0 },
+    hidden: { opacity: 1, y: 0 },
     visible: {
         opacity: 1,
         y: 0,
@@ -36,7 +36,7 @@ export const Services = () => {
                 {/* Header */}
                 <motion.div
                     className="flex flex-col items-center max-w-3xl mx-auto mb-12 lg:mb-20"
-                    initial={{ opacity: 0, y: 0 }}
+                    initial={{ opacity: 1, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}

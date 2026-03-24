@@ -37,7 +37,7 @@ export const Insights = () => {
             <Container>
                 {/* Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 15 }}
+                    initial={{ opacity: 1, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
@@ -73,7 +73,7 @@ export const Insights = () => {
                                 className="group block relative z-20 cursor-pointer h-full"
                             >
                                 <motion.div
-                                    initial={{ opacity: 0, y: 15 }}
+                                    initial={{ opacity: 1, y: 15 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.4 }}

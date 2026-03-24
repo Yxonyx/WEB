@@ -7,7 +7,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
         opacity: 1,
         transition: { staggerChildren: 0.08, delayChildren: 0.1 }
@@ -15,7 +15,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 0, scale: 1 },
+    hidden: { opacity: 1, y: 0, scale: 1 },
     visible: {
         opacity: 1,
         y: 0,
@@ -236,7 +236,7 @@ export const Portfolio = () => {
             <Container>
                 <motion.div
                     className="mb-12 text-center"
-                    initial={{ opacity: 0, y: 0 }}
+                    initial={{ opacity: 1, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}

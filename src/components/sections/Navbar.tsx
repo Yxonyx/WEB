@@ -21,6 +21,25 @@ export const Navbar = () => {
         return isHomePage ? hash : `/${language}/${hash}`;
     };
 
+    const handleMobileNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        const resolvedHref = getLink(href);
+        // Only handle hash links on same page
+        if (resolvedHref.startsWith('#')) {
+            e.preventDefault();
+            setIsMobileOpen(false);
+            const targetId = resolvedHref.slice(1);
+            // Wait for menu close animation to finish before scrolling
+            setTimeout(() => {
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 350);
+        } else {
+            setIsMobileOpen(false);
+        }
+    };
+
     // Handle scroll to hash when navigating from another page
     useEffect(() => {
         if ((typeof window !== 'undefined' ? window.location.hash : '')) {
@@ -253,7 +272,7 @@ export const Navbar = () => {
                                         <a
                                             key={index}
                                             href={getLink(item.href)}
-                                            onClick={() => setIsMobileOpen(false)}
+                                            onClick={(e) => handleMobileNav(e, item.href)}
                                             className="group flex items-center gap-3 text-base font-mono text-white/70 hover:text-neonBlue pl-3 py-1.5 transition-all"
                                         >
                                             <span className="text-neonBlue/30 group-hover:text-neonBlue text-xs transition-colors">{'>'}_</span>
@@ -267,7 +286,7 @@ export const Navbar = () => {
                                 <a
                                     key={link.label}
                                     href={getLink(link.href)}
-                                    onClick={() => setIsMobileOpen(false)}
+                                    onClick={(e) => handleMobileNav(e, link.href)}
                                     className="text-lg font-medium text-white hover:text-neonBlue"
                                 >
                                     <span className="font-mono text-neonBlue/50">&lt;</span>
@@ -299,9 +318,15 @@ export const Navbar = () => {
                                 </button>
                             </div>
 
-                            <Button href={getLink('#kapcsolat')} variant="primary" className="w-full justify-center mt-4">
-                                {t('nav.cta')}
-                            </Button>
+                            <a
+                                href={getLink('#kapcsolat')}
+                                onClick={(e) => handleMobileNav(e, '#kapcsolat')}
+                                className="relative inline-flex items-center justify-center font-mono font-bold tracking-wider transition-all duration-300 group bg-neonBlue text-white hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(77,148,255,0.45)] px-8 py-3 text-sm w-full justify-center mt-4"
+                            >
+                                <span className="mr-2 text-black/60 group-hover:text-black/80 transition-colors">&lt;</span>
+                                <span className="relative z-10 flex items-center">{t('nav.cta')}</span>
+                                <span className="ml-2 text-black/60 group-hover:text-black/80 transition-colors">&gt;</span>
+                            </a>
                         </Container>
                     </motion.div>
                 )}

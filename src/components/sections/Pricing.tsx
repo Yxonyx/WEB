@@ -7,7 +7,7 @@ import { motion, type Variants } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
         opacity: 1,
         transition: {
@@ -18,7 +18,7 @@ const containerVariants: Variants = {
 };
 
 const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 0 },
+    hidden: { opacity: 1, y: 0 },
     visible: {
         opacity: 1,
         y: 0,
@@ -34,7 +34,7 @@ export const Pricing = () => {
             <Container>
                 <motion.div
                     className="text-center max-w-2xl mx-auto mb-16"
-                    initial={{ opacity: 0, y: 0 }}
+                    initial={{ opacity: 1, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
@@ -183,7 +183,7 @@ export const Pricing = () => {
                             <motion.div
                                 key={i}
                                 variants={cardVariants}
-                                className={`p-6 rounded-3xl border ${i === 1 ? 'bg-surface/80 border-neonBlue/30 shadow-lg shadow-neonBlue/10 relative overflow-hidden' : 'bg-surface/20 backdrop-blur-md border-white/5'} flex flex-col`}
+                                className={`p-6 rounded-3xl border ${i === 1 ? 'bg-surface/80 border-neonBlue/30 shadow-lg shadow-neonBlue/10 relative overflow-hidden' : 'bg-[#0c1020] border-white/5'} flex flex-col`}
                             >
                                 {i === 1 && (
                                     <div className="absolute top-0 right-0 bg-neonBlue text-black text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase tracking-wider">
@@ -222,7 +222,7 @@ export const Pricing = () => {
 
                 <motion.p
                     className="text-center text-muted2 text-base mt-12"
-                    initial={{ opacity: 0 }}
+                    initial={{ opacity: 1 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.8 }}

@@ -149,7 +149,7 @@ export const Testimonials = () => {
             <Container>
                 {/* Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 0 }}
+                    initial={{ opacity: 1, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="text-center mb-8 md:mb-16"
@@ -271,7 +271,7 @@ export const Testimonials = () => {
             {/* Google Review Badge */}
             <Container>
                 <motion.div
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 1, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}

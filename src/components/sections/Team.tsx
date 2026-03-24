@@ -6,7 +6,7 @@ import { ParticleNetwork } from '../ui/ParticleNetwork';
 import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
         opacity: 1,
         transition: { staggerChildren: 0.08, delayChildren: 0.1 }
@@ -14,7 +14,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 0 },
+    hidden: { opacity: 1, y: 0 },
     visible: {
         opacity: 1,
         y: 0,
@@ -105,7 +105,7 @@ export const Team = () => {
                 {/* Team header */}
                 <motion.div
                     className="mb-12 text-center"
-                    initial={{ opacity: 0, y: 0 }}
+                    initial={{ opacity: 1, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
@@ -138,7 +138,7 @@ export const Team = () => {
                             {/* Terminal Card replaced with Glass Card */}
                             {/* Terminal Card - Tuned Up */}
                             <div
-                                className="relative bg-black/20 backdrop-blur-md border border-white/10 rounded-xl h-full flex flex-col hover:border-neonBlue/40 transition-all duration-500 group-hover:shadow-[0_0_30px_-10px_rgba(79,138,255,0.15)] touch-pan-y"
+                                className="relative bg-[#0a0e1a] border border-white/10 rounded-xl h-full flex flex-col hover:border-neonBlue/40 transition-all duration-500 group-hover:shadow-[0_0_30px_-10px_rgba(79,138,255,0.15)] touch-pan-y"
                                 itemScope
                                 itemType="https://schema.org/Person"
                             >

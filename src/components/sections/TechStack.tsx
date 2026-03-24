@@ -38,7 +38,7 @@ const platformIcons = [
 ];
 
 const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
         opacity: 1,
         transition: { staggerChildren: 0.08, delayChildren: 0.1 }
@@ -46,7 +46,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 15 },
+    hidden: { opacity: 1, y: 15 },
     visible: {
         opacity: 1, y: 0,
         transition: { duration: 0.4, ease: 'easeOut' as const }
@@ -67,7 +67,7 @@ export const TechStack = () => {
                 {/* Section Header */}
                 <motion.div
                     className="text-center mb-14 lg:mb-20"
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 1, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
@@ -97,7 +97,7 @@ export const TechStack = () => {
                     {/* Card 1: Egyedi fejlesztés */}
                     <motion.div
                         variants={itemVariants}
-                        className="relative bg-black/20 backdrop-blur-md border border-white/10 rounded-xl hover:border-neonBlue/30 transition-all duration-500 flex flex-col"
+                        className="relative bg-[#0a0e1a] border border-white/10 rounded-xl hover:border-neonBlue/30 transition-all duration-500 flex flex-col"
                     >
                         {/* Corner brackets */}
                         <div className="absolute -top-px -left-px w-4 h-4 border-t-2 border-l-2 border-neonBlue rounded-tl-lg" />
@@ -137,7 +137,7 @@ export const TechStack = () => {
                                         <motion.div
                                             key={tech.name}
                                             className="group"
-                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            initial={{ opacity: 1, scale: 0.8 }}
                                             whileInView={{ opacity: 1, scale: 1 }}
                                             viewport={{ once: true }}
                                             transition={{ delay: 0.05 + i * 0.02, duration: 0.25 }}
@@ -162,7 +162,7 @@ export const TechStack = () => {
                     {/* Card 2: WordPress & Shopify */}
                     <motion.div
                         variants={itemVariants}
-                        className="relative bg-black/20 backdrop-blur-md border border-white/10 rounded-xl hover:border-neonPurple/30 transition-all duration-500 flex flex-col"
+                        className="relative bg-[#0a0e1a] border border-white/10 rounded-xl hover:border-neonPurple/30 transition-all duration-500 flex flex-col"
                     >
                         {/* Corner brackets */}
                         <div className="absolute -top-px -left-px w-4 h-4 border-t-2 border-l-2 border-neonPurple rounded-tl-lg" />
@@ -202,7 +202,7 @@ export const TechStack = () => {
                                         <motion.div
                                             key={tech.name}
                                             className="group flex flex-col items-center gap-1.5"
-                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            initial={{ opacity: 1, scale: 0.8 }}
                                             whileInView={{ opacity: 1, scale: 1 }}
                                             viewport={{ once: true }}
                                             transition={{ delay: 0.15 + i * 0.1, duration: 0.3 }}

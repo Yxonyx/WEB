@@ -4,7 +4,7 @@ import { Section } from '../Section';
 import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
         opacity: 1,
         transition: { staggerChildren: 0.08, delayChildren: 0.1 }
@@ -12,7 +12,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, x: 0 },
+    hidden: { opacity: 1, x: 0 },
     visible: {
         opacity: 1,
         x: 0,
@@ -83,7 +83,7 @@ export const Process = () => {
                             {t('process.desc')}
                         </p>
 
-                        <div className="p-6 rounded-2xl bg-black/30 backdrop-blur-sm border border-white/15 shadow-2xl">
+                        <div className="p-6 rounded-2xl bg-[#0a0e1a] border border-white/15 shadow-2xl">
                             <h3 className="text-xl font-bold text-white mb-5 flex items-center gap-2">
                                 <span className="w-1.5 h-6 bg-accent-gradient rounded-full"></span>
                                 {t('process.card.title')}

@@ -6,7 +6,7 @@ import { motion, type Variants } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 
 const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
         opacity: 1,
         transition: { staggerChildren: 0.08, delayChildren: 0.1 }
@@ -14,7 +14,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, x: 0 },
+    hidden: { opacity: 1, x: 0 },
     visible: {
         opacity: 1,
         x: 0,
@@ -41,7 +41,7 @@ export const Maintenance = () => {
                     {/* Visual - Left Side (Unified Dashboard) */}
                     <motion.div variants={itemVariants} className="order-2 lg:order-1 relative">
                         <div className="absolute inset-0 bg-neonPurple/5 rounded-3xl blur-xl" />
-                        <div className="relative h-full bg-surface/20 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-center shadow-2xl">
+                        <div className="relative h-full bg-[#0a0e1a] border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-center shadow-2xl">
 
                             {/* Dashboard Content */}
                             <div className="space-y-3">
