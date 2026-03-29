@@ -134,7 +134,7 @@ export const Hero = () => {
                         {/* Robot */}
                         <div className="absolute inset-0 z-10">
                             <SplineScene
-                                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                                scene="/robot-scene.splinecode"
                                 className="w-full h-full"
                             />
                         </div>
@@ -151,14 +151,14 @@ export const Hero = () => {
                 </div>
 
                 {/* === DESKTOP HERO LAYOUT === */}
-                <div className="hidden lg:grid lg:grid-cols-2 gap-8 items-center">
+                <div className="hidden lg:grid lg:grid-cols-2 gap-10 items-center">
                     {/* Text Content */}
                     <div className="max-w-2xl text-left">
                         <div className="inline-flex items-center gap-2 mb-6 justify-start">
                             <span className="text-sm font-mono text-neonBlue uppercase tracking-widest">{t('hero.tag')}</span>
                         </div>
 
-                        <h1 className="text-6xl font-bold leading-[1.1] mb-6 tracking-tight font-display">
+                        <h1 className="text-6xl font-bold leading-[1.08] mb-6 tracking-tight font-display">
                             <span>{t('hero.title_prefix_1')}</span>
                             <span>{t('hero.title_prefix_2')}</span>
                             <br />
@@ -191,11 +191,11 @@ export const Hero = () => {
                     </div>
 
                     {/* Visual Content - 3D Spline Robot */}
-                    <div className="relative h-[500px]">
+                    <div className="relative h-[520px] xl:h-[560px]">
                         {/* Robot layer */}
                         <div className="absolute inset-0 z-10">
                             <SplineScene
-                                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                                scene="/robot-scene.splinecode"
                                 className="w-full h-full"
                             />
                         </div>
