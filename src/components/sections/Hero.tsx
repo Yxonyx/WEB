@@ -96,7 +96,7 @@ export const Hero = () => {
                             <span className="text-xs font-mono text-neonBlue uppercase tracking-widest">{t('hero.tag')}</span>
                         </div>
 
-                        <h1 className="text-4xl sm:text-5xl font-bold leading-[1.1] mb-4 tracking-tight font-display">
+                        <h1 className="text-4xl sm:text-5xl font-bold text-white leading-[1.1] mb-4 tracking-tight font-display">
                             <span>{t('hero.title_prefix_1')}</span>
                             <br className="sm:hidden" />
                             <span>{t('hero.title_prefix_2')}</span>
@@ -112,7 +112,7 @@ export const Hero = () => {
                             <span className="text-neonBlue italic">{t('hero.subtitle_1')}</span>{' '}
                             <span className="text-white font-medium">{t('hero.subtitle_highlight')}</span>
                         </p>
-                        <p className="text-sm sm:text-base text-muted mb-6 leading-relaxed max-w-md mx-auto">
+                        <p className="text-sm sm:text-base text-white/80 mb-6 leading-relaxed max-w-md mx-auto font-medium">
                             {t('hero.subtitle_desc_1')}
                             <span className="text-neonBlue">{t('hero.subtitle_google')}</span>
                             {t('hero.subtitle_desc_2')}
@@ -158,7 +158,7 @@ export const Hero = () => {
                             <span className="text-sm font-mono text-neonBlue uppercase tracking-widest">{t('hero.tag')}</span>
                         </div>
 
-                        <h1 className="text-6xl font-bold leading-[1.08] mb-6 tracking-tight font-display">
+                        <h1 className="text-6xl font-bold text-white leading-[1.08] mb-6 tracking-tight font-display">
                             <span>{t('hero.title_prefix_1')}</span>
                             <span>{t('hero.title_prefix_2')}</span>
                             <br />
@@ -173,7 +173,7 @@ export const Hero = () => {
                             <span className="text-neonBlue italic">{t('hero.subtitle_1')}</span>{' '}
                             <span className="text-white font-medium">{t('hero.subtitle_highlight')}</span>
                         </p>
-                        <p className="text-lg text-muted mb-8 leading-relaxed max-w-lg">
+                        <p className="text-lg text-white/80 mb-8 leading-relaxed max-w-lg font-medium">
                             {t('hero.subtitle_desc_1')}
                             <span className="text-neonBlue">{t('hero.subtitle_google')}</span>
                             {t('hero.subtitle_desc_2')}

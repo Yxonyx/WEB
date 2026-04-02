@@ -34,10 +34,18 @@ const projects = [
     },
     {
         id: 1031,
-        name: "DiagnoCare Egészségügy (Mobile)",
-        image: "/images/ref-loquacious-mobile.png",
+        name: "VízVillanyFűtés.hu (Mobile)",
+        image: "/images/ref-vizvillany-mobile.webp",
         type: "image",
-        link: "https://loquacious-pika-7aea72.netlify.app",
+        link: "https://vizvillanyfutes.hu",
+        isMobile: true
+    },
+    {
+        id: 1032,
+        name: "DemiGod Academy (Mobile)",
+        image: "/images/ref-demigod-mobile.webp",
+        type: "image",
+        link: "https://becomedemigod.com",
         isMobile: true
     },
     {
@@ -45,7 +53,7 @@ const projects = [
         name: "Ingatlanos Személyes Márka",
         image: "/images/ref-mobile-1.webp",
         type: "image",
-        link: "#",
+        link: "https://schwederbence.hu/",
         isMobile: true
     },
     {
@@ -94,9 +102,9 @@ const projects = [
         type: "image",
         link: "https://loquacious-pika-7aea72.netlify.app"
     },
-    { id: 1, name: "Sportfogadási Portál & Tippadó", image: "/images/projekt1.webp", type: "image" },
+    { id: 1, name: "VízVillanyFűtés Szakember Kereső", image: "/images/ref-vizvillany-pc.webp", type: "image", link: "https://vizvillanyfutes.hu" },
     { id: 2, name: "Háziorvosi Praxis Weboldal", image: "/images/portfolio-2.webp", type: "image", link: "https://drkaiserattila.hu" },
-    { id: 3, name: "Orvosi Tetoválás & Esztétika", image: "/images/portfolio3.webp", type: "image" },
+    { id: 3, name: "DemiGod Academy", image: "/images/ref-demigod-pc.webp", type: "image", link: "https://becomedemigod.com" },
     { id: 4, name: "Karaván & Lakókocsi Értékesítés", image: "/images/portfolio-karavan.webp", type: "image" },
     { id: 5, name: "Prémium Ingatlan Landing", image: "/images/portfolio-ingatlan.webp", type: "image", link: "/rottenbiller-static/index.html" },
     { id: 6, name: "Ajándék Webshop", image: "/images/portfolio-projekt6.webp", type: "image" }
@@ -297,13 +305,14 @@ export const Portfolio = () => {
 
                             <div
                                 ref={mobileTrackRef}
-                                className="flex gap-8 py-4 px-4 w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                                className="flex gap-8 py-6 w-full overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                                style={{ paddingLeft: 'calc(50vw - 120px)', paddingRight: 'calc(50vw - 120px)' }}
                             >
                                 {mobileProjects.map((project, index) => (
                                     <motion.div
                                         key={`${project.id}-mob-${index}`}
                                         variants={itemVariants}
-                                        className="shrink-0 snap-center"
+                                        className="shrink-0 w-[240px] snap-center flex justify-center"
                                     >
                                         {project.link ? (
                                             <a href={project.link} target="_blank" rel="noopener noreferrer" className="block h-full">
