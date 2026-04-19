@@ -47,7 +47,7 @@ export const Contact = () => {
                         >
                             <span className="text-sm font-mono text-neonPurple uppercase tracking-widest">{t('contact.tag')}</span>
                         </motion.div>
-                        <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-6 leading-tight">
+                        <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold font-display text-white mb-6 leading-tight">
                             {t('contact.title_line1')} <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
                                 {t('contact.title_gradient')}

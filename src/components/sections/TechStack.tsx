@@ -75,7 +75,7 @@ export const TechStack = () => {
                     <span className="text-neonBlue font-mono text-sm tracking-widest uppercase mb-4 block">
                         {'// ' + (t('techStack.tag') as string)}
                     </span>
-                    <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-4 leading-tight">
+                    <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold font-display text-white mb-4 leading-tight">
                         {(t('techStack.title') as string).split(' ').slice(0, -1).join(' ')}{' '}
                         <span className="text-transparent bg-clip-text bg-accent-gradient">
                             {(t('techStack.title') as string).split(' ').slice(-1)}

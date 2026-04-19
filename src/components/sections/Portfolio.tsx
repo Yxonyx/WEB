@@ -114,7 +114,7 @@ const ProjectCard = ({ project }: { project: any }) => {
     if (project.isMobile) {
         return (
             <div className="group cursor-pointer h-full flex flex-col items-center">
-                <div className="relative w-full max-w-[240px] aspect-[9/19] rounded-[2rem] overflow-hidden shadow-2xl border-[4px] border-[#1a1a1a] bg-black transition-transform duration-500 group-hover:scale-105 group-hover:shadow-neonBlue/20 mb-4">
+                <div className="relative w-full max-w-[200px] lg:max-w-[220px] aspect-[9/18] rounded-[1.75rem] overflow-hidden shadow-2xl border-[3px] border-[#1a1a1a] bg-black transition-transform duration-500 group-hover:scale-105 group-hover:shadow-neonBlue/20 mb-3">
                     <img
                         src={project.image}
                         alt={`${project.name} Mobile`}
@@ -125,9 +125,9 @@ const ProjectCard = ({ project }: { project: any }) => {
                     <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
                 </div>
 
-                <div className="flex flex-col items-center w-full max-w-[240px] text-center">
-                    <h3 className="text-lg font-bold text-white group-hover:text-neonBlue transition-colors">{project.name.replace(' (Mobile)', '')}</h3>
-                    <span className="text-[10px] font-mono font-bold text-neonBlue border border-neonBlue/30 px-2 py-0.5 rounded mt-1 bg-neonBlue/5 tracking-wider uppercase">Referencia</span>
+                <div className="flex flex-col items-center w-full max-w-[220px] text-center">
+                    <h3 className="text-[15px] lg:text-base font-bold text-white group-hover:text-neonBlue transition-colors leading-tight">{project.name.replace(' (Mobile)', '')}</h3>
+                    <span className="text-[10px] font-mono font-bold text-neonBlue border border-neonBlue/30 px-2 py-0.5 rounded mt-1.5 bg-neonBlue/5 tracking-wider uppercase">Referencia</span>
                 </div>
             </div>
         );
@@ -191,7 +191,7 @@ export const Portfolio = () => {
     const scrollMobile = (direction: 'left' | 'right') => {
         if (!mobileTrackRef.current) return;
         const container = mobileTrackRef.current;
-        const cardWidth = 272; // 240px card + 32px gap
+        const cardWidth = 224; // 200px card + 24px gap
         const scrollAmount = cardWidth;
 
         const currentIndex = Math.round(container.scrollLeft / scrollAmount);
@@ -215,7 +215,7 @@ export const Portfolio = () => {
     // Initialize scroll position to the start of the second loop for infinite scroll illusion
     useEffect(() => {
         if (mobileTrackRef.current) {
-            const cardWidth = 272;
+            const cardWidth = 224;
             const initialScroll = mobileProjectsRaw.length * cardWidth;
             mobileTrackRef.current.scrollLeft = initialScroll;
         }
@@ -249,7 +249,7 @@ export const Portfolio = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
                 >
-                    <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-4 leading-tight">{t('portfolio.title')}</h2>
+                    <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold font-display text-white mb-4 leading-tight">{t('portfolio.title')}</h2>
                     <p className="text-white/80 text-lg font-medium max-w-2xl mx-auto">{t('portfolio.subtitle')}</p>
                 </motion.div>
 
@@ -258,7 +258,7 @@ export const Portfolio = () => {
                     <>
                         {/* Desktop View: Static Centered Row (LG and up) */}
                         <motion.div
-                            className="hidden lg:flex justify-center gap-8 mb-16"
+                            className="hidden lg:flex justify-center gap-10 mb-20"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-50px" }}
@@ -305,14 +305,14 @@ export const Portfolio = () => {
 
                             <div
                                 ref={mobileTrackRef}
-                                className="flex gap-8 py-6 w-full overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-                                style={{ paddingLeft: 'calc(50vw - 120px)', paddingRight: 'calc(50vw - 120px)' }}
+                                className="flex gap-6 py-6 w-full overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                                style={{ paddingLeft: 'calc(50vw - 100px)', paddingRight: 'calc(50vw - 100px)' }}
                             >
                                 {mobileProjects.map((project, index) => (
                                     <motion.div
                                         key={`${project.id}-mob-${index}`}
                                         variants={itemVariants}
-                                        className="shrink-0 w-[240px] snap-center flex justify-center"
+                                        className="shrink-0 w-[200px] snap-center flex justify-center"
                                     >
                                         {project.link ? (
                                             <a href={project.link} target="_blank" rel="noopener noreferrer" className="block h-full">

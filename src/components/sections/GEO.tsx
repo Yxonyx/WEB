@@ -21,7 +21,7 @@ export const GEO = () => {
                 {/* Header */}
                 <div className="text-center max-w-4xl mx-auto mb-20 lg:mb-32">
 
-                    <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white mb-6 font-display leading-tight">{t('geo.header.title')}</h2>
+                    <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-white mb-6 font-display leading-tight">{t('geo.header.title')}</h2>
                     <p className="text-xl text-white/80 font-medium" dangerouslySetInnerHTML={{ __html: t('geo.header.desc') as string }} />
                 </div>
 

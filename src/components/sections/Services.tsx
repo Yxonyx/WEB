@@ -48,7 +48,7 @@ export const Services = () => {
 
                     {/* "Szolgáltatások" Heading with Underline */}
                     <div className="relative inline-block mb-6 text-center">
-                        <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white relative z-10 leading-tight">{t('services.title')}</h2>
+                        <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold font-display text-white relative z-10 leading-tight">{t('services.title')}</h2>
                     </div>
 
                     <p className="text-base md:text-xl text-center text-white/80 font-medium">

@@ -75,7 +75,7 @@ export const FAQ = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.4 }}
                     >
-                        <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-8 leading-tight">{t('faq.title')}</h2>
+                        <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold font-display text-white mb-8 leading-tight">{t('faq.title')}</h2>
                         {/* Designer update: Átlátszóbb üveg, hogy a szekció színe átüssön (User kérés) */}
                         <div className="bg-[#0B1024] rounded-2xl border border-white/10 p-6 sm:p-8 shadow-2xl">
                             {questions.map((faq, i) => (

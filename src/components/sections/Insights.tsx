@@ -47,7 +47,7 @@ export const Insights = () => {
                         <span className="text-sm font-mono text-neonBlue uppercase tracking-widest mb-3 block">
                             {t('insights.header.tag')}
                         </span>
-                        <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white leading-tight">
+                        <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold font-display text-white leading-tight">
                             {t('insights.header.title')}
                         </h2>
                     </div>

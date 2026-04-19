@@ -159,7 +159,7 @@ export const Testimonials = () => {
                         <span>REVIEWS</span>
                         <span>/&gt;</span>
                     </div>
-                    <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white font-display leading-tight">
+                    <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-white font-display leading-tight">
                         {language === 'hu' ? 'Mit mondanak rólunk' : 'What our clients'}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
                             {language === 'hu' ? ' az ügyfeleink?' : ' say about us?'}

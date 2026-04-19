@@ -39,7 +39,7 @@ export const Pricing = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
                 >
-                    <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-4 leading-tight">{t('pricing.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient">{t('pricing.title').split(' ').slice(-1)}</span></h2>
+                    <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold font-display text-white mb-4 leading-tight">{t('pricing.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient">{t('pricing.title').split(' ').slice(-1)}</span></h2>
                     <p className="text-white/80 text-base md:text-lg font-medium">
                         {t('pricing.subtitle')}
                     </p>

@@ -78,7 +78,7 @@ export const Process = () => {
                 <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
                     {/* Left Column: Info & Stats */}
                     <div className="lg:col-span-5">
-                        <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-6 leading-tight">{t('process.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient">{t('process.title').split(' ').slice(-1)}</span></h2>
+                        <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold font-display text-white mb-6 leading-tight">{t('process.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient">{t('process.title').split(' ').slice(-1)}</span></h2>
                         <p className="text-base md:text-base text-white font-semibold mb-8 leading-relaxed">
                             {t('process.desc')}
                         </p>

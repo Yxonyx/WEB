@@ -113,7 +113,7 @@ export const Team = () => {
                     <span className="text-sm font-mono text-neonBlue uppercase tracking-widest mb-3 block">
                         {t('team.tag') || '// Csapat'}
                     </span>
-                    <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-4 leading-tight">
+                    <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold font-display text-white mb-4 leading-tight">
                         {t('team.title') || 'Akik mögötted állnak'}
                     </h2>
                     <p className="text-white/80 text-lg font-medium max-w-2xl mx-auto">
