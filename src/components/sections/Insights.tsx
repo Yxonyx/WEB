@@ -33,7 +33,7 @@ export const Insights = () => {
         .sort((a, b) => new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime());
 
     return (
-        <Section id="insights" className="py-20 lg:py-28 section-bg-mixed" withOrbs withMeshGradient>
+        <Section id="insights" className="section-bg-mixed" withOrbs withMeshGradient>
             <Container>
                 {/* Header */}
                 <motion.div
@@ -41,7 +41,7 @@ export const Insights = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
-                    className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12"
+                    className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-8 sm:mb-12"
                 >
                     <div className="flex-1">
                         <span className="text-sm font-mono text-neonBlue uppercase tracking-widest mb-3 block">
@@ -62,7 +62,7 @@ export const Insights = () => {
                 </motion.div>
 
                 {/* Cards Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {activePosts.slice(0, 3).map((article) => {
                         const linkTo = `/${currentLang}/blog/${article.id}`;
 
@@ -79,49 +79,53 @@ export const Insights = () => {
                                     transition={{ duration: 0.4 }}
                                     className="h-full"
                                 >
-                                    <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-surface via-surface/80 to-surface2 border border-white/10 hover:border-neonBlue/30 transition-all duration-500 shadow-lg hover:shadow-neonBlue/10 h-full flex flex-col">
+                                    <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-surface via-surface/80 to-surface2 border border-white/10 hover:border-neonBlue/30 transition-all duration-500 shadow-lg group-hover:shadow-[0_16px_48px_-16px_rgba(77,148,255,0.35)] h-full flex flex-col will-change-transform group-hover:-translate-y-0.5">
                                         {/* Card glow effect */}
                                         <div className="absolute inset-0 bg-gradient-to-br from-neonBlue/5 via-transparent to-neonPurple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                        {/* Inner top hairline — matches BracketFrame premium "lit from above" cue */}
+                                        <div className="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent z-20" />
                                         {/* Image Header */}
-                                        <div className="h-40 overflow-hidden">
+                                        <div className="relative h-32 sm:h-36 lg:h-40 overflow-hidden">
                                             <img
                                                 src={article.image}
                                                 alt={article.title}
                                                 width="800"
                                                 height="600"
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                                 loading="lazy"
                                             />
+                                            {/* Soft fade from image into card body — no harsh edge */}
+                                            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface to-transparent" />
                                         </div>
 
                                         {/* Content */}
-                                        <div className="p-6 flex flex-col flex-grow">
+                                        <div className="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
                                             {/* Meta */}
-                                            <div className="flex items-center gap-4 text-sm text-muted mb-3">
+                                            <div className="flex items-center gap-3 sm:gap-4 text-[11px] sm:text-xs lg:text-sm text-muted mb-2 sm:mb-3">
                                                 <span className="flex items-center gap-1.5">
-                                                    <Tag className="w-3.5 h-3.5" />
+                                                    <Tag className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                                                     {article.category}
                                                 </span>
                                                 <span className="flex items-center gap-1.5">
-                                                    <Calendar className="w-3.5 h-3.5" />
+                                                    <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                                                     {article.date}
                                                 </span>
                                             </div>
 
                                             {/* Title */}
-                                            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-neonBlue transition-colors duration-300 line-clamp-2">
+                                            <h3 className="text-[15px] sm:text-base lg:text-lg font-bold text-white mb-1.5 sm:mb-2 group-hover:text-neonBlue transition-colors duration-300 line-clamp-2 leading-snug">
                                                 {article.title}
                                             </h3>
 
                                             {/* Excerpt */}
-                                            <p className="text-muted text-sm line-clamp-2">
+                                            <p className="text-muted text-xs sm:text-sm line-clamp-2 leading-relaxed">
                                                 {article.excerpt}
                                             </p>
 
                                             {/* Read More */}
-                                            <div className="mt-auto pt-4 flex items-center gap-2 text-sm font-medium text-neonBlue opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                                            <div className="mt-auto pt-3 sm:pt-4 flex items-center gap-2 text-xs sm:text-sm font-medium text-neonBlue opacity-70 group-hover:opacity-100 transition-opacity duration-300">
                                                 {article.read_more}
-                                                <ArrowUpRight className="w-4 h-4" />
+                                                <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                             </div>
                                         </div>
                                     </div>

@@ -33,13 +33,78 @@
     overflow-x: hidden;
     position: relative;
     width: 100%;
-    /* Rich ambient base — soft blue glow from top-right + bottom-left on a
-       deep navy canvas. Gives sections depth without flat grey mud. */
     background-color: #05070F;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  }
+
+  /* Fixed ambient blue glow overlay — rendered once on a GPU layer so it
+     doesn't trigger a full repaint on every scroll frame (unlike the old
+     background-attachment: fixed body image). */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
     background-image:
-      radial-gradient(ellipse 80% 60% at 85% -10%, rgba(77, 148, 255, 0.09), transparent 55%),
-      radial-gradient(ellipse 70% 50% at 15% 110%, rgba(77, 148, 255, 0.06), transparent 55%);
-    background-attachment: fixed;
+      radial-gradient(ellipse 80% 60% at 85% -10%, rgba(77, 148, 255, 0.10), transparent 55%),
+      radial-gradient(ellipse 65% 45% at 50% 50%, rgba(143, 125, 255, 0.035), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 15% 110%, rgba(77, 148, 255, 0.065), transparent 55%);
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  /* Filmic noise overlay — dissolves color banding in the dark background,
+     gives a premium, tactile texture. Extremely subtle (~3.5% alpha) and
+     fixed to the viewport so it composites once on its own GPU layer. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 200px 200px;
+    transform: translateZ(0);
+  }
+
+  /* Refined scrollbar — thin, dark rail, subtle blue thumb with hover glow.
+     Beats the default chrome scrollbar in every way for a dark tech site. */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(11, 13, 31, 0.6);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(77, 148, 255, 0.35), rgba(77, 148, 255, 0.15));
+    border-radius: 10px;
+    border: 2px solid #05070F;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(77, 148, 255, 0.55), rgba(77, 148, 255, 0.3));
+  }
+
+  /* Firefox */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(77, 148, 255, 0.3) rgba(11, 13, 31, 0.6);
+  }
+
+  /* Polished keyboard focus — visible for a11y, beautiful for sighted users. */
+  :focus-visible {
+    outline: 2px solid rgba(77, 148, 255, 0.7);
+    outline-offset: 2px;
+    border-radius: 3px;
   }
 
   /* Ensure root takes full content only */

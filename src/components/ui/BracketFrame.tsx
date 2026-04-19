@@ -21,8 +21,8 @@ export const BracketFrame: React.FC<BracketFrameProps> = ({ children, className 
                 "bg-gradient-to-b from-white/[0.04] to-white/[0.015]",
                 "border border-white/[0.07]",
                 "backdrop-blur-sm",
-                "transition-all duration-500",
-                "hover:border-neonBlue/30 hover:shadow-[0_8px_40px_-12px_rgba(77,148,255,0.35)]",
+                "transition-all duration-500 will-change-transform",
+                "hover:border-neonBlue/30 hover:shadow-[0_16px_48px_-16px_rgba(77,148,255,0.35)] hover:-translate-y-0.5",
                 className
             )}
         >

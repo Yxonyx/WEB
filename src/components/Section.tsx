@@ -26,7 +26,7 @@ export const Section: React.FC<SectionProps> = ({
         <section
             id={id}
             className={twMerge(
-                "py-20 lg:py-32 relative overflow-hidden w-full",
+                "py-14 sm:py-16 lg:py-28 relative overflow-hidden w-full",
                 fullHeight && "min-h-screen flex items-center",
                 withMeshGradient && "mesh-gradient",
                 className
