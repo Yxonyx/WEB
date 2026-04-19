@@ -80,45 +80,35 @@ export const Navbar = () => {
         <header
             className={clsx(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                isScrolled ? "bg-[#0a0b10] shadow-md py-3" : "bg-transparent py-4"
+                isScrolled ? "bg-[#0A0B1A] shadow-md py-3" : "bg-transparent py-4"
             )}
         >
             <Container className="flex items-center justify-between lg:grid lg:grid-cols-[auto_1fr_auto]">
                 {/* Logo - Column 1 */}
                 <a href={`/${language}/`} className="flex items-center gap-3 group">
                     {/* Custom Tech Logo - Engineered Feel & Symmetrical */}
-                    <div className="relative w-11 h-11 flex items-center justify-center bg-black/20 backdrop-blur-sm border border-white/5 rounded-sm -translate-y-[2px] transition-all duration-300 group-hover:border-neonBlue/30 group-hover:shadow-[0_0_20px_-10px_var(--neon-blue)]">
+                    <div className="relative w-11 h-11 flex items-center justify-center bg-black/30 backdrop-blur-sm border border-neonBlue/40 rounded-sm -translate-y-[2px] transition-all duration-300 group-hover:border-neonBlue group-hover:shadow-[0_0_20px_-4px_rgba(77,148,255,0.55)]">
 
-                        {/* 1. Neon Grid Background (Subtle) */}
-                        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_50%,rgba(79,138,255,0.05)_50%)] bg-[length:4px_100%] pointer-events-none" />
+                        {/* Neon grid background */}
+                        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_50%,rgba(77,148,255,0.08)_50%)] bg-[length:4px_100%] pointer-events-none" />
 
-                        {/* 2. Symmetrical Tech Brackets (4 Corners) */}
-                        {/* Top Left */}
-                        <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-neonBlue/50 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonBlue group-hover:opacity-100 group-hover:rounded-sm" />
-                        {/* Top Right */}
-                        <div className="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-neonBlue/50 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonBlue group-hover:opacity-100 group-hover:rounded-sm" />
-                        {/* Bottom Left */}
-                        <div className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-neonPurple/50 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonPurple group-hover:opacity-100 group-hover:rounded-sm" />
-                        {/* Bottom Right */}
-                        <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-neonPurple/50 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonPurple group-hover:opacity-100 group-hover:rounded-sm" />
+                        {/* Symmetrical blue brackets (4 corners) */}
+                        <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-neonBlue/80 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonBlue group-hover:rounded-sm" />
+                        <div className="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-neonBlue/80 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonBlue group-hover:rounded-sm" />
+                        <div className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-neonBlue/80 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonBlue group-hover:rounded-sm" />
+                        <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-neonBlue/80 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonBlue group-hover:rounded-sm" />
 
-                        {/* 3. Glitch Effect Container - Perfectly Centered */}
-                        <div className="relative z-10 font-bold font-mono text-xl tracking-tight leading-none text-white mix-blend-overlay group-hover:mix-blend-normal transition-all">
-                            <span className="relative inline-flex items-center justify-center">
-                                <span className="absolute text-neonBlue opacity-0 group-hover:opacity-70 group-hover:animate-pulse blur-[1px]">CL</span>
-                                <span className="absolute text-neonPurple opacity-0 group-hover:opacity-70 group-hover:animate-pulse blur-[1px]" style={{ animationDelay: '0.1s' }}>CL</span>
-                                <span className="relative z-10 group-hover:text-white drop-shadow-md">CL</span>
-                            </span>
+                        {/* CL monogram — bright white with subtle blue glow */}
+                        <div className="relative z-10 font-bold font-mono text-xl tracking-tight leading-none text-white transition-all drop-shadow-[0_0_6px_rgba(77,148,255,0.35)] group-hover:drop-shadow-[0_0_10px_rgba(77,148,255,0.65)]">
+                            CL
                         </div>
-
-
                     </div>
 
                     <div className="flex flex-col">
-                        <span className="text-xl font-bold tracking-tight leading-none group-hover:text-neonBlue transition-colors flex items-baseline">
+                        <span className="text-xl font-bold tracking-tight leading-none flex items-baseline">
                             <span className="text-white">Cyber</span><span className="text-neonBlue">Labs</span>
                         </span>
-                        <span className="text-[10px] font-mono tracking-[0.2em] text-white/40 group-hover:text-neonPurple transition-colors duration-300 uppercase">
+                        <span className="text-[10px] font-mono tracking-[0.2em] text-neonBlue/70 group-hover:text-neonBlue transition-colors duration-300 uppercase">
                             WEB DEVELOPMENT
                         </span>
                     </div>
@@ -146,14 +136,14 @@ export const Navbar = () => {
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                     transition={{ duration: 0.2, ease: 'easeOut' }}
-                                    className="absolute top-full left-0 mt-3 w-72 bg-[#0a1628]/40 backdrop-blur-xl border border-white/15 rounded-lg shadow-2xl shadow-black/30 overflow-hidden"
+                                    className="absolute top-full left-0 mt-3 w-72 bg-[#0B1428]/40 backdrop-blur-xl border border-white/15 rounded-lg shadow-2xl shadow-black/30 overflow-hidden"
                                 >
                                     {/* Terminal header bar */}
                                     <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/10 bg-white/[0.03]">
                                         <div className="flex gap-1.5">
                                             <div className="w-2.5 h-2.5 rounded-full bg-neonBlue/30" />
-                                            <div className="w-2.5 h-2.5 rounded-full bg-neonPurple/50" />
-                                            <div className="w-2.5 h-2.5 rounded-full bg-neonBlue/70" />
+                                            <div className="w-2.5 h-2.5 rounded-full bg-neonBlue/55" />
+                                            <div className="w-2.5 h-2.5 rounded-full bg-neonBlue/80" />
                                         </div>
                                         <span className="ml-2 text-[10px] font-mono text-white/30 tracking-wider uppercase">services.sh</span>
                                     </div>

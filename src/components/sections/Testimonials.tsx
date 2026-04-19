@@ -159,7 +159,7 @@ export const Testimonials = () => {
                         <span>REVIEWS</span>
                         <span>/&gt;</span>
                     </div>
-                    <h2 className="text-3xl lg:text-5xl font-bold text-white font-display">
+                    <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white font-display leading-tight">
                         {language === 'hu' ? 'Mit mondanak rólunk' : 'What our clients'}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
                             {language === 'hu' ? ' az ügyfeleink?' : ' say about us?'}
@@ -196,8 +196,8 @@ export const Testimonials = () => {
                 onTouchEnd={() => setIsHovering(false)}
             >
                 {/* Gradient Masks for fade effect at edges */}
-                <div className="absolute left-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-r from-[#050510] to-transparent z-10 pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-l from-[#050510] to-transparent z-10 pointer-events-none" />
+                <div className="absolute left-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-r from-[#06091A] to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-l from-[#06091A] to-transparent z-10 pointer-events-none" />
 
                 {/* Mobile Navigation Arrows - Overlay on edges */}
                 <button
@@ -228,7 +228,7 @@ export const Testimonials = () => {
                             {/* Gradient border effect */}
                             <div className="absolute -inset-[1px] bg-gradient-to-r from-neonBlue/50 via-neonPurple/50 to-neonBlue/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
 
-                            <div className="relative bg-[#0a0a18] border border-white/10 rounded-2xl p-8 h-full flex flex-col justify-between group-hover:border-transparent transition-all duration-500">
+                            <div className="relative bg-[#0A0C20] border border-white/10 rounded-2xl p-8 h-full flex flex-col justify-between group-hover:border-transparent transition-all duration-500">
                                 {/* Quote icon */}
                                 <div className="absolute -top-4 -left-2 w-10 h-10 bg-gradient-to-br from-neonBlue to-neonPurple rounded-xl flex items-center justify-center shadow-lg shadow-neonPurple/20">
                                     <Quote size={18} className="text-white" />
@@ -251,7 +251,7 @@ export const Testimonials = () => {
                                 {/* Author */}
                                 <div className="flex items-center gap-4 pt-4 border-t border-white/10">
                                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neonBlue to-neonPurple p-[2px] shrink-0">
-                                        <div className="w-full h-full rounded-full bg-[#0a0a18] flex items-center justify-center">
+                                        <div className="w-full h-full rounded-full bg-[#0A0C20] flex items-center justify-center">
                                             <span className="text-white font-bold text-sm">
                                                 {testimonial.name.charAt(0)}
                                             </span>

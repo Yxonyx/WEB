@@ -123,7 +123,7 @@ export const BlogPost = () => {
                         className="relative rounded-2xl overflow-hidden mb-12 border border-white/10"
                     >
                         {/* CSS Generated Background */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0d1f3c] to-[#0a0f1a]" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#0B1428] via-[#0d1f3c] to-[#0a0f1a]" />
                         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(79,138,255,0.08),transparent_50%)]" />
                         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(155,114,255,0.06),transparent_50%)]" />
                         <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(79,138,255,0.03)_50%,transparent_100%)] bg-[length:100%_4px]" />

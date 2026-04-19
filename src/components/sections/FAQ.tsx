@@ -75,9 +75,9 @@ export const FAQ = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.4 }}
                     >
-                        <h2 className="text-3xl font-bold font-display text-white mb-8">{t('faq.title')}</h2>
+                        <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-8 leading-tight">{t('faq.title')}</h2>
                         {/* Designer update: Átlátszóbb üveg, hogy a szekció színe átüssön (User kérés) */}
-                        <div className="bg-[#0a0e1a] rounded-2xl border border-white/10 p-6 sm:p-8 shadow-2xl">
+                        <div className="bg-[#0B1024] rounded-2xl border border-white/10 p-6 sm:p-8 shadow-2xl">
                             {questions.map((faq, i) => (
                                 <FAQItem key={i} {...faq} />
                             ))}
@@ -91,7 +91,7 @@ export const FAQ = () => {
                                 {/* Háttér glow - Statikus */}
                                 <div className="absolute -inset-[1px] bg-gradient-to-br from-neonBlue/30 to-transparent rounded-2xl opacity-20 blur-sm" />
 
-                                <div className="relative overflow-hidden rounded-2xl bg-[#0a0b14]/95 backdrop-blur-xl border border-white/10 p-6 md:p-8 shadow-2xl">
+                                <div className="relative overflow-hidden rounded-2xl bg-[#0A0C1E]/95 backdrop-blur-xl border border-white/10 p-6 md:p-8 shadow-2xl">
 
                                     {/* Ambient Light */}
                                     <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-neonBlue/5 to-transparent pointer-events-none" />

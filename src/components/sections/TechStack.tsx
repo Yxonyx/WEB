@@ -75,7 +75,7 @@ export const TechStack = () => {
                     <span className="text-neonBlue font-mono text-sm tracking-widest uppercase mb-4 block">
                         {'// ' + (t('techStack.tag') as string)}
                     </span>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-white mb-4">
+                    <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-4 leading-tight">
                         {(t('techStack.title') as string).split(' ').slice(0, -1).join(' ')}{' '}
                         <span className="text-transparent bg-clip-text bg-accent-gradient">
                             {(t('techStack.title') as string).split(' ').slice(-1)}
@@ -97,7 +97,7 @@ export const TechStack = () => {
                     {/* Card 1: Egyedi fejlesztés */}
                     <motion.div
                         variants={itemVariants}
-                        className="relative bg-[#0a0e1a] border border-white/10 rounded-xl hover:border-neonBlue/30 transition-all duration-500 flex flex-col"
+                        className="relative bg-[#0B1024] border border-white/10 rounded-xl hover:border-neonBlue/30 transition-all duration-500 flex flex-col"
                     >
                         {/* Corner brackets */}
                         <div className="absolute -top-px -left-px w-4 h-4 border-t-2 border-l-2 border-neonBlue rounded-tl-lg" />
@@ -162,7 +162,7 @@ export const TechStack = () => {
                     {/* Card 2: WordPress & Shopify */}
                     <motion.div
                         variants={itemVariants}
-                        className="relative bg-[#0a0e1a] border border-white/10 rounded-xl hover:border-neonPurple/30 transition-all duration-500 flex flex-col"
+                        className="relative bg-[#0B1024] border border-white/10 rounded-xl hover:border-neonPurple/30 transition-all duration-500 flex flex-col"
                     >
                         {/* Corner brackets */}
                         <div className="absolute -top-px -left-px w-4 h-4 border-t-2 border-l-2 border-neonPurple rounded-tl-lg" />

@@ -24,7 +24,7 @@ export const Button: React.FC<ButtonProps> = ({
     const variants = {
         primary: "bg-neonBlue text-white hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(77,148,255,0.45)]", // Super Lighter Electric Blue shadow
         secondary: "bg-surface/50 border border-white/10 text-white hover:bg-white/5 hover:border-white/20 hover:text-neonBlue",
-        harvest: "bg-neonHarvest text-white hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(204,0,255,0.45)]", // Vivid Purple shadow
+        harvest: "bg-neonHarvest text-white hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(143,125,255,0.38)]",
     };
 
     const sizes = {

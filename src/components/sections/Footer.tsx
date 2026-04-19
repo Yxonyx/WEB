@@ -31,10 +31,20 @@ export const Footer = () => {
             />
             <div className="absolute inset-0 bg-bgDeep/80" />
             {/* Top fade */}
-            <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#040812] to-transparent z-[1]" />
+            <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#06091A] to-transparent z-[1]" />
             <Container className="relative z-10 text-center">
-                <div className="flex items-center justify-center gap-2 mb-6 opacity-80">
-                    <div className="font-mono font-bold text-white text-xl">CyberLabs Web</div>
+                <div className="flex items-center justify-center gap-3 mb-6">
+                    {/* Navbar-matching CL monogram */}
+                    <div className="relative w-10 h-10 shrink-0 flex items-center justify-center bg-black/30 backdrop-blur-sm border border-neonBlue/40 rounded-sm">
+                        <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-neonBlue/80" />
+                        <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-neonBlue/80" />
+                        <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-neonBlue/80" />
+                        <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-neonBlue/80" />
+                        <div className="relative z-10 font-bold font-mono text-[17px] tracking-tight leading-none text-white drop-shadow-[0_0_6px_rgba(77,148,255,0.35)]">CL</div>
+                    </div>
+                    <span className="text-xl font-bold tracking-tight leading-none flex items-baseline">
+                        <span className="text-white">Cyber</span><span className="text-neonBlue">Labs</span><span className="text-white ml-1.5">Web</span>
+                    </span>
                 </div>
 
                 {/* Social Media Icons */}

@@ -13,9 +13,10 @@
     font-size: 105%;
   }
 
-  /* Silver metallic gradient on all headings */
+  /* Soft off-white heading gradient — no more cold silver-metallic feel.
+     Stays clean and readable, with a whisper of blue-tinted warmth. */
   h1, h2, h3, h4 {
-    background-image: linear-gradient(180deg, #ffffff 0%, #d8d8d8 60%, #c0c0c0 100%);
+    background-image: linear-gradient(180deg, #ffffff 0%, #f0f3f9 70%, #dfe5f0 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -23,15 +24,22 @@
 
   @screen lg {
     h1, h2, h3, h4 {
-      background-image: linear-gradient(180deg, #ffffff 0%, #c0c0c0 50%, #a0a0a0 100%);
+      background-image: linear-gradient(180deg, #ffffff 0%, #ebeff7 60%, #d4dbe8 100%);
     }
   }
 
   body {
-    @apply bg-bg text-white font-sans antialiased selection:bg-neonBlue/20 selection:text-white text-base sm:text-lg leading-relaxed;
+    @apply text-white font-sans antialiased selection:bg-neonBlue/20 selection:text-white text-base sm:text-lg leading-relaxed;
     overflow-x: hidden;
     position: relative;
     width: 100%;
+    /* Rich ambient base — soft blue glow from top-right + bottom-left on a
+       deep navy canvas. Gives sections depth without flat grey mud. */
+    background-color: #05070F;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 85% -10%, rgba(77, 148, 255, 0.09), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 15% 110%, rgba(77, 148, 255, 0.06), transparent 55%);
+    background-attachment: fixed;
   }
 
   /* Ensure root takes full content only */
@@ -81,11 +89,11 @@
   .mesh-gradient {
     background:
       radial-gradient(at 40% 20%, rgba(79, 138, 255, 0.35) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, rgba(155, 114, 255, 0.30) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, rgba(143, 125, 255, 0.18) 0px, transparent 50%),
       radial-gradient(at 0% 50%, rgba(79, 138, 255, 0.25) 0px, transparent 50%),
-      radial-gradient(at 80% 50%, rgba(155, 114, 255, 0.28) 0px, transparent 50%),
+      radial-gradient(at 80% 50%, rgba(143, 125, 255, 0.16) 0px, transparent 50%),
       radial-gradient(at 0% 100%, rgba(79, 138, 255, 0.22) 0px, transparent 50%),
-      radial-gradient(at 80% 100%, rgba(155, 114, 255, 0.20) 0px, transparent 50%);
+      radial-gradient(at 80% 100%, rgba(143, 125, 255, 0.12) 0px, transparent 50%);
   }
 
   /* Animated gradient orb */
@@ -113,7 +121,7 @@
   }
 
   .gradient-orb-purple {
-    background: radial-gradient(circle, rgba(155, 114, 255, 0.65) 0%, rgba(155, 114, 255, 0.18) 50%, transparent 70%);
+    background: radial-gradient(circle, rgba(143, 125, 255, 0.40) 0%, rgba(143, 125, 255, 0.12) 50%, transparent 70%);
   }
 
   /* Full-screen section */
@@ -136,15 +144,15 @@
 
   .section-bg-purple {
     background: linear-gradient(180deg,
-        rgba(155, 114, 255, 0.16) 0%,
-        rgba(155, 114, 255, 0.05) 60%,
+        rgba(143, 125, 255, 0.10) 0%,
+        rgba(143, 125, 255, 0.03) 60%,
         transparent 100%);
   }
 
   .section-bg-mixed {
     background:
       linear-gradient(135deg, rgba(79, 138, 255, 0.14) 0%, transparent 50%),
-      linear-gradient(225deg, rgba(155, 114, 255, 0.14) 0%, transparent 50%);
+      linear-gradient(225deg, rgba(143, 125, 255, 0.09) 0%, transparent 50%);
   }
 
   .section-bg-deep {
@@ -160,13 +168,13 @@
   }
 
   .glow-purple {
-    box-shadow: 0 0 50px rgba(155, 114, 255, 0.45), 0 0 100px rgba(155, 114, 255, 0.22);
+    box-shadow: 0 0 50px rgba(143, 125, 255, 0.28), 0 0 100px rgba(143, 125, 255, 0.14);
   }
 
   .glow-mixed {
     box-shadow:
       0 0 60px rgba(79, 138, 255, 0.35),
-      0 0 120px rgba(155, 114, 255, 0.28);
+      0 0 120px rgba(143, 125, 255, 0.16);
   }
 
   .glass-panel {
@@ -207,7 +215,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(79, 138, 255, 0.5), rgba(155, 114, 255, 0.5));
+    background: linear-gradient(135deg, rgba(79, 138, 255, 0.5), rgba(143, 125, 255, 0.32));
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);

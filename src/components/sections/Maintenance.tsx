@@ -41,7 +41,7 @@ export const Maintenance = () => {
                     {/* Visual - Left Side (Unified Dashboard) */}
                     <motion.div variants={itemVariants} className="order-2 lg:order-1 relative">
                         <div className="absolute inset-0 bg-neonPurple/5 rounded-3xl blur-xl" />
-                        <div className="relative h-full bg-[#0a0e1a] border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-center shadow-2xl">
+                        <div className="relative h-full bg-[#0B1024] border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-center shadow-2xl">
 
                             {/* Dashboard Content */}
                             <div className="space-y-3">
@@ -112,7 +112,7 @@ export const Maintenance = () => {
                     {/* Content - Right Side */}
                     <motion.div variants={itemVariants} className="order-1 lg:order-2">
                         <ProIcon icon={ShieldCheck} color="neonPurple" size={32} containerClassName="mb-6" />
-                        <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-6">{t('maintenance_sec.content.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient-reverse">{t('maintenance_sec.content.title').split(' ').slice(-1)}</span></h2>
+                        <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-6 leading-tight">{t('maintenance_sec.content.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient-reverse">{t('maintenance_sec.content.title').split(' ').slice(-1)}</span></h2>
                         <p className="text-white/80 text-lg mb-8 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: t('maintenance_sec.content.desc') as string }} />
 
                         <div className="mb-4 text-base font-bold text-white uppercase tracking-wider">{t('maintenance_sec.content.benefits_title')}</div>

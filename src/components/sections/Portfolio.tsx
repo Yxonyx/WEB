@@ -249,7 +249,7 @@ export const Portfolio = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
                 >
-                    <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-4">{t('portfolio.title')}</h2>
+                    <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-4 leading-tight">{t('portfolio.title')}</h2>
                     <p className="text-white/80 text-lg font-medium max-w-2xl mx-auto">{t('portfolio.subtitle')}</p>
                 </motion.div>
 

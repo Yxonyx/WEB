@@ -12,7 +12,7 @@ export const GEO = () => {
     const { t } = useLanguage();
 
     return (
-        <Section id="geo" className="relative overflow-hidden bg-[#0a0a12]">
+        <Section id="geo" className="relative overflow-hidden bg-[#0A0C1E]">
             {/* Background elements */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-neonBlue/5 rounded-full blur-[80px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-neonPurple/5 rounded-full blur-[60px] pointer-events-none" />
@@ -21,7 +21,7 @@ export const GEO = () => {
                 {/* Header */}
                 <div className="text-center max-w-4xl mx-auto mb-20 lg:mb-32">
 
-                    <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6 font-display">{t('geo.header.title')}</h2>
+                    <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white mb-6 font-display leading-tight">{t('geo.header.title')}</h2>
                     <p className="text-xl text-white/80 font-medium" dangerouslySetInnerHTML={{ __html: t('geo.header.desc') as string }} />
                 </div>
 

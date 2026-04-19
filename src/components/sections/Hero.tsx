@@ -53,14 +53,14 @@ export const Hero = () => {
                         <div
                             className="absolute -bottom-1/4 -left-1/4 w-[80vw] h-[80vh] will-change-transform"
                             style={{
-                                background: 'radial-gradient(ellipse at center, rgba(155,114,255,0.18) 0%, rgba(155,114,255,0.04) 30%, transparent 60%)',
+                                background: 'radial-gradient(ellipse at center, rgba(77,148,255,0.10) 0%, rgba(77,148,255,0.02) 30%, transparent 60%)',
                                 transform: 'translateZ(0)',
                             }}
                         />
                         <div
                             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[40vh] opacity-30 will-change-transform"
                             style={{
-                                background: 'radial-gradient(ellipse at center, rgba(155,114,255,0.2) 0%, transparent 50%)',
+                                background: 'radial-gradient(ellipse at center, rgba(77,148,255,0.12) 0%, transparent 50%)',
                                 transform: 'translateZ(0)',
                             }}
                         />
@@ -78,7 +78,7 @@ export const Hero = () => {
                         <div
                             className="absolute bottom-[-10%] left-[-20%] w-[100%] h-[60%] will-change-transform"
                             style={{
-                                background: 'radial-gradient(circle, rgba(155,114,255,0.1) 0%, transparent 60%)',
+                                background: 'radial-gradient(circle, rgba(77,148,255,0.06) 0%, transparent 60%)',
                                 transform: 'translateZ(0)',
                             }}
                         />
@@ -101,7 +101,7 @@ export const Hero = () => {
                             <br className="sm:hidden" />
                             <span>{t('hero.title_prefix_2')}</span>
                             <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-neonBlueDark to-neonHarvest animate-gradient-shift">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-[#9FCDFF] to-white animate-gradient-shift">
                                 {t('hero.title_gradient')}
                             </span><span> &</span>
                             <br />
@@ -116,7 +116,7 @@ export const Hero = () => {
                             {t('hero.subtitle_desc_1')}
                             <span className="text-neonBlue">{t('hero.subtitle_google')}</span>
                             {t('hero.subtitle_desc_2')}
-                            <span className="text-neonPurple">{t('hero.subtitle_ai')}</span>.
+                            <span className="text-white font-semibold">{t('hero.subtitle_ai')}</span>.
                         </p>
 
                         <div className="flex flex-wrap gap-3 justify-center">
@@ -162,7 +162,7 @@ export const Hero = () => {
                             <span>{t('hero.title_prefix_1')}</span>
                             <span>{t('hero.title_prefix_2')}</span>
                             <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-neonBlueDark to-neonHarvest animate-gradient-shift">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-[#9FCDFF] to-white animate-gradient-shift">
                                 {t('hero.title_gradient')}
                             </span><span> &</span>
                             <br />
@@ -177,7 +177,7 @@ export const Hero = () => {
                             {t('hero.subtitle_desc_1')}
                             <span className="text-neonBlue">{t('hero.subtitle_google')}</span>
                             {t('hero.subtitle_desc_2')}
-                            <span className="text-neonPurple">{t('hero.subtitle_ai')}</span>.
+                            <span className="text-white font-semibold">{t('hero.subtitle_ai')}</span>.
                         </p>
 
                         <div className="flex flex-wrap gap-4 justify-start">

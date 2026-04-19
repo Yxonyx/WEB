@@ -88,7 +88,7 @@ export const ParticleNetwork = () => {
                 // Super Lighter Electric Palette
                 this.color = Math.random() > 0.5
                     ? 'rgba(77, 148, 255'
-                    : 'rgba(204, 0, 255';
+                    : 'rgba(143, 125, 255';
             }
 
             update() {

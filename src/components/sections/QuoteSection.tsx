@@ -11,7 +11,7 @@ export const QuoteSection = () => {
 
     return (
         <Section
-            className="bg-[#050510]/20 relative overflow-hidden"
+            className="bg-[#06091A]/20 relative overflow-hidden"
             background={
                 <div className="absolute inset-0 z-0 pointer-events-none">
                     <ParticleNetwork />
@@ -30,7 +30,7 @@ export const QuoteSection = () => {
 
 
                         {/* Heading */}
-                        <h2 className="text-2xl lg:text-[2.5rem] font-bold text-white mb-6 leading-tight font-display">
+                        <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white mb-6 leading-tight font-display">
                             "{t('quote.title.prefix')}<span className="text-neonBlue">{t('quote.title.highlight')}</span>{t('quote.title.suffix')}"
                         </h2>
 
@@ -123,7 +123,7 @@ export const QuoteSection = () => {
                             className="glass-card absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.3)] z-20 overflow-hidden hidden lg:block"
                         >
                             {/* Title Bar */}
-                            <div className="flex justify-between items-center px-4 py-3 border-b border-white/10 bg-[#0A0A15]">
+                            <div className="flex justify-between items-center px-4 py-3 border-b border-white/10 bg-[#0B0D1F]">
                                 <div className="text-base font-mono text-neonBlue">{t('quote.cards.demo.title')}</div>
                                 <div className="flex gap-1.5">
                                     <div className="w-2.5 h-2.5 rounded-full bg-neonBlue/30" />
@@ -181,7 +181,7 @@ export const QuoteSection = () => {
                             </div>
 
                             {/* Status Bar */}
-                            <div className="flex items-center justify-between px-4 py-3 border-t border-white/10 bg-[#0A0A15]">
+                            <div className="flex items-center justify-between px-4 py-3 border-t border-white/10 bg-[#0B0D1F]">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                                     <span className="text-sm text-muted">{t('quote.cards.demo.status')}</span>

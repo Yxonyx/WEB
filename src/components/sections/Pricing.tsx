@@ -39,7 +39,7 @@ export const Pricing = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4 }}
                 >
-                    <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-4">{t('pricing.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient">{t('pricing.title').split(' ').slice(-1)}</span></h2>
+                    <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-4 leading-tight">{t('pricing.title').split(' ').slice(0, -1).join(' ')} <span className="text-transparent bg-clip-text bg-accent-gradient">{t('pricing.title').split(' ').slice(-1)}</span></h2>
                     <p className="text-white/80 text-base md:text-lg font-medium">
                         {t('pricing.subtitle')}
                     </p>
@@ -183,7 +183,7 @@ export const Pricing = () => {
                             <motion.div
                                 key={i}
                                 variants={cardVariants}
-                                className={`p-6 rounded-3xl border ${i === 1 ? 'bg-surface/80 border-neonBlue/30 shadow-lg shadow-neonBlue/10 relative overflow-hidden' : 'bg-[#0c1020] border-white/5'} flex flex-col`}
+                                className={`p-6 rounded-3xl border ${i === 1 ? 'bg-surface/80 border-neonBlue/30 shadow-lg shadow-neonBlue/10 relative overflow-hidden' : 'bg-[#0C1226] border-white/5'} flex flex-col`}
                             >
                                 {i === 1 && (
                                     <div className="absolute top-0 right-0 bg-neonBlue text-black text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase tracking-wider">

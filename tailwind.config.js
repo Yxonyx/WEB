@@ -6,24 +6,29 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg: "#030407",
+        /* Richer, deeper navy surfaces — cleaner blue saturation instead of
+           washed-out grey-blue. Removes the muddy "cheap template" feel while
+           keeping the space/tech vibe. */
+        bg: "#05070F",
         bgDeep: "#000000",
-        surface: "#0A0E17",
-        surface2: "#111625",
-        surface3: "#1C2438",
+        surface: "#090C17",
+        surface2: "#0C1122",
+        surface3: "#141B30",
         border: "rgba(77, 148, 255, 0.15)",
         borderLight: "rgba(77, 148, 255, 0.05)",
         muted: "#9CA3AF",
         muted2: "rgba(156, 163, 175, 0.6)",
         neonBlue: "#4D94FF",
         neonBlueDark: "#2E86FF",
-        neonPurple: "#CC00FF",
-        neonPurpleDark: "#8800AA",
-        neonHarvest: "#CC00FF",
+        /* Softened purple — classic blue-violet instead of raw magenta, so the
+           palette reads as "electric blue + indigo" rather than "neon Miami". */
+        neonPurple: "#8F7DFF",
+        neonPurpleDark: "#6B56E6",
+        neonHarvest: "#8F7DFF",
         neonSlate: "#1F2937",
         highlight: "#FFFFFF",
         accent1: "#4D94FF",
-        accent2: "#CC00FF",
+        accent2: "#8F7DFF",
         overlay: "#000000",
       },
       fontFamily: {
@@ -42,26 +47,27 @@ module.exports = {
         '5xl': '2.5rem',
       },
       backgroundImage: {
-        'accent-gradient': 'linear-gradient(90deg, #4D94FF 0%, #CC00FF 100%)',
-        'accent-gradient-reverse': 'linear-gradient(90deg, #CC00FF 0%, #4D94FF 100%)',
+        'accent-gradient': 'linear-gradient(90deg, #4D94FF 0%, #8F7DFF 100%)',
+        'accent-gradient-reverse': 'linear-gradient(90deg, #8F7DFF 0%, #4D94FF 100%)',
         'radial-blue': 'radial-gradient(circle at center, rgba(77, 148, 255, 0.35) 0%, transparent 70%)',
-        'radial-purple': 'radial-gradient(circle at center, rgba(204, 0, 255, 0.35) 0%, transparent 70%)',
+        /* Reduced purple intensity — softer indigo halo */
+        'radial-purple': 'radial-gradient(circle at center, rgba(143, 125, 255, 0.25) 0%, transparent 70%)',
         'mesh-gradient': `
           radial-gradient(at 40% 20%, rgba(77, 148, 255, 0.30) 0px, transparent 50%),
-          radial-gradient(at 80% 0%, rgba(204, 0, 255, 0.25) 0px, transparent 50%),
-          radial-gradient(at 0% 50%, rgba(77, 148, 255, 0.20) 0px, transparent 50%),
-          radial-gradient(at 100% 50%, rgba(204, 0, 255, 0.20) 0px, transparent 50%)
+          radial-gradient(at 80% 0%, rgba(143, 125, 255, 0.16) 0px, transparent 50%),
+          radial-gradient(at 0% 50%, rgba(77, 148, 255, 0.22) 0px, transparent 50%),
+          radial-gradient(at 100% 50%, rgba(143, 125, 255, 0.14) 0%, transparent 50%)
         `,
         'hero-gradient': `
-          radial-gradient(ellipse 80% 50% at 50% -20%, rgba(77, 148, 255, 0.20) 0%, transparent 50%),
-          radial-gradient(ellipse 60% 40% at 100% 50%, rgba(204, 0, 255, 0.15) 0%, transparent 50%),
-          radial-gradient(ellipse 50% 30% at 0% 80%, rgba(77, 148, 255, 0.10) 0%, transparent 50%)
+          radial-gradient(ellipse 80% 50% at 50% -20%, rgba(77, 148, 255, 0.22) 0%, transparent 50%),
+          radial-gradient(ellipse 60% 40% at 100% 50%, rgba(143, 125, 255, 0.10) 0%, transparent 50%),
+          radial-gradient(ellipse 50% 30% at 0% 80%, rgba(77, 148, 255, 0.12) 0%, transparent 50%)
         `,
       },
       boxShadow: {
         'glow-blue': '0 0 60px rgba(77, 148, 255, 0.50), 0 0 120px rgba(77, 148, 255, 0.25)',
-        'glow-purple': '0 0 60px rgba(204, 0, 255, 0.45), 0 0 120px rgba(204, 0, 255, 0.22)',
-        'glow-mixed': '0 0 80px rgba(77, 148, 255, 0.35), 0 0 140px rgba(204, 0, 255, 0.28)',
+        'glow-purple': '0 0 60px rgba(143, 125, 255, 0.35), 0 0 120px rgba(143, 125, 255, 0.16)',
+        'glow-mixed': '0 0 80px rgba(77, 148, 255, 0.40), 0 0 140px rgba(143, 125, 255, 0.20)',
         'inner-glow': 'inset 0 1px 0 rgba(255, 255, 255, 0.10)',
       },
       animation: {

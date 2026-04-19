@@ -48,7 +48,7 @@ export const Services = () => {
 
                     {/* "Szolgáltatások" Heading with Underline */}
                     <div className="relative inline-block mb-6 text-center">
-                        <h2 className="text-4xl sm:text-6xl font-bold font-display text-white relative z-10">{t('services.title')}</h2>
+                        <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white relative z-10 leading-tight">{t('services.title')}</h2>
                     </div>
 
                     <p className="text-base md:text-xl text-center text-white/80 font-medium">
@@ -70,7 +70,7 @@ export const Services = () => {
                             <div className="w-12 h-12 rounded-xl bg-neonBlue/10 flex items-center justify-center mb-6 text-neonBlue">
                                 <Laptop size={24} />
                             </div>
-                            <h3 className="text-2xl sm:text-4xl font-bold text-white mb-4 font-display">{t('services.webdev.title')}</h3>
+                            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 font-display leading-tight">{t('services.webdev.title')}</h3>
                             <div className="text-neonBlue font-mono text-sm mb-6 tracking-wide">{t('services.webdev.tagline')}</div>
                             <p className="text-white/80 text-base md:text-lg mb-8 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: t('services.webdev.desc') as string }} />
 
@@ -134,7 +134,7 @@ export const Services = () => {
                             <div className="w-12 h-12 rounded-xl bg-neonPurple/10 flex items-center justify-center mb-6 text-neonPurple">
                                 <BarChart3 size={24} />
                             </div>
-                            <h3 className="text-2xl sm:text-4xl font-bold text-white mb-6 font-display">{t('services.seo.title')}</h3>
+                            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 font-display leading-tight">{t('services.seo.title')}</h3>
                             <p className="text-muted text-base md:text-lg mb-8 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('services.seo.desc') as string }} />
 
                             <h4 className="mb-4 text-base font-bold text-white uppercase tracking-wider">{t('services.seo.benefits_title')}</h4>

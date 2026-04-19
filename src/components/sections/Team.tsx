@@ -113,7 +113,7 @@ export const Team = () => {
                     <span className="text-sm font-mono text-neonBlue uppercase tracking-widest mb-3 block">
                         {t('team.tag') || '// Csapat'}
                     </span>
-                    <h2 className="text-3xl sm:text-4xl font-bold font-display text-white mb-4">
+                    <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-4 leading-tight">
                         {t('team.title') || 'Akik mögötted állnak'}
                     </h2>
                     <p className="text-white/80 text-lg font-medium max-w-2xl mx-auto">
@@ -138,7 +138,7 @@ export const Team = () => {
                             {/* Terminal Card replaced with Glass Card */}
                             {/* Terminal Card - Tuned Up */}
                             <div
-                                className="relative bg-[#0a0e1a] border border-white/10 rounded-xl h-full flex flex-col hover:border-neonBlue/40 transition-all duration-500 group-hover:shadow-[0_0_30px_-10px_rgba(79,138,255,0.15)] touch-pan-y"
+                                className="relative bg-[#0B1024] border border-white/10 rounded-xl h-full flex flex-col hover:border-neonBlue/40 transition-all duration-500 group-hover:shadow-[0_0_30px_-10px_rgba(79,138,255,0.15)] touch-pan-y"
                                 itemScope
                                 itemType="https://schema.org/Person"
                             >

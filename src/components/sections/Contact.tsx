@@ -1,7 +1,6 @@
 import { Container } from '../Container';
 import { Section } from '../Section';
 import { Button } from '../ui/Button';
-import { BracketFrame } from '../ui/BracketFrame';
 import { motion, type Variants } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -48,7 +47,7 @@ export const Contact = () => {
                         >
                             <span className="text-sm font-mono text-neonPurple uppercase tracking-widest">{t('contact.tag')}</span>
                         </motion.div>
-                        <h2 className="text-4xl sm:text-5xl font-bold font-display text-white mb-6">
+                        <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold font-display text-white mb-6 leading-tight">
                             {t('contact.title_line1')} <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
                                 {t('contact.title_gradient')}
@@ -73,28 +72,6 @@ export const Contact = () => {
                             </a>
                         </div>
 
-                        <motion.div
-                            className="relative max-w-sm"
-                            initial={{ opacity: 1, y: 0 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: 0.3 }}
-                        >
-                            <div className="absolute -inset-1 bg-gradient-to-r from-neonBlue to-neonPurple rounded-2xl opacity-20 blur-lg" />
-                            <BracketFrame className="bg-surface h-auto">
-                                <div className="flex items-center gap-4">
-                                    <div className="relative w-12 h-12 shrink-0 flex items-center justify-center bg-gradient-to-br from-white to-neonBlue text-black font-bold font-mono text-xl leading-none">
-                                        <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-black/20" />
-                                        <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-black/20" />
-                                        CL
-                                    </div>
-                                    <div>
-                                        <div className="text-white font-bold">CyberLabs Web</div>
-                                        <div className="text-sm text-neonBlue">{t('contact.card_subtitle')}</div>
-                                    </div>
-                                </div>
-                            </BracketFrame>
-                        </motion.div>
                     </motion.div>
 
                     {/* Right Form */}

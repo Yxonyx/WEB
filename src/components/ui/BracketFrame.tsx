@@ -7,23 +7,27 @@ interface BracketFrameProps {
     idx?: number;
 }
 
+/**
+ * Clean modern card wrapper — replaces the old 4-corner tech-bracket style.
+ * Uses a subtle frosted surface, a hairline top highlight, and a soft blue
+ * glow on hover, so sections can hold rich content without looking like an
+ * AI-template cyberpunk dashboard.
+ */
 export const BracketFrame: React.FC<BracketFrameProps> = ({ children, className }) => {
     return (
-        <div className={twMerge(
-            "relative p-6 sm:p-8 bg-surface2/30 backdrop-blur-sm",
-            className
-        )}>
-            {/* Top Left Bracket */}
-            <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-neonBlue" />
-            {/* Top Right Bracket */}
-            <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-neonPurple" />
-            {/* Bottom Left Bracket */}
-            <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-neonBlue" />
-            {/* Bottom Right Bracket */}
-            <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-neonPurple" />
-
-            {/* Interaction overlay */}
-            <div className="absolute inset-0 bg-white/0 hover:bg-white/[0.02] transition-colors duration-500 pointer-events-none" />
+        <div
+            className={twMerge(
+                "group relative p-6 sm:p-8 rounded-2xl",
+                "bg-gradient-to-b from-white/[0.04] to-white/[0.015]",
+                "border border-white/[0.07]",
+                "backdrop-blur-sm",
+                "transition-all duration-500",
+                "hover:border-neonBlue/30 hover:shadow-[0_8px_40px_-12px_rgba(77,148,255,0.35)]",
+                className
+            )}
+        >
+            {/* Inner top hairline — simulates light from above, premium feel */}
+            <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
             {children}
         </div>
