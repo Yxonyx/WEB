@@ -96,14 +96,14 @@ export const Hero = () => {
                             <span className="text-xs font-mono text-neonBlue uppercase tracking-widest">{t('hero.tag')}</span>
                         </div>
 
-                        <h1 className="text-4xl sm:text-5xl font-bold text-white leading-[1.1] mb-4 tracking-tight font-display">
+                        <h1 className="text-[2.5rem] sm:text-5xl font-semibold text-white/95 leading-[1.08] mb-5 tracking-[-0.02em] font-display">
                             <span>{t('hero.title_prefix_1')}</span>
                             <br className="sm:hidden" />
                             <span>{t('hero.title_prefix_2')}</span>
                             <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-[#9FCDFF] to-white animate-gradient-shift">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-[#9FCDFF] to-white/90">
                                 {t('hero.title_gradient')}
-                            </span><span> &</span>
+                            </span><span className="text-white/85"> &</span>
                             <br />
                             <span>{t('hero.title_suffix')}</span>
                         </h1>
@@ -119,11 +119,11 @@ export const Hero = () => {
                             <span className="text-white font-semibold">{t('hero.subtitle_ai')}</span>.
                         </p>
 
-                        <div className="flex flex-wrap gap-3 justify-center">
-                            <Button href="#kapcsolat" variant="primary">
+                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-3 items-stretch sm:items-center sm:justify-center max-w-xs mx-auto sm:max-w-none">
+                            <Button href="#kapcsolat" variant="primary" className="w-full sm:w-auto">
                                 {t('hero.cta_primary')}
                             </Button>
-                            <Button href="#arazas" variant="secondary">
+                            <Button href="#arazas" variant="secondary" className="w-full sm:w-auto">
                                 {t('hero.cta_secondary')}
                             </Button>
                         </div>
@@ -158,13 +158,13 @@ export const Hero = () => {
                             <span className="text-sm font-mono text-neonBlue uppercase tracking-widest">{t('hero.tag')}</span>
                         </div>
 
-                        <h1 className="text-6xl font-bold text-white leading-[1.08] mb-6 tracking-tight font-display">
+                        <h1 className="text-[3.5rem] xl:text-6xl font-semibold text-white/95 leading-[1.05] mb-6 tracking-[-0.025em] font-display">
                             <span>{t('hero.title_prefix_1')}</span>
                             <span>{t('hero.title_prefix_2')}</span>
                             <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-[#9FCDFF] to-white animate-gradient-shift">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-[#9FCDFF] to-white/90">
                                 {t('hero.title_gradient')}
-                            </span><span> &</span>
+                            </span><span className="text-white/85"> &</span>
                             <br />
                             <span>{t('hero.title_suffix')}</span>
                         </h1>

@@ -19,29 +19,19 @@ export const Button: React.FC<ButtonProps> = ({
     className,
     ...props
 }) => {
-    const baseStyles = "relative inline-flex items-center justify-center font-mono font-bold tracking-wider transition-all duration-300 group";
+    const baseStyles = "relative inline-flex items-center justify-center font-medium tracking-wide rounded-full transition-all duration-300 group whitespace-nowrap";
 
     const variants = {
-        primary: "bg-neonBlue text-white hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(77,148,255,0.45)]", // Super Lighter Electric Blue shadow
-        secondary: "bg-surface/50 border border-white/10 text-white hover:bg-white/5 hover:border-white/20 hover:text-neonBlue",
-        harvest: "bg-neonHarvest text-white hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(143,125,255,0.38)]",
+        primary: "bg-neonBlue text-white hover:bg-white hover:text-black hover:shadow-[0_8px_28px_-8px_rgba(77,148,255,0.55)]",
+        secondary: "bg-white/[0.04] border border-white/15 text-white hover:bg-white/[0.08] hover:border-white/30 backdrop-blur-sm",
+        harvest: "bg-neonHarvest text-white hover:bg-white hover:text-black hover:shadow-[0_8px_28px_-8px_rgba(143,125,255,0.45)]",
     };
 
     const sizes = {
-        sm: "px-4 py-2 text-sm",
-        md: "px-8 py-3 text-sm",
-        lg: "px-10 py-4 text-base",
+        sm: "px-5 py-2 text-sm",
+        md: "px-7 py-3 text-[15px]",
+        lg: "px-9 py-3.5 text-base",
     };
-
-    const Brackets = () => (
-        <>
-            <span className="mr-2 text-black/60 group-hover:text-black/80 transition-colors">&lt;</span>
-        </>
-    );
-
-    const CloseBracket = () => (
-        <span className="ml-2 text-black/60 group-hover:text-black/80 transition-colors">&gt;</span>
-    );
 
     const combinedClassName = twMerge(baseStyles, variants[variant], sizes[size], className);
 
@@ -78,11 +68,9 @@ export const Button: React.FC<ButtonProps> = ({
     if (href) {
         return (
             <a href={href} onClick={href.startsWith('#') ? handleHashClick : undefined} className={combinedClassName}>
-                <Brackets />
-                <span className="relative z-10 flex items-center">
+                <span className="relative z-10 flex items-center gap-1.5">
                     {children}
                 </span>
-                <CloseBracket />
             </a>
         );
     }
@@ -94,11 +82,9 @@ export const Button: React.FC<ButtonProps> = ({
             className={combinedClassName}
             {...(props as any)}
         >
-            <Brackets />
-            <span className="relative z-10 flex items-center">
+            <span className="relative z-10 flex items-center gap-1.5">
                 {children}
             </span>
-            <CloseBracket />
         </motion.button>
     );
 };

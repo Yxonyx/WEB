@@ -4,6 +4,7 @@ import { Network, Cpu, Sparkles, ArrowRight, UserCheck } from 'lucide-react';
 import { ProIcon } from '../icons/ProIcon';
 import { motion } from 'framer-motion';
 import { lazy, Suspense } from 'react';
+import { SectionHeader } from '../ui/SectionHeader';
 import { useLanguage } from '../../context/LanguageContext';
 // Lazy load Robot3D to avoid loading Three.js in the main bundle
 const Robot3D = lazy(() => import('../ui/Robot3D').then(module => ({ default: module.Robot3D })));
@@ -18,12 +19,17 @@ export const GEO = () => {
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-neonPurple/5 rounded-full blur-[60px] pointer-events-none" />
 
             <Container>
-                {/* Header */}
-                <div className="text-center max-w-4xl mx-auto mb-20 lg:mb-32">
-
-                    <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-white mb-6 font-display leading-tight">{t('geo.header.title')}</h2>
-                    <p className="text-xl text-white/80 font-medium" dangerouslySetInnerHTML={{ __html: t('geo.header.desc') as string }} />
-                </div>
+                <SectionHeader
+                    number="02"
+                    eyebrow="GEO"
+                    title={t('geo.header.title') as string}
+                    align="center"
+                    className="mb-10 lg:mb-16"
+                />
+                <p
+                    className="text-white/70 text-base lg:text-[17px] text-center max-w-3xl mx-auto mb-16 lg:mb-20 leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: t('geo.header.desc') as string }}
+                />
 
                 {/* Main Content Grid */}
                 <div className="space-y-32">

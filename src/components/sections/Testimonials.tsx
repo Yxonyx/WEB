@@ -3,6 +3,7 @@ import { Section } from '../Section';
 import { Container } from '../Container';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { SectionHeader } from '../ui/SectionHeader';
 import { useLanguage } from '../../context/LanguageContext';
 
 interface Testimonial {
@@ -141,50 +142,40 @@ export const Testimonials = () => {
     }, [isHovering]);
 
     return (
-        <Section id="velemenyek" className="section-bg-mixed relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-neonBlue/10 rounded-full blur-[80px] pointer-events-none" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-neonPurple/10 rounded-full blur-[80px] pointer-events-none" />
-
+        <Section id="velemenyek" className="relative overflow-hidden">
             <Container>
-                {/* Header */}
-                <motion.div
-                    initial={{ opacity: 1, y: 0 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-8 md:mb-16"
-                >
-                    <div className="inline-flex items-center gap-2 text-neonBlue font-mono text-sm mb-4 tracking-wider">
-                        <span>&lt;</span>
-                        <span>REVIEWS</span>
-                        <span>/&gt;</span>
-                    </div>
-                    <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-white font-display leading-tight">
-                        {language === 'hu' ? 'Mit mondanak rólunk' : 'What our clients'}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-neonPurple">
-                            {language === 'hu' ? ' az ügyfeleink?' : ' say about us?'}
-                        </span>
-                    </h2>
+                <SectionHeader
+                    number="09"
+                    eyebrow="Vélemények"
+                    title={
+                        <>
+                            {language === 'hu' ? 'Mit mondanak rólunk' : 'What our clients'}{' '}
+                            <span className="text-neonBlue">
+                                {language === 'hu' ? 'az ügyfeleink?' : 'say about us?'}
+                            </span>
+                        </>
+                    }
+                    align="center"
+                    className="mb-6 sm:mb-8"
+                />
 
-                    {/* Navigation Arrows - Desktop (Centered below title) */}
-                    <div className="hidden md:flex justify-center gap-4 mt-6">
-                        <button
-                            onClick={() => scroll('left')}
-                            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group z-20"
-                            aria-label="Previous testimonial"
-                        >
-                            <ChevronLeft className="w-6 h-6 text-white/70 group-hover:text-white transition-colors" />
-                        </button>
-                        <button
-                            onClick={() => scroll('right')}
-                            className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group z-20"
-                            aria-label="Next testimonial"
-                        >
-                            <ChevronRight className="w-6 h-6 text-white/70 group-hover:text-white transition-colors" />
-                        </button>
-                    </div>
-                </motion.div>
-
+                {/* Navigation Arrows - Desktop */}
+                <div className="hidden md:flex justify-center gap-3 mb-2">
+                    <button
+                        onClick={() => scroll('left')}
+                        className="w-10 h-10 rounded-full bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] hover:border-white/25 transition-all flex items-center justify-center group z-20"
+                        aria-label="Previous testimonial"
+                    >
+                        <ChevronLeft className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
+                    </button>
+                    <button
+                        onClick={() => scroll('right')}
+                        className="w-10 h-10 rounded-full bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] hover:border-white/25 transition-all flex items-center justify-center group z-20"
+                        aria-label="Next testimonial"
+                    >
+                        <ChevronRight className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
+                    </button>
+                </div>
             </Container>
 
             {/* Scrolling Carousel Container */}
@@ -228,38 +219,36 @@ export const Testimonials = () => {
                             {/* Gradient border effect */}
                             <div className="absolute -inset-[1px] bg-gradient-to-r from-neonBlue/50 via-neonPurple/50 to-neonBlue/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
 
-                            <div className="relative bg-[#0A0C20] border border-white/10 rounded-2xl p-8 h-full flex flex-col justify-between group-hover:border-transparent transition-all duration-500">
+                            <div className="relative bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-3xl p-7 h-full flex flex-col justify-between group-hover:border-neonBlue/25 group-hover:bg-white/[0.045] transition-all duration-500">
+                                {/* Top hairline */}
+                                <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+
                                 {/* Quote icon */}
-                                <div className="absolute -top-4 -left-2 w-10 h-10 bg-gradient-to-br from-neonBlue to-neonPurple rounded-xl flex items-center justify-center shadow-lg shadow-neonPurple/20">
-                                    <Quote size={18} className="text-white" />
+                                <div className="absolute -top-3 -left-1 w-9 h-9 bg-neonBlue rounded-2xl flex items-center justify-center shadow-[0_8px_20px_-4px_rgba(77,148,255,0.55)]">
+                                    <Quote size={16} className="text-white" />
                                 </div>
 
                                 <div>
-                                    {/* Stars */}
-                                    <div className="flex gap-1 mb-4 ml-8">
+                                    <div className="flex gap-1 mb-4 ml-7">
                                         {[...Array(testimonial.rating)].map((_, i) => (
-                                            <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />
+                                            <Star key={i} size={13} className="text-amber-400 fill-amber-400" />
                                         ))}
                                     </div>
 
-                                    {/* Quote */}
-                                    <p className="text-white/90 text-base leading-relaxed mb-6 italic">
+                                    <p className="text-white/85 text-[15px] leading-relaxed mb-6">
                                         "{testimonial.quote}"
                                     </p>
                                 </div>
 
-                                {/* Author */}
-                                <div className="flex items-center gap-4 pt-4 border-t border-white/10">
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neonBlue to-neonPurple p-[2px] shrink-0">
-                                        <div className="w-full h-full rounded-full bg-[#0A0C20] flex items-center justify-center">
-                                            <span className="text-white font-bold text-sm">
-                                                {testimonial.name.charAt(0)}
-                                            </span>
-                                        </div>
+                                <div className="flex items-center gap-3 pt-4 border-t border-white/[0.07]">
+                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neonBlue/30 to-neonPurple/20 border border-white/10 flex items-center justify-center shrink-0">
+                                        <span className="text-white font-semibold text-sm">
+                                            {testimonial.name.charAt(0)}
+                                        </span>
                                     </div>
                                     <div>
-                                        <div className="text-white font-semibold text-base">{testimonial.name}</div>
-                                        <div className="text-neonBlue/80 text-xs font-mono">{testimonial.role}</div>
+                                        <div className="text-white font-medium text-[15px]">{testimonial.name}</div>
+                                        <div className="text-white/50 text-xs font-mono">{testimonial.role}</div>
                                     </div>
                                 </div>
                             </div>

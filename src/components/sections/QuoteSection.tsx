@@ -29,26 +29,26 @@ export const QuoteSection = () => {
                     >
 
 
-                        {/* Heading */}
-                        <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-white mb-6 leading-tight font-display">
-                            "{t('quote.title.prefix')}<span className="text-neonBlue">{t('quote.title.highlight')}</span>{t('quote.title.suffix')}"
+                        <h2 className="text-xl sm:text-2xl lg:text-[1.875rem] font-semibold mb-5 leading-[1.25] font-display max-w-xl">
+                            <span className="text-white/50">"</span>{t('quote.title.prefix')}
+                            <span className="text-neonBlue">{t('quote.title.highlight')}</span>
+                            {t('quote.title.suffix')}<span className="text-white/50">"</span>
                         </h2>
 
-                        <p className="text-lg text-white/80 font-medium mb-6 leading-relaxed">
+                        <p className="text-[15px] sm:text-base text-white/65 mb-6 leading-relaxed max-w-lg">
                             {t('quote.subtitle')}
                         </p>
 
-                        {/* Benefits List */}
-                        <div className="bg-surface2/30 rounded-xl p-6 border border-white/5 mb-8">
-                            <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
-                                <Layers size={18} className="text-neonPurple" />
+                        <div className="bg-white/[0.03] rounded-2xl p-5 border border-white/[0.07] mb-7 max-w-lg">
+                            <h3 className="text-white/90 text-sm font-semibold mb-3.5 flex items-center gap-2">
+                                <Layers size={16} className="text-neonBlue" />
                                 {t('quote.benefits_title')}
                             </h3>
-                            <ul className="space-y-3">
+                            <ul className="space-y-2.5">
                                 {(t('quote.benefits') as unknown as string[]).map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-base text-white/80">
-                                        <div className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-neonBlue/10 flex items-center justify-center">
-                                            <Check size={12} className="text-neonBlue" />
+                                    <li key={i} className="flex items-start gap-2.5 text-[14px] text-white/75">
+                                        <div className="mt-0.5 shrink-0 w-4 h-4 rounded-full bg-neonBlue/10 flex items-center justify-center">
+                                            <Check size={10} className="text-neonBlue" />
                                         </div>
                                         <span>{item}</span>
                                     </li>
@@ -56,12 +56,11 @@ export const QuoteSection = () => {
                             </ul>
                         </div>
 
-                        {/* CTAs */}
-                        <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                            <Button href="#kapcsolat" variant="primary">
+                        <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center max-w-xs sm:max-w-none">
+                            <Button href="#kapcsolat" variant="primary" className="w-full sm:w-auto">
                                 {t('quote.cta.trial')}
                             </Button>
-                            <Button href="#arazas" variant="secondary">
+                            <Button href="#arazas" variant="secondary" className="w-full sm:w-auto">
                                 {t('quote.cta.pricing')}
                             </Button>
                         </div>

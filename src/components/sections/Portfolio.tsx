@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { Container } from '../Container';
 import { Section } from '../Section';
 import { BracketFrame } from '../ui/BracketFrame';
+import { SectionHeader } from '../ui/SectionHeader';
 import { motion, type Variants } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -240,18 +241,16 @@ export const Portfolio = () => {
     }, [isHovering]);
 
     return (
-        <Section id="referenciak" className="overflow-visible section-bg-mixed" withOrbs withMeshGradient>
+        <Section id="referenciak" className="overflow-visible" withOrbs withMeshGradient>
             <Container>
-                <motion.div
-                    className="mb-12 text-center"
-                    initial={{ opacity: 1, y: 0 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4 }}
-                >
-                    <h2 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold font-display text-white mb-4 leading-tight">{t('portfolio.title')}</h2>
-                    <p className="text-white/80 text-lg font-medium max-w-2xl mx-auto">{t('portfolio.subtitle')}</p>
-                </motion.div>
+                <SectionHeader
+                    number="06"
+                    eyebrow="Munkáink"
+                    title={t('portfolio.title') as string}
+                    subtitle={t('portfolio.subtitle') as string}
+                    align="center"
+                    className="mb-10"
+                />
 
                 {/* Mobile Projects Section */}
                 {mobileProjectsRaw.length > 0 && (

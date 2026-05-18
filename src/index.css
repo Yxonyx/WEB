@@ -17,18 +17,20 @@
     overscroll-behavior-y: contain;
   }
 
-  /* Soft off-white heading gradient — no more cold silver-metallic feel.
-     Stays clean and readable, with a whisper of blue-tinted warmth. */
+  /* Soft heading colour — pure white was too harsh on the dark canvas.
+     Slight off-white with a hint of cool blue, lower contrast for calmer
+     reading. The gradient is preserved as a subtle top-to-bottom falloff. */
   h1, h2, h3, h4 {
-    background-image: linear-gradient(180deg, #ffffff 0%, #f0f3f9 70%, #dfe5f0 100%);
+    background-image: linear-gradient(180deg, #F2F5FB 0%, #E4E9F2 70%, #C9D2E0 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    letter-spacing: -0.015em;
   }
 
   @screen lg {
     h1, h2, h3, h4 {
-      background-image: linear-gradient(180deg, #ffffff 0%, #ebeff7 60%, #d4dbe8 100%);
+      background-image: linear-gradient(180deg, #F2F5FB 0%, #DEE4F0 60%, #BFC9DA 100%);
     }
   }
 
