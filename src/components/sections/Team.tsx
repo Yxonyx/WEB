@@ -60,7 +60,7 @@ export const Team = () => {
     ];
 
     return (
-        <Section id="csapat" className="bg-black relative overflow-hidden">
+        <Section id="csapat" className="relative overflow-hidden">
             <ParticleNetwork />
             <Container className="relative z-[2]">
                 <motion.div

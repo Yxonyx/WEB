@@ -29,7 +29,7 @@ export const Contact = () => {
     return (
         <Section id="kapcsolat" withOrbs>
             <Container>
-                <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+                <div className="grid lg:grid-cols-2 gap-4 lg:gap-16">
                     {/* Left */}
                     <div>
                         <SectionHeader
@@ -42,7 +42,7 @@ export const Contact = () => {
                                 </>
                             }
                             subtitle={t('contact.description') as string}
-                            className="mb-8"
+                            className="mb-5 sm:mb-6"
                         />
 
                         <div className="flex flex-col gap-3">
