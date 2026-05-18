@@ -1,13 +1,12 @@
 'use client'
 
 import { SplineScene } from "@/components/ui/splite"
-import { Card } from "@/components/ui/card"
 import { Spotlight } from "@/components/ui/spotlight"
 
 export default function SplineDemo() {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-8">
-      <Card className="w-full max-w-5xl h-[500px] bg-black/[0.96] relative overflow-hidden rounded-2xl border-white/10">
+      <div className="w-full max-w-5xl h-[500px] bg-black/[0.96] relative overflow-hidden rounded-2xl border border-white/10">
         <Spotlight
           className="-top-40 left-0 md:left-60 md:-top-20"
           fill="white"
@@ -33,7 +32,7 @@ export default function SplineDemo() {
             />
           </div>
         </div>
-      </Card>
+      </div>
     </div>
   )
 }
