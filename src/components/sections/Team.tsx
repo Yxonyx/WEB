@@ -107,7 +107,7 @@ export const Team = () => {
                 />
 
                 <motion.div
-                    className="grid md:grid-cols-3 gap-5 lg:gap-6"
+                    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-50px' }}
@@ -117,58 +117,57 @@ export const Team = () => {
                         <motion.div key={i} variants={itemVariants}>
                             <Card
                                 as="article"
-                                className="h-full flex flex-col"
+                                className="h-full !p-4 sm:!p-5"
                                 {...({ itemScope: true, itemType: 'https://schema.org/Person' } as any)}
                             >
-                                <div className="flex items-start justify-between mb-5">
-                                    <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl overflow-hidden border border-white/10">
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="w-12 h-12 rounded-xl overflow-hidden border border-white/10 shrink-0">
                                         <img
                                             src={member.image}
                                             alt={member.name}
                                             loading="lazy"
-                                            width="80"
-                                            height="80"
+                                            width="48"
+                                            height="48"
                                             className="w-full h-full object-cover grayscale group-hover/card:grayscale-0 transition-all duration-500"
                                             itemProp="image"
                                         />
                                     </div>
-                                    <span className="font-mono text-[10px] text-white/40 tracking-widest">{member.id}</span>
+                                    <div className="min-w-0 flex-1">
+                                        <h3 className="text-[15px] font-semibold leading-tight truncate" itemProp="name">
+                                            {member.name}
+                                        </h3>
+                                        <div className="text-neonBlue/85 font-mono text-[10px] uppercase tracking-[0.14em] mt-0.5">
+                                            <span itemProp="jobTitle">{member.role}</span>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <h3 className="text-lg lg:text-xl font-semibold mb-1" itemProp="name">
-                                    {member.name}
-                                </h3>
-
-                                <div className="text-neonBlue/85 font-mono text-[11px] uppercase tracking-[0.15em] mb-1.5">
-                                    <span itemProp="jobTitle">{member.role}</span>
-                                </div>
-
-                                <p className="text-xs text-white/50 italic mb-5" itemProp="knowsAbout">
+                                <p className="text-[11px] text-white/50 italic mb-3 line-clamp-2" itemProp="knowsAbout">
                                     {member.qualification}
                                 </p>
+
+                                <ul className="flex flex-wrap gap-1.5 mb-3">
+                                    {member.skills.map((skill, j) => (
+                                        <li
+                                            key={j}
+                                            className="inline-flex items-center gap-1 text-[11px] text-white/75 px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08]"
+                                        >
+                                            <Check className="w-2.5 h-2.5 text-neonBlue shrink-0" />
+                                            <span itemProp="hasCredential">{skill}</span>
+                                        </li>
+                                    ))}
+                                </ul>
 
                                 {member.phone && (
                                     <a
                                         href={`tel:${member.phone.replace(/\s/g, '')}`}
-                                        className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/12 text-white/85 text-[13px] hover:bg-neonBlue/10 hover:border-neonBlue/30 hover:text-neonBlue transition-colors w-fit"
+                                        className="inline-flex items-center gap-1.5 text-[12px] text-white/80 hover:text-neonBlue transition-colors font-mono"
                                         itemProp="telephone"
                                     >
                                         <Phone className="w-3 h-3" />
                                         {member.phone}
                                     </a>
                                 )}
-
-                                <ul className="space-y-2 mt-auto">
-                                    {member.skills.map((skill, j) => (
-                                        <li
-                                            key={j}
-                                            className="flex items-center gap-2.5 text-[14px] text-white/75"
-                                        >
-                                            <Check className="w-3.5 h-3.5 text-neonBlue shrink-0" />
-                                            <span itemProp="hasCredential">{skill}</span>
-                                        </li>
-                                    ))}
-                                </ul>
                             </Card>
                         </motion.div>
                     ))}

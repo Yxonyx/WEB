@@ -186,9 +186,9 @@ export const Testimonials = () => {
                 onTouchStart={() => setIsHovering(true)}
                 onTouchEnd={() => setIsHovering(false)}
             >
-                {/* Gradient Masks for fade effect at edges */}
-                <div className="absolute left-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-r from-[#06091A] to-transparent z-10 pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-l from-[#06091A] to-transparent z-10 pointer-events-none" />
+                {/* Soft fade masks — transparent → page bg, so side previews stay visible */}
+                <div className="absolute left-0 top-0 bottom-0 w-6 md:w-16 bg-gradient-to-r from-[#070B1C] via-[#070B1C]/60 to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-6 md:w-16 bg-gradient-to-l from-[#070B1C] via-[#070B1C]/60 to-transparent z-10 pointer-events-none" />
 
                 {/* Mobile Navigation Arrows - Overlay on edges */}
                 <button
@@ -209,7 +209,7 @@ export const Testimonials = () => {
                 {/* Scrollable Track - Replaces CSS animation with native scroll */}
                 <div
                     ref={trackRef}
-                    className="flex gap-3 py-4 md:py-8 w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                    className="flex gap-3 py-4 md:py-8 w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-[calc((100vw-300px)/2)] md:px-[calc((100vw-400px)/2)] [scroll-padding-inline:calc((100vw-300px)/2)] md:[scroll-padding-inline:calc((100vw-400px)/2)]"
                 >
                     {items.map((testimonial, index) => (
                         <div

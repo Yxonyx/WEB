@@ -19,8 +19,9 @@ export const GEO = () => {
         setIsCapable(!reduced && !lowMem);
     }, []);
 
+    // Subtle soft glow only — no visible ring/circle border
     const robotGlow = (
-        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neonBlue/30 via-neonBlue/10 to-neonPurple/20 border border-neonBlue/30 shadow-[0_0_40px_-8px_rgba(77,148,255,0.45)]" />
+        <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(99,168,255,0.22),transparent_70%)] blur-md" />
     );
 
     return (

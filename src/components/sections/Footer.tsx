@@ -24,8 +24,15 @@ export const Footer = () => {
 
     return (
         <footer className="relative pt-16 pb-10 overflow-hidden">
-            {/* Layered ambient — matches the rest of the page */}
+            {/* Photo background — restored, with darkening overlay so the modern layout still reads */}
+            <div
+                className="pointer-events-none absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: "url('/images/philosophy-bg.webp')" }}
+            />
+            <div className="pointer-events-none absolute inset-0 bg-[#070B1C]/75" />
+            {/* Top hairline + soft top fade to blend with the page above */}
             <div className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-neonBlue/30 to-transparent" />
+            <div className="pointer-events-none absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#070B1C] to-transparent" />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(99,168,255,0.10),transparent_60%)]" />
             <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[80%] h-[300px] rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(143,125,255,0.10),transparent_60%)] blur-2xl" />
 
@@ -89,7 +96,7 @@ export const Footer = () => {
                 <div className="relative mb-8">
                     <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
                     <div className="relative flex justify-center">
-                        <span className="px-4 bg-[#070B1C] text-[10px] font-mono uppercase tracking-[0.3em] text-white/40">
+                        <span className="px-4 text-[10px] font-mono uppercase tracking-[0.3em] text-white/55 bg-white/[0.02] backdrop-blur-sm rounded-full py-1">
                             Kapcsolat
                         </span>
                     </div>
