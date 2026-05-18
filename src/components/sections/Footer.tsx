@@ -23,93 +23,115 @@ export const Footer = () => {
     ];
 
     return (
-        <footer className="relative py-12 border-t border-white/5 overflow-hidden">
-            {/* Background image */}
-            <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: "url('/images/philosophy-bg.webp')" }}
-            />
-            <div className="absolute inset-0 bg-bgDeep/80" />
-            {/* Top fade */}
-            <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#06091A] to-transparent z-[1]" />
-            <Container className="relative z-10 text-center">
-                <div className="flex items-center justify-center gap-3 mb-6">
-                    {/* Navbar-matching CL monogram */}
-                    <div className="relative w-10 h-10 shrink-0 flex items-center justify-center bg-black/30 backdrop-blur-sm border border-neonBlue/40 rounded-sm">
-                        <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-neonBlue/80" />
-                        <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-neonBlue/80" />
-                        <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-neonBlue/80" />
-                        <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-neonBlue/80" />
-                        <div className="relative z-10 font-bold font-mono text-[17px] tracking-tight leading-none text-white drop-shadow-[0_0_6px_rgba(77,148,255,0.35)]">CL</div>
+        <footer className="relative pt-16 pb-10 overflow-hidden">
+            {/* Layered ambient — matches the rest of the page */}
+            <div className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-neonBlue/30 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(99,168,255,0.10),transparent_60%)]" />
+            <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[80%] h-[300px] rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(143,125,255,0.10),transparent_60%)] blur-2xl" />
+
+            <Container className="relative z-10">
+                {/* Top row: brand + tagline + socials */}
+                <div className="flex flex-col items-center text-center mb-10">
+                    <div className="flex items-center gap-3 mb-3">
+                        <div className="relative w-10 h-10 shrink-0 flex items-center justify-center bg-black/30 lg:backdrop-blur-sm border border-neonBlue/40 rounded-md">
+                            <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-neonBlue/80" />
+                            <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-neonBlue/80" />
+                            <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-neonBlue/80" />
+                            <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-neonBlue/80" />
+                            <div className="relative z-10 font-bold font-mono text-[17px] tracking-tight leading-none text-white drop-shadow-[0_0_6px_rgba(77,148,255,0.45)]">CL</div>
+                        </div>
+                        <span className="text-xl font-bold tracking-tight leading-none flex items-baseline">
+                            <span className="text-white">Cyber</span>
+                            <span className="text-neonBlue">Labs</span>
+                            <span className="text-white ml-1.5">Web</span>
+                        </span>
                     </div>
-                    <span className="text-xl font-bold tracking-tight leading-none flex items-baseline">
-                        <span className="text-white">Cyber</span><span className="text-neonBlue">Labs</span><span className="text-white ml-1.5">Web</span>
-                    </span>
+
+                    <p className="text-sm text-white/55 max-w-md mb-6">
+                        Modern weboldalak és AI-vezérelt megoldások a Te vállalkozásodnak.
+                    </p>
+
+                    <div className="flex items-center justify-center gap-2.5">
+                        {socialLinks.map((social, i) => (
+                            <a
+                                key={i}
+                                href={social.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={social.label}
+                                className="group w-10 h-10 flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] hover:bg-neonBlue/15 hover:border-neonBlue/45 hover:-translate-y-0.5 transition-all duration-300"
+                            >
+                                <social.icon className="w-[18px] h-[18px] text-white/65 group-hover:text-neonBlue transition-colors duration-300" />
+                            </a>
+                        ))}
+                    </div>
                 </div>
 
-                {/* Social Media Icons */}
-                <div className="flex items-center justify-center gap-4 mb-8">
-                    {socialLinks.map((social, i) => (
-                        <a
-                            key={i}
-                            href={social.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={social.label}
-                            className="group relative p-3 rounded-lg border border-white/10 bg-surface2/50 hover:border-neonBlue/50 hover:bg-neonBlue/10 transition-all duration-300"
-                        >
-                            {/* Corner brackets on hover */}
-                            <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-transparent group-hover:border-neonBlue transition-colors duration-300" />
-                            <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-transparent group-hover:border-neonBlue transition-colors duration-300" />
-
-                            <social.icon className="w-5 h-5 text-muted group-hover:text-neonBlue transition-colors duration-300" />
-                        </a>
-                    ))}
-                </div>
-
-                {/* Free Tools Links */}
-                <div className="flex flex-wrap items-center justify-center gap-6 mb-10">
-                    <Link href={`/${currentLang}/tools/qr`}
-                        className="group inline-flex items-center justify-center gap-2 text-white/50 hover:text-neonBlue transition-colors duration-300"
+                {/* Tools row — pill chips */}
+                <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+                    <Link
+                        href={`/${currentLang}/tools/qr`}
+                        className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] hover:bg-neonBlue/10 hover:border-neonBlue/40 text-white/75 hover:text-neonBlue transition-all duration-300"
                     >
-                        <QrCode className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" />
-                        <span className="font-bold uppercase tracking-wider text-sm mt-0.5">Ingyenes QR Kód Generálás</span>
+                        <QrCode className="w-4 h-4 opacity-80 group-hover:opacity-100" />
+                        <span className="font-medium text-[13px]">Ingyenes QR generátor</span>
                     </Link>
-                    <span className="text-white/10 hidden sm:inline">|</span>
-                    <Link href={`/${currentLang}/tools/image-compressor`}
-                        className="group inline-flex items-center justify-center gap-2 text-white/50 hover:text-neonBlue transition-colors duration-300"
+                    <Link
+                        href={`/${currentLang}/tools/image-compressor`}
+                        className="group inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] hover:bg-neonBlue/10 hover:border-neonBlue/40 text-white/75 hover:text-neonBlue transition-all duration-300"
                     >
-                        <ImageIcon className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity" />
-                        <span className="font-bold uppercase tracking-wider text-sm mt-0.5">Ingyenes Képtömörítés</span>
+                        <ImageIcon className="w-4 h-4 opacity-80 group-hover:opacity-100" />
+                        <span className="font-medium text-[13px]">Ingyenes képtömörítés</span>
                     </Link>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-muted mb-8 text-base">
-                    <span>{t('footer.call')}</span>
-                    <a href="tel:+36703304445" className="text-white hover:text-neonBlue transition-colors font-mono">
+                {/* Divider with center label */}
+                <div className="relative mb-8">
+                    <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                    <div className="relative flex justify-center">
+                        <span className="px-4 bg-[#070B1C] text-[10px] font-mono uppercase tracking-[0.3em] text-white/40">
+                            Kapcsolat
+                        </span>
+                    </div>
+                </div>
+
+                {/* Contact row */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8 mb-10 text-center">
+                    <span className="text-sm text-white/55">{t('footer.call')}</span>
+                    <a
+                        href="tel:+36703304445"
+                        className="font-mono text-[15px] text-white hover:text-neonBlue transition-colors"
+                    >
                         +36 70 330 4445
                     </a>
-                    <span className="hidden sm:inline opacity-30">|</span>
-                    <a href="mailto:contact@cyberlabsweb.com" className="text-white hover:text-neonBlue transition-colors font-mono">
+                    <span className="hidden sm:inline text-white/15">•</span>
+                    <a
+                        href="mailto:contact@cyberlabsweb.com"
+                        className="font-mono text-[15px] text-white hover:text-neonBlue transition-colors"
+                    >
                         contact@cyberlabsweb.com
                     </a>
                 </div>
 
-
-
-                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-muted2 mb-6">
-                    <a href="/aszf.html" className="hover:text-neonBlue transition-colors">{t('footer.terms')}</a>
-                    <span className="opacity-30">|</span>
-                    <a href="/adatvedelem.html" className="hover:text-neonBlue transition-colors">{t('footer.privacy')}</a>
+                {/* Bottom row */}
+                <div className="pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+                    <div className="text-white/45">
+                        &copy; {new Date().getFullYear()} CyberLabs Web. {t('footer.rights')}
+                    </div>
+                    <div className="flex items-center gap-4 text-white/55">
+                        <a href="/aszf.html" className="hover:text-neonBlue transition-colors">
+                            {t('footer.terms')}
+                        </a>
+                        <span className="text-white/15">•</span>
+                        <a href="/adatvedelem.html" className="hover:text-neonBlue transition-colors">
+                            {t('footer.privacy')}
+                        </a>
+                    </div>
                 </div>
 
-                <div className="text-sm text-muted2">
-                    &copy; {new Date().getFullYear()} CyberLabs Web. {t('footer.rights')}
-                </div>
-
-                {/* SEO: Service Areas - Subtle for users, visible for AI */}
-                <div className="mt-8 pt-8 border-t border-white/5 text-[10px] text-white/10 text-center font-mono leading-relaxed max-w-4xl mx-auto select-none">
-                    <span className="block mb-2 font-bold opacity-50">Kiemelt területek:</span>
+                {/* SEO city list — subtle */}
+                <div className="mt-8 text-[10px] text-white/15 text-center font-mono leading-relaxed max-w-4xl mx-auto select-none">
+                    <span className="block mb-1.5 opacity-70 tracking-[0.2em] uppercase">Kiemelt területek</span>
                     Budapest • Pest megye • Debrecen • Szeged • Miskolc • Pécs • Győr • Nyíregyháza • Kecskemét • Székesfehérvár • Szombathely • Érd • Szolnok • Tatabánya • Sopron • Kaposvár • Veszprém • Békéscsaba • Zalaegerszeg • Eger • Nagykanizsa
                 </div>
             </Container>

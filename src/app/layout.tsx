@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "../index.css";
 
@@ -18,6 +18,14 @@ export const metadata: Metadata = {
     "theme-color": "#050508",
     "color-scheme": "dark light",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: "#070B1C",
 };
 
 export default function RootLayout({

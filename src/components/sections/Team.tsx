@@ -61,10 +61,13 @@ export const Team = () => {
 
     return (
         <Section id="csapat" className="relative overflow-hidden">
+            {/* Ambient warm glow behind team — keeps the section from reading as pure black */}
+            <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[120%] h-[420px] rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(99,168,255,0.18),transparent_60%)] blur-2xl" />
+            <div className="pointer-events-none absolute bottom-0 right-0 w-[60%] h-[60%] bg-[radial-gradient(ellipse_at_bottom_right,rgba(143,125,255,0.14),transparent_55%)]" />
             <ParticleNetwork />
             <Container className="relative z-[2]">
                 <motion.div
-                    className="mb-12 text-center max-w-3xl mx-auto"
+                    className="mb-14 text-center max-w-3xl mx-auto rounded-3xl border border-white/[0.08] bg-white/[0.025] px-6 py-8 sm:px-10 sm:py-10 lg:backdrop-blur-md shadow-[0_8px_30px_-12px_rgba(8,12,30,0.6)]"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-50px' }}
@@ -72,14 +75,16 @@ export const Team = () => {
                 >
                     <motion.span
                         variants={itemVariants}
-                        className="font-mono text-xs sm:text-sm uppercase tracking-[0.18em] text-white/50 mb-4 block"
+                        className="inline-flex items-center gap-2 font-mono text-[11px] sm:text-xs uppercase tracking-[0.22em] text-neonBlue/85 mb-4"
                     >
+                        <span className="w-6 h-px bg-neonBlue/50" />
                         {t('team.philosophy.tag') || 'Filozófiánk'}
+                        <span className="w-6 h-px bg-neonBlue/50" />
                     </motion.span>
 
                     <motion.p
                         variants={itemVariants}
-                        className="text-white/75 text-base sm:text-lg leading-relaxed"
+                        className="text-white/80 text-[15px] sm:text-lg leading-relaxed"
                     >
                         {(t('team.philosophy.content') as unknown as any[]).map((item, i) => (
                             <span key={i}>

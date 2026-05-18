@@ -20,7 +20,7 @@ export const GEO = () => {
     }, []);
 
     const robotGlow = (
-        <div className="w-full h-full rounded-full bg-gradient-to-br from-neonBlue/30 via-neonBlue/10 to-neonPurple/20 border border-neonBlue/30 shadow-[0_0_40px_-8px_rgba(77,148,255,0.45)]" />
+        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neonBlue/30 via-neonBlue/10 to-neonPurple/20 border border-neonBlue/30 shadow-[0_0_40px_-8px_rgba(77,148,255,0.45)]" />
     );
 
     return (
@@ -67,19 +67,18 @@ export const GEO = () => {
                             <div className="absolute inset-0 bg-neonBlue/20 blur-3xl rounded-full" />
                             <div className="relative flex items-center gap-6">
                                 {/* Robot 3D floating on left */}
-                                <div className="flex-shrink-0 w-[120px] h-[120px] sm:w-[180px] sm:h-[180px]">
-                                    {isCapable ? (
+                                <div className="relative flex-shrink-0 w-[120px] h-[120px] sm:w-[180px] sm:h-[180px]">
+                                    {/* Permanent halo glow behind robot — no flash when 3D mounts/unmounts */}
+                                    {robotGlow}
+                                    {isCapable && (
                                         <MountOnVisible
-                                            className="w-full h-full"
+                                            className="absolute inset-0 flex items-center justify-center"
                                             rootMargin="200px"
-                                            fallback={robotGlow}
                                         >
-                                            <Suspense fallback={robotGlow}>
+                                            <Suspense fallback={null}>
                                                 <Robot3D size={180} />
                                             </Suspense>
                                         </MountOnVisible>
-                                    ) : (
-                                        robotGlow
                                     )}
                                 </div>
                                 {/* Search Interface card on right */}
