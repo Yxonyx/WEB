@@ -50,62 +50,68 @@ export const Insights = () => {
                     </Button>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-                    {activePosts.slice(0, 3).map((article) => {
-                        const linkTo = `/${currentLang}/blog/${article.id}`;
+                {/* Mobile: horizontal snap-scroll; Desktop: 3-col grid */}
+                <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto sm:overflow-visible no-scrollbar">
+                    <div className="flex sm:grid sm:grid-cols-3 gap-4 sm:gap-5 snap-x snap-mandatory">
+                        {activePosts.slice(0, 3).map((article) => {
+                            const linkTo = `/${currentLang}/blog/${article.id}`;
 
-                        return (
-                            <Link
-                                key={article.id}
-                                href={linkTo}
-                                className="group block relative z-20 cursor-pointer h-full"
-                            >
-                                <Card
-                                    flush
-                                    className="h-full flex flex-col overflow-hidden"
+                            return (
+                                <Link
+                                    key={article.id}
+                                    href={linkTo}
+                                    className="group block relative z-20 cursor-pointer h-full shrink-0 w-[78%] sm:w-auto snap-start"
                                 >
-                                    <div className="relative h-36 sm:h-40 overflow-hidden rounded-t-3xl">
-                                        <img
-                                            src={article.image}
-                                            alt={article.title}
-                                            width="800"
-                                            height="600"
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                            loading="lazy"
-                                        />
-                                        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0B1024]/95 to-transparent" />
-                                    </div>
-
-                                    <div className="p-5 sm:p-6 flex flex-col flex-grow">
-                                        <div className="flex items-center gap-3 text-[11px] sm:text-xs text-white/50 mb-2.5 font-mono uppercase tracking-wider">
-                                            <span className="flex items-center gap-1.5">
-                                                <Tag className="w-3 h-3" />
-                                                {article.category}
-                                            </span>
-                                            <span className="flex items-center gap-1.5">
-                                                <Calendar className="w-3 h-3" />
-                                                {article.date}
-                                            </span>
+                                    <Card
+                                        flush
+                                        className="h-full flex flex-col overflow-hidden"
+                                    >
+                                        <div className="relative h-28 sm:h-36 lg:h-40 overflow-hidden rounded-t-3xl">
+                                            <img
+                                                src={article.image}
+                                                alt={article.title}
+                                                width="800"
+                                                height="600"
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                                loading="lazy"
+                                            />
+                                            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#0B1024]/95 to-transparent" />
                                         </div>
 
-                                        <h3 className="text-[15px] sm:text-base lg:text-lg font-bold text-white mb-2 group-hover:text-neonBlue transition-colors duration-300 line-clamp-2 leading-snug">
-                                            {article.title}
-                                        </h3>
+                                        <div className="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
+                                            <div className="flex items-center gap-2.5 text-[10px] sm:text-xs text-white/50 mb-2 font-mono uppercase tracking-wider">
+                                                <span className="flex items-center gap-1">
+                                                    <Tag className="w-3 h-3" />
+                                                    {article.category}
+                                                </span>
+                                                <span className="flex items-center gap-1">
+                                                    <Calendar className="w-3 h-3" />
+                                                    {article.date}
+                                                </span>
+                                            </div>
 
-                                        <p className="text-white/60 text-xs sm:text-sm line-clamp-2 leading-relaxed">
-                                            {article.excerpt}
-                                        </p>
+                                            <h3 className="text-[14px] sm:text-base lg:text-lg font-bold text-white mb-1.5 group-hover:text-neonBlue transition-colors duration-300 line-clamp-2 leading-snug">
+                                                {article.title}
+                                            </h3>
 
-                                        <div className="mt-auto pt-4 flex items-center gap-1.5 text-sm font-medium text-neonBlue/80 group-hover:text-neonBlue group-hover:gap-2.5 transition-all duration-300">
-                                            {article.read_more}
-                                            <ArrowUpRight className="w-4 h-4" />
+                                            <p className="text-white/60 text-[12px] sm:text-sm line-clamp-2 leading-relaxed">
+                                                {article.excerpt}
+                                            </p>
+
+                                            <div className="mt-auto pt-3 sm:pt-4 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-neonBlue/80 group-hover:text-neonBlue group-hover:gap-2.5 transition-all duration-300">
+                                                {article.read_more}
+                                                <ArrowUpRight className="w-4 h-4" />
+                                            </div>
                                         </div>
-                                    </div>
-                                </Card>
-                            </Link>
-                        );
-                    })}
+                                    </Card>
+                                </Link>
+                            );
+                        })}
+                    </div>
                 </div>
+                <p className="sm:hidden mt-3 text-center text-[11px] font-mono uppercase tracking-[0.18em] text-white/40">
+                    ← lapozz →
+                </p>
             </Container>
         </Section>
     );

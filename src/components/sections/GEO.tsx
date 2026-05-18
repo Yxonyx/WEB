@@ -3,14 +3,20 @@ import { Section } from '../Section';
 import { Network, Cpu, Sparkles, ArrowRight, UserCheck } from 'lucide-react';
 import { ProIcon } from '../icons/ProIcon';
 import { motion } from 'framer-motion';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { SectionHeader } from '../ui/SectionHeader';
 import { useLanguage } from '../../context/LanguageContext';
-// Lazy load Robot3D to avoid loading Three.js in the main bundle
 const Robot3D = lazy(() => import('../ui/Robot3D').then(module => ({ default: module.Robot3D })));
 
 export const GEO = () => {
     const { t } = useLanguage();
+    const [isDesktop, setIsDesktop] = useState(false);
+    useEffect(() => {
+        const check = () => setIsDesktop(window.matchMedia('(min-width: 1024px) and (hover: hover)').matches);
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+    }, []);
 
     return (
         <Section id="geo" className="relative overflow-hidden">
@@ -57,9 +63,13 @@ export const GEO = () => {
                             <div className="relative flex items-center gap-6">
                                 {/* Robot 3D floating on left */}
                                 <div className="flex-shrink-0 w-[120px] h-[120px] sm:w-[180px] sm:h-[180px]">
-                                    <Suspense fallback={<div className="w-full h-full rounded-full bg-neonBlue/10 animate-pulse" />}>
-                                        <Robot3D size={180} />
-                                    </Suspense>
+                                    {isDesktop ? (
+                                        <Suspense fallback={<div className="w-full h-full rounded-full bg-neonBlue/10 animate-pulse" />}>
+                                            <Robot3D size={180} />
+                                        </Suspense>
+                                    ) : (
+                                        <div className="w-full h-full rounded-full bg-gradient-to-br from-neonBlue/30 via-neonBlue/10 to-neonPurple/20 border border-neonBlue/30 shadow-[0_0_40px_-8px_rgba(77,148,255,0.45)]" />
+                                    )}
                                 </div>
                                 {/* Search Interface card on right */}
                                 <div className="flex-1 bg-surface border border-white/10 rounded-xl p-6 shadow-2xl">

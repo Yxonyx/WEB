@@ -36,7 +36,7 @@ export const ParticleNetwork = () => {
     }, []);
 
     useEffect(() => {
-        // REMOVED: if (isMobileDevice) return; -> Now runs on mobile too!
+        if (isMobileDevice) return;
         if (!isVisible) return;
 
         const canvas = canvasRef.current;

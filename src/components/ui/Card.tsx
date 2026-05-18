@@ -30,15 +30,17 @@ export const Card: React.FC<CardProps> = ({
 
     const styles = {
         default:
-            'bg-white/[0.03] border-white/[0.07] backdrop-blur-md ' +
-            'hover:border-neonBlue/25 hover:bg-white/[0.045] hover:-translate-y-0.5 ' +
-            'hover:shadow-[0_16px_48px_-20px_rgba(77,148,255,0.35)]',
+            'bg-gradient-to-br from-white/[0.07] via-white/[0.04] to-white/[0.025] ' +
+            'border-white/[0.10] lg:backdrop-blur-md ' +
+            'shadow-[0_8px_30px_-12px_rgba(8,12,30,0.6)] ' +
+            'hover:border-neonBlue/30 hover:from-white/[0.09] hover:-translate-y-0.5 ' +
+            'hover:shadow-[0_18px_50px_-18px_rgba(77,148,255,0.45)]',
         feature:
-            'bg-gradient-to-br from-white/[0.06] via-white/[0.03] to-white/[0.015] ' +
-            'border-neonBlue/25 ' +
-            'shadow-[0_20px_60px_-24px_rgba(77,148,255,0.45)] ' +
-            'hover:border-neonBlue/45 hover:-translate-y-0.5 ' +
-            'hover:shadow-[0_24px_70px_-20px_rgba(77,148,255,0.55)]',
+            'bg-gradient-to-br from-neonBlue/[0.10] via-white/[0.05] to-neonPurple/[0.06] ' +
+            'border-neonBlue/30 ' +
+            'shadow-[0_22px_60px_-22px_rgba(77,148,255,0.55)] ' +
+            'hover:border-neonBlue/50 hover:-translate-y-0.5 ' +
+            'hover:shadow-[0_26px_72px_-18px_rgba(77,148,255,0.65)]',
     };
 
     return (

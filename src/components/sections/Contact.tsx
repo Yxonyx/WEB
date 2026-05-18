@@ -3,7 +3,7 @@ import { Section } from '../Section';
 import { Button } from '../ui/Button';
 import { Card } from '../ui/Card';
 import { SectionHeader } from '../ui/SectionHeader';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, Clock, ShieldCheck, Sparkles } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -29,47 +29,64 @@ export const Contact = () => {
     return (
         <Section id="kapcsolat" withOrbs>
             <Container>
-                <div className="grid lg:grid-cols-2 gap-4 lg:gap-16">
-                    {/* Left */}
-                    <div>
-                        <SectionHeader
-                            number="10"
-                            eyebrow={t('contact.tag') as string}
-                            title={
-                                <>
-                                    {t('contact.title_line1')}{' '}
-                                    <span className="text-neonBlue">{t('contact.title_gradient')}</span>
-                                </>
-                            }
-                            subtitle={t('contact.description') as string}
-                            className="mb-5 sm:mb-6"
-                        />
+                <div className="grid lg:grid-cols-5 gap-6 lg:gap-8 items-stretch">
+                    {/* Left: info card (2/5) */}
+                    <div className="lg:col-span-2 flex">
+                        <Card className="w-full flex flex-col">
+                            <SectionHeader
+                                number="10"
+                                eyebrow={t('contact.tag') as string}
+                                title={
+                                    <>
+                                        {t('contact.title_line1')}{' '}
+                                        <span className="text-neonBlue">{t('contact.title_gradient')}</span>
+                                    </>
+                                }
+                                subtitle={t('contact.description') as string}
+                                className="mb-6"
+                            />
 
-                        <div className="flex flex-col gap-3">
-                            <a
-                                href="mailto:contact@cyberlabsweb.com"
-                                className="inline-flex items-center gap-3 group w-fit"
-                            >
-                                <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center group-hover:bg-neonBlue/10 group-hover:border-neonBlue/30 transition-all">
-                                    <Mail className="w-4 h-4 text-white/70 group-hover:text-neonBlue transition-colors" />
+                            <div className="flex flex-col gap-3 mb-6">
+                                <a
+                                    href="mailto:contact@cyberlabsweb.com"
+                                    className="inline-flex items-center gap-3 group w-fit"
+                                >
+                                    <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center group-hover:bg-neonBlue/15 group-hover:border-neonBlue/40 transition-all">
+                                        <Mail className="w-4 h-4 text-white/75 group-hover:text-neonBlue transition-colors" />
+                                    </div>
+                                    <span className="text-[15px] text-white/90 group-hover:text-neonBlue transition-colors">
+                                        contact@cyberlabsweb.com
+                                    </span>
+                                </a>
+                                <a href="tel:+36703304445" className="inline-flex items-center gap-3 group w-fit">
+                                    <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center group-hover:bg-neonBlue/15 group-hover:border-neonBlue/40 transition-all">
+                                        <Phone className="w-4 h-4 text-white/75 group-hover:text-neonBlue transition-colors" />
+                                    </div>
+                                    <span className="text-[15px] text-white/90 group-hover:text-neonBlue transition-colors">
+                                        +36 70 330 4445
+                                    </span>
+                                </a>
+                            </div>
+
+                            <div className="mt-auto pt-5 border-t border-white/[0.08] flex flex-col gap-3">
+                                <div className="flex items-center gap-3">
+                                    <Clock className="w-4 h-4 text-neonBlue/80 shrink-0" />
+                                    <span className="text-sm text-white/75">24 órán belül válaszolunk</span>
                                 </div>
-                                <span className="text-[15px] text-white/85 group-hover:text-neonBlue transition-colors">
-                                    contact@cyberlabsweb.com
-                                </span>
-                            </a>
-                            <a href="tel:+36703304445" className="inline-flex items-center gap-3 group w-fit">
-                                <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center group-hover:bg-neonBlue/10 group-hover:border-neonBlue/30 transition-all">
-                                    <Phone className="w-4 h-4 text-white/70 group-hover:text-neonBlue transition-colors" />
+                                <div className="flex items-center gap-3">
+                                    <ShieldCheck className="w-4 h-4 text-neonBlue/80 shrink-0" />
+                                    <span className="text-sm text-white/75">Ingyenes konzultáció &amp; ajánlat</span>
                                 </div>
-                                <span className="text-[15px] text-white/85 group-hover:text-neonBlue transition-colors">
-                                    +36 70 330 4445
-                                </span>
-                            </a>
-                        </div>
+                                <div className="flex items-center gap-3">
+                                    <Sparkles className="w-4 h-4 text-neonBlue/80 shrink-0" />
+                                    <span className="text-sm text-white/75">Személyre szabott tervezés</span>
+                                </div>
+                            </div>
+                        </Card>
                     </div>
 
-                    {/* Right: Form */}
-                    <Card>
+                    {/* Right: Form (3/5) */}
+                    <Card className="lg:col-span-3">
                         <motion.form
                             initial="hidden"
                             whileInView="visible"
