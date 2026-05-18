@@ -5,18 +5,23 @@ import { ProIcon } from '../icons/ProIcon';
 import { motion } from 'framer-motion';
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { SectionHeader } from '../ui/SectionHeader';
+import { MountOnVisible } from '../ui/MountOnVisible';
 import { useLanguage } from '../../context/LanguageContext';
 const Robot3D = lazy(() => import('../ui/Robot3D').then(module => ({ default: module.Robot3D })));
 
 export const GEO = () => {
     const { t } = useLanguage();
-    const [isDesktop, setIsDesktop] = useState(false);
+    const [isCapable, setIsCapable] = useState(true);
     useEffect(() => {
-        const check = () => setIsDesktop(window.matchMedia('(min-width: 1024px) and (hover: hover)').matches);
-        check();
-        window.addEventListener('resize', check);
-        return () => window.removeEventListener('resize', check);
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const dm = (navigator as Navigator & { deviceMemory?: number }).deviceMemory;
+        const lowMem = dm !== undefined && dm < 3;
+        setIsCapable(!reduced && !lowMem);
     }, []);
+
+    const robotGlow = (
+        <div className="w-full h-full rounded-full bg-gradient-to-br from-neonBlue/30 via-neonBlue/10 to-neonPurple/20 border border-neonBlue/30 shadow-[0_0_40px_-8px_rgba(77,148,255,0.45)]" />
+    );
 
     return (
         <Section id="geo" className="relative overflow-hidden">
@@ -63,12 +68,18 @@ export const GEO = () => {
                             <div className="relative flex items-center gap-6">
                                 {/* Robot 3D floating on left */}
                                 <div className="flex-shrink-0 w-[120px] h-[120px] sm:w-[180px] sm:h-[180px]">
-                                    {isDesktop ? (
-                                        <Suspense fallback={<div className="w-full h-full rounded-full bg-neonBlue/10 animate-pulse" />}>
-                                            <Robot3D size={180} />
-                                        </Suspense>
+                                    {isCapable ? (
+                                        <MountOnVisible
+                                            className="w-full h-full"
+                                            rootMargin="200px"
+                                            fallback={robotGlow}
+                                        >
+                                            <Suspense fallback={robotGlow}>
+                                                <Robot3D size={180} />
+                                            </Suspense>
+                                        </MountOnVisible>
                                     ) : (
-                                        <div className="w-full h-full rounded-full bg-gradient-to-br from-neonBlue/30 via-neonBlue/10 to-neonPurple/20 border border-neonBlue/30 shadow-[0_0_40px_-8px_rgba(77,148,255,0.45)]" />
+                                        robotGlow
                                     )}
                                 </div>
                                 {/* Search Interface card on right */}

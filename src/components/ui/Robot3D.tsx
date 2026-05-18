@@ -28,7 +28,8 @@ export const Robot3D = ({ size = 200 }: Robot3DProps) => {
         // Renderer - optimized for performance
         const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
         renderer.setSize(width, height);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+        const isMobile = window.innerWidth < 1024;
+        renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 1.5));
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         container.appendChild(renderer.domElement);
 
