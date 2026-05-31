@@ -25,12 +25,13 @@ export const Robot3D = ({ size = 200 }: Robot3DProps) => {
         const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
         camera.position.set(0, 1, 3);
 
-        // Renderer - optimized for performance
-        const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
-        renderer.setSize(width, height);
+        // Renderer - smoother edges on capable (desktop) devices, lean on mobile
         const isMobile = window.innerWidth < 1024;
-        renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 1.5));
+        const renderer = new THREE.WebGLRenderer({ antialias: !isMobile, alpha: true });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.05;
         container.appendChild(renderer.domElement);
 
         // Controls
@@ -42,20 +43,30 @@ export const Robot3D = ({ size = 200 }: Robot3DProps) => {
 
         // Robot model reference for oscillation
         let robotModel: THREE.Object3D | null = null;
+        let robotBaseY = 0;
         const oscillationRange = Math.PI / 4; // 45 degrees each way
         const oscillationSpeed = 0.5;
 
-        // Lights
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        // Lights — soft studio setup: cool sky / warm ground fill, key, and accent rims
+        const hemiLight = new THREE.HemisphereLight(0xbcd4ff, 0x1a1030, 0.55);
+        scene.add(hemiLight);
+
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.35);
         scene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-        directionalLight.position.set(5, 5, 5);
-        scene.add(directionalLight);
+        const keyLight = new THREE.DirectionalLight(0xffffff, 1.15);
+        keyLight.position.set(4, 6, 5);
+        scene.add(keyLight);
 
-        const blueLight = new THREE.PointLight(0x00f0ff, 0.5, 10);
-        blueLight.position.set(-2, 1, 2);
+        // Cool blue rim from the left for that "AI" sheen
+        const blueLight = new THREE.PointLight(0x4d94ff, 1.1, 12);
+        blueLight.position.set(-2.5, 1.2, 2.5);
         scene.add(blueLight);
+
+        // Purple back/rim light to separate the robot from the dark background
+        const purpleRim = new THREE.PointLight(0x8f7dff, 0.9, 12);
+        purpleRim.position.set(2.5, 0.5, -2.5);
+        scene.add(purpleRim);
 
         // Load Robot
         const loader = new GLTFLoader();
@@ -78,6 +89,7 @@ export const Robot3D = ({ size = 200 }: Robot3DProps) => {
 
                 scene.add(model);
                 robotModel = model;
+                robotBaseY = model.position.y;
             },
             undefined,
             (error) => {
@@ -91,10 +103,11 @@ export const Robot3D = ({ size = 200 }: Robot3DProps) => {
         function animate() {
             animationId = requestAnimationFrame(animate);
 
-            // Oscillate robot back and forth instead of full 360
+            // Oscillate robot back and forth instead of full 360, with a gentle float
             if (robotModel) {
                 const elapsed = (Date.now() - startTime) / 1000;
                 robotModel.rotation.y = Math.sin(elapsed * oscillationSpeed) * oscillationRange;
+                robotModel.position.y = robotBaseY + Math.sin(elapsed * 1.3) * 0.035;
             }
 
             controls.update();

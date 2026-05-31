@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { Container } from '../Container';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Bot, CheckCircle2, Globe, Cpu } from 'lucide-react';
@@ -31,7 +32,7 @@ export const GeoLanding = () => {
 {/* Header / Nav */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-bgDeep/80 backdrop-blur-md border-b border-white/5">
                 <Container className="h-16 md:h-20 flex items-center justify-between">
-                    <a href="/" className="flex items-center gap-3 group">
+                    <Link href="/" className="flex items-center gap-3 group">
                         <div className="relative w-9 h-9 md:w-10 md:h-10 flex items-center justify-center bg-gradient-to-br from-white to-neonBlue text-black font-bold font-mono text-lg leading-none transition-transform group-hover:scale-105 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
                             <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-black/20" />
                             <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-black/20" />
@@ -45,7 +46,7 @@ export const GeoLanding = () => {
                                 GEO Tudásanyag
                             </span>
                         </div>
-                    </a>
+                    </Link>
 
                     <Button href="/" variant="secondary" size="sm" className="hidden md:inline-flex text-xs uppercase tracking-wider font-bold">
                         Irány a Főoldal
@@ -105,7 +106,7 @@ export const GeoLanding = () => {
                                     <ProIcon icon={Cpu} color="neonPurple" size={32} />
                                     <div>
                                         <h3 className="font-bold text-sm text-white mb-1">Strukturált Adatok</h3>
-                                        <p className="text-xs text-gray-500 leading-snug">Hogyan tedd az adataidat "gép által olvashatóvá".</p>
+                                        <p className="text-xs text-gray-500 leading-snug">Hogyan tedd az adataidat &quot;gép által olvashatóvá&quot;.</p>
                                     </div>
                                 </div>
                             </div>

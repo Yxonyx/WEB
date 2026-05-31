@@ -18,7 +18,7 @@ const itemVariants: Variants = {
 export const Process = () => {
     const { t } = useLanguage();
 
-    const steps = (t('process.steps') as unknown as any[]).map((step, i) => ({
+    const steps = (t('process.steps') as unknown as Array<{ title: string; desc: string }>).map((step, i) => ({
         ...step,
         highlight: i === 2,
     }));

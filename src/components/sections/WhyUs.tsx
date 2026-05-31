@@ -22,7 +22,7 @@ export function WhyUs() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {(t('whyus.features') as unknown as any[]).map((feature, index) => {
+                    {(t('whyus.features') as unknown as Array<{ title: string; sub?: string; desc: string }>).map((feature, index) => {
                         const Icon = icons[index];
                         return (
                             <div key={index} className="h-full">

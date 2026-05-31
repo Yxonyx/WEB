@@ -1,6 +1,6 @@
 import { Container } from '../Container';
 import { Section } from '../Section';
-import { ShieldCheck, Zap, RefreshCw, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Zap, RefreshCw, CheckCircle2, type LucideIcon } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
 import { Card } from '../ui/Card';
 import { SectionHeader } from '../ui/SectionHeader';
@@ -23,7 +23,7 @@ const DashboardRow = ({
     tag,
     accent,
 }: {
-    icon: any;
+    icon: LucideIcon;
     title: string;
     sub: string;
     tag?: string;

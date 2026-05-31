@@ -25,7 +25,16 @@ const itemVariants: Variants = {
     }
 };
 
-const projects = [
+interface Project {
+    id: number;
+    name: string;
+    image?: string;
+    type?: 'image' | 'video';
+    link?: string;
+    isMobile?: boolean;
+}
+
+const projects: Project[] = [
     {
         id: 101,
         name: "Milo Drink Márkaoldal",
@@ -111,7 +120,7 @@ const projects = [
     { id: 6, name: "Ajándék Webshop", image: "/images/portfolio-projekt6.webp", type: "image" }
 ];
 
-const ProjectCard = ({ project }: { project: any }) => {
+const ProjectCard = ({ project }: { project: Project }) => {
     if (project.isMobile) {
         return (
             <div className="group cursor-pointer h-full flex flex-col items-center">
@@ -241,7 +250,7 @@ export const Portfolio = () => {
     }, [isHovering]);
 
     return (
-        <Section id="referenciak" className="overflow-visible" withOrbs withMeshGradient>
+        <Section id="referenciak" className="overflow-hidden" withOrbs withMeshGradient>
             <Container>
                 <SectionHeader
                     number="06"

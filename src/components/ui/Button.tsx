@@ -80,7 +80,7 @@ export const Button: React.FC<ButtonProps> = ({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className={combinedClassName}
-            {...(props as any)}
+            {...(props as React.ComponentProps<typeof motion.button>)}
         >
             <span className="relative z-10 flex items-center gap-1.5">
                 {children}

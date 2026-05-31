@@ -47,7 +47,7 @@ const FAQItem = ({ q, a, defaultOpen = false }: { q: string; a: string; defaultO
 export const FAQ = () => {
     const { t } = useLanguage();
 
-    const rawQuestions = t('faq.questions') as unknown as any[];
+    const rawQuestions = t('faq.questions') as unknown as Array<{ q: string; a: string }>;
     const questions = rawQuestions.map((q, i) => ({ ...q, defaultOpen: i === 0 }));
 
     return (

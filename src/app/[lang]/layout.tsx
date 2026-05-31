@@ -48,7 +48,7 @@ export async function generateMetadata({
     robots: {
       index: true,
       follow: true,
-      "max-image-preview": "large" as any,
+      "max-image-preview": "large",
       "max-snippet": -1,
       "max-video-preview": -1,
     },
@@ -70,7 +70,7 @@ export default async function LangLayout({
 }) {
   const { lang } = await params;
 
-  if (!locales.includes(lang as any)) {
+  if (!(locales as readonly string[]).includes(lang)) {
     notFound();
   }
 

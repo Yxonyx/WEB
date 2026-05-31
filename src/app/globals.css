@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent stray horizontal scroll on mobile (e.g. ambient glow orbs bleeding
+   past the viewport). `clip` keeps sticky positioning working, unlike `hidden`. */
+html, body {
+    overflow-x: clip;
+    max-width: 100%;
+}
+
 /* Better line breaking — prevents orphan words and awkward mobile breaks */
 p, li, span {
     text-wrap: pretty;

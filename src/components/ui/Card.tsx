@@ -1,7 +1,7 @@
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-interface CardProps {
+interface CardProps extends React.HTMLAttributes<HTMLElement> {
     children: React.ReactNode;
     className?: string;
     as?: 'div' | 'article' | 'section';
@@ -24,6 +24,7 @@ export const Card: React.FC<CardProps> = ({
     as: Tag = 'div',
     variant = 'default',
     flush = false,
+    ...rest
 }) => {
     const base = 'group/card relative rounded-3xl border transition-all duration-500 will-change-transform';
     const padding = flush ? '' : 'p-5 sm:p-7 lg:p-8';
@@ -44,7 +45,7 @@ export const Card: React.FC<CardProps> = ({
     };
 
     return (
-        <Tag className={twMerge(base, padding, styles[variant], className)}>
+        <Tag className={twMerge(base, padding, styles[variant], className)} {...rest}>
             {/* Top hairline — fixed "lit from above" cue, no matter padding */}
             <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
             {children}

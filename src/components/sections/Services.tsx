@@ -93,7 +93,7 @@ export const Services = () => {
                             <Card className="min-h-[280px] flex items-center justify-center relative overflow-hidden">
                                 <div className="absolute top-0 left-0 w-64 h-64 bg-neonPurple/8 rounded-full blur-3xl pointer-events-none" />
                                 <div className="flex flex-col gap-5 w-full max-w-sm relative z-10">
-                                    {(t('services.seo.flow') as unknown as any[]).map((step, i) => (
+                                    {(t('services.seo.flow') as unknown as Array<{ id: string | number; title: string; sub: string }>).map((step, i) => (
                                         <div key={i}>
                                             <div className="flex items-center gap-3">
                                                 <div

@@ -136,7 +136,7 @@ export const Pricing = () => {
                     </motion.div>
 
                     <motion.div className="grid lg:grid-cols-3 gap-5" variants={containerVariants}>
-                        {(t('pricing.chatbot.plans') as unknown as any[]).map((plan, i) => (
+                        {(t('pricing.chatbot.plans') as unknown as Array<{ name: string; price: string; features: string[] }>).map((plan, i) => (
                             <motion.div key={i} variants={cardVariants}>
                                 <Card variant={i === 1 ? 'feature' : 'default'} className="h-full flex flex-col">
                                     {i === 1 && (

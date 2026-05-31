@@ -18,7 +18,7 @@ export const AllArticles = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    const articlesData = t('insights.articles') as unknown as any[];
+    const articlesData = t('insights.articles') as unknown as Array<{ title: string; excerpt: string; read_more: string }>;
 
     // Map over blogPosts to ensure we use control logic from data (images, ids)
     // and fallback to translations for text if available
@@ -27,7 +27,7 @@ export const AllArticles = () => {
     // Map FIRST to preserve original index alignment with translation data, THEN sort.
     const activePosts = blogPosts
         .map((post, i) => {
-            const translated = articlesData?.find((item: any) => item.title === post.title) || articlesData?.[i];
+            const translated = articlesData?.find((item) => item.title === post.title) || articlesData?.[i];
             return {
                 ...post,
                 title: translated?.title || post.title,

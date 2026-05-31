@@ -29,8 +29,14 @@ export const QrGeneratorTool = () => {
     const currentLang = language || 'hu';
     const [inputValue, setInputValue] = useState('');
 
-    // @ts-ignore
-    const qrData: any = t('tools.qr') || {
+    const qrData = (t('tools.qr') as unknown as {
+        title?: string;
+        subtitle?: string;
+        placeholder?: string;
+        download?: string;
+        empty?: string;
+        features?: string[];
+    }) || {
         title: "QR Kód Generáló",
         subtitle: "Írd be a hivatkozást vagy szöveget, és azonnal legeneráljuk neked a QR kódot.",
         placeholder: "https://cyberlabsweb.com",
@@ -38,9 +44,6 @@ export const QrGeneratorTool = () => {
         empty: "A kód itt fog megjelenni...",
         features: ["100% Ingyenes", "Vízjel Nélkül", "Korlátlan Használat"]
     };
-
-    const siteUrl = "https://cyberlabsweb.com";
-    const canonicalUrl = `${siteUrl}/${currentLang}/tools/qr`;
 
     const handleDownload = () => {
         const svg = document.getElementById('generated-qr-svg');
@@ -102,7 +105,7 @@ export const QrGeneratorTool = () => {
             <main className="flex-grow z-10 relative pt-20 md:pt-24 pb-12">
                 <Container className="max-w-5xl">
                     <Link href={`/${currentLang}/`} className="inline-flex items-center text-muted hover:text-neonBlue transition-colors mb-6 text-sm uppercase tracking-widest font-bold">
-                        <ArrowLeft className="w-4 h-4 mr-2" /> {/* @ts-ignore */}{t('common.back') || 'Vissza a főoldalra'}
+                        <ArrowLeft className="w-4 h-4 mr-2" /> {t('common.back') || 'Vissza a főoldalra'}
                     </Link>
 
                     <div className="text-center mb-6">

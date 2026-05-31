@@ -30,7 +30,7 @@ const customIcons = [
     { name: 'Vercel', icon: '/icons/tech/vercel.svg', invert: true },
 ];
 
-const platformIcons = [
+const platformIcons: { name: string; icon: string; invert?: boolean }[] = [
     { name: 'Shopify', icon: '/icons/tech/shopify.svg' },
     { name: 'WordPress', icon: '/icons/tech/wordpress.svg' },
     { name: 'PHP', icon: '/icons/tech/php.svg' },
@@ -182,7 +182,7 @@ export const TechStack = () => {
                                                     width={24}
                                                     height={24}
                                                     className={`w-5 h-5 object-contain ${
-                                                        (tech as any).invert ? 'brightness-0 invert' : ''
+                                                        tech.invert ? 'brightness-0 invert' : ''
                                                     }`}
                                                 />
                                             </div>

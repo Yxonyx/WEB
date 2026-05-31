@@ -35,7 +35,7 @@ const StackBackground = ({ primaryColor }: { primaryColor: string }) => (
 );
 
 // Wrapper for all icons to ensure exact same viewBox and scaling
-const StackedWrapper = ({ size, className, children, ...props }: any) => (
+const StackedWrapper = ({ size, className, children, ...props }: { size?: number | string } & React.SVGProps<SVGSVGElement>) => (
     <svg
         width={size} height={size}
         viewBox="0 0 24 24" fill="none"

@@ -8,17 +8,20 @@ export function getDictionary(lang: string) {
 
 export function t(lang: string, path: string): string {
   const keys = path.split(".");
-  let current: any = getDictionary(lang);
+  let current: unknown = getDictionary(lang);
   for (const key of keys) {
-    if (current === undefined || current[key] === undefined) {
+    if (
+      current == null ||
+      (current as Record<string, unknown>)[key] === undefined
+    ) {
       console.warn(
         `Translation missing for key: ${path} in language: ${lang}`
       );
       return path;
     }
-    current = current[key];
+    current = (current as Record<string, unknown>)[key];
   }
-  return current;
+  return current as string;
 }
 
 export const locales = ["hu", "en"] as const;

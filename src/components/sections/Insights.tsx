@@ -15,11 +15,11 @@ export const Insights = () => {
     const router = useRouter();
     const currentLang = lang || 'hu';
 
-    const articlesData = t('insights.articles') as unknown as any[];
+    const articlesData = t('insights.articles') as unknown as Array<{ title: string; excerpt: string; read_more: string }>;
 
     const activePosts = blogPosts
         .map((post, i) => {
-            const translated = articlesData?.find((item: any) => item.title === post.title) || articlesData?.[i];
+            const translated = articlesData?.find((item) => item.title === post.title) || articlesData?.[i];
             return {
                 ...post,
                 title: translated?.title || post.title,

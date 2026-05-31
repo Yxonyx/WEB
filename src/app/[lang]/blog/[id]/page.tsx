@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 export function generateStaticParams() {
   return locales.flatMap((lang) =>
-    blogPosts.map((post: any) => ({
+    blogPosts.map((post) => ({
       lang,
       id: post.id,
     }))

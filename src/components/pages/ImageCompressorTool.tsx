@@ -24,6 +24,11 @@ interface ImageItem {
 type OutputFormat = 'image/jpeg' | 'image/png' | 'image/webp';
 type MaxSize = 0 | 3840 | 2560 | 1920 | 1280 | 800;
 
+interface JSZipInstance {
+    file(name: string, data: Blob): void;
+    generateAsync(options: { type: 'blob' }): Promise<Blob>;
+}
+
 // ─── Animated Logo ───────────────────────────────────────────
 const AnimatedCompressLogo = () => (
     <div className="relative w-12 h-12 mx-auto mb-2 group flex items-center justify-center">
@@ -82,8 +87,28 @@ export const ImageCompressorTool = () => {
     const [isDragging, setIsDragging] = useState(false);
     const [isCompressing, setIsCompressing] = useState(false);
 
-    // @ts-ignore
-    const data: any = t('tools.imageCompressor') || {};
+    const data = (t('tools.imageCompressor') as unknown as {
+        title?: string;
+        subtitle?: string;
+        features?: string[];
+        upload?: string;
+        uploadSub?: string;
+        quality?: string;
+        format?: string;
+        compress?: string;
+        download?: string;
+        downloadAll?: string;
+        original?: string;
+        compressed?: string;
+        saved?: string;
+        dimensions?: string;
+        clear?: string;
+        privacy?: string;
+        processing?: string;
+        noImages?: string;
+        ready?: string;
+        recompress?: string;
+    }) || {};
     const txt = {
         title: data.title || "Képtömörítő",
         subtitle: data.subtitle || "Optimalizáld a képeidet webre — átméretezés, formátum konverzió, intelligens tömörítés",
@@ -108,9 +133,6 @@ export const ImageCompressorTool = () => {
         maxWidth: currentLang === 'hu' ? "Képméret (Felbontás)" : "Image Size (Resolution)",
         originalSize: currentLang === 'hu' ? "Eredeti méret" : "Original size",
     };
-
-    const siteUrl = "https://cyberlabsweb.com";
-    const canonicalUrl = `${siteUrl}/${currentLang}/tools/image-compressor`;
 
     // ─── Compress via Canvas with resize ─────────────────────
     const compressOneImage = useCallback((file: File, q: number, fmt: OutputFormat, maxW: MaxSize): Promise<{ blob: Blob; w: number; h: number }> => {
@@ -236,15 +258,14 @@ export const ImageCompressorTool = () => {
     const downloadAllZip = async () => {
         const doneImages = images.filter(i => i.status === 'done' && i.compressedBlob);
         if (!doneImages.length) return;
-        // @ts-ignore
-        if (typeof window.JSZip === 'undefined') {
+        const win = window as unknown as { JSZip?: new () => JSZipInstance };
+        if (typeof win.JSZip === 'undefined') {
             const script = document.createElement('script');
             script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
             document.head.appendChild(script);
             await new Promise(r => { script.onload = r; });
         }
-        // @ts-ignore
-        const zip = new window.JSZip();
+        const zip = new win.JSZip!();
         doneImages.forEach(img => {
             zip.file(`${img.file.name.replace(/\.[^.]+$/, '')}-optimized.${getExtension(outputFormat)}`, img.compressedBlob!);
         });
@@ -286,7 +307,6 @@ export const ImageCompressorTool = () => {
             <main className="flex-grow z-10 relative pt-20 md:pt-24 pb-12">
                 <Container className="max-w-5xl">
                     <Link href={`/${currentLang}/`} className="inline-flex items-center text-muted hover:text-neonBlue transition-colors mb-6 text-sm uppercase tracking-widest font-bold">
-                        {/* @ts-ignore */}
                         <ArrowLeft className="w-4 h-4 mr-2" /> {t('common.back') || 'Vissza a főoldalra'}
                     </Link>
 

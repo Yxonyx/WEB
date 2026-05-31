@@ -39,19 +39,22 @@ export const LanguageProvider: React.FC<{
   );
 
   const t = useCallback(
-    (path: string) => {
+    (path: string): string => {
       const keys = path.split(".");
-      let current: any = translations[language];
+      let current: unknown = translations[language];
       for (const key of keys) {
-        if (current === undefined || current[key] === undefined) {
+        if (
+          current == null ||
+          (current as Record<string, unknown>)[key] === undefined
+        ) {
           console.warn(
             `Translation missing for key: ${path} in language: ${language}`
           );
           return path;
         }
-        current = current[key];
+        current = (current as Record<string, unknown>)[key];
       }
-      return current;
+      return current as string;
     },
     [language]
   );

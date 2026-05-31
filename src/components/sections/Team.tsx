@@ -86,7 +86,7 @@ export const Team = () => {
                         variants={itemVariants}
                         className="text-white/80 text-[15px] sm:text-lg leading-relaxed"
                     >
-                        {(t('team.philosophy.content') as unknown as any[]).map((item, i) => (
+                        {(t('team.philosophy.content') as unknown as Array<{ bold: string; text: string }>).map((item, i) => (
                             <span key={i}>
                                 <span className="text-white font-semibold">{item.bold}</span>
                                 {item.text}
@@ -118,7 +118,8 @@ export const Team = () => {
                             <Card
                                 as="article"
                                 className="h-full !p-4 sm:!p-5"
-                                {...({ itemScope: true, itemType: 'https://schema.org/Person' } as any)}
+                                itemScope
+                                itemType="https://schema.org/Person"
                             >
                                 <div className="flex items-center gap-3 mb-3">
                                     <div className="w-12 h-12 rounded-xl overflow-hidden border border-white/10 shrink-0">
