@@ -1,7 +1,7 @@
 # CyberLabs Web — munkamenet státusz
 
 > Utolsó frissítés: 2026-05-31  
-> **Nincs commit** — a változások csak a working tree-ben vannak (23 módosított fájl).
+> **Commit:** `aa954de` (lokálisan) — GitHub push még függőben (11 commit előtt `origin/main`-nél).
 
 ---
 
