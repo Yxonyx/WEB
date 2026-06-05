@@ -147,14 +147,7 @@ export const Testimonials = () => {
                 <SectionHeader
                     number="09"
                     eyebrow="Vélemények"
-                    title={
-                        <>
-                            {language === 'hu' ? 'Mit mondanak rólunk' : 'What our clients'}{' '}
-                            <span className="text-neonBlue">
-                                {language === 'hu' ? 'az ügyfeleink?' : 'say about us?'}
-                            </span>
-                        </>
-                    }
+                    title={language === 'hu' ? 'Mit mondanak rólunk az ügyfeleink?' : 'What our clients say about us?'}
                     align="center"
                     className="mb-6 sm:mb-8"
                 />
@@ -163,14 +156,14 @@ export const Testimonials = () => {
                 <div className="hidden md:flex justify-center gap-3 mb-2">
                     <button
                         onClick={() => scroll('left')}
-                        className="w-10 h-10 rounded-full bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] hover:border-white/25 transition-all flex items-center justify-center group z-20"
+                        className="w-10 h-10 rounded-full bg-white/[0.16] border border-white/30 hover:bg-white/[0.24] hover:border-white/60 transition-all flex items-center justify-center group z-20"
                         aria-label="Previous testimonial"
                     >
                         <ChevronLeft className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
                     </button>
                     <button
                         onClick={() => scroll('right')}
-                        className="w-10 h-10 rounded-full bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] hover:border-white/25 transition-all flex items-center justify-center group z-20"
+                        className="w-10 h-10 rounded-full bg-white/[0.16] border border-white/30 hover:bg-white/[0.24] hover:border-white/60 transition-all flex items-center justify-center group z-20"
                         aria-label="Next testimonial"
                     >
                         <ChevronRight className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
@@ -186,21 +179,17 @@ export const Testimonials = () => {
                 onTouchStart={() => setIsHovering(true)}
                 onTouchEnd={() => setIsHovering(false)}
             >
-                {/* Soft fade masks — transparent → page bg, so side previews stay visible */}
-                <div className="absolute left-0 top-0 bottom-0 w-6 md:w-16 bg-gradient-to-r from-[#070B1C] via-[#070B1C]/60 to-transparent z-10 pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-6 md:w-16 bg-gradient-to-l from-[#070B1C] via-[#070B1C]/60 to-transparent z-10 pointer-events-none" />
-
                 {/* Mobile Navigation Arrows - Overlay on edges */}
                 <button
                     onClick={() => scroll('left')}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/50 border border-white/20 text-white backdrop-blur-sm md:hidden"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/18 border border-white/35 text-white backdrop-blur-sm md:hidden"
                     aria-label="Previous testimonial"
                 >
                     <ChevronLeft className="w-5 h-5" />
                 </button>
                 <button
                     onClick={() => scroll('right')}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/50 border border-white/20 text-white backdrop-blur-sm md:hidden"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/18 border border-white/35 text-white backdrop-blur-sm md:hidden"
                     aria-label="Next testimonial"
                 >
                     <ChevronRight className="w-5 h-5" />
@@ -217,15 +206,15 @@ export const Testimonials = () => {
                             className="w-[300px] md:w-[400px] shrink-0 group relative cursor-pointer snap-center select-none"
                         >
                             {/* Gradient border effect */}
-                            <div className="absolute -inset-[1px] bg-gradient-to-r from-neonBlue/50 via-neonPurple/50 to-neonBlue/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
+                            <div className="absolute -inset-[1px] bg-gradient-to-r from-white/50 via-[#FFD66A]/45 to-white/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
 
-                            <div className="relative bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-3xl p-7 h-full flex flex-col justify-between group-hover:border-neonBlue/25 group-hover:bg-white/[0.045] transition-all duration-500">
+                            <div className="relative bg-white/[0.18] backdrop-blur-md border border-white/[0.32] rounded-3xl p-7 h-full flex flex-col justify-between group-hover:border-white/60 group-hover:bg-white/[0.24] transition-all duration-500 shadow-[0_16px_45px_-22px_rgba(0,74,153,0.45)]">
                                 {/* Top hairline */}
                                 <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
                                 {/* Quote icon */}
-                                <div className="absolute -top-3 -left-1 w-9 h-9 bg-neonBlue rounded-2xl flex items-center justify-center shadow-[0_8px_20px_-4px_rgba(77,148,255,0.55)]">
-                                    <Quote size={16} className="text-white" />
+                                <div className="absolute -top-3 -left-1 w-9 h-9 bg-[#FFD66A] rounded-2xl flex items-center justify-center shadow-[0_8px_20px_-4px_rgba(255,203,85,0.55)]">
+                                    <Quote size={16} className="text-[#06437D]" />
                                 </div>
 
                                 <div>
@@ -241,7 +230,7 @@ export const Testimonials = () => {
                                 </div>
 
                                 <div className="flex items-center gap-3 pt-4 border-t border-white/[0.07]">
-                                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-neonBlue/30 to-neonPurple/20 border border-white/10 flex items-center justify-center shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-white/18 border border-white/30 flex items-center justify-center shrink-0">
                                         <span className="text-white font-semibold text-sm">
                                             {testimonial.name.charAt(0)}
                                         </span>
@@ -270,7 +259,7 @@ export const Testimonials = () => {
                         href="https://share.google/qxOqv5xlMs9n9LSea"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-white/[0.07] border border-white/10 backdrop-blur-sm hover:bg-white/[0.12] hover:border-white/20 transition-all duration-300 group"
+                        className="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-white/[0.18] border border-white/30 backdrop-blur-sm hover:bg-white/[0.24] hover:border-white/60 transition-all duration-300 group"
                     >
                         {/* Google "G" Logo with invisible clickable area beneath */}
                         <span className="relative shrink-0">

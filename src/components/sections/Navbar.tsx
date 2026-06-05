@@ -80,42 +80,26 @@ export const Navbar = () => {
         <header
             className={clsx(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-                isScrolled ? "bg-[#0A0B1A] shadow-md py-3" : "bg-transparent py-4"
+                isScrolled
+                    ? "border-b border-white/20 bg-[#0B7FD3]/55 py-3 shadow-[0_12px_36px_rgba(0,79,154,0.18)] backdrop-blur-xl"
+                    : "bg-transparent py-5"
             )}
         >
             <Container className="flex items-center justify-between lg:grid lg:grid-cols-[auto_1fr_auto]">
                 {/* Logo - Column 1 */}
-                <a href={`/${language}/`} className="flex items-center gap-3 group">
-                    {/* Custom Tech Logo - Engineered Feel & Symmetrical */}
-                    <div className="relative w-11 h-11 flex items-center justify-center bg-black/30 backdrop-blur-sm border border-neonBlue/40 rounded-sm -translate-y-[2px] transition-all duration-300 group-hover:border-neonBlue group-hover:shadow-[0_0_20px_-4px_rgba(77,148,255,0.55)]">
-
-                        {/* Neon grid background */}
-                        <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_50%,rgba(77,148,255,0.08)_50%)] bg-[length:4px_100%] pointer-events-none" />
-
-                        {/* Symmetrical blue brackets (4 corners) */}
-                        <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-neonBlue/80 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonBlue group-hover:rounded-sm" />
-                        <div className="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2 border-neonBlue/80 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonBlue group-hover:rounded-sm" />
-                        <div className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2 border-neonBlue/80 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonBlue group-hover:rounded-sm" />
-                        <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-neonBlue/80 transition-all duration-300 group-hover:w-full group-hover:h-full group-hover:border-neonBlue group-hover:rounded-sm" />
-
-                        {/* CL monogram — bright white with subtle blue glow */}
-                        <div className="relative z-10 font-bold font-mono text-xl tracking-tight leading-none text-white transition-all drop-shadow-[0_0_6px_rgba(77,148,255,0.35)] group-hover:drop-shadow-[0_0_10px_rgba(77,148,255,0.65)]">
-                            CL
-                        </div>
-                    </div>
-
+                <a href={`/${language}/`} className="group flex items-center">
                     <div className="flex flex-col">
-                        <span className="text-xl font-bold tracking-tight leading-none flex items-baseline">
-                            <span className="text-white">Cyber</span><span className="text-neonBlue">Labs</span>
+                        <span className="flex items-baseline font-hero text-2xl font-bold leading-none text-white drop-shadow-[0_3px_12px_rgba(0,82,166,0.34)] transition-all duration-300 group-hover:drop-shadow-[0_5px_18px_rgba(255,255,255,0.28)] lg:text-[1.65rem] xl:text-3xl">
+                            <span>Cyber</span><span className="text-white/85">Labs</span>
                         </span>
-                        <span className="text-[10px] font-mono tracking-[0.2em] text-neonBlue/70 group-hover:text-neonBlue transition-colors duration-300 uppercase">
+                        <span className="mt-1 text-[10px] font-mono uppercase tracking-[0.28em] text-white/75 transition-colors duration-300 group-hover:text-white lg:text-[11px]">
                             WEB DEVELOPMENT
                         </span>
                     </div>
                 </a>
 
                 {/* Desktop Nav - Column 2 (Centered) */}
-                <nav className="hidden lg:flex items-center justify-center gap-10">
+                <nav className="hidden lg:flex items-center justify-center gap-8 xl:gap-10">
                     {/* Services Dropdown */}
                     <div
                         className="relative"
@@ -123,9 +107,9 @@ export const Navbar = () => {
                         onMouseLeave={() => setIsServicesOpen(false)}
                     >
                         <button
-                            className="text-[17px] font-medium text-white/70 hover:text-white transition-all duration-300 tracking-wide flex items-center gap-1.5 group/nav"
+                            className="group/nav flex items-center gap-1.5 text-[16px] font-semibold tracking-wide text-white/82 drop-shadow-[0_2px_8px_rgba(0,82,166,0.2)] transition-all duration-300 hover:text-white"
                         >
-                            <span className="text-neonBlue/40 font-mono text-xs group-hover/nav:text-neonBlue/80 transition-colors">&lt;</span><span className="group-hover/nav:drop-shadow-[0_0_8px_rgba(79,138,255,0.4)]">{t('nav.services')}</span><span className="text-neonBlue/40 font-mono text-xs group-hover/nav:text-neonBlue/80 transition-colors">&gt;</span>
+                            <span className="font-mono text-xs text-white/34 transition-colors group-hover/nav:text-white/75">&lt;</span><span className="group-hover/nav:drop-shadow-[0_0_10px_rgba(255,255,255,0.28)]">{t('nav.services')}</span><span className="font-mono text-xs text-white/34 transition-colors group-hover/nav:text-white/75">&gt;</span>
                             <ChevronDown className={clsx("w-4 h-4 transition-transform duration-200", isServicesOpen && "rotate-180")} />
                         </button>
 
@@ -136,16 +120,16 @@ export const Navbar = () => {
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                     transition={{ duration: 0.2, ease: 'easeOut' }}
-                                    className="absolute top-full left-0 mt-3 w-72 bg-[#0B1428]/40 backdrop-blur-xl border border-white/15 rounded-lg shadow-2xl shadow-black/30 overflow-hidden"
+                                    className="absolute top-full left-0 mt-4 w-72 overflow-hidden rounded-2xl border border-white/30 bg-[#147FD0]/45 shadow-[0_18px_42px_rgba(0,81,160,0.22)] backdrop-blur-xl"
                                 >
                                     {/* Terminal header bar */}
-                                    <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/10 bg-white/[0.03]">
+                                    <div className="flex items-center gap-2 border-b border-white/15 bg-white/[0.10] px-4 py-2.5">
                                         <div className="flex gap-1.5">
-                                            <div className="w-2.5 h-2.5 rounded-full bg-neonBlue/30" />
-                                            <div className="w-2.5 h-2.5 rounded-full bg-neonBlue/55" />
-                                            <div className="w-2.5 h-2.5 rounded-full bg-neonBlue/80" />
+                                            <div className="h-2.5 w-2.5 rounded-full bg-white/35" />
+                                            <div className="h-2.5 w-2.5 rounded-full bg-white/55" />
+                                            <div className="h-2.5 w-2.5 rounded-full bg-white/80" />
                                         </div>
-                                        <span className="ml-2 text-[10px] font-mono text-white/30 tracking-wider uppercase">services.sh</span>
+                                        <span className="ml-2 text-[10px] font-mono uppercase tracking-wider text-white/60">services.sh</span>
                                     </div>
 
                                     {/* Terminal body */}
@@ -154,20 +138,20 @@ export const Navbar = () => {
                                             <a
                                                 key={index}
                                                 href={getLink(item.href)}
-                                                className="group flex items-center gap-3 px-4 py-2.5 text-sm font-mono text-white/70 hover:text-neonBlue hover:bg-neonBlue/[0.06] transition-all duration-200"
+                                                className="group flex items-center gap-3 px-4 py-2.5 font-mono text-sm text-white/78 transition-all duration-200 hover:bg-white/[0.12] hover:text-white"
                                             >
-                                                <span className="text-neonBlue/40 group-hover:text-neonBlue transition-colors text-xs">{'>'}_</span>
+                                                <span className="text-xs text-white/45 transition-colors group-hover:text-white">{'>'}_</span>
                                                 <span className="tracking-wide">{item.label}</span>
-                                                <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-neonBlue text-xs">↵</span>
+                                                <span className="ml-auto text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">↵</span>
                                             </a>
                                         ))}
                                     </div>
 
                                     {/* Bottom status bar */}
-                                    <div className="px-4 py-1.5 border-t border-white/[0.06] bg-white/[0.02] flex items-center justify-between">
-                                        <span className="text-[9px] font-mono text-white/20 tracking-wider">{serviceDropdown.length} items</span>
-                                        <span className="text-[9px] font-mono text-green-500/50 tracking-wider flex items-center gap-1">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-green-500/60 animate-pulse" />
+                                    <div className="flex items-center justify-between border-t border-white/[0.10] bg-white/[0.06] px-4 py-1.5">
+                                        <span className="font-mono text-[9px] tracking-wider text-white/42">{serviceDropdown.length} items</span>
+                                        <span className="flex items-center gap-1 font-mono text-[9px] tracking-wider text-emerald-100/75">
+                                            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-200/80" />
                                             READY
                                         </span>
                                     </div>
@@ -180,12 +164,12 @@ export const Navbar = () => {
                         <a
                             key={link.label}
                             href={getLink(link.href)}
-                            className="group/link text-[15px] font-medium text-white/70 hover:text-white transition-all duration-300 tracking-wide relative"
+                            className="group/link relative text-[15px] font-semibold tracking-wide text-white/78 drop-shadow-[0_2px_8px_rgba(0,82,166,0.16)] transition-all duration-300 hover:text-white"
                         >
-                            <span className="text-neonBlue/40 font-mono text-xs group-hover/link:text-neonBlue/80 transition-colors">&lt;</span>
-                            <span className="group-hover/link:drop-shadow-[0_0_8px_rgba(79,138,255,0.4)]">{link.label}</span>
-                            <span className="text-neonBlue/40 font-mono text-xs group-hover/link:text-neonBlue/80 transition-colors">&gt;</span>
-                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gradient-to-r from-transparent via-neonBlue/60 to-transparent group-hover/link:w-full transition-all duration-300" />
+                            <span className="font-mono text-xs text-white/30 transition-colors group-hover/link:text-white/70">&lt;</span>
+                            <span className="group-hover/link:drop-shadow-[0_0_10px_rgba(255,255,255,0.25)]">{link.label}</span>
+                            <span className="font-mono text-xs text-white/30 transition-colors group-hover/link:text-white/70">&gt;</span>
+                            <span className="absolute -bottom-2 left-1/2 h-[1px] w-0 -translate-x-1/2 bg-gradient-to-r from-transparent via-white/80 to-transparent transition-all duration-300 group-hover/link:w-full" />
                         </a>
                     ))}
                 </nav>
@@ -193,13 +177,13 @@ export const Navbar = () => {
                 {/* Right side: Language + CTA - Column 3 */}
                 <div className="hidden lg:flex items-center gap-4 justify-end">
                     {/* Language Selector */}
-                    <div className="flex items-center gap-3 pr-4 border-r border-white/10">
+                    <div className="flex items-center gap-3 border-r border-white/25 pr-4">
                         <button
                             onClick={() => setLanguage('hu')}
                             aria-label="Váltás magyar nyelvre"
                             className={clsx(
-                                "relative w-6 h-4 overflow-hidden rounded-[2px] transition-transform hover:scale-110",
-                                language === 'hu' ? "opacity-100 ring-2 ring-neonBlue/50" : "opacity-50 hover:opacity-100 grayscale hover:grayscale-0"
+                                "relative h-4 w-6 overflow-hidden rounded-[2px] shadow-[0_2px_8px_rgba(0,70,150,0.18)] transition-transform hover:scale-110",
+                                language === 'hu' ? "opacity-100 ring-2 ring-white/70" : "opacity-60 hover:opacity-100 grayscale hover:grayscale-0"
                             )}
                         >
                             <svg viewBox="0 0 64 32" className="w-full h-full">
@@ -212,8 +196,8 @@ export const Navbar = () => {
                             onClick={() => setLanguage('en')}
                             aria-label="Switch to English"
                             className={clsx(
-                                "relative w-6 h-4 overflow-hidden rounded-[2px] transition-transform hover:scale-110",
-                                language === 'en' ? "opacity-100 ring-2 ring-neonBlue/50" : "opacity-50 hover:opacity-100 grayscale hover:grayscale-0"
+                                "relative h-4 w-6 overflow-hidden rounded-[2px] shadow-[0_2px_8px_rgba(0,70,150,0.18)] transition-transform hover:scale-110",
+                                language === 'en' ? "opacity-100 ring-2 ring-white/70" : "opacity-60 hover:opacity-100 grayscale hover:grayscale-0"
                             )}
                         >
                             <svg viewBox="0 0 60 30" className="w-full h-full">
@@ -226,7 +210,11 @@ export const Navbar = () => {
                         </button>
                     </div>
 
-                    <Button href={getLink('#kapcsolat')} variant="primary" className="py-2 px-5 text-base">
+                    <Button
+                        href={getLink('#kapcsolat')}
+                        variant="primary"
+                        className="rounded-full border border-white/65 bg-[#FFD66A] px-6 py-2.5 font-hero text-sm font-bold text-[#06437D] shadow-[0_12px_24px_rgba(255,203,85,0.24),inset_0_1px_0_rgba(255,255,255,0.75)] hover:bg-[#FFE18A] hover:text-[#06437D]"
+                    >
                         {t('nav.cta')}
                     </Button>
                 </div>
@@ -249,13 +237,13 @@ export const Navbar = () => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        className="lg:hidden bg-surface overflow-hidden border-b border-white/10"
+                        className="lg:hidden overflow-hidden border-b border-white/25 bg-[#147FD0]/70 backdrop-blur-xl"
                     >
                         <Container className="py-8 flex flex-col gap-4">
                             {/* Services Section */}
                             <div className="border-b border-white/10 pb-4">
-                                <span className="text-xs font-mono text-neonBlue/60 uppercase tracking-widest mb-3 block flex items-center gap-2">
-                                    <span className="text-neonBlue/40">$</span> {t('nav.services')}
+                                    <span className="text-xs font-mono text-white/75 uppercase tracking-widest mb-3 block flex items-center gap-2">
+                                    <span className="text-white/50">$</span> {t('nav.services')}
                                 </span>
                                 <div className="flex flex-col gap-1">
                                     {serviceDropdown.map((item, index) => (
@@ -263,9 +251,9 @@ export const Navbar = () => {
                                             key={index}
                                             href={getLink(item.href)}
                                             onClick={(e) => handleMobileNav(e, item.href)}
-                                            className="group flex items-center gap-3 text-base font-mono text-white/70 hover:text-neonBlue pl-3 py-1.5 transition-all"
+                                            className="group flex items-center gap-3 text-base font-mono text-white/82 hover:text-white pl-3 py-1.5 transition-all"
                                         >
-                                            <span className="text-neonBlue/30 group-hover:text-neonBlue text-xs transition-colors">{'>'}_</span>
+                                            <span className="text-white/45 group-hover:text-white text-xs transition-colors">{'>'}_</span>
                                             {item.label}
                                         </a>
                                     ))}
@@ -277,11 +265,11 @@ export const Navbar = () => {
                                     key={link.label}
                                     href={getLink(link.href)}
                                     onClick={(e) => handleMobileNav(e, link.href)}
-                                    className="text-lg font-medium text-white hover:text-neonBlue"
+                                    className="text-lg font-medium text-white/88 hover:text-white"
                                 >
-                                    <span className="font-mono text-neonBlue/50">&lt;</span>
+                                    <span className="font-mono text-white/50">&lt;</span>
                                     <span className="mx-1">{link.label}</span>
-                                    <span className="font-mono text-neonBlue/50">&gt;</span>
+                                    <span className="font-mono text-white/50">&gt;</span>
                                 </a>
                             ))}
 
@@ -292,7 +280,7 @@ export const Navbar = () => {
                                     onClick={() => setLanguage('hu')}
                                     className={clsx(
                                         "flex items-center gap-1.5 px-2 py-1 rounded border text-sm font-medium transition-colors",
-                                        language === 'hu' ? "bg-neonBlue/10 border-neonBlue/30 text-white" : "bg-white/5 border-white/10 text-white/50 hover:text-white"
+                                        language === 'hu' ? "bg-white/18 border-white/45 text-white" : "bg-white/10 border-white/20 text-white/65 hover:text-white"
                                     )}
                                 >
                                     🇭🇺 HU
@@ -301,7 +289,7 @@ export const Navbar = () => {
                                     onClick={() => setLanguage('en')}
                                     className={clsx(
                                         "flex items-center gap-1.5 px-2 py-1 rounded border text-sm font-medium transition-colors",
-                                        language === 'en' ? "bg-neonBlue/10 border-neonBlue/30 text-white" : "bg-white/5 border-white/10 text-white/50 hover:text-white"
+                                        language === 'en' ? "bg-white/18 border-white/45 text-white" : "bg-white/10 border-white/20 text-white/65 hover:text-white"
                                     )}
                                 >
                                     🇬🇧 EN
@@ -311,7 +299,7 @@ export const Navbar = () => {
                             <a
                                 href={getLink('#kapcsolat')}
                                 onClick={(e) => handleMobileNav(e, '#kapcsolat')}
-                                className="relative inline-flex items-center justify-center font-mono font-bold tracking-wider transition-all duration-300 group bg-neonBlue text-white hover:bg-white hover:text-black hover:shadow-[0_0_30px_rgba(77,148,255,0.45)] px-8 py-3 text-sm w-full justify-center mt-4"
+                                className="relative inline-flex items-center justify-center font-hero font-bold tracking-wider transition-all duration-300 group bg-[#FFD66A] text-[#06437D] hover:bg-white px-8 py-3 text-sm w-full justify-center mt-4 rounded-full border border-white/60"
                             >
                                 <span className="mr-2 text-black/60 group-hover:text-black/80 transition-colors">&lt;</span>
                                 <span className="relative z-10 flex items-center">{t('nav.cta')}</span>
@@ -324,5 +312,3 @@ export const Navbar = () => {
         </header>
     );
 };
-
-

@@ -35,24 +35,24 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
             {(number || eyebrow) && (
                 <div className={twMerge('flex items-baseline gap-3', align === 'center' && 'justify-center')}>
                     {number && (
-                        <span className="font-mono text-sm text-neonBlue tabular-nums tracking-wider">
+                        <span className="font-mono text-sm text-white tabular-nums tracking-wider drop-shadow-[0_2px_8px_rgba(0,82,166,0.24)]">
                             {number}
                         </span>
                     )}
                     {eyebrow && (
-                        <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.18em] text-white/50">
+                        <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.2em] text-white/82 drop-shadow-[0_2px_8px_rgba(0,82,166,0.22)]">
                             {eyebrow}
                         </span>
                     )}
                 </div>
             )}
 
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-bold font-display text-white leading-[1.15] tracking-tight">
+            <h2 className="bg-none font-hero text-2xl font-extrabold leading-[1.1] text-white drop-shadow-[0_6px_18px_rgba(0,93,180,0.25)] sm:text-3xl lg:text-[2.45rem]">
                 {title}
             </h2>
 
             {subtitle && (
-                <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-xl font-medium">
+                <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-xl font-medium drop-shadow-[0_2px_10px_rgba(0,70,150,0.18)]">
                     {subtitle}
                 </p>
             )}

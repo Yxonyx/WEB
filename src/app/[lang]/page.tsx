@@ -20,20 +20,22 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <QuoteSection />
-      <Services />
-      <GEO />
-      <Maintenance />
-      <ChatbotIntro />
-      <Pricing />
-      <Portfolio />
-      <Process />
-      <TechStack />
-      <Testimonials />
-      <FAQ />
-      <Insights />
-      <Contact />
-      <Team />
+      <div className="between-hero-footer-bg">
+        <QuoteSection />
+        <Services />
+        <GEO />
+        <Maintenance />
+        <ChatbotIntro />
+        <Pricing />
+        <Portfolio />
+        <Process />
+        <TechStack />
+        <Testimonials />
+        <FAQ />
+        <Insights />
+        <Contact />
+        <Team />
+      </div>
     </>
   );
 }

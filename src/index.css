@@ -40,7 +40,7 @@
     overscroll-behavior-y: contain;
     position: relative;
     width: 100%;
-    background-color: #070B1C;
+    background-color: #2DA8EA;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -57,8 +57,9 @@
     z-index: -1;
     pointer-events: none;
     background-image:
-      radial-gradient(ellipse 90% 60% at 90% -10%, rgba(99, 168, 255, 0.14), transparent 60%),
-      radial-gradient(ellipse 80% 55% at 10% 110%, rgba(77, 148, 255, 0.11), transparent 60%);
+      radial-gradient(ellipse 90% 60% at 90% -10%, rgba(255, 255, 255, 0.22), transparent 60%),
+      radial-gradient(ellipse 80% 55% at 10% 110%, rgba(255, 214, 106, 0.13), transparent 60%),
+      linear-gradient(180deg, #1B7ED5 0%, #2DA8EA 45%, #67C9EF 100%);
     will-change: transform;
     transform: translateZ(0);
   }
@@ -66,11 +67,11 @@
   @media (min-width: 1024px) and (hover: hover) {
     body::before {
       background-image:
-        radial-gradient(ellipse 90% 70% at 90% -15%, rgba(99, 168, 255, 0.22), transparent 60%),
-        radial-gradient(ellipse 80% 60% at 10% 5%, rgba(143, 125, 255, 0.14), transparent 60%),
-        radial-gradient(ellipse 70% 55% at 50% 45%, rgba(99, 168, 255, 0.08), transparent 65%),
-        radial-gradient(ellipse 90% 60% at 15% 110%, rgba(77, 148, 255, 0.18), transparent 60%),
-        radial-gradient(ellipse 70% 50% at 90% 95%, rgba(143, 125, 255, 0.12), transparent 60%);
+        radial-gradient(ellipse 90% 70% at 90% -15%, rgba(255, 255, 255, 0.28), transparent 60%),
+        radial-gradient(ellipse 80% 60% at 10% 5%, rgba(255, 246, 219, 0.20), transparent 58%),
+        radial-gradient(ellipse 70% 55% at 50% 45%, rgba(255, 255, 255, 0.11), transparent 65%),
+        radial-gradient(ellipse 90% 60% at 15% 110%, rgba(255, 214, 106, 0.14), transparent 60%),
+        linear-gradient(180deg, #1B7ED5 0%, #2DA8EA 42%, #67C9EF 100%);
     }
   }
 
@@ -153,34 +154,35 @@
 
   /* Enhanced glass panel with stronger blur - Desktop only performance optimization */
   .glass-panel-strong {
-    @apply bg-surface/90 border border-white/10;
+    background-color: rgba(255, 255, 255, 0.20);
+    border: 1px solid rgba(255, 255, 255, 0.30);
     /* Removed expensive box-shadow on mobile */
   }
 
   @screen lg {
     .glass-panel-strong {
-      @apply bg-surface/70 backdrop-blur-xl;
+      background-color: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        0 16px 44px rgba(0, 74, 153, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.38);
     }
   }
 
   /* Gradient text utility */
   .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-neonPurple to-neonBlue;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-white via-[#FFF2C6] to-white;
     background-size: 200% auto;
   }
 
   /* Mesh gradient background */
   .mesh-gradient {
     background:
-      radial-gradient(at 40% 20%, rgba(79, 138, 255, 0.35) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, rgba(143, 125, 255, 0.18) 0px, transparent 50%),
-      radial-gradient(at 0% 50%, rgba(79, 138, 255, 0.25) 0px, transparent 50%),
-      radial-gradient(at 80% 50%, rgba(143, 125, 255, 0.16) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, rgba(79, 138, 255, 0.22) 0px, transparent 50%),
-      radial-gradient(at 80% 100%, rgba(143, 125, 255, 0.12) 0px, transparent 50%);
+      radial-gradient(at 40% 20%, rgba(83, 189, 255, 0.14) 0px, transparent 52%),
+      radial-gradient(at 80% 0%, rgba(255, 246, 219, 0.12) 0px, transparent 48%),
+      radial-gradient(at 0% 50%, rgba(8, 81, 152, 0.16) 0px, transparent 54%),
+      radial-gradient(at 80% 50%, rgba(255, 214, 106, 0.07) 0px, transparent 50%);
   }
 
   /* Animated gradient orb */
@@ -204,16 +206,61 @@
   }
 
   .gradient-orb-blue {
-    background: radial-gradient(circle, rgba(79, 138, 255, 0.70) 0%, rgba(79, 138, 255, 0.18) 50%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.12) 50%, transparent 70%);
   }
 
   .gradient-orb-purple {
-    background: radial-gradient(circle, rgba(143, 125, 255, 0.40) 0%, rgba(143, 125, 255, 0.12) 50%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 214, 106, 0.22) 0%, rgba(255, 214, 106, 0.08) 50%, transparent 70%);
   }
 
   /* Full-screen section */
   .section-fullscreen {
     @apply min-h-screen w-full relative;
+  }
+
+  .between-hero-footer-bg {
+    position: relative;
+    isolation: isolate;
+    background-color: #073F7E;
+    background-image:
+      radial-gradient(ellipse 68% 22% at 78% 0%, rgba(255, 255, 255, 0.28), transparent 64%),
+      radial-gradient(ellipse 48% 22% at 12% 4%, rgba(255, 246, 219, 0.18), transparent 70%),
+      radial-gradient(ellipse 70% 38% at 86% 48%, rgba(53, 184, 244, 0.18), transparent 68%),
+      linear-gradient(180deg, #65BDEC 0%, #1F8AD5 11%, #0A62B7 34%, #063F84 66%, #052852 100%);
+  }
+
+  .between-hero-footer-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+      radial-gradient(ellipse 88% 34% at 50% 0%, rgba(255, 255, 255, 0.16), transparent 70%);
+    background-size: 112px 112px, 112px 112px, auto;
+    opacity: 0.26;
+  }
+
+  .between-hero-footer-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle, rgba(255, 255, 255, 0.70) 0 1px, transparent 1.5px),
+      radial-gradient(circle, rgba(255, 214, 106, 0.55) 0 1px, transparent 1.5px);
+    background-position: 18px 42px, 76px 8px;
+    background-size: 142px 142px, 211px 211px;
+    opacity: 0.18;
+  }
+
+  .between-hero-footer-bg > section {
+    position: relative;
+    z-index: 1;
+    background-color: transparent !important;
   }
 
   /* Edge-to-edge container */
@@ -224,28 +271,28 @@
   /* Section backgrounds - alternating colors */
   .section-bg-cyan {
     background: linear-gradient(180deg,
-        rgba(79, 138, 255, 0.18) 0%,
-        rgba(79, 138, 255, 0.06) 60%,
+        rgba(255, 255, 255, 0.13) 0%,
+        rgba(45, 168, 234, 0.06) 60%,
         transparent 100%);
   }
 
   .section-bg-purple {
     background: linear-gradient(180deg,
-        rgba(143, 125, 255, 0.10) 0%,
-        rgba(143, 125, 255, 0.03) 60%,
+        rgba(255, 214, 106, 0.10) 0%,
+        rgba(255, 255, 255, 0.04) 60%,
         transparent 100%);
   }
 
   .section-bg-mixed {
     background:
-      linear-gradient(135deg, rgba(79, 138, 255, 0.14) 0%, transparent 50%),
-      linear-gradient(225deg, rgba(143, 125, 255, 0.09) 0%, transparent 50%);
+      linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, transparent 50%),
+      linear-gradient(225deg, rgba(255, 214, 106, 0.09) 0%, transparent 50%);
   }
 
   .section-bg-deep {
     background: linear-gradient(180deg,
-        rgba(8, 10, 20, 0.95) 0%,
-        rgba(5, 7, 16, 1) 100%);
+        rgba(27, 126, 213, 0.35) 0%,
+        rgba(45, 168, 234, 0.18) 100%);
   }
 }
 
@@ -265,12 +312,15 @@
   }
 
   .glass-panel {
-    @apply bg-surface/95 border border-border;
+    background-color: rgba(255, 255, 255, 0.20);
+    border: 1px solid rgba(255, 255, 255, 0.30);
   }
 
   @screen lg {
     .glass-panel {
-      @apply bg-surface/60 backdrop-blur-md;
+      background-color: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
   }
 

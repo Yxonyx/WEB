@@ -6,133 +6,96 @@ export function WebDevGraphic() {
             viewBox="0 0 800 600"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full drop-shadow-2xl"
-            style={{ overflow: 'visible' }}
+            className="w-full max-w-[680px]"
+            role="img"
+            aria-label="Egyedi weboldal és üzleti rendszer dashboard grafika"
         >
             <defs>
-                {/* Background Glow Filter */}
-                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="30" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                <linearGradient id="wdgShell" x1="96" y1="88" x2="698" y2="512" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#0B79D7" />
+                    <stop offset="0.54" stopColor="#0A5FB8" />
+                    <stop offset="1" stopColor="#084B9E" />
+                </linearGradient>
+                <linearGradient id="wdgPanel" x1="150" y1="150" x2="624" y2="452" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#138FE1" />
+                    <stop offset="1" stopColor="#0760B9" />
+                </linearGradient>
+                <linearGradient id="wdgCard" x1="0" y1="0" x2="1" y2="1">
+                    <stop stopColor="#20A9EA" />
+                    <stop offset="1" stopColor="#0871C9" />
+                </linearGradient>
+                <linearGradient id="wdgGold" x1="0" y1="0" x2="1" y2="1">
+                    <stop stopColor="#FFE28B" />
+                    <stop offset="1" stopColor="#FFC84E" />
+                </linearGradient>
+                <filter id="wdgShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="26" stdDeviation="18" floodColor="#004C95" floodOpacity="0.28" />
                 </filter>
-                <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="15" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                </filter>
-
-                {/* Primary Gradients */}
-                <linearGradient id="cyanPurple" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#00f0ff" />
-                    <stop offset="100%" stopColor="#b000ff" />
-                </linearGradient>
-                <linearGradient id="cyanDark" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#00f0ff" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor="#0080ff" stopOpacity="0.2" />
-                </linearGradient>
-                <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="rgba(255,255,255,0.05)" />
-                    <stop offset="100%" stopColor="rgba(255,255,255,0.01)" />
-                </linearGradient>
-                <linearGradient id="hologramGrid" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#00f0ff" stopOpacity="0.2" />
-                    <stop offset="50%" stopColor="#b000ff" stopOpacity="0.05" />
-                    <stop offset="100%" stopColor="#000000" stopOpacity="0" />
-                </linearGradient>
-
-                {/* Data Stream Gradient */}
-                <linearGradient id="dataStream" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#00f0ff" stopOpacity="0" />
-                    <stop offset="50%" stopColor="#00f0ff" stopOpacity="1" />
-                    <stop offset="100%" stopColor="#b000ff" stopOpacity="0" />
-                </linearGradient>
             </defs>
 
-            {/* Ambient Background Blur */}
-            <circle cx="400" cy="300" r="250" fill="url(#cyanPurple)" opacity="0.08" filter="url(#glow)" />
-            <circle cx="550" cy="200" r="150" fill="#00f0ff" opacity="0.05" filter="url(#glow)" />
+            <motion.g
+                initial={false}
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+                filter="url(#wdgShadow)"
+            >
+                <rect x="86" y="86" width="628" height="428" rx="34" fill="url(#wdgShell)" stroke="rgba(255,255,255,0.58)" strokeWidth="2" />
+                <rect x="112" y="112" width="576" height="376" rx="24" fill="url(#wdgPanel)" stroke="rgba(255,255,255,0.24)" />
 
-            {/* Isometric Grid Floor */}
-            <g transform="translate(400, 430) scale(1.4, 0.63) rotate(45)">
-                {/* Backplate for depth */}
-                <rect x="-220" y="-220" width="440" height="440" fill="url(#hologramGrid)" rx="20" />
+                <path d="M142 176H656" stroke="rgba(255,255,255,0.22)" strokeWidth="2" />
+                <circle cx="156" cy="144" r="7" fill="#FFE28B" />
+                <circle cx="181" cy="144" r="7" fill="#66D6FF" />
+                <circle cx="206" cy="144" r="7" fill="#FFFFFF" opacity="0.88" />
+                <rect x="246" y="132" width="252" height="24" rx="12" fill="#0758AA" stroke="rgba(255,255,255,0.22)" />
+                <path d="M274 144H416" stroke="rgba(255,255,255,0.58)" strokeWidth="4" strokeLinecap="round" />
 
-                {/* Grid Lines */}
-                {[...Array(9)].map((_, i) => (
-                    <g key={i}>
-                        <line x1={-220} y1={-220 + i * 55} x2={220} y2={-220 + i * 55} stroke="#00f0ff" strokeOpacity="0.1" strokeWidth="2" />
-                        <line x1={-220 + i * 55} y1={-220} x2={-220 + i * 55} y2={220} stroke="#00f0ff" strokeOpacity="0.1" strokeWidth="2" />
+                <rect x="142" y="206" width="158" height="242" rx="20" fill="#0758AA" stroke="rgba(255,255,255,0.26)" />
+                <rect x="166" y="232" width="88" height="12" rx="6" fill="#FFE28B" />
+                <rect x="166" y="264" width="96" height="10" rx="5" fill="white" opacity="0.82" />
+                <rect x="166" y="292" width="70" height="10" rx="5" fill="white" opacity="0.58" />
+                <rect x="166" y="344" width="106" height="46" rx="14" fill="url(#wdgCard)" stroke="rgba(255,255,255,0.20)" />
+                <path d="M188 368H250" stroke="#BEEFFF" strokeWidth="5" strokeLinecap="round" />
+                <rect x="166" y="406" width="106" height="16" rx="8" fill="#0A70C9" stroke="rgba(255,255,255,0.18)" />
+
+                <rect x="326" y="206" width="330" height="116" rx="22" fill="#0A66BE" stroke="rgba(255,255,255,0.30)" />
+                <path d="M356 250H508" stroke="white" strokeWidth="11" strokeLinecap="round" />
+                <path d="M356 284H462" stroke="rgba(255,255,255,0.70)" strokeWidth="8" strokeLinecap="round" />
+                <rect x="534" y="240" width="86" height="38" rx="19" fill="url(#wdgGold)" />
+                <path d="M558 259H597" stroke="#075197" strokeWidth="6" strokeLinecap="round" />
+
+                <rect x="326" y="346" width="138" height="102" rx="20" fill="#0A70C9" stroke="rgba(255,255,255,0.26)" />
+                <path d="M354 412C370 382 388 396 404 370C418 348 434 360 442 356" stroke="#FFE28B" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="442" cy="356" r="8" fill="#FFE28B" />
+                <rect x="354" y="372" width="54" height="8" rx="4" fill="white" opacity="0.72" />
+
+                <rect x="492" y="346" width="164" height="102" rx="20" fill="#0758AA" stroke="rgba(255,255,255,0.26)" />
+                {[0, 1, 2].map((bar) => (
+                    <g key={bar}>
+                        <rect x={520 + bar * 38} y={404 - bar * 18} width="22" height={28 + bar * 18} rx="7" fill={bar === 2 ? '#FFE28B' : '#59D8FF'} />
                     </g>
                 ))}
+                <path d="M520 374H610" stroke="white" strokeWidth="8" strokeLinecap="round" opacity="0.78" />
+            </motion.g>
+
+            <motion.g
+                initial={false}
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.35 }}
+            >
+                <rect x="558" y="112" width="116" height="202" rx="25" fill="#064D99" stroke="rgba(255,255,255,0.62)" strokeWidth="2" />
+                <rect x="574" y="142" width="84" height="136" rx="16" fill="#1290DE" />
+                <rect x="590" y="162" width="52" height="9" rx="4.5" fill="#FFE28B" />
+                <rect x="590" y="190" width="42" height="8" rx="4" fill="white" opacity="0.76" />
+                <rect x="590" y="212" width="52" height="38" rx="12" fill="#0760B9" stroke="rgba(255,255,255,0.2)" />
+                <circle cx="616" cy="292" r="6" fill="white" opacity="0.86" />
+            </motion.g>
+
+            <g opacity="0.95">
+                <path d="M112 112H148V96" stroke="white" strokeOpacity="0.62" strokeWidth="2" />
+                <path d="M688 112H652V96" stroke="white" strokeOpacity="0.62" strokeWidth="2" />
+                <path d="M112 488H148V504" stroke="white" strokeOpacity="0.48" strokeWidth="2" />
+                <path d="M688 488H652V504" stroke="white" strokeOpacity="0.48" strokeWidth="2" />
             </g>
-
-            {/* Floating Isometric Platform Layer 1 (Drop Shadow) */}
-            <g transform="translate(400, 350) scale(1.5, 0.75) rotate(-45)">
-                <motion.g animate={{ y: [0, -8, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
-                    <rect x="-160" y="-120" width="320" height="240" fill="#000" opacity="0.6" filter="url(#glow)" rx="16" />
-                </motion.g>
-            </g>
-
-            {/* Main Floating Mockup Container */}
-            <g transform="translate(400, 310) scale(1.5, 0.82) rotate(-45)">
-                <motion.g animate={{ y: [0, -15, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}>
-                    {/* Main Base Glass Panel */}
-                    <rect x="-180" y="-140" width="360" height="280" fill="url(#glassGradient)" stroke="url(#cyanDark)" strokeWidth="2" rx="16" />
-
-                    {/* Browser Header Bar */}
-                    <rect x="-180" y="-140" width="360" height="30" fill="rgba(0,240,255,0.05)" rx="16" stroke="rgba(255,255,255,0.05)" />
-
-                    {/* 3 Toolbar Dots */}
-                    <circle cx="-160" cy="-125" r="4" fill="#ff5f56" />
-                    <circle cx="-145" cy="-125" r="4" fill="#ffbd2e" />
-                    <circle cx="-130" cy="-125" r="4" fill="#27c93f" />
-
-                    {/* URL Bar */}
-                    <rect x="-110" y="-132" width="150" height="14" rx="7" fill="rgba(255,255,255,0.03)" />
-                    <line x1="-100" y1="-125" x2="-20" y2="-125" stroke="rgba(255,255,255,0.2)" strokeWidth="2" strokeLinecap="round" />
-
-                    {/* Abstract Hero Image/Banner */}
-                    <rect x="-160" y="-95" width="200" height="100" fill="url(#cyanPurple)" opacity="0.2" rx="8" />
-                    <rect x="-160" y="-95" width="200" height="100" fill="none" stroke="url(#cyanPurple)" strokeWidth="1" rx="8" />
-
-                    {/* Floating Abstract UI Elements within the mockup */}
-                    <path d="M-140 -60 L-80 -60 M-140 -40 L-60 -40 M-140 -20 L-100 -20" stroke="#00f0ff" strokeWidth="4" strokeLinecap="round" opacity="0.6" filter="url(#softGlow)" />
-
-                    {/* Graph/Metric Box 1 */}
-                    <rect x="60" y="-95" width="100" height="60" fill="rgba(176,0,255,0.1)" stroke="rgba(176,0,255,0.4)" strokeWidth="1" rx="8" />
-                    <path d="M70 -50 Q 90 -80, 110 -60 T 150 -70" fill="none" stroke="#b000ff" strokeWidth="3" filter="url(#softGlow)" />
-                    <circle cx="150" cy="-70" r="4" fill="#b000ff" />
-
-                    {/* Graph/Metric Box 2 */}
-                    <rect x="60" y="-20" width="100" height="60" fill="rgba(0,240,255,0.1)" stroke="rgba(0,240,255,0.4)" strokeWidth="1" rx="8" />
-                    <rect x="75" y="0" width="15" height="25" fill="#00f0ff" opacity="0.4" rx="2" />
-                    <rect x="100" y="-10" width="15" height="35" fill="#00f0ff" opacity="0.6" rx="2" />
-                    <rect x="125" y="-15" width="15" height="40" fill="#00f0ff" opacity="0.8" rx="2" />
-
-                    {/* Bottom Wide Bar */}
-                    <rect x="-160" y="25" width="320" height="80" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)" strokeWidth="1" rx="8" />
-
-                    {/* Glowing Data Lines connecting modules */}
-                    <path d="M40 -45 L 60 -45" stroke="url(#cyanPurple)" strokeWidth="2" strokeDasharray="4 4" />
-                    <path d="M-60 5 L -60 25 M 60 40 L 60 25" stroke="#00f0ff" strokeWidth="2" opacity="0.3" strokeDasharray="2 4" />
-                </motion.g>
-            </g>
-
-            {/* Overlapping Glass Panel 2 (Floating higher) */}
-            <g transform="translate(445, 205) scale(1.5, 0.82) rotate(-45)">
-                <motion.g animate={{ y: [0, -25, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
-                    <rect x="-80" y="-80" width="160" height="120" fill="rgba(10,10,18,0.6)" stroke="#b000ff" strokeWidth="1.5" rx="12" filter="url(#glow)" style={{ backdropFilter: "blur(10px)" }} />
-                    <circle cx="0" cy="-20" r="20" fill="url(#cyanPurple)" opacity="0.8" />
-                    <circle cx="0" cy="-20" r="10" fill="#00f0ff" />
-                    <rect x="-40" y="10" width="80" height="6" rx="3" fill="rgba(255,255,255,0.2)" />
-                    <rect x="-20" y="25" width="40" height="6" rx="3" fill="rgba(255,255,255,0.1)" />
-                </motion.g>
-            </g>
-
-            {/* Floating Energy Particles */}
-            <motion.circle cx="600" cy="150" r="3" fill="#00f0ff" filter="url(#softGlow)" animate={{ y: [0, -15, 0], opacity: [0.5, 1, 0.5] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} />
-            <motion.circle cx="200" cy="450" r="4" fill="#b000ff" filter="url(#softGlow)" animate={{ y: [0, -25, 0], opacity: [0.3, 0.8, 0.3] }} transition={{ duration: 5, repeat: Infinity, delay: 1, ease: "easeInOut" }} />
-            <motion.circle cx="650" cy="400" r="2" fill="#ffffff" opacity="0.5" animate={{ y: [0, -20, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 0.5, ease: "easeInOut" }} />
-            <motion.circle cx="250" cy="150" r="2" fill="#00f0ff" opacity="0.6" animate={{ y: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, delay: 2, ease: "easeInOut" }} />
         </svg>
     );
 }

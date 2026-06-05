@@ -19,12 +19,12 @@ export const Button: React.FC<ButtonProps> = ({
     className,
     ...props
 }) => {
-    const baseStyles = "relative inline-flex items-center justify-center font-medium tracking-wide rounded-full transition-all duration-300 group whitespace-nowrap";
+    const baseStyles = "relative inline-flex items-center justify-center font-semibold tracking-wide rounded-full transition-all duration-300 group whitespace-nowrap";
 
     const variants = {
-        primary: "bg-neonBlue text-white hover:bg-white hover:text-black hover:shadow-[0_8px_28px_-8px_rgba(77,148,255,0.55)]",
-        secondary: "bg-white/[0.04] border border-white/15 text-white hover:bg-white/[0.08] hover:border-white/30 backdrop-blur-sm",
-        harvest: "bg-neonHarvest text-white hover:bg-white hover:text-black hover:shadow-[0_8px_28px_-8px_rgba(143,125,255,0.45)]",
+        primary: "border border-white/65 bg-[#FFD66A] text-[#06437D] shadow-[0_12px_28px_rgba(255,203,85,0.25),inset_0_1px_0_rgba(255,255,255,0.72)] hover:-translate-y-0.5 hover:bg-[#FFE18A] hover:text-[#06437D] hover:shadow-[0_18px_38px_rgba(255,203,85,0.34)]",
+        secondary: "border-2 border-white/80 bg-white/10 text-white shadow-[0_12px_28px_rgba(0,91,174,0.16),inset_0_1px_0_rgba(255,255,255,0.30)] backdrop-blur-sm hover:-translate-y-0.5 hover:bg-white/20 hover:border-white hover:text-white",
+        harvest: "border border-white/65 bg-[#FFD66A] text-[#06437D] shadow-[0_12px_28px_rgba(255,203,85,0.25)] hover:bg-[#FFE18A] hover:text-[#06437D]",
     };
 
     const sizes = {

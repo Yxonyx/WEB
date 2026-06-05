@@ -53,9 +53,17 @@ export default function RootLayout({
         {/* Hero BG preload for faster LCP */}
         <link
           rel="preload"
-          href="/images/hero-bg-v5.avif"
+          href="/images/hero-bg-mobile.webp"
           as="image"
-          type="image/avif"
+          type="image/webp"
+          media="(max-width: 767px)"
+        />
+        <link
+          rel="preload"
+          href="/images/hero-bg-desktop.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 768px)"
         />
 
         {/* Fonts - non-render-blocking */}
@@ -75,7 +83,7 @@ export default function RootLayout({
             __html: `
               var link = document.createElement('link');
               link.rel = 'stylesheet';
-              link.href = 'https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap';
+              link.href = 'https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@600;700;800&display=swap';
               document.head.appendChild(link);
             `,
           }}

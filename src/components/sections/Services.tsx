@@ -22,6 +22,8 @@ const itemVariants: Variants = {
 
 export const Services = () => {
     const { t } = useLanguage();
+    const visualCardClass =
+        'min-h-[300px] flex items-center justify-center relative overflow-hidden bg-[linear-gradient(145deg,rgba(4,10,20,0.94)_0%,rgba(5,42,86,0.90)_58%,rgba(7,90,168,0.72)_100%)] !border-white/[0.42] shadow-[0_26px_74px_-30px_rgba(0,20,58,0.82),inset_0_1px_0_rgba(255,255,255,0.36),inset_0_0_38px_rgba(83,189,255,0.10)] hover:!border-white/75';
 
     return (
         <Section id="szolgaltatasok" className="relative z-20" withMeshGradient withOrbs disableOrbAnimation>
@@ -44,27 +46,27 @@ export const Services = () => {
                         variants={containerVariants}
                     >
                         <motion.div variants={itemVariants}>
-                            <div className="w-11 h-11 rounded-2xl bg-neonBlue/10 border border-neonBlue/20 flex items-center justify-center mb-5 text-neonBlue">
+                            <div className="w-11 h-11 rounded-2xl bg-white/[0.18] border border-white/35 flex items-center justify-center mb-5 text-[#FFF2C6] shadow-[0_10px_26px_rgba(0,74,153,0.16)]">
                                 <Laptop size={22} />
                             </div>
-                            <h3 className="text-xl sm:text-2xl lg:text-[1.75rem] font-semibold mb-3 font-display leading-tight">
+                            <h3 className="text-xl sm:text-2xl lg:text-[1.75rem] font-bold mb-3 font-hero bg-none leading-tight text-white">
                                 {t('services.webdev.title')}
                             </h3>
-                            <div className="text-neonBlue/80 font-mono text-xs mb-5 tracking-wide uppercase">
+                            <div className="text-[#FFF2C6] font-mono text-xs mb-5 tracking-wide uppercase">
                                 {t('services.webdev.tagline')}
                             </div>
                             <p
-                                className="text-white/70 text-base lg:text-[17px] mb-7 leading-relaxed"
+                                className="text-white/90 text-base lg:text-[17px] mb-7 leading-relaxed"
                                 dangerouslySetInnerHTML={{ __html: t('services.webdev.desc') as string }}
                             />
 
-                            <h4 className="mb-3 text-xs font-mono font-semibold text-white/55 uppercase tracking-[0.18em]">
+                            <h4 className="mb-3 text-xs font-mono font-semibold text-white/80 uppercase tracking-[0.18em]">
                                 {t('services.webdev.benefits_title')}
                             </h4>
                             <ul className="space-y-2.5">
                                 {(t('services.webdev.benefits') as unknown as string[]).map((item, i) => (
                                     <li key={i} className="flex items-center gap-3 text-white/80 text-[15px]">
-                                        <CheckCircle2 className="w-4 h-4 text-neonBlue shrink-0" />
+                                        <CheckCircle2 className="w-4 h-4 text-[#FFF2C6] shrink-0" />
                                         <span>{item}</span>
                                     </li>
                                 ))}
@@ -72,8 +74,11 @@ export const Services = () => {
                         </motion.div>
 
                         <motion.div variants={itemVariants}>
-                            <Card className="min-h-[280px] flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-neonBlue/8 rounded-full blur-3xl pointer-events-none" />
+                            <Card className={visualCardClass}>
+                                <span className="pointer-events-none absolute left-6 top-6 h-9 w-9 border-l border-t border-white/45" />
+                                <span className="pointer-events-none absolute right-6 top-6 h-9 w-9 border-r border-t border-white/45" />
+                                <span className="pointer-events-none absolute bottom-6 left-6 h-9 w-9 border-b border-l border-white/35" />
+                                <span className="pointer-events-none absolute bottom-6 right-6 h-9 w-9 border-b border-r border-white/35" />
                                 <div className="w-full relative z-10 flex items-center justify-center">
                                     <WebDevGraphic />
                                 </div>
@@ -90,8 +95,11 @@ export const Services = () => {
                         variants={containerVariants}
                     >
                         <motion.div variants={itemVariants} className="order-2 lg:order-1">
-                            <Card className="min-h-[280px] flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute top-0 left-0 w-64 h-64 bg-neonPurple/8 rounded-full blur-3xl pointer-events-none" />
+                            <Card className={visualCardClass}>
+                                <span className="pointer-events-none absolute left-6 top-6 h-9 w-9 border-l border-t border-white/45" />
+                                <span className="pointer-events-none absolute right-6 top-6 h-9 w-9 border-r border-t border-white/45" />
+                                <span className="pointer-events-none absolute bottom-6 left-6 h-9 w-9 border-b border-l border-white/35" />
+                                <span className="pointer-events-none absolute bottom-6 right-6 h-9 w-9 border-b border-r border-white/35" />
                                 <div className="flex flex-col gap-5 w-full max-w-sm relative z-10">
                                     {(t('services.seo.flow') as unknown as Array<{ id: string | number; title: string; sub: string }>).map((step, i) => (
                                         <div key={i}>
@@ -99,8 +107,8 @@ export const Services = () => {
                                                 <div
                                                     className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold shrink-0 ${
                                                         i === 2
-                                                            ? 'bg-neonBlue text-white shadow-[0_4px_16px_-4px_rgba(77,148,255,0.6)]'
-                                                            : 'bg-white/5 border border-white/10 text-white/80'
+                                                            ? 'bg-[#FFD66A] text-[#06437D] shadow-[0_4px_16px_-4px_rgba(255,203,85,0.6)]'
+                                                            : 'bg-[#063F84]/[0.82] border border-white/30 text-white/95'
                                                     }`}
                                                 >
                                                     {step.id}
@@ -108,17 +116,17 @@ export const Services = () => {
                                                 <div
                                                     className={`flex-1 p-3 rounded-xl border text-[15px] ${
                                                         i === 2
-                                                            ? 'bg-neonBlue/10 border-neonBlue/25 text-white'
-                                                            : 'bg-white/[0.03] border-white/8 text-white/85'
+                                                            ? 'bg-[#FFD66A]/[0.24] border-white/45 text-white'
+                                                            : 'bg-[#031326]/[0.72] border-white/[0.26] text-white/95'
                                                     }`}
                                                 >
                                                     {step.title}
-                                                    <span className="text-neonBlue/70 text-xs block mt-0.5">
+                                                    <span className="text-[#FFF2C6] text-xs block mt-0.5">
                                                         {step.sub}
                                                     </span>
                                                 </div>
                                             </div>
-                                            {i < 2 && <div className="h-5 w-px bg-white/10 ml-[18px] mt-3 mb-0" />}
+                                            {i < 2 && <div className="h-5 w-px bg-white/30 ml-[18px] mt-3 mb-0" />}
                                         </div>
                                     ))}
                                 </div>
@@ -126,21 +134,21 @@ export const Services = () => {
                         </motion.div>
 
                         <motion.div variants={itemVariants} className="order-1 lg:order-2">
-                            <div className="w-11 h-11 rounded-2xl bg-neonPurple/10 border border-neonPurple/20 flex items-center justify-center mb-5 text-neonPurple">
+                            <div className="w-11 h-11 rounded-2xl bg-white/[0.18] border border-white/35 flex items-center justify-center mb-5 text-[#FFF2C6] shadow-[0_10px_26px_rgba(0,74,153,0.16)]">
                                 <BarChart3 size={22} />
                             </div>
-                            <h3 className="text-xl sm:text-2xl lg:text-[1.75rem] font-semibold mb-5 font-display leading-tight">
+                            <h3 className="text-xl sm:text-2xl lg:text-[1.75rem] font-bold mb-5 font-hero bg-none leading-tight text-white">
                                 {t('services.seo.title')}
                             </h3>
                             <p
-                                className="text-white/70 text-base lg:text-[17px] mb-7 leading-relaxed"
+                                className="text-white/90 text-base lg:text-[17px] mb-7 leading-relaxed"
                                 dangerouslySetInnerHTML={{ __html: t('services.seo.desc') as string }}
                             />
 
-                            <h4 className="mb-3 text-xs font-mono font-semibold text-white/55 uppercase tracking-[0.18em]">
+                            <h4 className="mb-3 text-xs font-mono font-semibold text-white/80 uppercase tracking-[0.18em]">
                                 {t('services.seo.benefits_title')}
                             </h4>
-                            <p className="text-white/70 leading-relaxed text-[15px]">{t('services.seo.why')}</p>
+                            <p className="text-white/90 leading-relaxed text-[15px]">{t('services.seo.why')}</p>
                         </motion.div>
                     </motion.article>
                 </div>

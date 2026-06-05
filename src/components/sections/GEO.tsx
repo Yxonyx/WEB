@@ -26,10 +26,6 @@ export const GEO = () => {
 
     return (
         <Section id="geo" className="relative overflow-hidden">
-            {/* Background elements */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-neonBlue/5 rounded-full blur-[80px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-neonPurple/5 rounded-full blur-[60px] pointer-events-none" />
-
             <Container>
                 <SectionHeader
                     number="02"
@@ -39,7 +35,7 @@ export const GEO = () => {
                     className="mb-10 lg:mb-16"
                 />
                 <p
-                    className="text-white/70 text-base lg:text-[17px] text-center max-w-3xl mx-auto mb-16 lg:mb-20 leading-relaxed"
+                    className="text-white/88 text-base lg:text-[17px] text-center max-w-3xl mx-auto mb-16 lg:mb-20 leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: t('geo.header.desc') as string }}
                 />
 
@@ -54,7 +50,7 @@ export const GEO = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
                         >
-                            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 font-display">{t('geo.shift.title')}</h3>
+                            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 font-hero bg-none">{t('geo.shift.title')}</h3>
                             <p className="text-lg text-white/80 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: t('geo.shift.desc') as string }} />
                         </motion.div>
 
@@ -65,7 +61,7 @@ export const GEO = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
                         >
-                            <div className="absolute inset-0 bg-neonBlue/20 blur-3xl rounded-full" />
+                            <div className="absolute inset-0 bg-white/16 blur-3xl rounded-full" />
                             <div className="relative flex items-center gap-6">
                                 {/* Robot 3D floating on left */}
                                 <div className="relative flex-shrink-0 w-[120px] h-[120px] sm:w-[180px] sm:h-[180px]">
@@ -83,15 +79,15 @@ export const GEO = () => {
                                     )}
                                 </div>
                                 {/* Search Interface card on right */}
-                                <div className="flex-1 bg-surface border border-white/10 rounded-xl p-6 shadow-2xl">
-                                    <div className="text-sm font-mono text-neonBlue mb-2">{t('geo.shift.visual_search')}</div>
+                                <div className="flex-1 bg-white/[0.18] border border-white/35 rounded-2xl p-6 shadow-[0_16px_45px_-22px_rgba(0,74,153,0.45)] backdrop-blur-md">
+                                    <div className="text-sm font-mono text-[#FFF2C6] mb-2">{t('geo.shift.visual_search')}</div>
                                     <div className="text-base text-white italic mb-4">{t('geo.shift.visual_query')}</div>
                                     {/* AI Thinking Visual */}
                                     <div className="flex gap-2 mb-2">
-                                        <div className="w-full h-2 bg-gradient-to-r from-neonBlue/40 via-neonPurple/40 to-transparent rounded animate-pulse" />
+                                        <div className="w-full h-2 bg-gradient-to-r from-white/65 via-[#FFD66A]/55 to-transparent rounded animate-pulse" />
                                     </div>
                                     <div className="flex gap-2 w-3/4">
-                                        <div className="w-full h-2 bg-white/5 rounded" />
+                                        <div className="w-full h-2 bg-white/18 rounded" />
                                     </div>
                                 </div>
                             </div>
@@ -109,7 +105,7 @@ export const GEO = () => {
                         >
                             <div className="flex items-center gap-4 mb-6">
                                 <ProIcon icon={Network} color="neonPurple" size={32} />
-                                <h3 className="text-2xl sm:text-3xl font-bold text-white font-display">{t('geo.where.title')}</h3>
+                                <h3 className="text-2xl sm:text-3xl font-bold text-white font-hero bg-none">{t('geo.where.title')}</h3>
                             </div>
                             <p className="text-lg text-white/80 leading-relaxed font-medium mb-6">
                                 {t('geo.where.desc')}
@@ -117,7 +113,7 @@ export const GEO = () => {
                             <ul className="space-y-4">
                                 {(t('geo.where.list') as unknown as string[]).map((item, i) => (
                                     <li key={i} className="flex items-center gap-3 text-white/90 font-medium">
-                                        <div className="w-2 h-2 rounded-full bg-neonPurple" />
+                                        <div className="w-2 h-2 rounded-full bg-[#FFD66A]" />
                                         {item}
                                     </li>
                                 ))}
@@ -131,29 +127,29 @@ export const GEO = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
                         >
-                            <div className="active-card p-6 rounded-xl border border-neonPurple/30 bg-surface/80 relative z-10">
+                            <div className="active-card p-6 rounded-2xl border border-white/35 bg-white/[0.18] relative z-10 backdrop-blur-md shadow-[0_16px_45px_-22px_rgba(0,74,153,0.45)]">
                                 {/* Chat UI Mockup */}
                                 <div className="space-y-4">
                                     <div className="flex gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs">U</div>
-                                        <div className="flex-1 bg-white/5 p-3 rounded-lg rounded-tl-none">
-                                            <div className="text-xs text-muted mb-1">{t('geo.where.dialog.q1.label')}</div>
+                                        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-xs">U</div>
+                                        <div className="flex-1 bg-white/14 p-3 rounded-lg rounded-tl-none border border-white/20">
+                                            <div className="text-xs text-white/65 mb-1">{t('geo.where.dialog.q1.label')}</div>
                                             <div className="text-sm text-white">{t('geo.where.dialog.q1.text')}</div>
                                         </div>
                                     </div>
                                     <div className="flex gap-3 flex-row-reverse">
-                                        <div className="w-8 h-8 rounded-full bg-neonPurple/20 flex items-center justify-center text-xs text-neonPurple">AI</div>
-                                        <div className="flex-1 bg-neonPurple/10 p-3 rounded-lg rounded-tr-none border border-neonPurple/20">
-                                            <div className="text-xs text-neonPurple mb-1">{t('geo.where.dialog.a1.label')}</div>
+                                        <div className="w-8 h-8 rounded-full bg-[#FFD66A]/30 flex items-center justify-center text-xs text-[#06437D]">AI</div>
+                                        <div className="flex-1 bg-[#FFD66A]/16 p-3 rounded-lg rounded-tr-none border border-white/25">
+                                            <div className="text-xs text-[#FFF2C6] mb-1">{t('geo.where.dialog.a1.label')}</div>
                                             <div className="text-sm text-white">
-                                                {t('geo.where.dialog.a1.text_prefix')}<span className="text-neonBlue font-bold underline decoration-neonBlue/50 underline-offset-4">{t('geo.where.dialog.a1.text_highlight')}</span>{t('geo.where.dialog.a1.text_suffix')}
+                                                {t('geo.where.dialog.a1.text_prefix')}<span className="text-[#FFF2C6] font-bold underline decoration-white/60 underline-offset-4">{t('geo.where.dialog.a1.text_highlight')}</span>{t('geo.where.dialog.a1.text_suffix')}
                                             </div>
                                         </div>
                                     </div>
                                     <div className="flex gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs">U</div>
-                                        <div className="flex-1 bg-white/5 p-3 rounded-lg rounded-tl-none">
-                                            <div className="text-xs text-muted mb-1">{t('geo.where.dialog.q2.label')}</div>
+                                        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-xs">U</div>
+                                        <div className="flex-1 bg-white/14 p-3 rounded-lg rounded-tl-none border border-white/20">
+                                            <div className="text-xs text-white/65 mb-1">{t('geo.where.dialog.q2.label')}</div>
                                             <div className="text-sm text-white">{t('geo.where.dialog.q2.text')}</div>
                                         </div>
                                     </div>
@@ -172,20 +168,20 @@ export const GEO = () => {
                         >
                             <div className="flex items-center gap-4 mb-6">
                                 <ProIcon icon={Cpu} color="green" size={32} />
-                                <h3 className="text-2xl sm:text-3xl font-bold text-white font-display">{t('geo.what.title')}</h3>
+                                <h3 className="text-2xl sm:text-3xl font-bold text-white font-hero bg-none">{t('geo.what.title')}</h3>
                             </div>
                             <p className="text-lg text-white/80 leading-relaxed font-medium mb-8" dangerouslySetInnerHTML={{ __html: t('geo.what.desc') as string }} />
 
                             {/* Metrics mockup */}
-                            <div className="bg-surface border border-white/10 rounded-xl p-4 space-y-4">
+                            <div className="bg-white/[0.18] border border-white/35 rounded-2xl p-4 space-y-4 backdrop-blur-md shadow-[0_16px_45px_-22px_rgba(0,74,153,0.45)]">
                                 <div>
-                                    <div className="flex justify-between text-sm text-muted mb-1">
+                                    <div className="flex justify-between text-sm text-white/72 mb-1">
                                         <span>{t('geo.what.metrics.content')}</span>
-                                        <span className="text-neonBlue">98%</span>
+                                        <span className="text-[#FFF2C6]">98%</span>
                                     </div>
-                                    <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                                    <div className="h-2 bg-white/20 rounded-full overflow-hidden">
                                         <motion.div
-                                            className="h-full bg-neonBlue"
+                                            className="h-full bg-[#FFD66A]"
                                             initial={{ width: 0 }}
                                             whileInView={{ width: "98%" }}
                                             viewport={{ once: true, amount: 0.2 }}
@@ -194,11 +190,11 @@ export const GEO = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <div className="flex justify-between text-sm text-muted mb-1">
+                                    <div className="flex justify-between text-sm text-white/72 mb-1">
                                         <span>{t('geo.what.metrics.trust')}</span>
                                         <span className="text-green-500">{t('geo.what.metrics.trust_value')}</span>
                                     </div>
-                                    <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                                    <div className="h-2 bg-white/20 rounded-full overflow-hidden">
                                         <motion.div
                                             className="h-full bg-green-500"
                                             initial={{ width: 0 }}
@@ -224,15 +220,15 @@ export const GEO = () => {
 
                                 {(t('geo.what.steps') as unknown as { label: string, sub: string }[]).map((step, i) => (
                                     <div key={i} className="flex items-center gap-4 relative z-10">
-                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center border-2 ${i === 4 ? 'bg-neonBlue border-neonBlue text-black' :
-                                            i === 2 ? 'bg-neonPurple/20 border-neonPurple text-neonPurple' :
-                                                'bg-surface border-white/10 text-muted'
+                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center border-2 ${i === 4 ? 'bg-[#FFD66A] border-white/70 text-[#06437D]' :
+                                            i === 2 ? 'bg-[#FFD66A]/20 border-[#FFD66A] text-[#FFF2C6]' :
+                                                'bg-white/15 border-white/30 text-white/70'
                                             }`}>
                                             {i === 4 ? <UserCheck size={18} /> :
                                                 i === 2 ? <Sparkles size={18} /> :
                                                     <div className="text-sm font-bold">{i + 1}</div>}
                                         </div>
-                                        <div className={i === 4 ? "text-neonBlue font-bold" : i === 2 ? "text-white" : "text-white/60"}>
+                                        <div className={i === 4 ? "text-[#FFF2C6] font-bold" : i === 2 ? "text-white" : "text-white/70"}>
                                             <div className="font-bold">{step.label}</div>
                                             <div className="text-xs opacity-70">{step.sub}</div>
                                         </div>

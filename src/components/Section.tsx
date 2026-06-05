@@ -26,26 +26,32 @@ export const Section: React.FC<SectionProps> = ({
         <section
             id={id}
             className={twMerge(
-                "py-10 sm:py-14 lg:py-24 relative overflow-hidden w-full",
+                "py-10 sm:py-14 lg:py-24 relative overflow-hidden w-full bg-[#0A62B7]",
                 fullHeight && "min-h-screen flex items-center",
                 withMeshGradient && "mesh-gradient",
                 className
             )}
         >
             {background}
+            {!background && (
+                <>
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_0%,rgba(255,246,219,0.15),transparent_24%),radial-gradient(circle_at_92%_12%,rgba(255,255,255,0.14),transparent_20%),linear-gradient(180deg,rgba(8,81,152,0.16)_0%,rgba(5,48,102,0.10)_55%,rgba(3,20,48,0.18)_100%)]" />
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+                </>
+            )}
             {/* Animated gradient orbs - optimized for mobile */}
             {withOrbs && (
                 <>
                     <div
                         className={twMerge(
-                            "absolute top-0 right-0 -top-[20%] -right-[20%] w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] gradient-orb gradient-orb-blue opacity-30 lg:opacity-40 will-change-transform",
+                            "absolute -top-[28%] -right-[18%] h-[360px] w-[360px] rounded-full bg-white/14 blur-3xl sm:h-[680px] sm:w-[680px] lg:opacity-70 will-change-transform",
                             !disableOrbAnimation && "lg:animate-float-zigzag"
                         )}
                         style={{ contain: 'layout paint style' }}
                     />
                     <div
                         className={twMerge(
-                            "absolute bottom-0 left-0 -bottom-[20%] -left-[20%] w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] gradient-orb gradient-orb-purple opacity-30 lg:opacity-40 will-change-transform",
+                            "absolute -bottom-[25%] -left-[18%] h-[320px] w-[320px] rounded-full bg-[#FFD66A]/12 blur-3xl sm:h-[620px] sm:w-[620px] lg:opacity-70 will-change-transform",
                             !disableOrbAnimation && "lg:animate-float-zigzag"
                         )}
                         style={{

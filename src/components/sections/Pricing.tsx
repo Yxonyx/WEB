@@ -33,15 +33,15 @@ const PlanCard = ({ tag, title, price, features, cta, featured, pills }: PlanPro
             <span
                 className={`inline-block py-1 px-2.5 mb-3 rounded-md text-[11px] font-mono font-semibold uppercase tracking-[0.15em] ${
                     featured
-                        ? 'bg-neonBlue/20 text-neonBlue border border-neonBlue/30'
-                        : 'bg-white/[0.06] text-white/70 border border-white/10'
+                        ? 'bg-[#FFD66A]/28 text-[#FFF2C6] border border-white/45'
+                        : 'bg-white/[0.14] text-white/78 border border-white/25'
                 }`}
             >
                 {tag}
             </span>
             <h3 className="text-xl font-semibold font-display">{title}</h3>
             <div className="mt-3 flex items-baseline gap-1.5">
-                <span className={`text-2xl font-semibold ${featured ? 'text-white' : 'text-neonBlue/90'}`}>
+                <span className={`text-2xl font-semibold ${featured ? 'text-white' : 'text-[#FFF2C6]'}`}>
                     {price}
                 </span>
                 <span className="text-sm text-white/50">-tól</span>
@@ -51,7 +51,7 @@ const PlanCard = ({ tag, title, price, features, cta, featured, pills }: PlanPro
         {pills && pills.length > 0 && (
             <div className="flex flex-wrap gap-1.5 mb-5">
                 {pills.map((p, i) => (
-                    <span key={i} className="px-2 py-0.5 rounded-md bg-neonBlue/10 text-neonBlue/90 text-xs font-medium">
+                    <span key={i} className="px-2 py-0.5 rounded-md bg-white/[0.14] text-white/85 text-xs font-medium border border-white/20">
                         {p}
                     </span>
                 ))}
@@ -61,7 +61,7 @@ const PlanCard = ({ tag, title, price, features, cta, featured, pills }: PlanPro
         <ul className="space-y-2.5 mb-7">
             {features.map((feat, i) => (
                 <li key={i} className="flex items-start gap-2.5 text-[15px] text-white/80">
-                    <Check className="w-4 h-4 text-neonBlue shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-[#FFF2C6] shrink-0 mt-0.5" />
                     <span>{feat}</span>
                 </li>
             ))}
@@ -140,7 +140,7 @@ export const Pricing = () => {
                             <motion.div key={i} variants={cardVariants}>
                                 <Card variant={i === 1 ? 'feature' : 'default'} className="h-full flex flex-col">
                                     {i === 1 && (
-                                        <div className="absolute top-4 right-4 bg-neonBlue text-white text-[10px] font-semibold px-2 py-1 rounded-md uppercase tracking-wider">
+                                        <div className="absolute top-4 right-4 bg-[#FFD66A] text-[#06437D] text-[10px] font-semibold px-2 py-1 rounded-md uppercase tracking-wider">
                                             {t('pricing.chatbot.tag_recommended')}
                                         </div>
                                     )}
@@ -160,7 +160,7 @@ export const Pricing = () => {
                                                 key={fi}
                                                 className="flex items-start gap-2.5 text-[15px] text-white/75"
                                             >
-                                                <Check className="w-4 h-4 text-neonBlue mt-0.5 shrink-0" />
+                                                <Check className="w-4 h-4 text-[#FFF2C6] mt-0.5 shrink-0" />
                                                 <span>{feat}</span>
                                             </li>
                                         ))}

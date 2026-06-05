@@ -18,9 +18,9 @@ const itemVariants: Variants = {
 };
 
 const inputClass =
-    'w-full bg-white/[0.03] border border-white/12 rounded-xl px-4 py-3 text-[15px] text-white placeholder:text-white/30 focus:outline-none focus:border-neonBlue/60 focus:bg-white/[0.05] focus:ring-2 focus:ring-neonBlue/15 transition-all';
+    'w-full bg-white/[0.16] border border-white/30 rounded-xl px-4 py-3 text-[15px] text-white placeholder:text-white/55 shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] focus:outline-none focus:border-white/70 focus:bg-white/[0.22] focus:ring-2 focus:ring-white/25 transition-all';
 
-const labelClass = 'text-xs font-mono uppercase tracking-[0.15em] text-white/55';
+const labelClass = 'text-xs font-mono uppercase tracking-[0.15em] text-white/78';
 
 export const Contact = () => {
     const { t } = useLanguage();
@@ -39,7 +39,7 @@ export const Contact = () => {
                                 title={
                                     <>
                                         {t('contact.title_line1')}{' '}
-                                        <span className="text-neonBlue">{t('contact.title_gradient')}</span>
+                                        <span className="text-[#FFF2C6]">{t('contact.title_gradient')}</span>
                                     </>
                                 }
                                 subtitle={t('contact.description') as string}
@@ -51,18 +51,18 @@ export const Contact = () => {
                                     href="mailto:contact@cyberlabsweb.com"
                                     className="inline-flex items-center gap-3 group w-fit"
                                 >
-                                    <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center group-hover:bg-neonBlue/15 group-hover:border-neonBlue/40 transition-all">
-                                        <Mail className="w-4 h-4 text-white/75 group-hover:text-neonBlue transition-colors" />
+                                    <div className="w-10 h-10 rounded-xl bg-white/[0.18] border border-white/30 flex items-center justify-center group-hover:bg-white/25 group-hover:border-white/60 transition-all">
+                                        <Mail className="w-4 h-4 text-white/85 group-hover:text-white transition-colors" />
                                     </div>
-                                    <span className="text-[15px] text-white/90 group-hover:text-neonBlue transition-colors">
+                                    <span className="text-[15px] text-white/90 group-hover:text-white transition-colors">
                                         contact@cyberlabsweb.com
                                     </span>
                                 </a>
                                 <a href="tel:+36703304445" className="inline-flex items-center gap-3 group w-fit">
-                                    <div className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center group-hover:bg-neonBlue/15 group-hover:border-neonBlue/40 transition-all">
-                                        <Phone className="w-4 h-4 text-white/75 group-hover:text-neonBlue transition-colors" />
+                                    <div className="w-10 h-10 rounded-xl bg-white/[0.18] border border-white/30 flex items-center justify-center group-hover:bg-white/25 group-hover:border-white/60 transition-all">
+                                        <Phone className="w-4 h-4 text-white/85 group-hover:text-white transition-colors" />
                                     </div>
-                                    <span className="text-[15px] text-white/90 group-hover:text-neonBlue transition-colors">
+                                    <span className="text-[15px] text-white/90 group-hover:text-white transition-colors">
                                         +36 70 330 4445
                                     </span>
                                 </a>
@@ -70,15 +70,15 @@ export const Contact = () => {
 
                             <div className="mt-auto pt-5 border-t border-white/[0.08] flex flex-col gap-3">
                                 <div className="flex items-center gap-3">
-                                    <Clock className="w-4 h-4 text-neonBlue/80 shrink-0" />
+                                    <Clock className="w-4 h-4 text-[#FFF2C6] shrink-0" />
                                     <span className="text-sm text-white/75">24 órán belül válaszolunk</span>
                                 </div>
                                 <div className="flex items-center gap-3">
-                                    <ShieldCheck className="w-4 h-4 text-neonBlue/80 shrink-0" />
+                                    <ShieldCheck className="w-4 h-4 text-[#FFF2C6] shrink-0" />
                                     <span className="text-sm text-white/75">Ingyenes konzultáció &amp; ajánlat</span>
                                 </div>
                                 <div className="flex items-center gap-3">
-                                    <Sparkles className="w-4 h-4 text-neonBlue/80 shrink-0" />
+                                    <Sparkles className="w-4 h-4 text-[#FFF2C6] shrink-0" />
                                     <span className="text-sm text-white/75">Személyre szabott tervezés</span>
                                 </div>
                             </div>
@@ -148,7 +148,7 @@ export const Contact = () => {
                                 <div className="relative">
                                     <select id="service" name="service" className={`${inputClass} appearance-none pr-10 cursor-pointer`}>
                                         {services.map((service, i) => (
-                                            <option key={i} className="bg-[#0B1024] text-white">
+                                            <option key={i} className="bg-[#1B7ED5] text-white">
                                                 {service}
                                             </option>
                                         ))}
@@ -186,7 +186,7 @@ export const Contact = () => {
                                     name="privacy"
                                     type="checkbox"
                                     required
-                                    className="w-4 h-4 mt-0.5 rounded border border-white/20 bg-white/[0.04] text-neonBlue focus:ring-neonBlue/40 focus:ring-offset-0"
+                                    className="w-4 h-4 mt-0.5 rounded border border-white/40 bg-white/[0.20] text-[#06437D] focus:ring-white/40 focus:ring-offset-0"
                                 />
                                 <label htmlFor="privacy" className="text-xs text-white/65 select-none leading-relaxed">
                                     {t('contact.form.privacy')}

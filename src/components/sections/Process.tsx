@@ -38,7 +38,7 @@ export const Process = () => {
 
                         <Card className="mt-4">
                             <h3 className="text-base font-semibold mb-5 flex items-center gap-2 text-white/90">
-                                <span className="w-1 h-5 bg-neonBlue rounded-full" />
+                                <span className="w-1 h-5 bg-[#FFD66A] rounded-full" />
                                 {t('process.card.title')}
                             </h3>
                             <div className="space-y-5">
@@ -46,29 +46,29 @@ export const Process = () => {
                                     label={t('process.card.landing') as string}
                                     time="5–7 munkanap"
                                     width="30%"
-                                    gradient="from-neonBlue to-neonBlue/70"
-                                    accent="text-neonBlue"
+                                    gradient="from-white to-[#FFD66A]/80"
+                                    accent="text-[#FFF2C6]"
                                     delay={0.2}
                                 />
                                 <ProgressRow
                                     label={t('process.card.corporate') as string}
                                     time="7–14 munkanap"
                                     width="60%"
-                                    gradient="from-neonBlue via-[#8FA6FF] to-neonPurple/70"
-                                    accent="text-[#A8B6FF]"
+                                    gradient="from-white via-[#FFF2C6] to-[#FFD66A]/70"
+                                    accent="text-[#FFF2C6]"
                                     delay={0.4}
                                 />
                                 <ProgressRow
                                     label={t('process.card.webshop') as string}
                                     time="14–28 munkanap"
                                     width="90%"
-                                    gradient="from-neonBlue via-[#A097FF] to-neonPurple"
-                                    accent="text-neonPurple"
+                                    gradient="from-white via-[#FFF2C6] to-[#FFD66A]"
+                                    accent="text-[#FFF2C6]"
                                     delay={0.6}
                                 />
 
                                 <div className="pt-4 text-sm text-white/55 italic border-t border-white/[0.07] flex items-start gap-2">
-                                    <div className="shrink-0 w-3.5 h-3.5 rounded-full bg-neonHarvest/20 flex items-center justify-center mt-0.5 text-[10px] font-semibold text-neonHarvest">
+                                    <div className="shrink-0 w-3.5 h-3.5 rounded-full bg-[#FFD66A]/25 flex items-center justify-center mt-0.5 text-[10px] font-semibold text-[#FFF2C6]">
                                         !
                                     </div>
                                     {t('process.card.urgent')}
@@ -86,15 +86,15 @@ export const Process = () => {
                             viewport={{ once: true, margin: '-50px' }}
                             variants={containerVariants}
                         >
-                            <div className="absolute left-[27px] sm:left-[9px] top-5 bottom-10 w-px bg-gradient-to-b from-neonBlue/60 via-[#8FA6FF]/40 to-neonPurple/30" />
+                            <div className="absolute left-[27px] sm:left-[9px] top-5 bottom-10 w-px bg-gradient-to-b from-white/70 via-[#FFF2C6]/50 to-white/20" />
 
                             {steps.map((step, i) => (
                                 <motion.div key={i} variants={itemVariants} className="relative group">
                                     <div
                                         className={`absolute -left-[48px] sm:-left-[50px] w-9 h-9 rounded-full border-2 flex items-center justify-center z-10 transition-all duration-300 ${
                                             step.highlight
-                                                ? 'bg-neonBlue text-white border-neonBlue shadow-[0_4px_16px_-4px_rgba(77,148,255,0.6)]'
-                                                : 'bg-bgDeep border-white/15 text-white/70 group-hover:border-neonBlue/40 group-hover:text-neonBlue'
+                                                ? 'bg-[#FFD66A] text-[#06437D] border-white/70 shadow-[0_4px_16px_-4px_rgba(255,203,85,0.6)]'
+                                                : 'bg-white/15 border-white/30 text-white/75 group-hover:border-white/60 group-hover:text-white'
                                         }`}
                                     >
                                         <span className="font-mono font-semibold text-sm">{String(i + 1).padStart(2, '0')}</span>
@@ -141,7 +141,7 @@ function ProgressRow({
                 <span className="text-white/85 font-medium text-[15px]">{label}</span>
                 <span className={`font-mono text-xs ${accent}`}>{time}</span>
             </div>
-            <div className="h-1 bg-white/[0.06] rounded-full overflow-hidden">
+            <div className="h-1 bg-white/[0.18] rounded-full overflow-hidden">
                 <motion.div
                     className={`h-full bg-gradient-to-r ${gradient} rounded-full`}
                     initial={{ width: 0 }}

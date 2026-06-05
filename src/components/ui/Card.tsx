@@ -26,28 +26,28 @@ export const Card: React.FC<CardProps> = ({
     flush = false,
     ...rest
 }) => {
-    const base = 'group/card relative rounded-3xl border transition-all duration-500 will-change-transform';
+    const base = 'group/card relative rounded-[1.75rem] border transition-all duration-500 will-change-transform overflow-hidden';
     const padding = flush ? '' : 'p-5 sm:p-7 lg:p-8';
 
     const styles = {
         default:
-            'bg-gradient-to-br from-white/[0.07] via-white/[0.04] to-white/[0.025] ' +
-            'border-white/[0.10] lg:backdrop-blur-md ' +
-            'shadow-[0_8px_30px_-12px_rgba(8,12,30,0.6)] ' +
-            'hover:border-neonBlue/30 hover:from-white/[0.09] hover:-translate-y-0.5 ' +
-            'hover:shadow-[0_18px_50px_-18px_rgba(77,148,255,0.45)]',
+            'bg-[linear-gradient(145deg,rgba(4,10,20,0.92)_0%,rgba(5,38,80,0.88)_48%,rgba(8,107,190,0.68)_100%)] ' +
+            'border-white/[0.38] ' +
+            'shadow-[0_24px_68px_-30px_rgba(0,24,64,0.74),inset_0_1px_0_rgba(255,255,255,0.36),inset_0_0_34px_rgba(83,189,255,0.08)] ' +
+            'hover:border-white/70 hover:-translate-y-0.5 ' +
+            'hover:shadow-[0_30px_82px_-32px_rgba(0,30,80,0.82),inset_0_1px_0_rgba(255,255,255,0.50),inset_0_0_44px_rgba(83,189,255,0.12)]',
         feature:
-            'bg-gradient-to-br from-neonBlue/[0.10] via-white/[0.05] to-neonPurple/[0.06] ' +
-            'border-neonBlue/30 ' +
-            'shadow-[0_22px_60px_-22px_rgba(77,148,255,0.55)] ' +
-            'hover:border-neonBlue/50 hover:-translate-y-0.5 ' +
-            'hover:shadow-[0_26px_72px_-18px_rgba(77,148,255,0.65)]',
+            'bg-[linear-gradient(145deg,rgba(5,12,24,0.94)_0%,rgba(6,54,108,0.90)_52%,rgba(255,214,106,0.28)_100%)] ' +
+            'border-white/60 ' +
+            'shadow-[0_26px_74px_-30px_rgba(0,28,70,0.76),inset_0_1px_0_rgba(255,255,255,0.48),inset_0_0_38px_rgba(255,214,106,0.10)] ' +
+            'hover:border-white/75 hover:-translate-y-0.5 ' +
+            'hover:shadow-[0_32px_86px_-32px_rgba(0,34,84,0.84),inset_0_1px_0_rgba(255,255,255,0.62),inset_0_0_48px_rgba(255,214,106,0.14)]',
     };
 
     return (
         <Tag className={twMerge(base, padding, styles[variant], className)} {...rest}>
             {/* Top hairline — fixed "lit from above" cue, no matter padding */}
-            <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+            <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/70 to-transparent" />
             {children}
         </Tag>
     );

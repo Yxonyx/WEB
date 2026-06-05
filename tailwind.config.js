@@ -35,6 +35,7 @@ module.exports = {
         sans: ['Work Sans', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
         display: ['Work Sans', 'system-ui', 'sans-serif'],
+        hero: ['Orbitron', 'Work Sans', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         '7xl': '5rem',

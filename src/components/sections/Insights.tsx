@@ -75,7 +75,7 @@ export const Insights = () => {
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                                 loading="lazy"
                                             />
-                                            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#0B1024]/95 to-transparent" />
+                                            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#1B7ED5]/70 to-transparent" />
                                         </div>
 
                                         <div className="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
@@ -90,15 +90,15 @@ export const Insights = () => {
                                                 </span>
                                             </div>
 
-                                            <h3 className="text-[14px] sm:text-base lg:text-lg font-bold text-white mb-1.5 group-hover:text-neonBlue transition-colors duration-300 line-clamp-2 leading-snug">
+                                            <h3 className="text-[14px] sm:text-base lg:text-lg font-bold text-white mb-1.5 group-hover:text-[#FFF2C6] transition-colors duration-300 line-clamp-2 leading-snug">
                                                 {article.title}
                                             </h3>
 
-                                            <p className="text-white/60 text-[12px] sm:text-sm line-clamp-2 leading-relaxed">
+                                            <p className="text-white/78 text-[12px] sm:text-sm line-clamp-2 leading-relaxed">
                                                 {article.excerpt}
                                             </p>
 
-                                            <div className="mt-auto pt-3 sm:pt-4 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-neonBlue/80 group-hover:text-neonBlue group-hover:gap-2.5 transition-all duration-300">
+                                            <div className="mt-auto pt-3 sm:pt-4 flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[#FFF2C6] group-hover:text-white group-hover:gap-2.5 transition-all duration-300">
                                                 {article.read_more}
                                                 <ArrowUpRight className="w-4 h-4" />
                                             </div>

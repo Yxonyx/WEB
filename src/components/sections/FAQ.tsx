@@ -19,7 +19,7 @@ const FAQItem = ({ q, a, defaultOpen = false }: { q: string; a: string; defaultO
             >
                 <span
                     className={`text-[15px] sm:text-base transition-colors ${
-                        isOpen ? 'text-white font-semibold' : 'text-white/85 font-medium group-hover:text-neonBlue'
+                        isOpen ? 'text-white font-semibold' : 'text-white/85 font-medium group-hover:text-white'
                     }`}
                 >
                     {q}
@@ -27,8 +27,8 @@ const FAQItem = ({ q, a, defaultOpen = false }: { q: string; a: string; defaultO
                 <span
                     className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all ${
                         isOpen
-                            ? 'bg-neonBlue/15 text-neonBlue border border-neonBlue/25'
-                            : 'bg-white/[0.04] text-white/60 border border-white/10 group-hover:border-white/25'
+                            ? 'bg-[#FFD66A]/25 text-[#FFF2C6] border border-white/40'
+                            : 'bg-white/[0.14] text-white/70 border border-white/25 group-hover:border-white/50'
                     }`}
                 >
                     {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
@@ -73,7 +73,7 @@ export const FAQ = () => {
                         <div className="lg:sticky lg:top-32">
                             <Card variant="feature" className="text-center">
                                 <div className="flex justify-center mb-5">
-                                    <div className="w-14 h-14 rounded-2xl bg-neonBlue/15 border border-neonBlue/30 flex items-center justify-center text-neonBlue shadow-[0_0_24px_-8px_rgba(77,148,255,0.5)]">
+                                    <div className="w-14 h-14 rounded-2xl bg-[#FFD66A]/25 border border-white/45 flex items-center justify-center text-[#FFF2C6] shadow-[0_0_24px_-8px_rgba(255,203,85,0.5)]">
                                         <ShieldCheck className="w-7 h-7" />
                                     </div>
                                 </div>
@@ -82,9 +82,9 @@ export const FAQ = () => {
                                     {t('faq.guarantee.title')}
                                 </h3>
 
-                                <div className="h-px w-12 bg-gradient-to-r from-transparent via-neonBlue/40 to-transparent mx-auto mb-4" />
+                                <div className="h-px w-12 bg-gradient-to-r from-transparent via-white/60 to-transparent mx-auto mb-4" />
 
-                                <p className="text-white/65 text-[15px] mb-6 leading-relaxed">
+                                <p className="text-white/82 text-[15px] mb-6 leading-relaxed">
                                     {t('faq.guarantee.desc')}
                                 </p>
 

@@ -12,7 +12,7 @@ export default function ClientLayout({
 }) {
   return (
     <MotionProvider>
-      <div className="min-h-screen bg-bgDeep text-white selection:bg-neonBlue/30 noise-overlay relative">
+      <div className="min-h-screen bg-[#2DA8EA] text-white selection:bg-white/30 selection:text-[#06437D] noise-overlay relative">
         <CookieBanner />
         <Navbar />
         {children}
@@ -21,4 +21,3 @@ export default function ClientLayout({
     </MotionProvider>
   );
 }
-

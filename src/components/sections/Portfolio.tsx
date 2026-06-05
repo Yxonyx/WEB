@@ -124,7 +124,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
     if (project.isMobile) {
         return (
             <div className="group cursor-pointer h-full flex flex-col items-center">
-                <div className="relative w-full max-w-[200px] lg:max-w-[220px] aspect-[9/18] rounded-[1.75rem] overflow-hidden shadow-2xl border-[3px] border-[#1a1a1a] bg-black transition-transform duration-500 group-hover:scale-105 group-hover:shadow-neonBlue/20 mb-3">
+                <div className="relative w-full max-w-[200px] lg:max-w-[220px] aspect-[9/18] rounded-[1.75rem] overflow-hidden shadow-2xl border-[3px] border-white/60 bg-white/15 transition-transform duration-500 group-hover:scale-105 mb-3">
                     <img
                         src={project.image}
                         alt={`${project.name} Mobile`}
@@ -136,16 +136,16 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 </div>
 
                 <div className="flex flex-col items-center w-full max-w-[220px] text-center">
-                    <h3 className="text-[15px] lg:text-base font-bold text-white group-hover:text-neonBlue transition-colors leading-tight">{project.name.replace(' (Mobile)', '')}</h3>
-                    <span className="text-[10px] font-mono font-bold text-neonBlue border border-neonBlue/30 px-2 py-0.5 rounded mt-1.5 bg-neonBlue/5 tracking-wider uppercase">Referencia</span>
+                    <h3 className="text-[15px] lg:text-base font-bold text-white group-hover:text-[#FFF2C6] transition-colors leading-tight">{project.name.replace(' (Mobile)', '')}</h3>
+                    <span className="text-[10px] font-mono font-bold text-[#FFF2C6] border border-white/35 px-2 py-0.5 rounded mt-1.5 bg-white/10 tracking-wider uppercase">Referencia</span>
                 </div>
             </div>
         );
     }
 
     return (
-        <BracketFrame className="group cursor-pointer hover:border-neonBlue/30 transition-colors h-full flex flex-col !p-3 sm:!p-4">
-            <div className="aspect-video bg-black/40 rounded-lg mb-4 relative overflow-hidden group-hover:shadow-lg group-hover:shadow-neonBlue/20 transition-all flex items-center justify-center">
+        <BracketFrame className="group cursor-pointer hover:border-white/60 transition-colors h-full flex flex-col !p-3 sm:!p-4">
+            <div className="aspect-video bg-white/12 rounded-lg mb-4 relative overflow-hidden group-hover:shadow-lg transition-all flex items-center justify-center border border-white/20">
                 {project.image ? (
                     <>
                         {project.type === 'video' ? (
@@ -179,10 +179,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
             </div>
 
             <div className="flex justify-between items-center mb-2 mt-auto">
-                <h3 className="text-lg font-bold text-white group-hover:text-neonBlue transition-colors">{project.name}</h3>
-                <span className="text-[10px] font-mono font-bold text-neonBlue border border-neonBlue/30 px-2 py-0.5 rounded bg-neonBlue/5 tracking-wider uppercase">Referencia</span>
+                <h3 className="text-lg font-bold text-white group-hover:text-[#FFF2C6] transition-colors">{project.name}</h3>
+                <span className="text-[10px] font-mono font-bold text-[#FFF2C6] border border-white/35 px-2 py-0.5 rounded bg-white/10 tracking-wider uppercase">Referencia</span>
             </div>
-            <div className="h-1 w-12 bg-white/10 group-hover:w-full group-hover:bg-neonBlue/50 transition-all duration-500" />
+            <div className="h-1 w-12 bg-white/18 group-hover:w-full group-hover:bg-[#FFD66A]/70 transition-all duration-500" />
         </BracketFrame>
     );
 };
@@ -298,14 +298,14 @@ export const Portfolio = () => {
                             {/* Navigation Arrows */}
                             <button
                                 onClick={() => scrollMobile('left')}
-                                className="absolute left-0 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/50 border border-white/20 text-white backdrop-blur-sm hover:bg-white/10 transition-colors"
+                                className="absolute left-0 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/18 border border-white/35 text-white backdrop-blur-sm hover:bg-white/24 transition-colors"
                                 aria-label="Previous project"
                             >
                                 <ChevronLeft className="w-6 h-6" />
                             </button>
                             <button
                                 onClick={() => scrollMobile('right')}
-                                className="absolute right-0 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-black/50 border border-white/20 text-white backdrop-blur-sm hover:bg-white/10 transition-colors"
+                                className="absolute right-0 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/18 border border-white/35 text-white backdrop-blur-sm hover:bg-white/24 transition-colors"
                                 aria-label="Next project"
                             >
                                 <ChevronRight className="w-6 h-6" />

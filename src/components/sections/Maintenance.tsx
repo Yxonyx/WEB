@@ -30,15 +30,15 @@ const DashboardRow = ({
     accent: 'blue' | 'purple' | 'green' | 'yellow';
 }) => {
     const accentMap = {
-        blue: { bg: 'bg-neonBlue/10', text: 'text-neonBlue', border: 'border-neonBlue/15' },
-        purple: { bg: 'bg-neonPurple/10', text: 'text-neonPurple', border: 'border-neonPurple/15' },
+        blue: { bg: 'bg-white/18', text: 'text-[#FFF2C6]', border: 'border-white/25' },
+        purple: { bg: 'bg-white/18', text: 'text-[#FFF2C6]', border: 'border-white/25' },
         green: { bg: 'bg-emerald-400/10', text: 'text-emerald-400', border: 'border-emerald-400/15' },
         yellow: { bg: 'bg-amber-400/10', text: 'text-amber-400', border: 'border-amber-400/15' },
     };
     const a = accentMap[accent];
 
     return (
-        <div className="flex items-center justify-between p-3 rounded-2xl bg-white/[0.03] border border-white/[0.07]">
+        <div className="flex items-center justify-between p-3 rounded-2xl bg-white/[0.14] border border-white/[0.24]">
             <div className="flex items-center gap-3 min-w-0">
                 <div className={`w-8 h-8 rounded-lg ${a.bg} ${a.text} flex items-center justify-center shrink-0`}>
                     <Icon size={15} />
@@ -96,7 +96,7 @@ export const Maintenance = () => {
                                     tag={t('maintenance_sec.dashboard.backup.tag') as string}
                                     accent="green"
                                 />
-                                <div className="flex items-center justify-between p-3 rounded-2xl bg-white/[0.03] border border-white/[0.07]">
+                                <div className="flex items-center justify-between p-3 rounded-2xl bg-white/[0.14] border border-white/[0.24]">
                                     <div className="flex items-center gap-3 min-w-0">
                                         <div className="w-8 h-8 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center shrink-0">
                                             <Zap size={15} />
@@ -129,16 +129,16 @@ export const Maintenance = () => {
                             subtitle={undefined}
                         />
                         <p
-                            className="text-white/70 text-base lg:text-[17px] mb-7 leading-relaxed"
+                            className="text-white/88 text-base lg:text-[17px] mb-7 leading-relaxed"
                             dangerouslySetInnerHTML={{ __html: t('maintenance_sec.content.desc') as string }}
                         />
-                        <div className="mb-3 text-xs font-mono font-semibold text-white/55 uppercase tracking-[0.18em]">
+                        <div className="mb-3 text-xs font-mono font-semibold text-white/78 uppercase tracking-[0.18em]">
                             {t('maintenance_sec.content.benefits_title')}
                         </div>
                         <ul className="space-y-2.5">
                             {(t('maintenance_sec.content.benefits') as unknown as string[]).map((item, i) => (
                                 <li key={i} className="flex items-center gap-3 text-white/80 text-[15px]">
-                                    <CheckCircle2 className="w-4 h-4 text-neonBlue shrink-0" />
+                                    <CheckCircle2 className="w-4 h-4 text-[#FFF2C6] shrink-0" />
                                     <span>{item}</span>
                                 </li>
                             ))}

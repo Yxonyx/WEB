@@ -68,10 +68,10 @@ export function ProIcon({
     return (
         <div className={`relative group ${containerClasses} shrink-0 ${containerClassName}`}>
             {/* Base Option 15 Tilted Layer (Cyber/Glassmorphic) */}
-            <div className={`absolute inset-0 rounded-xl ${c.bg} opacity-[0.10] transform rotate-[-8deg] translate-x-1 translate-y-1 transition-all duration-500 group-hover:rotate-[-12deg] group-hover:translate-x-2 group-hover:translate-y-2`} />
+            <div className={`absolute inset-0 rounded-xl ${c.bg} opacity-[0.16] transform rotate-[-8deg] translate-x-1 translate-y-1 transition-all duration-500 group-hover:rotate-[-12deg] group-hover:translate-x-2 group-hover:translate-y-2`} />
 
             {/* The Main Container */}
-            <div className={`relative w-full h-full rounded-xl bg-surface2/30 border ${c.border} flex items-center justify-center overflow-visible transition-colors duration-500 group-hover:bg-surface2/50 group-hover:border-white/20 ${glow ? 'shadow-lg ' + c.glow : ''}`}>
+            <div className={`relative w-full h-full rounded-xl bg-white/18 border border-white/40 flex items-center justify-center overflow-visible transition-colors duration-500 group-hover:bg-white/25 group-hover:border-white/70 ${glow ? 'shadow-lg ' + c.glow : ''}`}>
                 {/* Subtle internal gradient */}
                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-gradient-to-br from-white to-transparent`} />
 

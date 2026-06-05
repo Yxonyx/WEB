@@ -18,6 +18,7 @@ export async function generateMetadata({
   const dict = getDictionary(lang);
 
   const currentUrl = `https://cyberlabsweb.com/${lang}/`;
+  const socialImage = "https://cyberlabsweb.com/og/cyberlabs-main-og.png";
 
   return {
     title: dict.meta.title,
@@ -40,10 +41,18 @@ export async function generateMetadata({
       locale: lang === "hu" ? "hu_HU" : "en_US",
       images: [
         {
-          url: "https://cyberlabsweb.com/og/cyberlabs-main-og.png",
+          url: socialImage,
+          width: 1200,
+          height: 630,
           alt: "CyberLabs Web",
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: dict.meta.title,
+      description: dict.meta.description,
+      images: [socialImage],
     },
     robots: {
       index: true,
