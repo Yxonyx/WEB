@@ -31,17 +31,17 @@ export const Card: React.FC<CardProps> = ({
 
     const styles = {
         default:
-            'bg-[linear-gradient(145deg,rgba(255,255,255,0.44)_0%,rgba(142,205,245,0.34)_52%,rgba(72,172,232,0.28)_100%)] ' +
-            'border-white/[0.52] backdrop-blur-md ' +
-            'shadow-[0_20px_52px_-26px_rgba(0,91,174,0.22),inset_0_1px_0_rgba(255,255,255,0.58),inset_0_0_28px_rgba(255,255,255,0.1)] ' +
+            'bg-[linear-gradient(145deg,rgba(88,184,239,0.70)_0%,rgba(28,137,220,0.66)_54%,rgba(7,94,182,0.58)_100%)] ' +
+            'border-white/[0.82] text-white backdrop-blur-md ' +
+            'shadow-[0_28px_78px_-30px_rgba(0,70,140,0.56),inset_0_1px_0_rgba(255,255,255,0.72),inset_0_0_38px_rgba(255,255,255,0.16)] ' +
             'hover:border-white/75 hover:-translate-y-0.5 ' +
-            'hover:shadow-[0_26px_64px_-28px_rgba(0,86,168,0.26),inset_0_1px_0_rgba(255,255,255,0.65),inset_0_0_36px_rgba(255,255,255,0.14)]',
+            'hover:shadow-[0_32px_86px_-32px_rgba(0,70,140,0.64),inset_0_1px_0_rgba(255,255,255,0.84),inset_0_0_46px_rgba(255,255,255,0.20)]',
         feature:
-            'bg-[linear-gradient(145deg,rgba(255,255,255,0.38)_0%,rgba(118,192,238,0.38)_48%,rgba(255,214,106,0.32)_100%)] ' +
-            'border-white/65 backdrop-blur-md ' +
-            'shadow-[0_22px_58px_-28px_rgba(0,86,168,0.24),inset_0_1px_0_rgba(255,255,255,0.55),inset_0_0_32px_rgba(255,246,219,0.12)] ' +
+            'bg-[linear-gradient(145deg,rgba(118,202,245,0.74)_0%,rgba(34,146,226,0.70)_46%,rgba(255,214,106,0.34)_100%)] ' +
+            'border-white/90 text-white backdrop-blur-md ' +
+            'shadow-[0_30px_84px_-32px_rgba(0,70,140,0.60),inset_0_1px_0_rgba(255,255,255,0.76),inset_0_0_42px_rgba(255,214,106,0.16)] ' +
             'hover:border-white/80 hover:-translate-y-0.5 ' +
-            'hover:shadow-[0_28px_72px_-30px_rgba(0,82,160,0.28),inset_0_1px_0_rgba(255,255,255,0.68),inset_0_0_40px_rgba(255,214,106,0.16)]',
+            'hover:shadow-[0_34px_92px_-34px_rgba(0,70,140,0.68),inset_0_1px_0_rgba(255,255,255,0.88),inset_0_0_50px_rgba(255,214,106,0.22)]',
     };
 
     return (

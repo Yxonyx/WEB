@@ -179,10 +179,10 @@
   /* Mesh gradient background */
   .mesh-gradient {
     background:
-      radial-gradient(at 40% 20%, rgba(83, 189, 255, 0.14) 0px, transparent 52%),
-      radial-gradient(at 80% 0%, rgba(255, 246, 219, 0.12) 0px, transparent 48%),
-      radial-gradient(at 0% 50%, rgba(8, 81, 152, 0.16) 0px, transparent 54%),
-      radial-gradient(at 80% 50%, rgba(255, 214, 106, 0.07) 0px, transparent 50%);
+      radial-gradient(at 40% 20%, rgba(83, 189, 255, 0.12) 0px, transparent 52%),
+      radial-gradient(at 80% 0%, rgba(255, 246, 219, 0.1) 0px, transparent 48%),
+      radial-gradient(at 0% 50%, rgba(70, 175, 230, 0.1) 0px, transparent 54%),
+      radial-gradient(at 80% 50%, rgba(255, 214, 106, 0.06) 0px, transparent 50%);
   }
 
   /* Animated gradient orb */
@@ -221,12 +221,61 @@
   .between-hero-footer-bg {
     position: relative;
     isolation: isolate;
-    background-color: #2DA8EA;
+    overflow: hidden;
+    /* Premium sky field below the hero: deeper blue, soft cloud wash, no flat bands. */
+    background-color: #0E7CDC;
     background-image:
-      radial-gradient(ellipse 68% 22% at 78% 0%, rgba(255, 255, 255, 0.32), transparent 64%),
-      radial-gradient(ellipse 48% 22% at 12% 4%, rgba(255, 246, 219, 0.2), transparent 70%),
-      radial-gradient(ellipse 70% 38% at 86% 48%, rgba(53, 184, 244, 0.16), transparent 68%),
-      linear-gradient(180deg, #7FD0F2 0%, #4DB5EA 18%, #2A9DE8 42%, #1B85D4 72%, #0F6BB8 100%);
+      linear-gradient(180deg, rgba(14, 124, 220, 0.20), rgba(14, 124, 220, 0.44)),
+      url('/images/hero-between-alternating-soft.webp'),
+      radial-gradient(ellipse 76% 26% at 74% 0%, rgba(255, 255, 255, 0.24), transparent 66%),
+      radial-gradient(ellipse 54% 24% at 12% 5%, rgba(255, 246, 219, 0.16), transparent 72%),
+      radial-gradient(ellipse 80% 42% at 92% 52%, rgba(255, 255, 255, 0.10), transparent 72%),
+      linear-gradient(
+        180deg,
+        #67C9EF 0%,
+        #2DA8EA 9%,
+        #0E7CDC 24%,
+        #0A72CF 42%,
+        #096AC2 60%,
+        #0B75D0 78%,
+          #0E7CDC 100%
+      );
+    background-repeat: repeat-y, repeat-y, no-repeat, no-repeat, no-repeat, no-repeat;
+    background-size: 100% 900px, 100% 1800px, auto, auto, auto, auto;
+    background-position: 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0;
+  }
+
+  @supports (background-image: image-set(url('/images/hero-between-alternating-soft.webp') type('image/webp'))) {
+    .between-hero-footer-bg {
+      background-image:
+        linear-gradient(180deg, rgba(14, 124, 220, 0.20), rgba(14, 124, 220, 0.44)),
+        url('/images/hero-between-alternating-soft.webp'),
+        radial-gradient(ellipse 76% 26% at 74% 0%, rgba(255, 255, 255, 0.24), transparent 66%),
+        radial-gradient(ellipse 54% 24% at 12% 5%, rgba(255, 246, 219, 0.16), transparent 72%),
+        radial-gradient(ellipse 80% 42% at 92% 52%, rgba(255, 255, 255, 0.10), transparent 72%),
+        linear-gradient(
+          180deg,
+          #67C9EF 0%,
+          #2DA8EA 9%,
+          #0E7CDC 24%,
+          #0A72CF 42%,
+          #096AC2 60%,
+          #0B75D0 78%,
+          #0E7CDC 100%
+        );
+    }
+  }
+
+  @keyframes skyCloudDrift {
+    0% {
+      transform: translate3d(-3%, 0, 0);
+    }
+    50% {
+      transform: translate3d(3%, -1.5%, 0);
+    }
+    100% {
+      transform: translate3d(-3%, 0, 0);
+    }
   }
 
   .between-hero-footer-bg::before {
@@ -236,31 +285,140 @@
     z-index: 0;
     pointer-events: none;
     background:
-      linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
       radial-gradient(ellipse 88% 34% at 50% 0%, rgba(255, 255, 255, 0.16), transparent 70%);
-    background-size: 112px 112px, 112px 112px, auto;
-    opacity: 0.26;
+    background-size: 132px 132px, 132px 132px, auto;
+    opacity: 0.24;
   }
 
   .between-hero-footer-bg::after {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -6% -12%;
     z-index: 0;
     pointer-events: none;
-    background-image:
-      radial-gradient(circle, rgba(255, 255, 255, 0.70) 0 1px, transparent 1.5px),
-      radial-gradient(circle, rgba(255, 214, 106, 0.55) 0 1px, transparent 1.5px);
-    background-position: 18px 42px, 76px 8px;
-    background-size: 142px 142px, 211px 211px;
-    opacity: 0.18;
+    background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' viewBox='0 0 1440 900' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='.9'%3E%3Cpath d='M-80 182c108-74 214-92 318-54 122 45 210 40 341-9 132-49 241-45 329 12 88 57 188 61 301 13 95-40 194-37 296 9v171H-80V182Z' fill='white' opacity='.16'/%3E%3Cpath d='M-50 614c103-48 207-55 312-21 106 34 207 34 303 0 139-49 265-47 378 8 88 43 190 42 306-2 87-33 178-30 273 10v173H-50V614Z' fill='white' opacity='.12'/%3E%3Cpath d='M109 360c122-38 235-38 339 0 122 44 252 36 391-24 96-42 199-38 309 12 66 30 146 31 239 4v176H109V360Z' fill='%23FFF2C6' opacity='.08'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat-y;
+    background-position: 50% 0;
+    background-size: 100% auto;
+    opacity: 0.8;
+    animation: skyCloudDrift 34s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @media (max-width: 767px) {
+    .between-hero-footer-bg {
+      background-image:
+        linear-gradient(180deg, rgba(14, 124, 220, 0.18), rgba(14, 124, 220, 0.42)),
+        url('/images/hero-between-alternating-mobile-soft.webp'),
+        radial-gradient(ellipse 76% 26% at 74% 0%, rgba(255, 255, 255, 0.22), transparent 66%),
+        radial-gradient(ellipse 54% 24% at 12% 5%, rgba(255, 246, 219, 0.14), transparent 72%),
+        radial-gradient(ellipse 80% 42% at 92% 52%, rgba(255, 255, 255, 0.09), transparent 72%),
+        linear-gradient(
+          180deg,
+          #67C9EF 0%,
+          #2DA8EA 9%,
+          #0E7CDC 24%,
+          #0A72CF 42%,
+          #096AC2 60%,
+          #0B75D0 78%,
+          #0E7CDC 100%
+        );
+      background-size: 100% 1200px, 100% 2400px, auto, auto, auto, auto;
+    }
+
+    .between-hero-footer-bg::before {
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.038) 1px, transparent 1px),
+        radial-gradient(ellipse 88% 34% at 50% 0%, rgba(255, 255, 255, 0.14), transparent 70%);
+      background-size: 112px 112px, 112px 112px, auto;
+      opacity: 0.20;
+    }
   }
 
   .between-hero-footer-bg > section {
     position: relative;
     z-index: 1;
     background-color: transparent !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  /* Slow tonal progression between sections — hero quality without harsh jumps. */
+  .between-hero-footer-bg > section:nth-child(1) {
+    background-image: linear-gradient(
+      180deg,
+      rgba(103, 201, 239, 0.82) 0%,
+      rgba(45, 168, 234, 0.70) 42%,
+      rgba(14, 124, 220, 0.48) 100%
+    ) !important;
+  }
+
+  .between-hero-footer-bg > section:nth-child(2) {
+    background-image: linear-gradient(180deg, rgba(14, 124, 220, 0.30) 0%, rgba(12, 114, 205, 0.52) 100%) !important;
+  }
+
+  .between-hero-footer-bg > section:nth-child(3) {
+    background-image: linear-gradient(180deg, rgba(12, 114, 205, 0.34) 0%, rgba(8, 102, 190, 0.54) 100%) !important;
+  }
+
+  .between-hero-footer-bg > section:nth-child(4) {
+    background-image: linear-gradient(180deg, rgba(8, 102, 190, 0.34) 0%, rgba(10, 113, 203, 0.50) 100%) !important;
+  }
+
+  .between-hero-footer-bg > section:nth-child(5) {
+    background-image: linear-gradient(180deg, rgba(10, 113, 203, 0.30) 0%, rgba(14, 124, 220, 0.44) 100%) !important;
+  }
+
+  .between-hero-footer-bg > section:nth-child(6) {
+    background-image: linear-gradient(180deg, rgba(14, 124, 220, 0.28) 0%, rgba(8, 102, 190, 0.48) 100%) !important;
+  }
+
+  .between-hero-footer-bg > section:nth-child(7) {
+    background-image: linear-gradient(180deg, rgba(8, 102, 190, 0.32) 0%, rgba(9, 106, 194, 0.50) 100%) !important;
+  }
+
+  .between-hero-footer-bg > section:nth-child(8) {
+    background-image: linear-gradient(180deg, rgba(9, 106, 194, 0.30) 0%, rgba(12, 114, 205, 0.44) 100%) !important;
+  }
+
+  .between-hero-footer-bg > section:nth-child(9) {
+    background-image: linear-gradient(180deg, rgba(12, 114, 205, 0.28) 0%, rgba(14, 124, 220, 0.42) 100%) !important;
+  }
+
+  .between-hero-footer-bg > section:nth-child(10) {
+    background-image: linear-gradient(180deg, rgba(14, 124, 220, 0.28) 0%, rgba(10, 113, 203, 0.46) 100%) !important;
+  }
+
+  .between-hero-footer-bg > section:nth-child(11) {
+    background-image: linear-gradient(180deg, rgba(10, 113, 203, 0.30) 0%, rgba(8, 102, 190, 0.48) 100%) !important;
+  }
+
+  .between-hero-footer-bg > section:nth-child(12) {
+    background-image: linear-gradient(180deg, rgba(8, 102, 190, 0.28) 0%, rgba(14, 124, 220, 0.42) 100%) !important;
+  }
+
+  .between-hero-footer-bg > section:nth-child(13) {
+    background-image: linear-gradient(180deg, rgba(14, 124, 220, 0.28) 0%, rgba(45, 168, 234, 0.34) 100%) !important;
+  }
+
+  .between-hero-footer-bg > section:nth-child(14) {
+    background-image: linear-gradient(180deg, rgba(45, 168, 234, 0.30) 0%, rgba(14, 124, 220, 0.40) 100%) !important;
+  }
+
+  /* Soft blend at section seams */
+  .between-hero-footer-bg > section:not(:first-child)::after {
+    content: "";
+    position: absolute;
+    inset-x: 0;
+    top: 0;
+    z-index: 0;
+    height: 4.5rem;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 42%, transparent 100%);
+    opacity: 0.75;
   }
 
   /* Frosted sky panels — lighter than dark navy, matches cloudy hero */
@@ -305,18 +463,276 @@
     border: 1px solid rgba(255, 255, 255, 0.42);
   }
 
-  /* Per-section sky washes (hero → footer) */
+  .between-hero-footer-bg .lucide {
+    color: #FFF2C6;
+    filter: drop-shadow(0 2px 8px rgba(0, 82, 166, 0.22));
+  }
+
+  .between-hero-footer-bg [class*="rounded-2xl"][class*="items-center"][class*="justify-center"]:has(> svg.lucide),
+  .between-hero-footer-bg [class*="rounded-xl"][class*="items-center"][class*="justify-center"]:has(> svg.lucide) {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.24) 0%, rgba(42, 164, 232, 0.34) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.58) !important;
+    box-shadow:
+      0 16px 34px -22px rgba(0, 70, 140, 0.46),
+      inset 0 1px 0 rgba(255, 255, 255, 0.46) !important;
+  }
+
+  .between-hero-footer-bg .group\/card {
+    background: linear-gradient(145deg, rgba(96, 190, 242, 0.72) 0%, rgba(28, 137, 220, 0.68) 54%, rgba(7, 94, 182, 0.60) 100%) !important;
+    border: 2px solid rgba(255, 255, 255, 0.86) !important;
+    color: #ffffff !important;
+    box-shadow:
+      0 30px 86px -32px rgba(0, 70, 140, 0.60),
+      inset 0 1px 0 rgba(255, 255, 255, 0.72),
+      inset 0 0 42px rgba(255, 255, 255, 0.16) !important;
+  }
+
+  .between-hero-footer-bg .group\/card :is(h3, h4, p, li, div, span):not([class*="bg-[#FFD66A]"]):not([class*="text-white"]) {
+    text-shadow: 0 2px 10px rgba(0, 67, 125, 0.20);
+  }
+
+  .between-hero-footer-bg .group\/card :is(h3, h4),
+  .between-hero-footer-bg .group\/card :is(p, li, span, div)[class*="text-white"],
+  .between-hero-footer-bg .group\/card [class*="text-white/"],
+  .between-hero-footer-bg .group\/card [class*="text-[#FFF2C6]"] {
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0, 67, 125, 0.22) !important;
+  }
+
+  .between-hero-footer-bg .group\/card [class*="bg-white/"]:not(a):not(button),
+  .between-hero-footer-bg .group\/card [class*="bg-[#FFD66A]/"]:not(a):not(button) {
+    background-color: rgba(255, 255, 255, 0.18) !important;
+    border-color: rgba(255, 255, 255, 0.42) !important;
+  }
+
+  .between-hero-footer-bg .group\/card a[class*="bg-white/10"] {
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.72) !important;
+    color: #ffffff !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  }
+
+  .between-hero-footer-bg .group\/card .lucide {
+    color: #FFF2C6;
+  }
+
+  .between-hero-footer-bg .geo-solid-panel {
+    background: linear-gradient(145deg, rgba(96, 190, 242, 0.72) 0%, rgba(28, 137, 220, 0.68) 54%, rgba(7, 94, 182, 0.60) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.86);
+    color: #ffffff;
+    box-shadow:
+      0 30px 84px -32px rgba(0, 70, 140, 0.60),
+      inset 0 1px 0 rgba(255, 255, 255, 0.72),
+      inset 0 0 38px rgba(255, 255, 255, 0.16);
+  }
+
+  .between-hero-footer-bg .geo-solid-panel :is(div, span, p) {
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0, 67, 125, 0.22) !important;
+  }
+
+  .between-hero-footer-bg .geo-message-panel {
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.38);
+  }
+
+  .between-hero-footer-bg .geo-message-panel-accent {
+    background: rgba(255, 214, 106, 0.18);
+    border-color: rgba(255, 203, 85, 0.40);
+  }
+
+  /* Per-section accent only (no big color jumps) */
   .between-hero-footer-bg > section::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.85;
+    opacity: 0.45;
   }
 
-  .between-hero-footer-bg > section:nth-child(1)::before {
-    background: radial-gradient(ellipse 90% 55% at 18% 20%, rgba(255, 255, 255, 0.22), transparent 68%);
+  /* Quote — one step deeper than hero, still sky family */
+  #probaverzio.section-quote-deep::before {
+    background: radial-gradient(ellipse 80% 48% at 78% 12%, rgba(255, 246, 219, 0.1), transparent 70%) !important;
+    opacity: 0.5 !important;
+  }
+
+  .section-quote-deep .sky-frost-panel {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(88, 168, 228, 0.38) 52%,
+      rgba(32, 118, 198, 0.52) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    box-shadow:
+      0 22px 56px -24px rgba(0, 40, 90, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  }
+
+  .section-quote-deep .sky-frost-panel-strong {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(72, 155, 220, 0.45) 50%,
+      rgba(18, 92, 168, 0.62) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.48);
+    box-shadow:
+      0 26px 64px -26px rgba(0, 32, 72, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.32),
+      inset 0 0 32px rgba(83, 189, 255, 0.12);
+  }
+
+  .section-quote-deep .sky-frost-chip {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+  }
+
+  .section-quote-deep .sky-frost-chip-accent {
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.36);
+  }
+
+  .section-quote-deep .quote-visual-backdrop {
+    border-color: rgba(255, 255, 255, 0.72) !important;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+      linear-gradient(145deg, #2298df 0%, #0e7cdc 52%, #0967bc 100%) !important;
+    background-size: 64px 64px, 64px 64px, auto !important;
+    box-shadow:
+      0 30px 80px -34px rgba(0, 70, 140, 0.44),
+      inset 0 1px 0 rgba(255, 255, 255, 0.36),
+      inset 0 0 48px rgba(255, 255, 255, 0.12) !important;
+  }
+
+  /* Solid blue mockup cards on quote band */
+  .section-quote-deep .quote-panel-solid {
+    background: linear-gradient(145deg, rgba(96, 190, 242, 0.72) 0%, rgba(28, 137, 220, 0.68) 54%, rgba(7, 94, 182, 0.60) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.86);
+    color: #ffffff;
+    box-shadow:
+      0 30px 82px -32px rgba(0, 70, 140, 0.62),
+      inset 0 1px 0 rgba(255, 255, 255, 0.74),
+      inset 0 0 38px rgba(255, 255, 255, 0.16);
+  }
+
+  .section-quote-deep .quote-panel-solid-main {
+    background: linear-gradient(145deg, rgba(96, 190, 242, 0.76) 0%, rgba(28, 137, 220, 0.72) 50%, rgba(7, 94, 182, 0.64) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.90);
+    color: #ffffff;
+    box-shadow:
+      0 34px 86px -32px rgba(0, 70, 140, 0.66),
+      inset 0 1px 0 rgba(255, 255, 255, 0.78),
+      inset 0 0 42px rgba(255, 255, 255, 0.18);
+  }
+
+  .section-quote-deep .quote-panel-inner {
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.44);
+  }
+
+  .section-quote-deep .quote-panel-chip {
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.44);
+  }
+
+  .section-quote-deep .quote-panel-solid :is(div, span, p),
+  .section-quote-deep .quote-panel-solid-main :is(div, span, p) {
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0, 67, 125, 0.22) !important;
+  }
+
+  .section-quote-deep .quote-panel-solid [class*="bg-white/"],
+  .section-quote-deep .quote-panel-solid-main [class*="bg-white/"] {
+    background-color: rgba(255, 255, 255, 0.20) !important;
+  }
+
+  .section-quote-deep .quote-panel-solid [class*="bg-[#FFD66A]"] :is(div, span),
+  .section-quote-deep .quote-panel-solid-main [class*="bg-[#FFD66A]"] :is(div, span) {
+    color: #06437d !important;
+    text-shadow: none !important;
+  }
+
+  .section-quote-deep .quote-connect-line {
+    filter:
+      drop-shadow(0 0 5px rgba(255, 255, 255, 0.45))
+      drop-shadow(0 0 10px rgba(127, 231, 255, 0.32));
+  }
+
+  .section-quote-deep .quote-flow-label {
+    background: rgba(255, 255, 255, 0.92);
+    color: #06437d;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 28px -18px rgba(0, 70, 140, 0.7);
+  }
+
+  footer :is(a, span) {
+    text-shadow: 0 2px 10px rgba(0, 67, 125, 0.22);
+  }
+
+  footer a[class*="bg-white"] {
+    background-color: rgba(255, 255, 255, 0.18) !important;
+    border-color: rgba(255, 255, 255, 0.56) !important;
+    box-shadow:
+      0 18px 44px -24px rgba(0, 70, 140, 0.58),
+      inset 0 1px 0 rgba(255, 255, 255, 0.54),
+      inset 0 0 24px rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  footer a[class*="bg-white"]:hover {
+    background-color: rgba(255, 255, 255, 0.28) !important;
+    border-color: rgba(255, 255, 255, 0.72) !important;
+  }
+
+  footer [class*="border-t"] {
+    border-color: rgba(255, 255, 255, 0.28) !important;
+  }
+
+  .between-hero-footer-bg .philosophy-hero-panel {
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      radial-gradient(ellipse 85% 42% at 50% 0%, rgba(255, 255, 255, 0.22), transparent 70%),
+      linear-gradient(145deg, rgba(96, 190, 242, 0.72) 0%, rgba(28, 137, 220, 0.68) 54%, rgba(7, 94, 182, 0.60) 100%);
+    background-size: 84px 84px, 84px 84px, auto, auto;
+    border: 2px solid rgba(255, 255, 255, 0.88);
+    box-shadow:
+      0 0 0 1px rgba(127, 231, 255, 0.18),
+      0 34px 92px -34px rgba(0, 70, 140, 0.68),
+      0 0 34px -12px rgba(255, 255, 255, 0.72),
+      inset 0 1px 0 rgba(255, 255, 255, 0.78),
+      inset 0 0 46px rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .between-hero-footer-bg .philosophy-hero-panel::before,
+  .between-hero-footer-bg .philosophy-hero-panel::after {
+    content: "";
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    height: 2px;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.95), transparent 72%);
+  }
+
+  .between-hero-footer-bg .philosophy-hero-panel::before {
+    top: 0;
+  }
+
+  .between-hero-footer-bg .philosophy-hero-panel::after {
+    bottom: 0;
+  }
+
+  .between-hero-footer-bg .philosophy-hero-panel strong,
+  .between-hero-footer-bg .philosophy-hero-panel span,
+  .between-hero-footer-bg .philosophy-hero-panel p {
+    text-shadow: 0 2px 12px rgba(0, 67, 125, 0.24);
   }
 
   .between-hero-footer-bg > section#szolgaltatasok::before {

@@ -33,11 +33,11 @@ export const Hero = () => {
                             />
                         </picture>
                         <div className="absolute inset-0 z-10 bg-sky-500/10" />
-                        <div className="absolute inset-0 z-20 bg-[linear-gradient(180deg,rgba(255,255,255,0.12)_0%,rgba(42,154,232,0.05)_38%,rgba(8,81,152,0.14)_100%)]" />
+                        <div className="absolute inset-0 z-20 bg-[linear-gradient(180deg,rgba(255,255,255,0.12)_0%,rgba(42,154,232,0.05)_38%,rgba(90,190,235,0.12)_100%)]" />
                     </div>
 
-                    <div className="pointer-events-none absolute inset-0 z-[4] bg-[radial-gradient(circle_at_6%_2%,rgba(255,246,219,0.46),transparent_24%),radial-gradient(circle_at_88%_28%,rgba(255,255,255,0.34),transparent_18%),linear-gradient(180deg,rgba(11,101,180,0)_0%,rgba(8,83,155,0.18)_100%)]" />
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-1/3 bg-gradient-to-t from-[#66BDEC]/20 to-transparent" />
+                    <div className="pointer-events-none absolute inset-0 z-[4] bg-[radial-gradient(circle_at_6%_2%,rgba(255,246,219,0.46),transparent_24%),radial-gradient(circle_at_88%_28%,rgba(255,255,255,0.34),transparent_18%),linear-gradient(180deg,rgba(11,101,180,0)_0%,rgba(100,191,237,0.14)_100%)]" />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-40 bg-gradient-to-t from-[#6ec3ee]/55 to-transparent sm:h-52" />
                 </>
             }
         >

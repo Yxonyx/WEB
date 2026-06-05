@@ -33,14 +33,14 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
     return (
         <div className={twMerge('flex flex-col gap-3 mb-8 sm:mb-10 max-w-2xl', alignClasses, className)}>
             {(number || eyebrow) && (
-                <div className={twMerge('flex items-baseline gap-3', align === 'center' && 'justify-center')}>
+                <div className={twMerge('flex items-center gap-3', align === 'center' && 'justify-center')}>
                     {number && (
-                        <span className="font-mono text-sm text-white tabular-nums tracking-wider drop-shadow-[0_2px_8px_rgba(0,82,166,0.24)]">
+                        <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-xl border border-white/70 bg-[#FFD66A] px-2 font-mono text-xs font-extrabold tabular-nums tracking-wider text-[#06437D] shadow-[0_10px_24px_-12px_rgba(255,203,85,0.70),inset_0_1px_0_rgba(255,255,255,0.72)]">
                             {number}
                         </span>
                     )}
                     {eyebrow && (
-                        <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.2em] text-white/82 drop-shadow-[0_2px_8px_rgba(0,82,166,0.22)]">
+                        <span className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-white drop-shadow-[0_2px_8px_rgba(0,82,166,0.22)] sm:text-sm">
                             {eyebrow}
                         </span>
                     )}

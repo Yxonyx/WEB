@@ -77,30 +77,31 @@ export const Team = () => {
         >
             <Container className="relative z-[2]">
                 <motion.div
-                    className={`${panelFrame} mb-14 max-w-3xl mx-auto px-6 py-8 text-center sm:px-10 sm:py-10`}
+                    className="philosophy-hero-panel relative mx-auto mb-14 max-w-5xl overflow-hidden rounded-[2rem] px-6 py-10 text-center sm:px-12 sm:py-12 lg:px-20"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-50px' }}
                     variants={containerVariants}
                 >
-                    <span className={`${cornerFrame} left-5 top-5 border-l border-t`} />
-                    <span className={`${cornerFrame} right-5 top-5 border-r border-t`} />
-                    <span className={`${cornerFrame} bottom-5 left-5 border-b border-l`} />
-                    <span className={`${cornerFrame} bottom-5 right-5 border-b border-r`} />
-                    <span className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/75 to-transparent" />
+                    <span className={`${cornerFrame} left-6 top-6 border-l-2 border-t-2`} />
+                    <span className={`${cornerFrame} right-6 top-6 border-r-2 border-t-2`} />
+                    <span className={`${cornerFrame} bottom-6 left-6 border-b-2 border-l-2`} />
+                    <span className={`${cornerFrame} bottom-6 right-6 border-b-2 border-r-2`} />
+                    <span className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
+                    <span className="pointer-events-none absolute inset-x-10 bottom-0 h-px bg-gradient-to-r from-transparent via-white to-transparent" />
 
                     <motion.span
                         variants={itemVariants}
-                        className="relative z-[1] inline-flex items-center gap-2 font-mono text-[11px] sm:text-xs uppercase tracking-[0.22em] text-[#FFE08A] mb-4"
+                        className="relative z-[1] mb-5 inline-flex items-center gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.28em] text-[#FFE08A] sm:text-xs"
                     >
-                        <span className="w-6 h-px bg-white/55" />
+                        <span className="h-px w-8 bg-white/70" />
                         {t('team.philosophy.tag') || 'Filozófiánk'}
-                        <span className="w-6 h-px bg-white/55" />
+                        <span className="h-px w-8 bg-white/70" />
                     </motion.span>
 
                     <motion.p
                         variants={itemVariants}
-                        className="relative z-[1] text-white/95 text-[15px] sm:text-lg leading-relaxed"
+                        className="relative z-[1] mx-auto max-w-4xl text-[17px] font-medium leading-[1.72] text-white sm:text-xl"
                     >
                         {(t('team.philosophy.content') as unknown as Array<{ bold: string; text: string }>).map((item, i) => (
                             <span key={i}>

@@ -23,7 +23,7 @@ const itemVariants: Variants = {
 export const Services = () => {
     const { t } = useLanguage();
     const visualCardClass =
-        'min-h-[300px] flex items-center justify-center relative overflow-hidden bg-[linear-gradient(145deg,rgba(4,10,20,0.94)_0%,rgba(5,42,86,0.90)_58%,rgba(7,90,168,0.72)_100%)] !border-white/[0.42] shadow-[0_26px_74px_-30px_rgba(0,20,58,0.82),inset_0_1px_0_rgba(255,255,255,0.36),inset_0_0_38px_rgba(83,189,255,0.10)] hover:!border-white/75';
+        'min-h-[300px] flex items-center justify-center relative overflow-hidden bg-[linear-gradient(145deg,#2AA4E8_0%,#0E7CDC_52%,#0869BE_100%)] !border-white/[0.70] shadow-[0_28px_76px_-32px_rgba(0,70,140,0.58),inset_0_1px_0_rgba(255,255,255,0.42),inset_0_0_42px_rgba(127,231,255,0.14)] hover:!border-white/90';
 
     return (
         <Section id="szolgaltatasok" className="relative z-20" withMeshGradient withOrbs disableOrbAnimation>
@@ -108,7 +108,7 @@ export const Services = () => {
                                                     className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold shrink-0 ${
                                                         i === 2
                                                             ? 'bg-[#FFD66A] text-[#06437D] shadow-[0_4px_16px_-4px_rgba(255,203,85,0.6)]'
-                                                            : 'bg-[#063F84]/[0.82] border border-white/30 text-white/95'
+                                                            : 'bg-[#0B6FC7] border border-white/55 text-white'
                                                     }`}
                                                 >
                                                     {step.id}
@@ -117,7 +117,7 @@ export const Services = () => {
                                                     className={`flex-1 p-3 rounded-xl border text-[15px] ${
                                                         i === 2
                                                             ? 'bg-[#FFD66A]/[0.24] border-white/45 text-white'
-                                                            : 'bg-[#031326]/[0.72] border-white/[0.26] text-white/95'
+                                                            : 'bg-[#1D95E0] border-white/[0.45] text-white'
                                                     }`}
                                                 >
                                                     {step.title}

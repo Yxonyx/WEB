@@ -1,6 +1,6 @@
 import { Container } from '../Container';
 import { Section } from '../Section';
-import { Network, Cpu, Sparkles, ArrowRight, UserCheck } from 'lucide-react';
+import { Network, Cpu, Sparkles, ArrowRight, UserCheck, Search, Bot } from 'lucide-react';
 import { ProIcon } from '../icons/ProIcon';
 import { motion } from 'framer-motion';
 import { lazy, Suspense, useEffect, useState } from 'react';
@@ -12,6 +12,8 @@ const Robot3D = lazy(() => import('../ui/Robot3D').then(module => ({ default: mo
 export const GEO = () => {
     const { t } = useLanguage();
     const [isCapable, setIsCapable] = useState(true);
+    const aiAnswer = t('geo.where.dialog.a1') as unknown as { label: string; text_prefix: string; text_highlight: string; text_suffix: string };
+    const channels = t('geo.where.list') as unknown as string[];
     useEffect(() => {
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const dm = (navigator as Navigator & { deviceMemory?: number }).deviceMemory;
@@ -21,7 +23,7 @@ export const GEO = () => {
 
     // Subtle soft glow only — no visible ring/circle border
     const robotGlow = (
-        <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(99,168,255,0.22),transparent_70%)] blur-md" />
+        <div className="pointer-events-none absolute inset-[-18%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.30)_0%,rgba(255,226,139,0.14)_38%,rgba(99,168,255,0.20)_58%,transparent_76%)] blur-md" />
     );
 
     return (
@@ -62,32 +64,70 @@ export const GEO = () => {
                             transition={{ duration: 0.5 }}
                         >
                             <div className="absolute inset-0 bg-white/16 blur-3xl rounded-full" />
-                            <div className="relative flex items-center gap-6">
+                            <div className="relative min-h-[300px]">
                                 {/* Robot 3D floating on left */}
-                                <div className="relative flex-shrink-0 w-[120px] h-[120px] sm:w-[180px] sm:h-[180px]">
+                                <div className="pointer-events-none absolute left-0 top-1/2 z-20 h-[150px] w-[150px] -translate-y-1/2 sm:h-[205px] sm:w-[205px] lg:-left-5">
                                     {/* Permanent halo glow behind robot — no flash when 3D mounts/unmounts */}
                                     {robotGlow}
                                     {isCapable && (
                                         <MountOnVisible
-                                            className="absolute inset-0 flex items-center justify-center"
+                                            className="absolute inset-0 flex items-center justify-center brightness-[1.22] saturate-[1.18] drop-shadow-[0_18px_30px_rgba(255,246,219,0.22)]"
                                             rootMargin="200px"
                                         >
                                             <Suspense fallback={null}>
-                                                <Robot3D size={180} />
+                                                <Robot3D size={205} />
                                             </Suspense>
                                         </MountOnVisible>
                                     )}
                                 </div>
                                 {/* Search Interface card on right */}
-                                <div className="flex-1 bg-white/[0.18] border border-white/35 rounded-2xl p-6 shadow-[0_16px_45px_-22px_rgba(0,74,153,0.45)] backdrop-blur-md">
-                                    <div className="text-sm font-mono text-[#FFF2C6] mb-2">{t('geo.shift.visual_search')}</div>
-                                    <div className="text-base text-white italic mb-4">{t('geo.shift.visual_query')}</div>
-                                    {/* AI Thinking Visual */}
-                                    <div className="flex gap-2 mb-2">
-                                        <div className="w-full h-2 bg-gradient-to-r from-white/65 via-[#FFD66A]/55 to-transparent rounded animate-pulse" />
+                                <div className="geo-solid-panel ml-[96px] rounded-[1.65rem] p-5 pl-[76px] sm:ml-[132px] sm:p-6 sm:pl-[88px]">
+                                    <div className="mb-4 flex items-center justify-between gap-3">
+                                        <div className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[#FFF2C6]">
+                                            {t('geo.shift.visual_search')}
+                                        </div>
+                                        <div className="flex items-center gap-1.5">
+                                            <span className="h-2.5 w-2.5 rounded-full bg-white/70" />
+                                            <span className="h-2.5 w-2.5 rounded-full bg-[#FFD66A]" />
+                                            <span className="h-2.5 w-2.5 rounded-full bg-white/70" />
+                                        </div>
                                     </div>
-                                    <div className="flex gap-2 w-3/4">
-                                        <div className="w-full h-2 bg-white/18 rounded" />
+
+                                    <div className="geo-message-panel mb-4 flex items-center gap-3 rounded-2xl px-4 py-3">
+                                        <Search className="h-4 w-4 shrink-0 text-[#FFF2C6]" />
+                                        <div className="min-w-0 flex-1 truncate text-sm italic text-white sm:text-base">
+                                            {t('geo.shift.visual_query')}
+                                        </div>
+                                    </div>
+
+                                    <div className="grid gap-3">
+                                        <div className="geo-message-panel rounded-2xl p-4">
+                                            <div className="mb-2 flex items-center gap-2">
+                                                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white text-[12px] font-bold text-[#0E7CDC]">G</span>
+                                                <span className="text-xs font-bold uppercase tracking-[0.18em] text-white/88">{channels[0]}</span>
+                                            </div>
+                                            <div className="mb-1 text-[15px] font-bold text-white">
+                                                {aiAnswer.text_highlight} - CyberLabs Web
+                                            </div>
+                                            <div className="h-2 w-full rounded-full bg-white/55" />
+                                            <div className="mt-2 h-2 w-3/4 rounded-full bg-[#FFD66A]" />
+                                        </div>
+
+                                        <div className="geo-message-panel geo-message-panel-accent rounded-2xl p-4">
+                                            <div className="mb-2 flex items-center gap-2">
+                                                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#FFD66A] text-[#06437D]">
+                                                    <Bot size={13} />
+                                                </span>
+                                                <span className="text-xs font-bold uppercase tracking-[0.18em] text-white/90">{aiAnswer.label}</span>
+                                            </div>
+                                            <div className="text-sm leading-relaxed text-white/95">
+                                                {aiAnswer.text_prefix}
+                                                <span className="font-bold text-[#FFF2C6] underline decoration-white/60 underline-offset-4">
+                                                    {aiAnswer.text_highlight}
+                                                </span>
+                                                {aiAnswer.text_suffix}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -127,19 +167,19 @@ export const GEO = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
                         >
-                            <div className="active-card p-6 rounded-2xl border border-white/35 bg-white/[0.18] relative z-10 backdrop-blur-md shadow-[0_16px_45px_-22px_rgba(0,74,153,0.45)]">
+                            <div className="active-card geo-solid-panel relative z-10 rounded-2xl p-6">
                                 {/* Chat UI Mockup */}
                                 <div className="space-y-4">
                                     <div className="flex gap-3">
                                         <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-xs">U</div>
-                                        <div className="flex-1 bg-white/14 p-3 rounded-lg rounded-tl-none border border-white/20">
+                                        <div className="geo-message-panel flex-1 rounded-lg rounded-tl-none p-3">
                                             <div className="text-xs text-white/65 mb-1">{t('geo.where.dialog.q1.label')}</div>
                                             <div className="text-sm text-white">{t('geo.where.dialog.q1.text')}</div>
                                         </div>
                                     </div>
                                     <div className="flex gap-3 flex-row-reverse">
                                         <div className="w-8 h-8 rounded-full bg-[#FFD66A]/30 flex items-center justify-center text-xs text-[#06437D]">AI</div>
-                                        <div className="flex-1 bg-[#FFD66A]/16 p-3 rounded-lg rounded-tr-none border border-white/25">
+                                        <div className="geo-message-panel geo-message-panel-accent flex-1 rounded-lg rounded-tr-none p-3">
                                             <div className="text-xs text-[#FFF2C6] mb-1">{t('geo.where.dialog.a1.label')}</div>
                                             <div className="text-sm text-white">
                                                 {t('geo.where.dialog.a1.text_prefix')}<span className="text-[#FFF2C6] font-bold underline decoration-white/60 underline-offset-4">{t('geo.where.dialog.a1.text_highlight')}</span>{t('geo.where.dialog.a1.text_suffix')}
@@ -148,7 +188,7 @@ export const GEO = () => {
                                     </div>
                                     <div className="flex gap-3">
                                         <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-xs">U</div>
-                                        <div className="flex-1 bg-white/14 p-3 rounded-lg rounded-tl-none border border-white/20">
+                                        <div className="geo-message-panel flex-1 rounded-lg rounded-tl-none p-3">
                                             <div className="text-xs text-white/65 mb-1">{t('geo.where.dialog.q2.label')}</div>
                                             <div className="text-sm text-white">{t('geo.where.dialog.q2.text')}</div>
                                         </div>
@@ -173,7 +213,7 @@ export const GEO = () => {
                             <p className="text-lg text-white/80 leading-relaxed font-medium mb-8" dangerouslySetInnerHTML={{ __html: t('geo.what.desc') as string }} />
 
                             {/* Metrics mockup */}
-                            <div className="bg-white/[0.18] border border-white/35 rounded-2xl p-4 space-y-4 backdrop-blur-md shadow-[0_16px_45px_-22px_rgba(0,74,153,0.45)]">
+                            <div className="geo-solid-panel rounded-2xl p-4 space-y-4">
                                 <div>
                                     <div className="flex justify-between text-sm text-white/72 mb-1">
                                         <span>{t('geo.what.metrics.content')}</span>
