@@ -14,7 +14,7 @@ export const Hero = () => {
     return (
         <Section
             id="hero"
-            className="min-h-screen flex items-center overflow-hidden py-20 lg:py-24"
+            className="min-h-screen flex items-center overflow-hidden py-16 lg:py-24"
             fullHeight
             background={
                 <>
@@ -103,12 +103,12 @@ export const Hero = () => {
                 </div>
 
                 {/* Mobile: own vertical poster composition */}
-                <div className="flex min-h-[calc(100vh-5.5rem)] flex-col items-center justify-start pt-4 text-center lg:hidden">
-                    <div className="mb-2 font-mono text-sm font-medium uppercase text-white drop-shadow-[0_2px_10px_rgba(0,93,180,0.35)] sm:text-base">
+                <div className="flex min-h-[calc(100vh-5rem)] flex-col items-center justify-start pt-2 text-center lg:hidden">
+                    <div className="mb-1.5 font-mono text-sm font-medium uppercase text-white drop-shadow-[0_2px_10px_rgba(0,93,180,0.35)] sm:text-base">
                         &lt; Web + SEO + GEO &gt;
                     </div>
 
-                    <h1 className="mb-3 max-w-5xl bg-none font-hero text-[2.1rem] font-extrabold leading-[1.03] text-white drop-shadow-[0_6px_18px_rgba(0,93,180,0.26)] sm:text-[4.4rem]">
+                    <h1 className="mb-2.5 max-w-5xl bg-none font-hero text-[2.1rem] font-extrabold leading-[1.03] text-white drop-shadow-[0_6px_18px_rgba(0,93,180,0.26)] sm:text-[4.4rem]">
                         <span>{t('hero.title_prefix_1')}</span>
                         <br className="sm:hidden" />
                         <span>{t('hero.title_prefix_2')}</span>
@@ -119,7 +119,7 @@ export const Hero = () => {
                         <span>{t('hero.title_suffix')}</span>
                     </h1>
 
-                    <p className="mb-4 max-w-3xl text-lg font-medium leading-snug text-white drop-shadow-[0_3px_12px_rgba(0,86,170,0.28)] sm:text-2xl">
+                    <p className="mb-3 max-w-3xl text-lg font-medium leading-snug text-white drop-shadow-[0_3px_12px_rgba(0,86,170,0.28)] sm:text-2xl">
                         <span>{t('hero.subtitle_1')}</span>{' '}
                         <span>{t('hero.subtitle_highlight')}</span>
                     </p>
@@ -148,13 +148,13 @@ export const Hero = () => {
                     </div>
 
                     {/* Visual Content - 3D Spline Robot */}
-                    <div className="relative mt-auto h-[min(420px,46vh)] w-full max-w-[560px] min-h-[300px] sm:h-[410px]">
-                        <div className="absolute inset-x-8 bottom-4 top-2 rounded-[2rem] border border-white/65 bg-white/[0.08] shadow-[0_0_0_1px_rgba(255,255,255,0.18),0_18px_60px_rgba(0,106,190,0.24),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-[2px] sm:inset-x-12" />
-                        <div className="absolute inset-x-11 bottom-7 top-5 rounded-[1.7rem] border border-white/35 sm:inset-x-16" />
-                        <div className="absolute inset-0 z-10">
+                    <div className="relative mt-auto h-[min(420px,46vh)] w-full max-w-[560px] min-h-[300px] overflow-visible sm:h-[410px]">
+                        <div className="pointer-events-none absolute inset-x-8 bottom-4 top-2 overflow-hidden rounded-[2rem] border border-white/65 bg-white/[0.08] shadow-[0_0_0_1px_rgba(255,255,255,0.18),0_18px_60px_rgba(0,106,190,0.24),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-[2px] sm:inset-x-12" />
+                        <div className="pointer-events-none absolute inset-x-11 bottom-7 top-5 overflow-hidden rounded-[1.7rem] border border-white/35 sm:inset-x-16" />
+                        <div className="absolute -inset-x-3 -top-3 bottom-2 z-10 overflow-hidden sm:-inset-x-1">
                             <SplineScene
                                 scene="/robot-scene.splinecode"
-                                className="h-full w-full"
+                                className="h-[108%] w-full -translate-y-[5%]"
                             />
                         </div>
                         <div className="pointer-events-none absolute inset-x-16 bottom-5 z-20 h-20 rounded-[50%] bg-white/20 blur-2xl sm:inset-x-24" />

@@ -68,7 +68,7 @@ export const TechStack = () => {
                 />
 
                 <motion.div
-                    className="grid md:grid-cols-2 gap-5 md:gap-6"
+                    className="-mx-4 grid grid-cols-1 gap-4 px-4 md:mx-0 md:grid-cols-2 md:gap-6 md:px-0"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-80px' }}
@@ -76,31 +76,36 @@ export const TechStack = () => {
                 >
                     {/* Card 1: Custom dev */}
                     <motion.div variants={itemVariants} className="h-full">
-                        <Card className="h-full flex flex-col">
-                            <div className="w-11 h-11 rounded-2xl bg-white/[0.18] border border-white/35 flex items-center justify-center mb-5 text-[#FFF2C6]">
-                                <Code2 size={20} />
-                            </div>
-                            <h3 className="text-xl sm:text-2xl font-bold mb-1 font-hero bg-none">
-                                {t('techStack.custom.title') as string}
-                            </h3>
-                            <div className="text-[#FFF2C6] font-mono text-xs mb-4 tracking-wide uppercase">
-                                {t('techStack.custom.tagline') as string}
+                        <Card className="flex h-full flex-col !p-4 sm:!p-7 lg:!p-8">
+                            <div className="mb-3 flex items-start gap-3 sm:mb-4">
+                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/35 bg-white/[0.18] text-[#FFF2C6] sm:h-11 sm:w-11 sm:rounded-2xl">
+                                    <Code2 size={18} className="sm:hidden" />
+                                    <Code2 size={20} className="hidden sm:block" />
+                                </div>
+                                <div className="min-w-0 flex-1">
+                                    <h3 className="font-hero bg-none text-lg font-bold leading-tight sm:text-2xl">
+                                        {t('techStack.custom.title') as string}
+                                    </h3>
+                                    <div className="mt-1 font-mono text-[10px] uppercase leading-snug tracking-wide text-[#FFF2C6] sm:text-xs">
+                                        {t('techStack.custom.tagline') as string}
+                                    </div>
+                                </div>
                             </div>
                             <p
-                                className="text-white/86 text-[15px] mb-5 leading-relaxed"
+                                className="mb-3 text-[14px] leading-snug text-white/86 sm:mb-5 sm:text-[15px] sm:leading-relaxed"
                                 dangerouslySetInnerHTML={{ __html: t('techStack.custom.desc') as string }}
                             />
 
-                            <ul className="space-y-2 mb-6">
+                            <ul className="mb-4 space-y-1.5 sm:mb-6 sm:space-y-2">
                                 {customFeatures.map((feat, i) => (
-                                    <li key={i} className="flex items-start gap-2.5 text-white/75 text-[15px]">
-                                        <CheckCircle2 className="w-3.5 h-3.5 text-[#FFF2C6] shrink-0 mt-1" />
+                                    <li key={i} className="flex items-start gap-2 text-[13px] text-white/75 sm:gap-2.5 sm:text-[15px]">
+                                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#FFF2C6] sm:mt-1" />
                                         <span dangerouslySetInnerHTML={{ __html: feat }} />
                                     </li>
                                 ))}
                             </ul>
 
-                            <div className="mt-auto pt-5 border-t border-white/[0.07]">
+                            <div className="mt-auto border-t border-white/[0.07] pt-4 sm:pt-5">
                                 <div className="text-[11px] font-mono text-white/50 uppercase tracking-[0.18em] mb-3 flex items-center gap-1.5">
                                     <span className="w-1 h-1 rounded-full bg-[#FFD66A]" />
                                     {t('techStack.custom.sidebar') as string}
@@ -136,31 +141,36 @@ export const TechStack = () => {
 
                     {/* Card 2: Platform */}
                     <motion.div variants={itemVariants} className="h-full">
-                        <Card className="h-full flex flex-col">
-                            <div className="w-11 h-11 rounded-2xl bg-white/[0.18] border border-white/35 flex items-center justify-center mb-5 text-[#FFF2C6]">
-                                <ShoppingBag size={20} />
-                            </div>
-                            <h3 className="text-xl sm:text-2xl font-bold mb-1 font-hero bg-none">
-                                {t('techStack.platform.title') as string}
-                            </h3>
-                            <div className="text-[#FFF2C6] font-mono text-xs mb-4 tracking-wide uppercase">
-                                {t('techStack.platform.tagline') as string}
+                        <Card className="flex h-full flex-col !p-4 sm:!p-7 lg:!p-8">
+                            <div className="mb-3 flex items-start gap-3 sm:mb-4">
+                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/35 bg-white/[0.18] text-[#FFF2C6] sm:h-11 sm:w-11 sm:rounded-2xl">
+                                    <ShoppingBag size={18} className="sm:hidden" />
+                                    <ShoppingBag size={20} className="hidden sm:block" />
+                                </div>
+                                <div className="min-w-0 flex-1">
+                                    <h3 className="font-hero bg-none text-lg font-bold leading-tight sm:text-2xl">
+                                        {t('techStack.platform.title') as string}
+                                    </h3>
+                                    <div className="mt-1 font-mono text-[10px] uppercase leading-snug tracking-wide text-[#FFF2C6] sm:text-xs">
+                                        {t('techStack.platform.tagline') as string}
+                                    </div>
+                                </div>
                             </div>
                             <p
-                                className="text-white/86 text-[15px] mb-5 leading-relaxed"
+                                className="mb-3 text-[14px] leading-snug text-white/86 sm:mb-5 sm:text-[15px] sm:leading-relaxed"
                                 dangerouslySetInnerHTML={{ __html: t('techStack.platform.desc') as string }}
                             />
 
-                            <ul className="space-y-2 mb-6">
+                            <ul className="mb-4 space-y-1.5 sm:mb-6 sm:space-y-2">
                                 {platformFeatures.map((feat, i) => (
-                                    <li key={i} className="flex items-start gap-2.5 text-white/75 text-[15px]">
-                                        <CheckCircle2 className="w-3.5 h-3.5 text-[#FFF2C6] shrink-0 mt-1" />
+                                    <li key={i} className="flex items-start gap-2 text-[13px] text-white/75 sm:gap-2.5 sm:text-[15px]">
+                                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#FFF2C6] sm:mt-1" />
                                         <span dangerouslySetInnerHTML={{ __html: feat }} />
                                     </li>
                                 ))}
                             </ul>
 
-                            <div className="mt-auto pt-5 border-t border-white/[0.07]">
+                            <div className="mt-auto border-t border-white/[0.07] pt-4 sm:pt-5">
                                 <div className="text-[11px] font-mono text-white/50 uppercase tracking-[0.18em] mb-3 flex items-center gap-1.5">
                                     <span className="w-1 h-1 rounded-full bg-[#FFD66A]" />
                                     {t('techStack.platform.sidebar') as string}

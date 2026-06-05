@@ -190,7 +190,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
 export const Portfolio = () => {
     const { t } = useLanguage();
     const mobileTrackRef = useRef<HTMLDivElement>(null);
+    const carouselRef = useRef<HTMLDivElement>(null);
     const [isHovering, setIsHovering] = useState(false);
+    const [isCarouselInView, setIsCarouselInView] = useState(false);
 
     const mobileProjectsRaw = projects.filter(p => p.isMobile);
     // Duplicate items for infinite scroll effect (3 items * 4 = 12 items)
@@ -198,59 +200,85 @@ export const Portfolio = () => {
 
     const desktopProjects = projects.filter(p => !p.isMobile);
 
-    const scrollMobile = (direction: 'left' | 'right') => {
-        if (!mobileTrackRef.current) return;
-        const container = mobileTrackRef.current;
-        const cardWidth = 224; // 200px card + 24px gap
-        const scrollAmount = cardWidth;
-
-        const currentIndex = Math.round(container.scrollLeft / scrollAmount);
-        let targetIndex = direction === 'right' ? currentIndex + 1 : currentIndex - 1;
-        const maxIndex = mobileProjects.length - 1;
-
-        if (targetIndex > maxIndex) {
-            targetIndex = 0;
-            container.scrollTo({ left: 0, behavior: 'smooth' });
-            return;
-        }
-        if (targetIndex < 0) {
-            targetIndex = maxIndex;
-            container.scrollTo({ left: maxIndex * scrollAmount, behavior: 'smooth' });
-            return;
-        }
-
-        container.scrollTo({ left: targetIndex * scrollAmount, behavior: 'smooth' });
+    const centerCard = (
+        container: HTMLElement,
+        card: HTMLElement,
+        behavior: ScrollBehavior = 'smooth',
+    ) => {
+        const targetLeft = card.offsetLeft - (container.clientWidth - card.offsetWidth) / 2;
+        container.scrollTo({ left: Math.max(0, targetLeft), behavior });
     };
+
+    const scrollMobile = (direction: 'left' | 'right') => {
+        const container = mobileTrackRef.current;
+        if (!container) return;
+
+        const cards = Array.from(container.children) as HTMLElement[];
+        if (cards.length === 0) return;
+
+        const center = container.scrollLeft + container.clientWidth / 2;
+        let activeIndex = 0;
+        let bestDistance = Infinity;
+
+        cards.forEach((card, index) => {
+            const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+            const distance = Math.abs(center - cardCenter);
+            if (distance < bestDistance) {
+                bestDistance = distance;
+                activeIndex = index;
+            }
+        });
+
+        let targetIndex = direction === 'right' ? activeIndex + 1 : activeIndex - 1;
+        if (targetIndex >= cards.length) targetIndex = 0;
+        if (targetIndex < 0) targetIndex = cards.length - 1;
+
+        centerCard(container, cards[targetIndex]);
+    };
+
+    useEffect(() => {
+        const node = carouselRef.current;
+        if (!node) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsCarouselInView(entry.isIntersecting),
+            { threshold: 0.15 },
+        );
+        observer.observe(node);
+        return () => observer.disconnect();
+    }, []);
 
     // Initialize scroll position to the start of the second loop for infinite scroll illusion
     useEffect(() => {
-        if (mobileTrackRef.current) {
-            const cardWidth = 224;
-            const initialScroll = mobileProjectsRaw.length * cardWidth;
-            mobileTrackRef.current.scrollLeft = initialScroll;
+        const container = mobileTrackRef.current;
+        if (!container) return;
+
+        const cards = Array.from(container.children) as HTMLElement[];
+        const startIndex = mobileProjectsRaw.length;
+        if (cards[startIndex]) {
+            centerCard(container, cards[startIndex], 'auto');
         }
     }, [mobileProjectsRaw.length]);
 
     useEffect(() => {
+        if (!isCarouselInView) return;
+
         const interval = setInterval(() => {
-            if (!isHovering) {
-                // Mobile Projects Auto-Scroll
-                if (mobileTrackRef.current && mobileTrackRef.current.offsetParent !== null) {
-                    const container = mobileTrackRef.current;
-                    const maxScroll = container.scrollWidth - container.clientWidth;
-                    if (Math.abs(container.scrollLeft - maxScroll) < 5) {
-                        container.scrollTo({ left: 0, behavior: "smooth" });
-                    } else {
-                        scrollMobile('right');
-                    }
+            if (!isHovering && mobileTrackRef.current) {
+                const container = mobileTrackRef.current;
+                const maxScroll = container.scrollWidth - container.clientWidth;
+                if (Math.abs(container.scrollLeft - maxScroll) < 5) {
+                    container.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    scrollMobile('right');
                 }
             }
         }, 3000);
         return () => clearInterval(interval);
-    }, [isHovering]);
+    }, [isCarouselInView, isHovering]);
 
     return (
-        <Section id="referenciak" className="overflow-hidden" withOrbs withMeshGradient>
+        <Section id="referenciak" className="overflow-hidden !pb-4 sm:!pb-6 lg:!pb-24" withOrbs withMeshGradient>
             <Container>
                 <SectionHeader
                     number="06"
@@ -289,31 +317,33 @@ export const Portfolio = () => {
 
                         {/* Mobile/Tablet View: Carousel (Below LG) */}
                         <div
-                            className="relative w-full mb-16 lg:hidden"
+                            ref={carouselRef}
+                            className="relative isolate -mx-4 mb-8 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:hidden"
                             onMouseEnter={() => setIsHovering(true)}
                             onMouseLeave={() => setIsHovering(false)}
                             onTouchStart={() => setIsHovering(true)}
                             onTouchEnd={() => setIsHovering(false)}
                         >
-                            {/* Navigation Arrows */}
                             <button
+                                type="button"
                                 onClick={() => scrollMobile('left')}
-                                className="absolute left-0 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/18 border border-white/35 text-white backdrop-blur-sm hover:bg-white/24 transition-colors"
+                                className="pointer-events-auto absolute left-1 top-1/2 z-50 -translate-y-1/2 rounded-full border border-white/45 bg-[#0E7CDC]/75 p-2.5 text-white shadow-[0_8px_24px_rgba(0,70,140,0.4)] backdrop-blur-sm transition-colors hover:bg-[#0E7CDC]/90"
                                 aria-label="Previous project"
                             >
-                                <ChevronLeft className="w-6 h-6" />
+                                <ChevronLeft className="h-6 w-6" />
                             </button>
                             <button
+                                type="button"
                                 onClick={() => scrollMobile('right')}
-                                className="absolute right-0 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/18 border border-white/35 text-white backdrop-blur-sm hover:bg-white/24 transition-colors"
+                                className="pointer-events-auto absolute right-1 top-1/2 z-50 -translate-y-1/2 rounded-full border border-white/45 bg-[#0E7CDC]/75 p-2.5 text-white shadow-[0_8px_24px_rgba(0,70,140,0.4)] backdrop-blur-sm transition-colors hover:bg-[#0E7CDC]/90"
                                 aria-label="Next project"
                             >
-                                <ChevronRight className="w-6 h-6" />
+                                <ChevronRight className="h-6 w-6" />
                             </button>
 
                             <div
                                 ref={mobileTrackRef}
-                                className="flex gap-6 py-6 w-full overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                                className="flex gap-6 py-6 w-full overflow-x-auto snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
                                 style={{ paddingLeft: 'calc(50vw - 100px)', paddingRight: 'calc(50vw - 100px)' }}
                             >
                                 {mobileProjects.map((project, index) => (

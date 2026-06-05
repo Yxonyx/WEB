@@ -49,8 +49,9 @@ export const QuoteSection = () => {
                             </h3>
                             <ul className="space-y-3">
                                 {(t('quote.benefits') as unknown as string[]).map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-[15px] text-white">
-                                        <div className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-white flex items-center justify-center">
+                                    <li key={i} className="flex items-start gap-2.5 text-[15px] text-white">
+                                        <Check size={16} className="mt-0.5 shrink-0 text-[#FFE28B] lg:hidden" />
+                                        <div className="mt-0.5 hidden h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white lg:flex">
                                             <Check size={10} className="text-[#06437D]" />
                                         </div>
                                         <span>{item}</span>

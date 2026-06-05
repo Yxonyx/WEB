@@ -81,12 +81,25 @@ export const Pricing = () => {
     return (
         <Section id="arazas" withMeshGradient withOrbs>
             <Container>
+                {/* Mobile: number top-left, title then subtitle */}
+                <div className="mb-10 flex max-w-none flex-col items-start gap-3 sm:mb-14 lg:hidden">
+                    <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-xl border border-white/70 bg-[#FFD66A] px-2 font-mono text-xs font-extrabold tabular-nums tracking-wider text-[#06437D] shadow-[0_10px_24px_-12px_rgba(255,203,85,0.70),inset_0_1px_0_rgba(255,255,255,0.72)]">
+                        06
+                    </span>
+                    <h2 className="bg-none font-hero text-2xl font-extrabold leading-[1.1] text-white drop-shadow-[0_6px_18px_rgba(0,93,180,0.25)] sm:text-3xl">
+                        {t('pricing.title') as string}
+                    </h2>
+                    <p className="max-w-xl text-base font-medium leading-relaxed text-white/90 drop-shadow-[0_2px_10px_rgba(0,70,150,0.18)] sm:text-lg">
+                        {t('pricing.subtitle') as string}
+                    </p>
+                </div>
+
                 <SectionHeader
-                    number="02"
+                    number="06"
                     eyebrow={t('pricing.subtitle') as string}
                     title={t('pricing.title') as string}
                     align="center"
-                    className="mb-10 sm:mb-14"
+                    className="mb-10 hidden sm:mb-14 lg:flex"
                 />
 
                 <div className="grid lg:grid-cols-3 gap-5 lg:gap-6 items-stretch">

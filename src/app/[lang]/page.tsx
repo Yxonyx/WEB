@@ -36,6 +36,7 @@ export default function HomePage() {
         <Contact />
         <Team />
       </div>
+      <div className="team-footer-cloud-bridge" aria-hidden="true" />
     </>
   );
 }

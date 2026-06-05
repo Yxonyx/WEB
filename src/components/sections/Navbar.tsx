@@ -88,11 +88,11 @@ export const Navbar = () => {
             <Container className="flex items-center justify-between lg:grid lg:grid-cols-[auto_1fr_auto]">
                 {/* Logo - Column 1 */}
                 <a href={`/${language}/`} className="group flex items-center">
-                    <div className="flex flex-col">
+                    <div className="inline-flex flex-col items-stretch">
                         <span className="flex items-baseline font-hero text-2xl font-bold leading-none text-white drop-shadow-[0_3px_12px_rgba(0,82,166,0.34)] transition-all duration-300 group-hover:drop-shadow-[0_5px_18px_rgba(255,255,255,0.28)] lg:text-[1.65rem] xl:text-3xl">
                             <span>Cyber</span><span className="text-white/85">Labs</span>
                         </span>
-                        <span className="mt-1 text-[10px] font-mono uppercase tracking-[0.28em] text-white/75 transition-colors duration-300 group-hover:text-white lg:text-[11px]">
+                        <span className="mt-1 block w-full text-left font-mono text-[9px] uppercase tracking-[0.22em] text-white/75 transition-colors duration-300 group-hover:text-white sm:text-[10px] lg:text-[10px] xl:text-[11px]">
                             WEB DEVELOPMENT
                         </span>
                     </div>

@@ -224,7 +224,8 @@
   .between-hero-footer-bg {
     position: relative;
     isolation: isolate;
-    overflow: hidden;
+    overflow-x: clip;
+    overflow-y: visible;
     /* Premium sky field below the hero: deeper blue, soft cloud wash, no flat bands. */
     background-color: #0E7CDC;
     background-image:
@@ -298,7 +299,7 @@
   .between-hero-footer-bg::after {
     content: "";
     position: absolute;
-    inset: -6% -12%;
+    inset: 0;
     z-index: 0;
     pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' viewBox='0 0 1440 900' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='.9'%3E%3Cpath d='M-80 182c108-74 214-92 318-54 122 45 210 40 341-9 132-49 241-45 329 12 88 57 188 61 301 13 95-40 194-37 296 9v171H-80V182Z' fill='white' opacity='.16'/%3E%3Cpath d='M-50 614c103-48 207-55 312-21 106 34 207 34 303 0 139-49 265-47 378 8 88 43 190 42 306-2 87-33 178-30 273 10v173H-50V614Z' fill='white' opacity='.12'/%3E%3Cpath d='M109 360c122-38 235-38 339 0 122 44 252 36 391-24 96-42 199-38 309 12 66 30 146 31 239 4v176H109V360Z' fill='%23FFF2C6' opacity='.08'/%3E%3C/g%3E%3C/svg%3E");
@@ -308,6 +309,8 @@
     opacity: 0.8;
     animation: skyCloudDrift 34s ease-in-out infinite;
     will-change: transform;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 88%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 88%, transparent 100%);
   }
 
   @media (max-width: 767px) {
@@ -343,10 +346,9 @@
     /* Csak az animált felhőréteg: scroll közben GPU memóriát eszik (Safari tab reload) — a statikus háttér marad */
     .between-hero-footer-bg::after {
       animation: none;
-    }
-
-    .between-hero-footer-bg > section#csapat {
-      padding-bottom: 0 !important;
+      will-change: auto;
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 84%, transparent 100%);
+      mask-image: linear-gradient(180deg, #000 0%, #000 84%, transparent 100%);
     }
   }
 
@@ -778,6 +780,15 @@
     text-shadow: 0 2px 10px rgba(0, 67, 125, 0.22);
   }
 
+  .footer-sky {
+    isolation: isolate;
+  }
+
+  .footer-contact-panel {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
   footer a[class*="bg-white"] {
     background-color: rgba(255, 255, 255, 0.18) !important;
     border-color: rgba(255, 255, 255, 0.56) !important;
@@ -891,6 +902,63 @@
 
   .between-hero-footer-bg > section#csapat::before {
     background: radial-gradient(ellipse 75% 48% at 72% 80%, rgba(255, 255, 255, 0.14), transparent 70%);
+  }
+
+  /* Cloud wash + visual break between Team and Footer */
+  .team-footer-cloud-bridge {
+    position: relative;
+    isolation: isolate;
+    height: clamp(5.5rem, 14vw, 9rem);
+    margin-top: -1px;
+    overflow: hidden;
+    background-color: #0E7CDC;
+    background-image:
+      linear-gradient(180deg, rgba(14, 124, 220, 0.72) 0%, rgba(14, 124, 220, 0.36) 52%, rgba(14, 124, 220, 0.18) 100%),
+      url('/images/hero-footer-bg-soft.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 18%;
+  }
+
+  @media (max-width: 767px) {
+    .team-footer-cloud-bridge {
+      background-image:
+        linear-gradient(180deg, rgba(14, 124, 220, 0.74) 0%, rgba(14, 124, 220, 0.38) 55%, rgba(14, 124, 220, 0.20) 100%),
+        url('/images/hero-bg-mobile-soft.webp');
+      background-position: center 12%;
+    }
+  }
+
+  .team-footer-cloud-bridge::before {
+    content: "";
+    position: absolute;
+    inset: -8% 0 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' viewBox='0 0 1440 900' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='.9'%3E%3Cpath d='M-80 182c108-74 214-92 318-54 122 45 210 40 341-9 132-49 241-45 329 12 88 57 188 61 301 13 95-40 194-37 296 9v171H-80V182Z' fill='white' opacity='.18'/%3E%3Cpath d='M-50 614c103-48 207-55 312-21 106 34 207 34 303 0 139-49 265-47 378 8 88 43 190 42 306-2 87-33 178-30 273 10v173H-50V614Z' fill='white' opacity='.14'/%3E%3Cpath d='M109 360c122-38 235-38 339 0 122 44 252 36 391-24 96-42 199-38 309 12 66 30 146 31 239 4v176H109V360Z' fill='%23FFF2C6' opacity='.10'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: 50% 42%;
+    background-size: 140% auto;
+    opacity: 0.92;
+    animation: skyCloudDrift 34s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  .team-footer-cloud-bridge::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgba(14, 124, 220, 0.55) 0%, transparent 38%),
+      linear-gradient(180deg, transparent 58%, rgba(14, 124, 220, 0.22) 100%);
+  }
+
+  @media (max-width: 767px) {
+    .team-footer-cloud-bridge::before {
+      animation: none;
+      will-change: auto;
+      opacity: 0.88;
+    }
   }
 
   /* Edge-to-edge container */
