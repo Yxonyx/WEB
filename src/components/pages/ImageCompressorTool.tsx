@@ -1,8 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { Container } from '../Container';
-import { Download, ArrowLeft, Image as ImageIcon, Trash2, DownloadCloud, Settings2, ShieldCheck, Play, Maximize } from 'lucide-react';
-import Link from 'next/link';
+import { Download, Image as ImageIcon, Trash2, DownloadCloud, Settings2, ShieldCheck, Play, Maximize } from 'lucide-react';
+import { SubpageHeader, SubpageShell } from '../SubpageShell';
 
 // ─── Types ───────────────────────────────────────────────────
 interface ImageItem {
@@ -31,14 +30,8 @@ interface JSZipInstance {
 
 // ─── Animated Logo ───────────────────────────────────────────
 const AnimatedCompressLogo = () => (
-    <div className="relative w-12 h-12 mx-auto mb-2 group flex items-center justify-center">
-        <div className="absolute inset-0 rounded-xl bg-neonBlue/5 border border-neonBlue/20 rotate-3 transition-transform duration-500 group-hover:rotate-6 shadow-[0_0_15px_rgba(37,99,235,0.1)]" />
-        <div className="absolute inset-0 rounded-xl bg-bgDeep border border-neonBlue/40 shadow-[0_0_20px_rgba(37,99,235,0.2)]" />
-        <ImageIcon className="w-6 h-6 text-neonBlue z-10 animate-pulse drop-shadow-[0_0_10px_rgba(37,99,235,0.8)]" />
-        <div className="absolute -top-1 -left-1 w-1.5 h-1.5 border-t-2 border-l-2 border-neonBlue shadow-[0_0_5px_rgba(37,99,235,0.5)] transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1" />
-        <div className="absolute -top-1 -right-1 w-1.5 h-1.5 border-t-2 border-r-2 border-neonBlue shadow-[0_0_5px_rgba(37,99,235,0.5)] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-        <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 border-b-2 border-l-2 border-neonBlue shadow-[0_0_5px_rgba(37,99,235,0.5)] transition-transform duration-300 group-hover:-translate-x-1 group-hover:translate-y-1" />
-        <div className="absolute -bottom-1 -right-1 w-1.5 h-1.5 border-b-2 border-r-2 border-neonBlue shadow-[0_0_5px_rgba(37,99,235,0.5)] transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
+    <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-white/60 bg-white/[0.18] shadow-[0_18px_42px_-24px_rgba(0,70,140,0.58),inset_0_1px_0_rgba(255,255,255,0.54)]">
+        <ImageIcon className="h-7 w-7 text-[#FFF2C6]" />
     </div>
 );
 
@@ -293,69 +286,45 @@ export const ImageCompressorTool = () => {
     const settingsInfo = `${outputFormat} | ${quality}% | max ${maxSize || 'Eredeti'}px`;
 
     return (
-        <div className="min-h-screen bg-bgDeep text-white selection:bg-neonBlue/30 noise-overlay flex flex-col relative overflow-hidden font-sans">
-{/* Animated Background */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-600/30 blur-[120px] mix-blend-screen animate-blob opacity-70" />
-                <div className="absolute top-[20%] right-[-10%] w-[45%] h-[45%] rounded-full bg-cyan-500/25 blur-[120px] mix-blend-screen animate-blob animation-delay-2000 opacity-60" />
-                <div className="absolute bottom-[-15%] left-[10%] w-[60%] h-[60%] rounded-full bg-indigo-600/30 blur-[130px] mix-blend-screen animate-blob animation-delay-4000 opacity-50" />
-            </div>
-            <div className="absolute inset-0 pointer-events-none z-0">
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_20%,transparent_100%)]" />
-            </div>
-
-            <main className="flex-grow z-10 relative pt-20 md:pt-24 pb-12">
-                <Container className="max-w-5xl">
-                    <Link href={`/${currentLang}/`} className="inline-flex items-center text-muted hover:text-neonBlue transition-colors mb-6 text-sm uppercase tracking-widest font-bold">
-                        <ArrowLeft className="w-4 h-4 mr-2" /> {t('common.back') || 'Vissza a főoldalra'}
-                    </Link>
-
-                    {/* Header */}
-                    <div className="text-center mb-6">
-                        <AnimatedCompressLogo />
-                        <h1 className="text-3xl md:text-5xl font-black mb-1 tracking-tight font-display">{txt.title}</h1>
-                        <p className="text-lg text-muted max-w-2xl mx-auto mb-4">{txt.subtitle}</p>
-                        <div className="flex flex-wrap items-center justify-center gap-3">
-                            {txt.features?.map((feature: string, idx: number) => (
-                                <div key={idx} className="flex items-center gap-2 px-3 py-1.5 rounded bg-neonBlue/10 border border-neonBlue/20 text-neonBlue text-xs font-bold uppercase tracking-wider">
-                                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
-                                    {feature}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+        <SubpageShell
+            backHref={`/${currentLang}/`}
+            backLabel={t('common.back') || 'Vissza a főoldalra'}
+        >
+            <SubpageHeader
+                icon={<AnimatedCompressLogo />}
+                title={txt.title}
+                subtitle={txt.subtitle}
+                badges={txt.features}
+            />
 
                     {/* Upload Zone */}
                     <div
                         onClick={() => fileInputRef.current?.click()}
                         onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={handleDrop}
-                        className={`relative cursor-pointer rounded-xl rounded-tr-[40px] rounded-bl-[40px] p-12 mb-8 text-center transition-all duration-300 border-2 border-dashed backdrop-blur-md
-                            ${isDragging ? 'border-neonBlue bg-neonBlue/10 shadow-[0_0_40px_rgba(77,148,255,0.2)]' : 'border-white/10 bg-surface/40 hover:border-neonBlue/40 hover:bg-surface/60'}`}
+                        className={`relative cursor-pointer rounded-[1.75rem] p-12 mb-8 text-center transition-all duration-300 border-2 border-dashed sky-frost-panel
+                            ${isDragging ? 'border-white/80 bg-white/[0.22] shadow-[0_0_40px_rgba(255,255,255,0.15)]' : 'border-white/40 hover:border-white/65 hover:bg-white/[0.18]'}`}
                     >
-                        <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-neonBlue/10 to-transparent pointer-events-none rounded-tr-[40px]" />
-                        <ImageIcon className={`w-12 h-12 mx-auto mb-4 transition-colors ${isDragging ? 'text-neonBlue' : 'text-white/30'}`} />
-                        <p className="text-lg font-bold mb-1">{txt.upload}</p>
-                        <p className="text-sm text-muted">{txt.uploadSub}</p>
+                        <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-white/10 to-transparent pointer-events-none rounded-tr-[1.75rem]" />
+                        <ImageIcon className={`w-12 h-12 mx-auto mb-4 transition-colors ${isDragging ? 'text-[#FFF2C6]' : 'text-white/50'}`} />
+                        <p className="text-lg font-extrabold mb-1 text-white">{txt.upload}</p>
+                        <p className="text-sm font-semibold text-white">{txt.uploadSub}</p>
                         <input ref={fileInputRef} type="file" accept="image/jpeg,image/png,image/webp" multiple className="hidden" onChange={handleFileSelect} />
-                        <div className="absolute bottom-4 left-4 flex gap-1">
-                            <div className="w-1 h-1 bg-white/20" /><div className="w-1 h-1 bg-white/20" /><div className="w-4 h-1 bg-neonBlue/60" />
-                        </div>
                     </div>
 
                     {/* ═══ Controls Grid ═══ */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         {/* Max Width */}
-                        <div className="p-6 rounded-xl bg-surface/40 border border-white/10 backdrop-blur-md">
+                        <div className="sky-frost-panel p-6 rounded-[1.75rem]">
                             <div className="flex items-center gap-2 mb-4">
-                                <Maximize className="w-4 h-4 text-neonBlue" />
-                                <span className="text-sm font-bold text-white/70 uppercase tracking-widest">{txt.maxWidth}</span>
+                                <Maximize className="w-4 h-4 text-[#FFF2C6]" />
+                                <span className="text-sm font-extrabold text-white uppercase tracking-widest">{txt.maxWidth}</span>
                             </div>
                             <div className="grid grid-cols-3 gap-2">
                                 {MAX_SIZE_OPTIONS.map(opt => (
                                     <button key={opt.value} onClick={() => setMaxSize(opt.value)}
                                         className={`py-2 px-2 rounded-lg font-bold text-xs transition-all duration-300 ${maxSize === opt.value
-                                            ? 'bg-neonBlue text-white shadow-[0_0_15px_rgba(77,148,255,0.3)]'
-                                            : 'bg-surface3 text-white/50 hover:text-white hover:bg-surface3/80'}`}>
+                                            ? 'bg-[#FFD66A] text-[#06437D] shadow-[0_0_15px_rgba(255,203,85,0.3)]'
+                                            : 'bg-white/10 text-white/70 hover:text-white hover:bg-white/18 border border-white/25'}`}>
                                         {opt.label}
                                     </button>
                                 ))}
@@ -368,17 +337,17 @@ export const ImageCompressorTool = () => {
                         </div>
 
                         {/* Format selector */}
-                        <div className="p-6 rounded-xl bg-surface/40 border border-white/10 backdrop-blur-md">
+                        <div className="sky-frost-panel p-6 rounded-[1.75rem]">
                             <div className="flex items-center gap-2 mb-4">
-                                <ImageIcon className="w-4 h-4 text-neonBlue" />
-                                <span className="text-sm font-bold text-white/70 uppercase tracking-widest">{txt.format}</span>
+                                <ImageIcon className="w-4 h-4 text-[#FFF2C6]" />
+                                <span className="text-sm font-extrabold text-white uppercase tracking-widest">{txt.format}</span>
                             </div>
                             <div className="flex gap-3 mb-3">
                                 {(['image/webp', 'image/jpeg', 'image/png'] as OutputFormat[]).map(fmt => (
                                     <button key={fmt} onClick={() => setOutputFormat(fmt)}
                                         className={`flex-1 py-3 rounded-lg font-bold uppercase tracking-wider text-sm transition-all duration-300 ${outputFormat === fmt
-                                            ? 'bg-neonBlue text-white shadow-[0_0_20px_rgba(77,148,255,0.3)]'
-                                            : 'bg-surface3 text-white/50 hover:text-white hover:bg-surface3/80'}`}>
+                                            ? 'bg-[#FFD66A] text-[#06437D] shadow-[0_0_20px_rgba(255,203,85,0.3)]'
+                                            : 'bg-white/10 text-white/70 hover:text-white hover:bg-white/18 border border-white/25'}`}>
                                         {fmt.split('/')[1].toUpperCase()}
                                     </button>
                                 ))}
@@ -394,16 +363,16 @@ export const ImageCompressorTool = () => {
                     {/* Quality + Compress Button Row */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                         {/* Quality slider */}
-                        <div className="md:col-span-2 p-6 rounded-xl bg-surface/40 border border-white/10 backdrop-blur-md">
+                        <div className="md:col-span-2 sky-frost-panel p-6 rounded-[1.75rem]">
                             <div className="flex items-center gap-2 mb-4">
-                                <Settings2 className="w-4 h-4 text-neonBlue" />
-                                <span className="text-sm font-bold text-white/70 uppercase tracking-widest">{txt.quality}</span>
-                                <span className="ml-auto text-neonBlue font-mono font-bold text-lg">{quality}%</span>
+                                <Settings2 className="w-4 h-4 text-[#FFF2C6]" />
+                                <span className="text-sm font-extrabold text-white uppercase tracking-widest">{txt.quality}</span>
+                                <span className="ml-auto text-[#FFF2C6] font-mono font-bold text-lg">{quality}%</span>
                             </div>
                             <input
                                 type="range" min="1" max="100" value={quality}
                                 onChange={e => setQuality(Number(e.target.value))}
-                                className="w-full h-2 bg-surface3 rounded-lg appearance-none cursor-pointer accent-neonBlue [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:bg-neonBlue [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(77,148,255,0.5)]"
+                                className="w-full h-2 bg-white/15 rounded-lg appearance-none cursor-pointer accent-[#FFD66A] [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:bg-[#FFD66A] [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-[0_0_10px_rgba(255,203,85,0.5)]"
                             />
                             <div className="flex justify-between text-[10px] text-white/30 font-mono mt-1">
                                 <span>{currentLang === 'hu' ? 'Agresszív tömörítés' : 'Aggressive compression'}</span>
@@ -422,13 +391,13 @@ export const ImageCompressorTool = () => {
                         </div>
 
                         {/* Compress button */}
-                        <div className="p-6 rounded-xl bg-surface/40 border border-white/10 backdrop-blur-md flex flex-col justify-center">
+                        <div className="sky-frost-panel p-6 rounded-[1.75rem] flex flex-col justify-center">
                             <button
                                 onClick={compressAll}
                                 disabled={!canCompress || isCompressing}
-                                className={`w-full py-4 rounded-lg flex items-center justify-center gap-3 font-bold uppercase tracking-wider text-sm transition-all duration-300 relative overflow-hidden group ${canCompress && !isCompressing
-                                    ? 'bg-neonBlue text-white shadow-[0_0_20px_rgba(77,148,255,0.3)] hover:shadow-[0_0_40px_rgba(77,148,255,0.6)]'
-                                    : 'bg-white/5 text-white/30 cursor-not-allowed border border-white/5'
+                                className={`w-full py-4 rounded-full flex items-center justify-center gap-3 font-bold uppercase tracking-wider text-sm transition-all duration-300 relative overflow-hidden group ${canCompress && !isCompressing
+                                    ? 'bg-[#FFD66A] text-[#06437D] shadow-[0_14px_30px_rgba(255,203,85,0.28)] hover:bg-[#FFE18A]'
+                                    : 'bg-white/10 text-white/40 cursor-not-allowed border border-white/20'
                                     }`}
                             >
                                 {canCompress && !isCompressing && <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] animate-[shimmer_2s_infinite] pointer-events-none skew-x-12" />}
@@ -445,7 +414,7 @@ export const ImageCompressorTool = () => {
                     </div>
 
                     {/* Privacy */}
-                    <div className="flex items-center justify-center gap-2 mb-8 text-sm text-white/40">
+                    <div className="flex items-center justify-center gap-2 mb-8 text-sm font-semibold text-white">
                         <ShieldCheck className="w-4 h-4 text-green-500/60" />
                         <span>{txt.privacy}</span>
                     </div>
@@ -454,7 +423,7 @@ export const ImageCompressorTool = () => {
                     {hasAnyImages && (
                         <div className="space-y-4">
                             {/* Batch bar */}
-                            <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-surface/40 border border-white/10 backdrop-blur-md">
+                            <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-[1.75rem] sky-frost-panel">
                                 <div className="flex flex-wrap items-center gap-4 text-sm">
                                     {uploadedCount > 0 && (
                                         <span className="text-yellow-400/80 font-mono">{uploadedCount} {currentLang === 'hu' ? 'feltöltve — tömörítésre vár' : 'uploaded — waiting'}</span>
@@ -469,7 +438,7 @@ export const ImageCompressorTool = () => {
                                 <div className="flex gap-3">
                                     {doneCount > 1 && (
                                         <button onClick={downloadAllZip}
-                                            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-neonBlue/10 border border-neonBlue/30 text-neonBlue hover:bg-neonBlue hover:text-white transition-all duration-300 text-sm font-bold uppercase tracking-wider">
+                                            className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 border border-white/35 text-[#FFF2C6] hover:bg-white/25 hover:text-white transition-all duration-300 text-sm font-bold uppercase tracking-wider">
                                             <DownloadCloud className="w-4 h-4" /> {txt.downloadAll}
                                         </button>
                                     )}
@@ -486,22 +455,22 @@ export const ImageCompressorTool = () => {
                                 const wasResized = img.status === 'done' && (img.compressedWidth !== img.width || img.compressedHeight !== img.height);
 
                                 return (
-                                    <div key={img.id} className="p-4 md:p-6 rounded-xl rounded-tr-[24px] rounded-bl-[24px] bg-surface/40 border-l-4 border-l-neonBlue border-t border-t-white/10 border-b border-b-white/5 border-r border-r-white/5 backdrop-blur-md transition-all duration-300 hover:border-l-blue-400">
+                                    <div key={img.id} className="sky-frost-panel p-4 md:p-6 rounded-[1.75rem] transition-all duration-300">
                                         <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start">
                                             {/* Thumbnails */}
                                             <div className="flex gap-3 flex-shrink-0">
                                                 <div className="relative">
-                                                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden bg-bgDeep border border-white/10">
+                                                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden bg-white/10 border border-white/25">
                                                         <img src={img.originalUrl} alt="Original" className="w-full h-full object-cover" />
                                                     </div>
-                                                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-bgDeep/90 text-[9px] text-white/50 font-mono px-1.5 py-0.5 rounded border border-white/10">{txt.original}</span>
+                                                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-white/20 text-[9px] text-white/80 font-mono px-1.5 py-0.5 rounded border border-white/25">{txt.original}</span>
                                                 </div>
                                                 {img.status === 'done' && img.compressedUrl && (
                                                     <div className="relative">
-                                                        <div className="w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden bg-bgDeep border border-neonBlue/30">
+                                                        <div className="w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden bg-white/10 border border-[#FFD66A]/40">
                                                             <img src={img.compressedUrl} alt="Compressed" className="w-full h-full object-cover" />
                                                         </div>
-                                                        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-neonBlue/90 text-[9px] text-white font-mono px-1.5 py-0.5 rounded">{txt.compressed}</span>
+                                                        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-[#FFD66A] text-[9px] text-[#06437D] font-mono px-1.5 py-0.5 rounded font-bold">{txt.compressed}</span>
                                                     </div>
                                                 )}
                                             </div>
@@ -519,8 +488,8 @@ export const ImageCompressorTool = () => {
                                                 )}
 
                                                 {img.status === 'processing' && (
-                                                    <div className="flex items-center gap-2 text-neonBlue text-sm">
-                                                        <div className="w-4 h-4 border-2 border-neonBlue border-t-transparent rounded-full animate-spin" />{txt.processing}
+                                                    <div className="flex items-center gap-2 text-[#FFF2C6] text-sm">
+                                                        <div className="w-4 h-4 border-2 border-[#FFD66A] border-t-transparent rounded-full animate-spin" />{txt.processing}
                                                     </div>
                                                 )}
 
@@ -528,7 +497,7 @@ export const ImageCompressorTool = () => {
                                                     <div className="space-y-2">
                                                         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
                                                             <div><span className="text-white/40 block uppercase tracking-wider">{txt.original}</span><span className="font-mono font-bold text-white/80">{formatBytes(img.originalSize)}</span></div>
-                                                            <div><span className="text-white/40 block uppercase tracking-wider">{txt.compressed}</span><span className="font-mono font-bold text-neonBlue">{formatBytes(img.compressedSize)}</span></div>
+                                                            <div><span className="text-white/60 block uppercase tracking-wider">{txt.compressed}</span><span className="font-mono font-bold text-[#FFF2C6]">{formatBytes(img.compressedSize)}</span></div>
                                                             <div>
                                                                 <span className="text-white/40 block uppercase tracking-wider">{txt.saved}</span>
                                                                 <span className={`font-mono font-bold ${pctSaved > 0 ? 'text-green-400' : 'text-red-400'}`}>
@@ -545,7 +514,7 @@ export const ImageCompressorTool = () => {
                                                         {/* Visual size bar */}
                                                         {pctSaved > 0 && (
                                                             <div className="flex items-center gap-2">
-                                                                <div className="flex-grow h-1.5 bg-surface3 rounded-full overflow-hidden">
+                                                                <div className="flex-grow h-1.5 bg-white/15 rounded-full overflow-hidden">
                                                                     <div className="h-full bg-gradient-to-r from-green-500 to-green-400 rounded-full transition-all duration-500"
                                                                         style={{ width: `${100 - pctSaved}%` }} />
                                                                 </div>
@@ -562,7 +531,7 @@ export const ImageCompressorTool = () => {
                                             <div className="flex gap-2 flex-shrink-0">
                                                 {img.status === 'done' && (
                                                     <button onClick={() => downloadSingle(img)}
-                                                        className="flex items-center gap-2 px-4 py-3 rounded-lg bg-transparent text-neonBlue border-2 border-neonBlue hover:bg-neonBlue hover:text-white transition-all duration-300 font-bold uppercase tracking-wider text-sm relative overflow-hidden group shadow-[0_0_15px_rgba(77,148,255,0.15)] hover:shadow-[0_0_25px_rgba(77,148,255,0.4)]">
+                                                        className="flex items-center gap-2 px-4 py-3 rounded-full bg-white/10 text-[#FFF2C6] border-2 border-white/40 hover:bg-[#FFD66A] hover:text-[#06437D] hover:border-[#FFD66A] transition-all duration-300 font-bold uppercase tracking-wider text-sm relative overflow-hidden group">
                                                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] animate-[shimmer_2s_infinite] pointer-events-none skew-x-12" />
                                                         <Download className="w-4 h-4 relative z-10" /><span className="relative z-10">{txt.download}</span>
                                                     </button>
@@ -589,22 +558,20 @@ export const ImageCompressorTool = () => {
                     )}
 
                     {/* CTA */}
-                    <div className="mt-16 text-center p-8 rounded-xl bg-surface/30 border border-white/5 backdrop-blur-sm">
-                        <h2 className="text-xl font-bold mb-2">
+                    <div className="mt-16 text-center sky-frost-panel p-8 rounded-[1.75rem]">
+                        <h2 className="text-xl font-bold font-hero mb-2 text-white">
                             {currentLang === 'hu' ? 'Weboldal lassú a nagy képek miatt?' : 'Website slow because of large images?'}
                         </h2>
-                        <p className="text-muted mb-6 max-w-lg mx-auto">
+                        <p className="text-white/80 mb-6 max-w-lg mx-auto">
                             {currentLang === 'hu'
                                 ? 'Professzionális weboldal optimalizálás gyorsítjuk a betöltést, javítjuk a felhasználói élményt és a SEO rangsorolást.'
                                 : 'Professional website optimization — faster load times, better UX and SEO ranking.'}
                         </p>
                         <a href={`/${currentLang}/#contact`}
-                            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-neonBlue text-white font-bold uppercase tracking-wider text-sm hover:shadow-[0_0_30px_rgba(77,148,255,0.5)] transition-all duration-300">
+                            className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-[#FFD66A] px-6 py-3 font-hero font-bold uppercase tracking-wider text-sm text-[#06437D] transition-all duration-300 hover:bg-[#FFE18A]">
                             {currentLang === 'hu' ? 'Kérj ajánlatot' : 'Get a quote'}
                         </a>
                     </div>
-                </Container>
-            </main>
-</div>
+        </SubpageShell>
     );
 };
