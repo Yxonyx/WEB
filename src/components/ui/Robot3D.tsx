@@ -17,15 +17,12 @@ export const Robot3D = ({ size = 200 }: Robot3DProps) => {
         const width = container.clientWidth || size;
         const height = container.clientHeight || size;
 
-        // Scene
         const scene = new THREE.Scene();
         scene.background = null;
 
-        // Camera
         const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 100);
         camera.position.set(0, 1, 3);
 
-        // Renderer - smoother edges on capable (desktop) devices, lean on mobile
         const isMobile = window.innerWidth < 1024;
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(width, height);
@@ -34,20 +31,17 @@ export const Robot3D = ({ size = 200 }: Robot3DProps) => {
         renderer.toneMappingExposure = 1.05;
         container.appendChild(renderer.domElement);
 
-        // Controls
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
-        controls.autoRotate = false; // Disable full 360 rotation
+        controls.autoRotate = false;
         controls.enableZoom = false;
         controls.enablePan = false;
 
-        // Robot model reference for oscillation
         let robotModel: THREE.Object3D | null = null;
         let robotBaseY = 0;
-        const oscillationRange = Math.PI / 4; // 45 degrees each way
+        const oscillationRange = Math.PI / 4;
         const oscillationSpeed = 0.5;
 
-        // Lights — soft studio setup: cool sky / warm ground fill, key, and accent rims
         const hemiLight = new THREE.HemisphereLight(0xbcd4ff, 0x1a1030, 0.55);
         scene.add(hemiLight);
 
@@ -58,24 +52,20 @@ export const Robot3D = ({ size = 200 }: Robot3DProps) => {
         keyLight.position.set(4, 6, 5);
         scene.add(keyLight);
 
-        // Cool blue rim from the left for that "AI" sheen
         const blueLight = new THREE.PointLight(0x4d94ff, 1.1, 12);
         blueLight.position.set(-2.5, 1.2, 2.5);
         scene.add(blueLight);
 
-        // Purple back/rim light to separate the robot from the dark background
         const purpleRim = new THREE.PointLight(0x8f7dff, 0.9, 12);
         purpleRim.position.set(2.5, 0.5, -2.5);
         scene.add(purpleRim);
 
-        // Load Robot
         const loader = new GLTFLoader();
         loader.load(
             '/robot.gltf',
             (gltf) => {
                 const model = gltf.scene;
 
-                // Center and scale
                 const box = new THREE.Box3().setFromObject(model);
                 const center = box.getCenter(new THREE.Vector3());
                 const modelSize = box.getSize(new THREE.Vector3());
@@ -97,42 +87,66 @@ export const Robot3D = ({ size = 200 }: Robot3DProps) => {
             }
         );
 
-        // Animation
-        let animationId: number;
-        const startTime = Date.now();
-        function animate() {
+        let animationId = 0;
+        let isVisible = true;
+        let isDocVisible = document.visibilityState === 'visible';
+        let elapsed = 0;
+        let lastFrame = performance.now();
+
+        const shouldRender = () => isVisible && isDocVisible;
+
+        const animate = (now: number) => {
             animationId = requestAnimationFrame(animate);
 
-            // Oscillate robot back and forth instead of full 360, with a gentle float
+            if (!shouldRender()) {
+                lastFrame = now;
+                return;
+            }
+
+            const delta = (now - lastFrame) / 1000;
+            lastFrame = now;
+            elapsed += delta;
+
             if (robotModel) {
-                const elapsed = (Date.now() - startTime) / 1000;
                 robotModel.rotation.y = Math.sin(elapsed * oscillationSpeed) * oscillationRange;
                 robotModel.position.y = robotBaseY + Math.sin(elapsed * 1.3) * 0.035;
             }
 
             controls.update();
             renderer.render(scene, camera);
-        }
-        animate();
+        };
 
-        // Resize
-        // ResizeObserver for better performance and to handle container resizing
+        animationId = requestAnimationFrame(animate);
+
+        const visibilityObserver = new IntersectionObserver(
+            ([entry]) => {
+                isVisible = entry.isIntersecting;
+            },
+            { rootMargin: '120px', threshold: 0 }
+        );
+        visibilityObserver.observe(container);
+
+        const handleDocVisibility = () => {
+            isDocVisible = document.visibilityState === 'visible';
+        };
+        document.addEventListener('visibilitychange', handleDocVisibility);
+
         const resizeObserver = new ResizeObserver((entries) => {
             for (const entry of entries) {
-                const { width, height } = entry.contentRect;
-                // Only update if dimensions actually changed
-                if (width > 0 && height > 0) {
-                    camera.aspect = width / height;
+                const { width: nextWidth, height: nextHeight } = entry.contentRect;
+                if (nextWidth > 0 && nextHeight > 0) {
+                    camera.aspect = nextWidth / nextHeight;
                     camera.updateProjectionMatrix();
-                    renderer.setSize(width, height);
+                    renderer.setSize(nextWidth, nextHeight);
                 }
             }
         });
-
         resizeObserver.observe(container);
 
         return () => {
             cancelAnimationFrame(animationId);
+            visibilityObserver.disconnect();
+            document.removeEventListener('visibilitychange', handleDocVisibility);
             resizeObserver.disconnect();
             renderer.dispose();
             if (container.contains(renderer.domElement)) {

@@ -34,6 +34,7 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
     <MountOnVisible
       className={className}
       rootMargin="200px"
+      once
       fallback={<StaticGlow className={className} />}
     >
       <Suspense

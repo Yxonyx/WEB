@@ -73,6 +73,7 @@ export const GEO = () => {
                                         <MountOnVisible
                                             className="absolute inset-0 flex items-center justify-center brightness-[1.22] saturate-[1.18] drop-shadow-[0_18px_30px_rgba(255,246,219,0.22)]"
                                             rootMargin="200px"
+                                            once
                                         >
                                             <Suspense fallback={null}>
                                                 <Robot3D size={165} />

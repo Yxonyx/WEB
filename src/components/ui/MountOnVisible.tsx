@@ -13,10 +13,11 @@ interface MountOnVisibleProps {
 }
 
 /**
- * Mounts its children only while the wrapper is in (or near) the viewport.
- * Unmounts them when scrolled away — releasing WebGL contexts, canvas
- * timers, and other expensive resources. Critical on mobile to keep two
- * heavy 3D scenes from being alive simultaneously.
+ * Mounts its children when the wrapper enters (or nears) the viewport.
+ *
+ * - Default: unmounts when scrolled away — releases WebGL/canvas resources.
+ * - once: mount on first view and keep alive; pair with in-component pause
+ *   (see Robot3D) so off-screen scenes don't keep rendering.
  */
 export const MountOnVisible = ({
     children,
