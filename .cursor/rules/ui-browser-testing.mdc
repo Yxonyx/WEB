@@ -1,0 +1,31 @@
+---
+description: UI and scroll verification with browser MCP (not curl/screenshot hacks)
+alwaysApply: true
+---
+
+# UI / scroll smoke testing (WEB project)
+
+## Preferred tools
+
+1. **Cursor Agent**: use built-in `cursor-ide-browser` when available (navigate → snapshot → interact).
+2. **Codex**: use MCP server `playwright` from `~/.codex/config.toml`.
+3. Do **not** use `firefox --screenshot` or one-shot `curl` for visual/layout checks.
+
+## Local URLs
+
+- Dev: `http://localhost:3000/hu/` (run `npm run dev` in repo root)
+- Static export: serve `out/` on port 4173, e.g. `python3 -m http.server 4173 --directory out`
+- Testimonials anchor: `#velemenyek` — expect `scrollIntoView` with `block: "center"` (see `src/utils/scrollTarget.ts`)
+
+## Procedure
+
+1. Start server if not running; confirm HTTP 200.
+2. Open target URL with hash when testing section landing.
+3. Wait ≥2s after navigation for lazy sections and smooth scroll.
+4. Measure DOM: `#velemenyek` `getBoundingClientRect()` vs viewport center; do not accept screenshots where hero is still visible.
+5. Test desktop (~1280×800) and mobile (~390×844) when changing layout/scroll.
+
+## Scroll fix context
+
+- Testimonials section id: `velemenyek`
+- Vertical wheel over horizontal carousel must scroll the page; horizontal/shift-scroll drives the carousel (`Testimonials.tsx`).

@@ -17,41 +17,6 @@ export const BlogPost = () => {
         window.scrollTo(0, 0);
     }, [id]);
 
-
-
-    // Generate JSON-LD structured data for the article
-    const generateArticleSchema = () => {
-        if (!post) return null;
-        return {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": post.title,
-            "description": post.metaDescription,
-            "image": `https://cyberlabsweb.com${post.image}`,
-            "datePublished": post.dateISO,
-            "dateModified": post.dateISO,
-            "author": {
-                "@type": "Organization",
-                "name": post.author,
-                "url": "https://cyberlabsweb.com/"
-            },
-            "publisher": {
-                "@type": "Organization",
-                "name": "CyberLabs Web",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://cyberlabsweb.com/og/cyberlabs-og.png"
-                }
-            },
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": `https://cyberlabsweb.com/${lang || 'hu'}/blog/${post.id}`
-            },
-            "articleSection": post.category,
-            "inLanguage": "hu-HU"
-        };
-    };
-
     if (!post) {
         return (
             <SubpageShell backHref={`/${lang || 'hu'}/`} backLabel="Vissza a főoldalra">
@@ -67,7 +32,6 @@ export const BlogPost = () => {
     }
 
     const canonicalUrl = `https://cyberlabsweb.com/${lang || 'hu'}/blog/${post.id}`;
-    const ogImage = `https://cyberlabsweb.com${post.image}`;
 
     return (
         <SubpageShell
@@ -137,7 +101,7 @@ export const BlogPost = () => {
                                 </div>
                                 <div>
                                     <span className="text-sm text-white font-semibold">{post.author}</span>
-                                    <span className="text-xs text-white/60 ml-2 font-mono">// CyberLabs Web</span>
+                                    <span className="text-xs text-white/60 ml-2 font-mono">{'//'} CyberLabs Web</span>
                                 </div>
                             </motion.div>
                         </div>
@@ -177,7 +141,7 @@ export const BlogPost = () => {
                                 {post.author}
                             </h3>
                             <div className="text-sm text-[#FFF2C6] mb-3 font-mono">
-                                // Digital Strategy Team
+                                {'//'} Digital Strategy Team
                             </div>
                             <p className="text-white/80 text-sm leading-relaxed mb-4">
                                 A CyberLabs Web szakértői csapata. Prémium webfejlesztés, AI integráció és digitális stratégia kis- és középvállalkozásoknak. Cikkeinket a legfrissebb iparági trendek és valós tapasztalatok alapján írjuk.

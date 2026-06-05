@@ -17,6 +17,8 @@ export const GeoNotification = () => {
     };
 
     useEffect(() => {
+        if (!shouldShow) return;
+
         // Check if already dismissed
         try {
             if (localStorage.getItem('geo_popup_dismissed')) return;
@@ -28,7 +30,7 @@ export const GeoNotification = () => {
         }, 10000);
 
         return () => clearTimeout(timer);
-    }, []);
+    }, [shouldShow]);
 
     const variants = {
         initial: { opacity: 0, scale: 0.8 },

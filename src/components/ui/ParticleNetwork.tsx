@@ -1,5 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 
+interface Particle {
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    size: number;
+    color: string;
+}
+
 export const ParticleNetwork = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -17,6 +26,9 @@ export const ParticleNetwork = () => {
 
     // Intersection Observer to prevent resource usage when not visible
     useEffect(() => {
+        const node = containerRef.current;
+        if (!node) return;
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 setIsVisible(entry.isIntersecting);
@@ -24,15 +36,9 @@ export const ParticleNetwork = () => {
             { threshold: 0, rootMargin: "200px" } // Load before it comes into view
         );
 
-        if (containerRef.current) {
-            observer.observe(containerRef.current);
-        }
+        observer.observe(node);
 
-        return () => {
-            if (containerRef.current) {
-                observer.disconnect();
-            }
-        };
+        return () => observer.disconnect();
     }, []);
 
     useEffect(() => {
@@ -49,6 +55,7 @@ export const ParticleNetwork = () => {
         let animationFrameId: number;
         let canvasWidth = window.innerWidth;
         let canvasHeight = window.innerHeight;
+        let isDocVisible = document.visibilityState === 'visible';
 
         // Optimized particle count: 50 for Desktop, 25 for Mobile (safer for battery/perf)
         const particleCount = isMobileDevice ? 25 : 50;
@@ -70,49 +77,36 @@ export const ParticleNetwork = () => {
 
         updateCanvasSize();
 
-        class Particle {
-            x: number;
-            y: number;
-            vx: number;
-            vy: number;
-            size: number;
-            color: string;
+        const createParticle = (): Particle => ({
+            x: Math.random() * canvasWidth,
+            y: Math.random() * canvasHeight,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            size: Math.random() * 2 + 0.5,
+            color: Math.random() > 0.5
+                ? 'rgba(77, 148, 255'
+                : 'rgba(143, 125, 255',
+        });
 
-            constructor() {
-                this.x = Math.random() * canvasWidth;
-                this.y = Math.random() * canvasHeight;
-                this.vx = (Math.random() - 0.5) * 0.3;
-                this.vy = (Math.random() - 0.5) * 0.3;
-                this.size = Math.random() * 2 + 0.5;
+        const updateParticle = (particle: Particle) => {
+            particle.x += particle.vx;
+            particle.y += particle.vy;
 
-                // Super Lighter Electric Palette
-                this.color = Math.random() > 0.5
-                    ? 'rgba(77, 148, 255'
-                    : 'rgba(143, 125, 255';
-            }
+            if (particle.x < 0 || particle.x > canvasWidth) particle.vx *= -1;
+            if (particle.y < 0 || particle.y > canvasHeight) particle.vy *= -1;
+        };
 
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                // Bounce off edges
-                if (this.x < 0 || this.x > canvasWidth) this.vx *= -1;
-                if (this.y < 0 || this.y > canvasHeight) this.vy *= -1;
-            }
-
-            draw() {
-                if (!ctx) return;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `${this.color}, 0.7)`;
-                ctx.fill();
-            }
-        }
+        const drawParticle = (particle: Particle) => {
+            ctx.beginPath();
+            ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            ctx.fillStyle = `${particle.color}, 0.7)`;
+            ctx.fill();
+        };
 
         const initParticles = () => {
             particles = [];
             for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
+                particles.push(createParticle());
             }
         };
 
@@ -137,13 +131,13 @@ export const ParticleNetwork = () => {
         };
 
         const animate = () => {
-            if (!isVisible) return;
+            if (!isVisible || !isDocVisible) return;
 
             ctx.clearRect(0, 0, canvasWidth, canvasHeight);
             drawConnections();
             particles.forEach(particle => {
-                particle.update();
-                particle.draw();
+                updateParticle(particle);
+                drawParticle(particle);
             });
             animationFrameId = requestAnimationFrame(animate);
         };
@@ -157,13 +151,22 @@ export const ParticleNetwork = () => {
             }, 200);
         };
 
+        const handleVisibility = () => {
+            isDocVisible = document.visibilityState === 'visible';
+            if (isDocVisible) {
+                animationFrameId = requestAnimationFrame(animate);
+            }
+        };
+
         window.addEventListener('resize', handleResize);
+        document.addEventListener('visibilitychange', handleVisibility);
 
         initParticles();
         animate();
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            document.removeEventListener('visibilitychange', handleVisibility);
             cancelAnimationFrame(animationFrameId);
             clearTimeout(resizeTimeout);
         };

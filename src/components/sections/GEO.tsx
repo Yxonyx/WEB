@@ -15,11 +15,15 @@ export const GEO = () => {
     const aiAnswer = t('geo.where.dialog.a1') as unknown as {label: string; text_prefix: string; text_highlight: string; text_suffix: string};
     const channels = t('geo.where.list') as unknown as string[];
     useEffect(() => {
-        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const mobile = window.matchMedia('(max-width: 1023px)').matches;
-        const dm = (navigator as Navigator & {deviceMemory?: number}).deviceMemory;
-        const lowMem = dm !== undefined && dm < 3;
-        setIsCapable(!reduced && !lowMem && !mobile);
+        const frame = requestAnimationFrame(() => {
+            const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const mobile = window.matchMedia('(max-width: 1023px)').matches;
+            const dm = (navigator as Navigator & {deviceMemory?: number}).deviceMemory;
+            const lowMem = dm !== undefined && dm < 3;
+            setIsCapable(!reduced && !lowMem && !mobile);
+        });
+
+        return () => cancelAnimationFrame(frame);
     }, []);
 
     // Subtle soft glow only — no visible ring/circle border
@@ -72,7 +76,7 @@ export const GEO = () => {
                                     {isCapable && (
                                         <MountOnVisible
                                             className="absolute inset-0 flex items-center justify-center brightness-[1.22] saturate-[1.18] drop-shadow-[0_18px_30px_rgba(255,246,219,0.22)]"
-                                            rootMargin="200px"
+                                            rootMargin="80px"
                                             once
                                         >
                                             <Suspense fallback={null}>

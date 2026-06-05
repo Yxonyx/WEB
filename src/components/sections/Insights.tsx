@@ -74,6 +74,7 @@ export const Insights = () => {
                                                 height="600"
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                                 loading="lazy"
+                                                decoding="async"
                                             />
                                             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#1B7ED5]/70 to-transparent" />
                                         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, type ReactNode, type ComponentType, Suspense } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 interface LazySectionProps {
   fallback?: ReactNode;

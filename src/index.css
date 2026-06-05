@@ -67,6 +67,12 @@
     transform: translateZ(0);
   }
 
+  @media (max-width: 767px) {
+    body::before {
+      will-change: auto;
+    }
+  }
+
   @media (min-width: 1024px) and (hover: hover) {
     body::before {
       background-image:
@@ -245,7 +251,7 @@
           #0E7CDC 100%
       );
     background-repeat: repeat-y, repeat-y, no-repeat, no-repeat, no-repeat, no-repeat;
-    background-size: 100% 900px, 100% 1800px, auto, auto, auto, auto;
+    background-size: 112% 900px, 112% 1800px, auto, auto, auto, auto;
     background-position: 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0;
   }
 
@@ -299,13 +305,13 @@
   .between-hero-footer-bg::after {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: 0 -8vw;
     z-index: 0;
     pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg width='1440' height='900' viewBox='0 0 1440 900' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='.9'%3E%3Cpath d='M-80 182c108-74 214-92 318-54 122 45 210 40 341-9 132-49 241-45 329 12 88 57 188 61 301 13 95-40 194-37 296 9v171H-80V182Z' fill='white' opacity='.16'/%3E%3Cpath d='M-50 614c103-48 207-55 312-21 106 34 207 34 303 0 139-49 265-47 378 8 88 43 190 42 306-2 87-33 178-30 273 10v173H-50V614Z' fill='white' opacity='.12'/%3E%3Cpath d='M109 360c122-38 235-38 339 0 122 44 252 36 391-24 96-42 199-38 309 12 66 30 146 31 239 4v176H109V360Z' fill='%23FFF2C6' opacity='.08'/%3E%3C/g%3E%3C/svg%3E");
     background-repeat: repeat-y;
     background-position: 50% 0;
-    background-size: 100% auto;
+    background-size: 112% auto;
     opacity: 0.8;
     animation: skyCloudDrift 34s ease-in-out infinite;
     will-change: transform;
@@ -355,6 +361,7 @@
   .between-hero-footer-bg > section {
     position: relative;
     z-index: 1;
+    contain: layout paint style;
     background-color: transparent !important;
     background-repeat: no-repeat;
     background-size: 100% 100%;

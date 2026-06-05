@@ -70,6 +70,7 @@ export const AllArticles = () => {
                                             height="600"
                                             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                                             loading="lazy"
+                                            decoding="async"
                                         />
                                         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#0E7CDC]/80 to-transparent" />
                                     </div>

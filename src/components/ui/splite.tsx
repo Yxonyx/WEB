@@ -2,6 +2,8 @@
 
 import { Suspense, lazy, useState, useEffect } from 'react'
 import { MountOnVisible } from './MountOnVisible'
+import { subscribeGeoWebGLActive } from '@/utils/webglScene'
+
 const Spline = lazy(() => import('@splinetool/react-spline'))
 
 interface SplineSceneProps {
@@ -18,15 +20,38 @@ const StaticGlow = ({ className }: { className?: string }) => (
 
 export function SplineScene({ scene, className }: SplineSceneProps) {
   const [isCapable, setIsCapable] = useState(true);
+  const [geoWebGLActive, setGeoWebGLActive] = useState(false);
+  const [heroInView, setHeroInView] = useState(true);
 
   useEffect(() => {
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const dm = (navigator as Navigator & { deviceMemory?: number }).deviceMemory;
-    const lowMem = dm !== undefined && dm < 3;
-    setIsCapable(!reduced && !lowMem);
+    const frame = requestAnimationFrame(() => {
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const dm = (navigator as Navigator & { deviceMemory?: number }).deviceMemory;
+      const lowMem = dm !== undefined && dm < 3;
+      setIsCapable(!reduced && !lowMem);
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, []);
 
-  if (!isCapable) {
+  useEffect(() => subscribeGeoWebGLActive(setGeoWebGLActive), []);
+
+  useEffect(() => {
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeroInView(entry.isIntersecting),
+      { threshold: 0.05 },
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
+
+  // Only yield GPU to the GEO robot once the hero is off-screen
+  const yieldToGeoRobot = geoWebGLActive && !heroInView;
+
+  if (!isCapable || yieldToGeoRobot) {
     return <StaticGlow className={className} />;
   }
 
@@ -34,7 +59,6 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
     <MountOnVisible
       className={className}
       rootMargin="200px"
-      once
       fallback={<StaticGlow className={className} />}
     >
       <Suspense

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useCallback, useRef, useState, useEffect, useLayoutEffect, type WheelEvent } from 'react';
 import { Section } from '../Section';
 import { Container } from '../Container';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -16,7 +16,9 @@ interface Testimonial {
 export const Testimonials = () => {
     const { language } = useLanguage();
     const trackRef = useRef<HTMLDivElement>(null);
+    const sectionRef = useRef<HTMLDivElement>(null);
     const [isHovering, setIsHovering] = useState(false);
+    const [isInView, setIsInView] = useState(false);
 
     const testimonials: Record<string, Testimonial[]> = {
         hu: [
@@ -77,15 +79,34 @@ export const Testimonials = () => {
 
     // Use a long list to simulate plenty of content (6x duplication)
     const items = Array(6).fill(currentTestimonials).flat();
+    const initialIndex = currentTestimonials.length * 2;
 
-    const scroll = (direction: 'left' | 'right') => {
-        if (!trackRef.current) return;
-        const container = trackRef.current;
-
+    const getScrollAmount = useCallback(() => {
         const isMobile = window.innerWidth < 768;
         const cardWidth = isMobile ? 300 : 400;
         const gap = 12; // gap-3 is 0.75rem = 12px
-        const scrollAmount = cardWidth + gap;
+        return cardWidth + gap;
+    }, []);
+
+    useLayoutEffect(() => {
+        const container = trackRef.current;
+        if (!container) return;
+
+        const frame = requestAnimationFrame(() => {
+            container.scrollTo({
+                left: initialIndex * getScrollAmount(),
+                behavior: 'auto',
+            });
+        });
+
+        return () => cancelAnimationFrame(frame);
+    }, [getScrollAmount, initialIndex]);
+
+    const scroll = useCallback((direction: 'left' | 'right') => {
+        if (!trackRef.current) return;
+        const container = trackRef.current;
+
+        const scrollAmount = getScrollAmount();
 
         // Calculate current index based on scroll position to align perfectly
         const currentIndex = Math.round(container.scrollLeft / scrollAmount);
@@ -101,16 +122,12 @@ export const Testimonials = () => {
         const maxIndex = items.length - 1;
 
         if (targetIndex > maxIndex) {
-            // Loop back to start smoothly
-            targetIndex = 0;
-            container.scrollTo({ left: 0, behavior: 'smooth' });
+            container.scrollTo({ left: initialIndex * scrollAmount, behavior: 'smooth' });
             return;
         }
 
         if (targetIndex < 0) {
-            // Loop to end smoothly
-            targetIndex = maxIndex;
-            container.scrollTo({ left: maxIndex * scrollAmount, behavior: 'smooth' });
+            container.scrollTo({ left: initialIndex * scrollAmount, behavior: 'smooth' });
             return;
         }
 
@@ -120,29 +137,43 @@ export const Testimonials = () => {
             left: targetScroll,
             behavior: 'smooth'
         });
-    };
+    }, [getScrollAmount, initialIndex, items.length]);
 
-    // Auto-scroll functionality
+    const handleTrackWheel = useCallback((event: WheelEvent<HTMLDivElement>) => {
+        const isVerticalIntent = Math.abs(event.deltaY) > Math.abs(event.deltaX) && !event.shiftKey;
+        if (!isVerticalIntent) return;
+
+        event.preventDefault();
+        window.scrollBy({ top: event.deltaY, behavior: 'auto' });
+    }, []);
+
+    // Auto-scroll only while the carousel is in the viewport
     useEffect(() => {
+        const node = sectionRef.current;
+        if (!node) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsInView(entry.isIntersecting),
+            { threshold: 0.15 },
+        );
+        observer.observe(node);
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!isInView) return;
+
         const interval = setInterval(() => {
             if (!isHovering && trackRef.current) {
-                const container = trackRef.current;
-                const maxScroll = container.scrollWidth - container.clientWidth;
-
-                // If we are at the very end, jump to start
-                if (Math.abs(container.scrollLeft - maxScroll) < 5) {
-                    container.scrollTo({ left: 0, behavior: "smooth" }); // Rewind to start
-                } else {
-                    scroll('right');
-                }
+                scroll('right');
             }
-        }, 4000); // 4 seconds interval
+        }, 3000);
 
         return () => clearInterval(interval);
-    }, [isHovering]);
+    }, [isHovering, isInView, scroll]);
 
     return (
-        <Section id="velemenyek" className="relative overflow-hidden">
+        <Section id="velemenyek" className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden">
             <Container>
                 <SectionHeader
                     number="09"
@@ -173,6 +204,7 @@ export const Testimonials = () => {
 
             {/* Scrolling Carousel Container */}
             <div
+                ref={sectionRef}
                 className="relative w-full mt-4"
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
@@ -198,6 +230,7 @@ export const Testimonials = () => {
                 {/* Scrollable Track - Replaces CSS animation with native scroll */}
                 <div
                     ref={trackRef}
+                    onWheel={handleTrackWheel}
                     className="flex gap-3 py-4 md:py-8 w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-[calc((100vw-300px)/2)] md:px-[calc((100vw-400px)/2)] [scroll-padding-inline:calc((100vw-300px)/2)] md:[scroll-padding-inline:calc((100vw-400px)/2)]"
                 >
                     {items.map((testimonial, index) => (
@@ -225,7 +258,7 @@ export const Testimonials = () => {
                                     </div>
 
                                     <p className="text-white/85 text-[15px] leading-relaxed mb-6">
-                                        "{testimonial.quote}"
+                                        &ldquo;{testimonial.quote}&rdquo;
                                     </p>
                                 </div>
 

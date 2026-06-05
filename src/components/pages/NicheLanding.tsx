@@ -1,4 +1,5 @@
 import { useParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { useState } from 'react';
 import { nichePages } from '../../data/nichePages';
 import { Container } from '../Container';
@@ -52,6 +53,7 @@ const iconMap: Record<string, LucideIcon | React.FC> = {
 export const NicheLanding = () => {
     const params = useParams();
     const router = useRouter();
+    const currentLang = (params?.lang as string) || 'hu';
     const nicheSlug = params?.slug as string;
     const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -132,13 +134,13 @@ export const NicheLanding = () => {
                         {niche.heroSubtitle}
                     </p>
 
-                    <a
-                        href="/#contact"
+                    <Link
+                        href={`/${currentLang}/#kapcsolat`}
                         className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-neonBlue to-[#a855f7] rounded-lg font-semibold text-white text-lg hover:shadow-[0_0_30px_rgba(79,138,255,0.3)] transition-all duration-300 hover:-translate-y-0.5"
                     >
                         Ingyenes Konzultáció
                         <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                    </a>
+                    </Link>
                 </Container>
             </section>
 
@@ -191,12 +193,12 @@ export const NicheLanding = () => {
                         Kérj ingyenes konzultációt, és 48 órán belül személyre szabott ajánlatot küldünk.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a
-                            href="/#contact"
+                        <Link
+                            href={`/${currentLang}/#kapcsolat`}
                             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-neonBlue to-[#a855f7] rounded-lg font-semibold text-white hover:shadow-[0_0_30px_rgba(79,138,255,0.3)] transition-all duration-300 hover:-translate-y-0.5"
                         >
                             Ajánlatot Kérek
-                        </a>
+                        </Link>
                         <a
                             href="tel:+36703304445"
                             className="inline-flex items-center gap-2 px-8 py-4 border border-white/10 rounded-lg font-semibold text-white hover:border-neonBlue/50 hover:bg-neonBlue/5 transition-all duration-300"
@@ -249,13 +251,13 @@ export const NicheLanding = () => {
                     <p className="text-muted max-w-lg mx-auto mb-8">
                         Az első lépés egy ingyenes, kötelezettségmentes konzultáció. Beszéljük meg az igényeidet!
                     </p>
-                    <a
-                        href="/#contact"
+                    <Link
+                        href={`/${currentLang}/#kapcsolat`}
                         className="group inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-neonBlue to-[#a855f7] rounded-lg font-bold text-lg text-white hover:shadow-[0_0_40px_rgba(79,138,255,0.4)] transition-all duration-300 hover:-translate-y-1"
                     >
                         Ingyenes Konzultáció
                         <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                    </a>
+                    </Link>
                 </Container>
             </section>
 </div>

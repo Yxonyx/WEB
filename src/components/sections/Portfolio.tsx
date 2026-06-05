@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useCallback, useMemo, useRef, useState, useEffect } from 'react';
 import { Container } from '../Container';
 import { Section } from '../Section';
 import { BracketFrame } from '../ui/BracketFrame';
@@ -128,8 +128,11 @@ const ProjectCard = ({ project }: { project: Project }) => {
                     <img
                         src={project.image}
                         alt={`${project.name} Mobile`}
+                        width={400}
+                        height={800}
                         className="w-full h-full object-cover"
                         loading="lazy"
+                        decoding="async"
                     />
                     {/* Phone Shine */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
@@ -157,6 +160,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                                 loop
                                 muted
                                 playsInline
+                                preload="none"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                         ) : (
@@ -166,6 +170,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                                 width={800}
                                 height={600}
                                 loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                             />
                         )}
@@ -194,22 +199,22 @@ export const Portfolio = () => {
     const [isHovering, setIsHovering] = useState(false);
     const [isCarouselInView, setIsCarouselInView] = useState(false);
 
-    const mobileProjectsRaw = projects.filter(p => p.isMobile);
+    const mobileProjectsRaw = useMemo(() => projects.filter(p => p.isMobile), []);
     // Duplicate items for infinite scroll effect (3 items * 4 = 12 items)
-    const mobileProjects = Array(4).fill(mobileProjectsRaw).flat();
+    const mobileProjects = useMemo(() => Array(4).fill(mobileProjectsRaw).flat(), [mobileProjectsRaw]);
 
-    const desktopProjects = projects.filter(p => !p.isMobile);
+    const desktopProjects = useMemo(() => projects.filter(p => !p.isMobile), []);
 
-    const centerCard = (
+    const centerCard = useCallback((
         container: HTMLElement,
         card: HTMLElement,
         behavior: ScrollBehavior = 'smooth',
     ) => {
         const targetLeft = card.offsetLeft - (container.clientWidth - card.offsetWidth) / 2;
         container.scrollTo({ left: Math.max(0, targetLeft), behavior });
-    };
+    }, []);
 
-    const scrollMobile = (direction: 'left' | 'right') => {
+    const scrollMobile = useCallback((direction: 'left' | 'right') => {
         const container = mobileTrackRef.current;
         if (!container) return;
 
@@ -234,7 +239,7 @@ export const Portfolio = () => {
         if (targetIndex < 0) targetIndex = cards.length - 1;
 
         centerCard(container, cards[targetIndex]);
-    };
+    }, [centerCard]);
 
     useEffect(() => {
         const node = carouselRef.current;
@@ -258,10 +263,11 @@ export const Portfolio = () => {
         if (cards[startIndex]) {
             centerCard(container, cards[startIndex], 'auto');
         }
-    }, [mobileProjectsRaw.length]);
+    }, [centerCard, mobileProjectsRaw.length]);
 
     useEffect(() => {
         if (!isCarouselInView) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
         const interval = setInterval(() => {
             if (!isHovering && mobileTrackRef.current) {
@@ -275,7 +281,7 @@ export const Portfolio = () => {
             }
         }, 3000);
         return () => clearInterval(interval);
-    }, [isCarouselInView, isHovering]);
+    }, [isCarouselInView, isHovering, scrollMobile]);
 
     return (
         <Section id="referenciak" className="overflow-hidden !pb-4 sm:!pb-6 lg:!pb-24" withOrbs withMeshGradient>

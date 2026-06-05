@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { clsx } from 'clsx';
 import { Button } from '../ui/Button';
 import { Container } from '../Container';
@@ -6,6 +6,8 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../../context/LanguageContext';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { scrollHashElementIntoView } from '../../utils/scrollTarget';
 
 export const Navbar = () => {
     const { t, language, setLanguage } = useLanguage();
@@ -16,48 +18,87 @@ export const Navbar = () => {
 
     const isHomePage = pathname === `/${language}` || pathname === `/${language}/`;
 
-    const getLink = (hash: string) => {
+    const getLink = useCallback((hash: string) => {
         if (hash.startsWith('http')) return hash;
         return isHomePage ? hash : `/${language}/${hash}`;
-    };
+    }, [isHomePage, language]);
 
-    const handleMobileNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const scrollToHashTarget = useCallback((hash: string, delay = 0) => {
+        const targetId = hash.slice(1);
+        const maxAttempts = 20;
+        let attempt = 0;
+
+        const tryScroll = () => {
+            const target = document.getElementById(targetId);
+            attempt++;
+
+            if (target) {
+                scrollHashElementIntoView(target, targetId);
+                return;
+            }
+
+            if (attempt === 1) {
+                window.dispatchEvent(new CustomEvent('force-lazy-load'));
+            }
+
+            if (attempt < maxAttempts) {
+                window.setTimeout(tryScroll, 100);
+            }
+        };
+
+        window.setTimeout(tryScroll, delay);
+    }, []);
+
+    const handleHashNav = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string, delay = 0) => {
+        const resolvedHref = getLink(href);
+        if (!resolvedHref.startsWith('#')) return;
+
+        e.preventDefault();
+        scrollToHashTarget(resolvedHref, delay);
+    }, [getLink, scrollToHashTarget]);
+
+    const handleMobileNav = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         const resolvedHref = getLink(href);
         // Only handle hash links on same page
         if (resolvedHref.startsWith('#')) {
             e.preventDefault();
             setIsMobileOpen(false);
-            const targetId = resolvedHref.slice(1);
-            // Wait for menu close animation to finish before scrolling
-            setTimeout(() => {
-                const target = document.getElementById(targetId);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }, 350);
+            scrollToHashTarget(resolvedHref, 350);
         } else {
             setIsMobileOpen(false);
         }
-    };
+    }, [getLink, scrollToHashTarget]);
 
     // Handle scroll to hash when navigating from another page
     useEffect(() => {
-        if ((typeof window !== 'undefined' ? window.location.hash : '')) {
-            const element = document.getElementById((typeof window !== 'undefined' ? window.location.hash : '').substring(1));
+        if (window.location.hash) {
+            const element = document.getElementById(window.location.hash.substring(1));
             if (element) {
                 setTimeout(() => {
-                    element.scrollIntoView({ behavior: 'smooth' });
+                    scrollHashElementIntoView(element, window.location.hash.substring(1));
                 }, 100);
+            } else {
+                window.dispatchEvent(new CustomEvent('force-lazy-load'));
+                scrollToHashTarget(window.location.hash, 100);
             }
         }
-    }, [pathname]);
+    }, [pathname, scrollToHashTarget]);
 
     useEffect(() => {
+        let frame = 0;
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+            if (frame) return;
+            frame = requestAnimationFrame(() => {
+                setIsScrolled(window.scrollY > 20);
+                frame = 0;
+            });
         };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => {
+            if (frame) cancelAnimationFrame(frame);
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     const serviceDropdown = [
@@ -87,7 +128,7 @@ export const Navbar = () => {
         >
             <Container className="flex items-center justify-between lg:grid lg:grid-cols-[auto_1fr_auto]">
                 {/* Logo - Column 1 */}
-                <a href={`/${language}/`} className="group flex items-center">
+                <Link href={`/${language}/`} className="group flex items-center">
                     <div className="inline-flex flex-col items-stretch">
                         <span className="flex items-baseline font-hero text-2xl font-bold leading-none text-white drop-shadow-[0_3px_12px_rgba(0,82,166,0.34)] transition-all duration-300 group-hover:drop-shadow-[0_5px_18px_rgba(255,255,255,0.28)] lg:text-[1.65rem] xl:text-3xl">
                             <span>Cyber</span><span className="text-white/85">Labs</span>
@@ -96,7 +137,7 @@ export const Navbar = () => {
                             WEB DEVELOPMENT
                         </span>
                     </div>
-                </a>
+                </Link>
 
                 {/* Desktop Nav - Column 2 (Centered) */}
                 <nav className="hidden lg:flex items-center justify-center gap-8 xl:gap-10">
@@ -138,6 +179,7 @@ export const Navbar = () => {
                                             <a
                                                 key={index}
                                                 href={getLink(item.href)}
+                                                onClick={(e) => handleHashNav(e, item.href)}
                                                 className="group flex items-center gap-3 px-4 py-2.5 font-mono text-sm text-white/78 transition-all duration-200 hover:bg-white/[0.12] hover:text-white"
                                             >
                                                 <span className="text-xs text-white/45 transition-colors group-hover:text-white">{'>'}_</span>
@@ -164,6 +206,7 @@ export const Navbar = () => {
                         <a
                             key={link.label}
                             href={getLink(link.href)}
+                            onClick={(e) => handleHashNav(e, link.href)}
                             className="group/link relative text-[15px] font-semibold tracking-wide text-white/78 drop-shadow-[0_2px_8px_rgba(0,82,166,0.16)] transition-all duration-300 hover:text-white"
                         >
                             <span className="font-mono text-xs text-white/30 transition-colors group-hover/link:text-white/70">&lt;</span>

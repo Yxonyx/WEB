@@ -70,6 +70,7 @@ const TeamPhotoFrame = ({ src, alt }: { src: string; alt: string }) => (
                 src={src}
                 alt={alt}
                 loading="lazy"
+                decoding="async"
                 width={84}
                 height={84}
                 className="h-full w-full object-cover grayscale transition-all duration-500 hover:grayscale-0"

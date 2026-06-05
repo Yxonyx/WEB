@@ -42,6 +42,8 @@ export async function generateMetadata({
       images: [
         {
           url: socialImage,
+          secureUrl: socialImage,
+          type: "image/png",
           width: 1200,
           height: 630,
           alt: "CyberLabs Web",

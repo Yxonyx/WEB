@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 
 import { twMerge } from 'tailwind-merge';
 import { motion } from 'framer-motion';
+import { scrollHashElementIntoView } from '../../utils/scrollTarget';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary' | 'harvest';
@@ -43,7 +44,7 @@ export const Button: React.FC<ButtonProps> = ({
         // Try to find element immediately
         let target = document.getElementById(targetId);
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            scrollHashElementIntoView(target, targetId);
             return;
         }
 
@@ -58,7 +59,7 @@ export const Button: React.FC<ButtonProps> = ({
             attempt++;
             if (target) {
                 clearInterval(interval);
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                scrollHashElementIntoView(target, targetId);
             } else if (attempt >= maxAttempts) {
                 clearInterval(interval);
             }

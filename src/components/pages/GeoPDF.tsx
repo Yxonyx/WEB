@@ -1,4 +1,5 @@
 import { Download, Check, MessageSquare, Globe, Zap, ExternalLink, FileText } from 'lucide-react';
+import Link from 'next/link';
 import { ProIcon } from '../icons/ProIcon';
 import { Button } from '../ui/Button';
 import { Container } from '../Container';
@@ -9,7 +10,7 @@ export const GeoPDF = () => {
 {/* Header / Nav */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-bgDeep/80 backdrop-blur-md border-b border-white/5">
                 <Container className="h-20 flex items-center justify-between">
-                    <a href="/" className="flex items-center gap-3 group">
+                    <Link href="/" className="flex items-center gap-3 group">
                         <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-white to-neonBlue text-black font-bold font-mono text-lg leading-none transition-transform group-hover:scale-105 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
                             <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-black/20" />
                             <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-black/20" />
@@ -23,7 +24,7 @@ export const GeoPDF = () => {
                                 GEO Tudásanyag
                             </span>
                         </div>
-                    </a>
+                    </Link>
 
                     <Button href="/" variant="secondary" size="sm" className="hidden md:inline-flex">
                         Irány a Főoldal
@@ -86,7 +87,7 @@ export const GeoPDF = () => {
                                 </p>
                                 <div className="bg-black/40 p-6 border-l-2 border-neonBlue">
                                     <p className="text-gray-300 italic font-medium">
-                                        "A GEO célja, hogy a tartalmadat az AI modellek számára értelmezhetővé, hitelessé és idézhetővé tegye."
+                                        &ldquo;A GEO célja, hogy a tartalmadat az AI modellek számára értelmezhetővé, hitelessé és idézhetővé tegye.&rdquo;
                                     </p>
                                 </div>
                             </div>
@@ -169,6 +170,7 @@ export const GeoPDF = () => {
 
                             <iframe
                                 src="/documents/geo-guide.pdf"
+                                loading="lazy"
                                 className="w-full h-full relative z-10"
                                 title="GEO Útmutató PDF"
                             />
@@ -180,6 +182,8 @@ export const GeoPDF = () => {
                                 <img
                                     src="/images/geo-infographic.png"
                                     alt="PDF Előnézet"
+                                    loading="lazy"
+                                    decoding="async"
                                     className="absolute inset-0 w-full h-full object-cover opacity-30 blur-sm group-hover:blur-md transition-all duration-500"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-bgDeep to-transparent" />
@@ -222,6 +226,7 @@ export const GeoPDF = () => {
                                 controls
                                 className="w-full aspect-video"
                                 poster="/images/hero-bg-v5.webp"
+                                preload="metadata"
                             >
                                 <source src="/videos/geo-video.mp4" type="video/mp4" />
                                 A böngésződ nem támogatja a videó lejátszást.

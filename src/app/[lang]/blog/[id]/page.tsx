@@ -44,6 +44,8 @@ export async function generateMetadata({
       images: [
         {
           url: ogImage,
+          secureUrl: ogImage,
+          type: post.image.endsWith(".png") ? "image/png" : "image/webp",
           width: 1200,
           height: 630,
           alt: post.title,

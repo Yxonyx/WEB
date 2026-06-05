@@ -43,6 +43,7 @@ const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
 const StatItem = ({ target, suffix, label }: StatItemProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const numberRef = useRef<HTMLSpanElement>(null);
+    const frameRef = useRef<number | null>(null);
     const isInView = useInView(containerRef, { once: true, margin: "-20px" });
     const hasAnimated = useRef(false);
 
@@ -65,16 +66,26 @@ const StatItem = ({ target, suffix, label }: StatItemProps) => {
             }
 
             if (progress < 1) {
-                requestAnimationFrame(tick);
+                frameRef.current = requestAnimationFrame(tick);
+            } else {
+                frameRef.current = null;
             }
         };
 
-        requestAnimationFrame(tick);
+        frameRef.current = requestAnimationFrame(tick);
     }, [target]);
 
     useEffect(() => {
         if (isInView) animateCount();
     }, [isInView, animateCount]);
+
+    useEffect(() => {
+        return () => {
+            if (frameRef.current !== null) {
+                cancelAnimationFrame(frameRef.current);
+            }
+        };
+    }, []);
 
     return (
         <div ref={containerRef} className="flex flex-col items-center text-center">

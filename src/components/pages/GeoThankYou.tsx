@@ -1,6 +1,7 @@
 import { Container } from '../Container';
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from '../ui/Button';
 
 export const GeoThankYou = () => {
@@ -9,7 +10,7 @@ export const GeoThankYou = () => {
 {/* Header / Nav - Consistent with other GEO pages */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-bgDeep/80 backdrop-blur-md border-b border-white/5">
                 <Container className="h-20 flex items-center justify-between">
-                    <a href="/" className="flex items-center gap-3 group">
+                    <Link href="/" className="flex items-center gap-3 group">
                         <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-white to-neonBlue text-black font-bold font-mono text-lg leading-none transition-transform group-hover:scale-105 shadow-[0_0_15px_rgba(0,240,255,0.3)]">
                             <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 border-black/20" />
                             <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 border-black/20" />
@@ -23,7 +24,7 @@ export const GeoThankYou = () => {
                                 GEO Tudásanyag
                             </span>
                         </div>
-                    </a>
+                    </Link>
 
                     <Button href="/" variant="secondary" size="sm" className="hidden md:inline-flex">
                         Irány a Főoldal
@@ -61,7 +62,7 @@ export const GeoThankYou = () => {
                                     </li>
                                     <li className="flex gap-3">
                                         <div className="bg-white/10 w-6 h-6 rounded-full flex items-center justify-center text-xs font-mono">2</div>
-                                        <span>Nyisd meg a <strong>"CyberLabs GEO Útmutató"</strong> tárgyú levelet.</span>
+                                        <span>Nyisd meg a <strong>&ldquo;CyberLabs GEO Útmutató&rdquo;</strong> tárgyú levelet.</span>
                                     </li>
                                     <li className="flex gap-3">
                                         <div className="bg-white/10 w-6 h-6 rounded-full flex items-center justify-center text-xs font-mono">3</div>

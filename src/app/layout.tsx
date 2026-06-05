@@ -39,9 +39,9 @@ export default function RootLayout({
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7GNQRPBCFQ"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="ga-init" strategy="afterInteractive">
+        <Script id="ga-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -50,7 +50,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Hero BG preload for faster LCP */}
+        {/* Hero background is the LCP image; keep it discoverable before body parsing. */}
         <link
           rel="preload"
           href="/images/hero-bg-mobile.webp"

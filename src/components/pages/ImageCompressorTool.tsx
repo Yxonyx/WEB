@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from 'react';
+import Link from 'next/link';
 import { useLanguage } from '../../context/LanguageContext';
 import { Download, Image as ImageIcon, Trash2, DownloadCloud, Settings2, ShieldCheck, Play, Maximize } from 'lucide-react';
 import { SubpageHeader, SubpageShell } from '../SubpageShell';
@@ -461,14 +462,14 @@ export const ImageCompressorTool = () => {
                                             <div className="flex gap-3 flex-shrink-0">
                                                 <div className="relative">
                                                     <div className="w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden bg-white/10 border border-white/25">
-                                                        <img src={img.originalUrl} alt="Original" className="w-full h-full object-cover" />
+                                                        <img src={img.originalUrl} alt="Original" decoding="async" className="w-full h-full object-cover" />
                                                     </div>
                                                     <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-white/20 text-[9px] text-white/80 font-mono px-1.5 py-0.5 rounded border border-white/25">{txt.original}</span>
                                                 </div>
                                                 {img.status === 'done' && img.compressedUrl && (
                                                     <div className="relative">
                                                         <div className="w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden bg-white/10 border border-[#FFD66A]/40">
-                                                            <img src={img.compressedUrl} alt="Compressed" className="w-full h-full object-cover" />
+                                                            <img src={img.compressedUrl} alt="Compressed" decoding="async" className="w-full h-full object-cover" />
                                                         </div>
                                                         <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-[#FFD66A] text-[9px] text-[#06437D] font-mono px-1.5 py-0.5 rounded font-bold">{txt.compressed}</span>
                                                     </div>
@@ -567,10 +568,10 @@ export const ImageCompressorTool = () => {
                                 ? 'Professzionális weboldal optimalizálás gyorsítjuk a betöltést, javítjuk a felhasználói élményt és a SEO rangsorolást.'
                                 : 'Professional website optimization — faster load times, better UX and SEO ranking.'}
                         </p>
-                        <a href={`/${currentLang}/#contact`}
+                        <Link href={`/${currentLang}/#kapcsolat`}
                             className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-[#FFD66A] px-6 py-3 font-hero font-bold uppercase tracking-wider text-sm text-[#06437D] transition-all duration-300 hover:bg-[#FFE18A]">
                             {currentLang === 'hu' ? 'Kérj ajánlatot' : 'Get a quote'}
-                        </a>
+                        </Link>
                     </div>
         </SubpageShell>
     );
