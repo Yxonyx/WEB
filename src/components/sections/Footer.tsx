@@ -46,19 +46,19 @@ export const Footer = () => {
             <Container className="relative z-10">
                 {/* Brand + tagline + socials */}
                 <div className="mb-6 flex flex-col items-center text-center sm:mb-10">
-                    <div className="mb-2.5 inline-flex flex-col items-start sm:mb-3">
+                    <div className="mb-2.5 inline-flex flex-col items-center sm:mb-3">
                         <span className="flex items-baseline font-hero text-2xl font-extrabold leading-none tracking-tight drop-shadow-[0_4px_16px_rgba(0,82,166,0.34)] sm:text-4xl">
                             <span className="text-white">Cyber</span>
                             <span className="text-white/88">Labs</span>
                             <span className="ml-1.5 text-white">Web</span>
                         </span>
-                        <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.22em] text-white/72 sm:text-[10px]">
+                        <span className="mt-1 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-white/72 sm:text-[10px]">
                             WEB DEVELOPMENT
                         </span>
                     </div>
 
                     <p className="mb-5 max-w-2xl text-sm font-semibold leading-relaxed text-white/92 sm:mb-6 sm:text-base">
-                        Modern weboldalak és AI-vezérelt megoldások a Te vállalkozásodnak.
+                        {t('footer.tagline')}
                     </p>
 
                     <div className="flex items-center justify-center">
@@ -86,7 +86,7 @@ export const Footer = () => {
                         className="inline-flex items-center gap-2.5 text-sm font-bold text-white transition-colors hover:text-[#FFF2C6] sm:text-base"
                     >
                         <QrCode className="h-5 w-5 sm:h-[22px] sm:w-[22px]" />
-                        <span>Ingyenes QR generátor</span>
+                        <span>{t('footer.qr_link')}</span>
                     </Link>
                     <div className="h-px w-10 bg-white/55" />
                     <Link
@@ -94,7 +94,7 @@ export const Footer = () => {
                         className="inline-flex items-center gap-2.5 text-sm font-bold text-white transition-colors hover:text-[#FFF2C6] sm:text-base"
                     >
                         <ImageIcon className="h-5 w-5 sm:h-[22px] sm:w-[22px]" />
-                        <span>Ingyenes képtömörítés</span>
+                        <span>{t('footer.compressor_link')}</span>
                     </Link>
                 </div>
 
@@ -103,7 +103,7 @@ export const Footer = () => {
                     <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-white/35 to-transparent" />
                     <div className="relative flex justify-center">
                         <span className="rounded-full border border-white/40 bg-white/[0.14] px-5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-white/92 backdrop-blur-md sm:text-[11px]">
-                            Kapcsolat
+                            {t('contact.tag')}
                         </span>
                     </div>
                 </div>
@@ -126,7 +126,7 @@ export const Footer = () => {
 
                 {/* SEO city list — desktop only */}
                 <div className="mx-auto mb-8 hidden max-w-4xl select-none text-center font-mono text-[10px] leading-relaxed text-white/42 sm:mb-10 sm:block">
-                    <span className="mb-1.5 block tracking-[0.2em] uppercase opacity-70">Kiemelt területek</span>
+                    <span className="mb-1.5 block tracking-[0.2em] uppercase opacity-70">{t('footer.areas_label')}</span>
                     Budapest • Pest megye • Debrecen • Szeged • Miskolc • Pécs • Győr • Nyíregyháza • Kecskemét • Székesfehérvár • Szombathely • Érd • Szolnok • Tatabánya • Sopron • Kaposvár • Veszprém • Békéscsaba • Zalaegerszeg • Eger • Nagykanizsa
                 </div>
             </Container>

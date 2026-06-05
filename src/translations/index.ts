@@ -465,6 +465,10 @@ export const translations = {
         },
         footer: {
             call: "Inkább hívnál?",
+            tagline: "Modern weboldalak és AI-vezérelt megoldások a Te vállalkozásodnak.",
+            qr_link: "Ingyenes QR generátor",
+            compressor_link: "Ingyenes képtömörítés",
+            areas_label: "Kiemelt területek",
             rights: "Minden jog fenntartva.",
             terms: "ÁSZF",
             privacy: "Adatvédelem"
@@ -989,6 +993,10 @@ export const translations = {
         },
         footer: {
             call: "Prefer to call?",
+            tagline: "Modern websites and AI-driven solutions for your business.",
+            qr_link: "Free QR generator",
+            compressor_link: "Free image compression",
+            areas_label: "Featured areas",
             rights: "All rights reserved.",
             terms: "Terms",
             privacy: "Privacy"
