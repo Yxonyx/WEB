@@ -221,12 +221,12 @@
   .between-hero-footer-bg {
     position: relative;
     isolation: isolate;
-    background-color: #073F7E;
+    background-color: #2DA8EA;
     background-image:
-      radial-gradient(ellipse 68% 22% at 78% 0%, rgba(255, 255, 255, 0.28), transparent 64%),
-      radial-gradient(ellipse 48% 22% at 12% 4%, rgba(255, 246, 219, 0.18), transparent 70%),
-      radial-gradient(ellipse 70% 38% at 86% 48%, rgba(53, 184, 244, 0.18), transparent 68%),
-      linear-gradient(180deg, #65BDEC 0%, #1F8AD5 11%, #0A62B7 34%, #063F84 66%, #052852 100%);
+      radial-gradient(ellipse 68% 22% at 78% 0%, rgba(255, 255, 255, 0.32), transparent 64%),
+      radial-gradient(ellipse 48% 22% at 12% 4%, rgba(255, 246, 219, 0.2), transparent 70%),
+      radial-gradient(ellipse 70% 38% at 86% 48%, rgba(53, 184, 244, 0.16), transparent 68%),
+      linear-gradient(180deg, #7FD0F2 0%, #4DB5EA 18%, #2A9DE8 42%, #1B85D4 72%, #0F6BB8 100%);
   }
 
   .between-hero-footer-bg::before {
@@ -261,6 +261,114 @@
     position: relative;
     z-index: 1;
     background-color: transparent !important;
+  }
+
+  /* Frosted sky panels — lighter than dark navy, matches cloudy hero */
+  .sky-frost-panel {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.46) 0%,
+      rgba(158, 214, 245, 0.34) 52%,
+      rgba(88, 178, 232, 0.28) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow:
+      0 20px 52px -26px rgba(0, 91, 174, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .sky-frost-panel-strong {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.38) 0%,
+      rgba(130, 198, 240, 0.4) 50%,
+      rgba(66, 170, 228, 0.34) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.58);
+    box-shadow:
+      0 24px 60px -28px rgba(0, 86, 168, 0.26),
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      inset 0 0 28px rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .sky-frost-chip {
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.38);
+  }
+
+  .sky-frost-chip-accent {
+    background: rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+  }
+
+  /* Per-section sky washes (hero → footer) */
+  .between-hero-footer-bg > section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  .between-hero-footer-bg > section:nth-child(1)::before {
+    background: radial-gradient(ellipse 90% 55% at 18% 20%, rgba(255, 255, 255, 0.22), transparent 68%);
+  }
+
+  .between-hero-footer-bg > section#szolgaltatasok::before {
+    background: radial-gradient(ellipse 80% 50% at 82% 12%, rgba(255, 255, 255, 0.2), transparent 70%);
+  }
+
+  .between-hero-footer-bg > section#geo::before {
+    background: radial-gradient(ellipse 75% 48% at 12% 40%, rgba(255, 246, 219, 0.14), transparent 72%);
+  }
+
+  .between-hero-footer-bg > section#karbantartas::before {
+    background: radial-gradient(ellipse 70% 45% at 88% 30%, rgba(255, 255, 255, 0.16), transparent 68%);
+  }
+
+  .between-hero-footer-bg > section#chatbot-intro::before {
+    background: radial-gradient(ellipse 72% 48% at 50% 0%, rgba(255, 214, 106, 0.1), transparent 70%);
+  }
+
+  .between-hero-footer-bg > section#arazas::before {
+    background: radial-gradient(ellipse 78% 52% at 22% 18%, rgba(255, 255, 255, 0.18), transparent 72%);
+  }
+
+  .between-hero-footer-bg > section#referenciak::before {
+    background: radial-gradient(ellipse 85% 50% at 78% 22%, rgba(83, 189, 255, 0.14), transparent 70%);
+  }
+
+  .between-hero-footer-bg > section#folyamat::before {
+    background: radial-gradient(ellipse 70% 45% at 14% 55%, rgba(255, 255, 255, 0.14), transparent 68%);
+  }
+
+  .between-hero-footer-bg > section#technologiak::before {
+    background: radial-gradient(ellipse 75% 48% at 86% 48%, rgba(255, 246, 219, 0.1), transparent 72%);
+  }
+
+  .between-hero-footer-bg > section#velemenyek::before {
+    background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(255, 255, 255, 0.12), transparent 70%);
+  }
+
+  .between-hero-footer-bg > section#gyik::before {
+    background: radial-gradient(ellipse 72% 46% at 20% 12%, rgba(255, 255, 255, 0.16), transparent 68%);
+  }
+
+  .between-hero-footer-bg > section#insights::before {
+    background: radial-gradient(ellipse 78% 48% at 88% 8%, rgba(83, 189, 255, 0.12), transparent 72%);
+  }
+
+  .between-hero-footer-bg > section#kapcsolat::before {
+    background: radial-gradient(ellipse 82% 52% at 50% 0%, rgba(255, 214, 106, 0.12), transparent 74%);
+  }
+
+  .between-hero-footer-bg > section#csapat::before {
+    background: radial-gradient(ellipse 75% 48% at 72% 80%, rgba(255, 255, 255, 0.14), transparent 70%);
   }
 
   /* Edge-to-edge container */

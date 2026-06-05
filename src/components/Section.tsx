@@ -26,7 +26,7 @@ export const Section: React.FC<SectionProps> = ({
         <section
             id={id}
             className={twMerge(
-                "py-10 sm:py-14 lg:py-24 relative overflow-hidden w-full bg-[#0A62B7]",
+                "py-10 sm:py-14 lg:py-24 relative overflow-hidden w-full bg-[#2A9DE8]",
                 fullHeight && "min-h-screen flex items-center",
                 withMeshGradient && "mesh-gradient",
                 className
@@ -35,7 +35,7 @@ export const Section: React.FC<SectionProps> = ({
             {background}
             {!background && (
                 <>
-                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_0%,rgba(255,246,219,0.15),transparent_24%),radial-gradient(circle_at_92%_12%,rgba(255,255,255,0.14),transparent_20%),linear-gradient(180deg,rgba(8,81,152,0.16)_0%,rgba(5,48,102,0.10)_55%,rgba(3,20,48,0.18)_100%)]" />
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_8%_0%,rgba(255,246,219,0.18),transparent_26%),radial-gradient(circle_at_92%_12%,rgba(255,255,255,0.2),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.08)_0%,rgba(42,154,232,0.06)_55%,rgba(27,126,213,0.1)_100%)]" />
                     <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
                 </>
             )}
