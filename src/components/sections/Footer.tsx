@@ -23,7 +23,7 @@ export const Footer = () => {
     ];
 
     return (
-        <footer className="relative overflow-hidden pb-12 pt-20">
+        <footer className="relative -mt-px overflow-hidden pb-5 pt-8 sm:pb-8 sm:pt-12">
             {/* High quality image layer, kept in the same rendering mode as the hero */}
             <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
                 <picture>
@@ -48,23 +48,18 @@ export const Footer = () => {
 
             <Container className="relative z-10">
                 {/* Top row: brand + tagline + socials */}
-                <div className="flex flex-col items-center text-center mb-12">
-                    <div className="mb-4 flex items-center gap-4">
-                        <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-white/75 bg-white/[0.18] font-hero text-xl font-extrabold text-white shadow-[0_18px_42px_-24px_rgba(0,70,140,0.58),inset_0_1px_0_rgba(255,255,255,0.54)]">
-                            CL
-                        </span>
-                        <span className="flex items-baseline font-hero text-3xl font-extrabold leading-none tracking-tight drop-shadow-[0_4px_16px_rgba(0,82,166,0.34)] sm:text-4xl">
-                            <span className="text-white">Cyber</span>
-                            <span className="text-white/85">Labs</span>
-                            <span className="text-white ml-1.5">Web</span>
-                        </span>
-                    </div>
+                <div className="mb-5 flex flex-col items-center text-center sm:mb-8">
+                    <span className="mb-2 flex items-baseline font-hero text-xl font-extrabold leading-none tracking-tight drop-shadow-[0_4px_16px_rgba(0,82,166,0.34)] sm:mb-3 sm:text-3xl">
+                        <span className="text-white">Cyber</span>
+                        <span className="text-white/85">Labs</span>
+                        <span className="text-white ml-1.5">Web</span>
+                    </span>
 
-                    <p className="mb-7 max-w-2xl text-base font-semibold leading-relaxed text-white/90 sm:text-lg">
+                    <p className="mb-4 max-w-2xl text-xs font-semibold leading-relaxed text-white/90 sm:mb-5 sm:text-base">
                         Modern weboldalak és AI-vezérelt megoldások a Te vállalkozásodnak.
                     </p>
 
-                    <div className="flex items-center justify-center gap-3">
+                    <div className="flex items-center justify-center gap-2.5 sm:gap-3">
                         {socialLinks.map((social, i) => (
                             <a
                                 key={i}
@@ -72,34 +67,34 @@ export const Footer = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={social.label}
-                                className="group flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-white/50 bg-white/[0.18] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/80 hover:bg-white/[0.28]"
+                                className="group flex h-9 w-9 items-center justify-center rounded-xl border-2 border-white/50 bg-white/[0.18] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/80 hover:bg-white/[0.28] sm:h-10 sm:w-10"
                             >
-                                <social.icon className="h-5 w-5 text-white/90 transition-colors duration-300 group-hover:text-white" />
+                                <social.icon className="h-3.5 w-3.5 text-white/90 transition-colors duration-300 group-hover:text-white sm:h-4 sm:w-4" />
                             </a>
                         ))}
                     </div>
                 </div>
 
                 {/* Tools row — pill chips */}
-                <div className="mb-12 flex flex-wrap items-center justify-center gap-4">
+                <div className="mb-5 flex flex-wrap items-center justify-center gap-2 sm:mb-8 sm:gap-3">
                     <Link
                         href={`/${currentLang}/tools/qr`}
-                        className="group inline-flex items-center gap-2.5 rounded-full border-2 border-white/50 bg-white/[0.18] px-5 py-3 text-white/90 transition-all duration-300 hover:border-white/80 hover:bg-white/[0.28] hover:text-white"
+                        className="group inline-flex items-center gap-2 rounded-full border-2 border-white/50 bg-white/[0.18] px-3.5 py-2 text-white/90 transition-all duration-300 hover:border-white/80 hover:bg-white/[0.28] hover:text-white sm:gap-2.5 sm:px-5 sm:py-3"
                     >
-                        <QrCode className="h-5 w-5 opacity-90 group-hover:opacity-100" />
-                        <span className="text-sm font-bold">Ingyenes QR generátor</span>
+                        <QrCode className="h-4 w-4 opacity-90 group-hover:opacity-100 sm:h-5 sm:w-5" />
+                        <span className="text-xs font-bold sm:text-sm">Ingyenes QR generátor</span>
                     </Link>
                     <Link
                         href={`/${currentLang}/tools/image-compressor`}
-                        className="group inline-flex items-center gap-2.5 rounded-full border-2 border-white/50 bg-white/[0.18] px-5 py-3 text-white/90 transition-all duration-300 hover:border-white/80 hover:bg-white/[0.28] hover:text-white"
+                        className="group inline-flex items-center gap-2 rounded-full border-2 border-white/50 bg-white/[0.18] px-3.5 py-2 text-white/90 transition-all duration-300 hover:border-white/80 hover:bg-white/[0.28] hover:text-white sm:gap-2.5 sm:px-5 sm:py-3"
                     >
-                        <ImageIcon className="h-5 w-5 opacity-90 group-hover:opacity-100" />
-                        <span className="text-sm font-bold">Ingyenes képtömörítés</span>
+                        <ImageIcon className="h-4 w-4 opacity-90 group-hover:opacity-100 sm:h-5 sm:w-5" />
+                        <span className="text-xs font-bold sm:text-sm">Ingyenes képtömörítés</span>
                     </Link>
                 </div>
 
                 {/* Divider with center label */}
-                <div className="relative mb-8">
+                <div className="relative mb-5 sm:mb-8">
                     <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
                     <div className="relative flex justify-center">
                         <span className="rounded-full border border-white/35 bg-white/[0.16] px-5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.3em] text-white/90 backdrop-blur-sm">
@@ -109,25 +104,25 @@ export const Footer = () => {
                 </div>
 
                 {/* Contact row */}
-                <div className="mb-12 flex flex-col items-center justify-center gap-3 text-center sm:flex-row sm:gap-8">
-                    <span className="text-base font-semibold text-white/90">{t('footer.call')}</span>
+                <div className="mb-6 flex flex-col items-center justify-center gap-2 text-center sm:mb-12 sm:flex-row sm:gap-8">
+                    <span className="text-sm font-semibold text-white/90 sm:text-base">{t('footer.call')}</span>
                     <a
                         href="tel:+36703304445"
-                        className="font-mono text-base font-bold text-white transition-colors hover:text-[#FFF2C6]"
+                        className="font-mono text-sm font-bold text-white transition-colors hover:text-[#FFF2C6] sm:text-base"
                     >
                         +36 70 330 4445
                     </a>
                     <span className="hidden sm:inline text-white/15">•</span>
                     <a
                         href="mailto:contact@cyberlabsweb.com"
-                        className="font-mono text-base font-bold text-white transition-colors hover:text-[#FFF2C6]"
+                        className="font-mono text-sm font-bold text-white transition-colors hover:text-[#FFF2C6] sm:text-base"
                     >
                         contact@cyberlabsweb.com
                     </a>
                 </div>
 
                 {/* Bottom row */}
-                <div className="flex flex-col items-center justify-between gap-4 border-t border-white/[0.18] pt-7 text-sm font-semibold sm:flex-row">
+                <div className="flex flex-col items-center justify-between gap-3 border-t border-white/[0.18] pt-5 text-xs font-semibold sm:flex-row sm:gap-4 sm:pt-7 sm:text-sm">
                     <div className="text-white/82">
                         &copy; {new Date().getFullYear()} CyberLabs Web. {t('footer.rights')}
                     </div>
@@ -143,7 +138,7 @@ export const Footer = () => {
                 </div>
 
                 {/* SEO city list — subtle */}
-                <div className="mt-8 text-[10px] text-white/42 text-center font-mono leading-relaxed max-w-4xl mx-auto select-none">
+                <div className="mt-5 hidden text-[10px] text-white/42 text-center font-mono leading-relaxed max-w-4xl mx-auto select-none sm:mt-8 sm:block">
                     <span className="block mb-1.5 opacity-70 tracking-[0.2em] uppercase">Kiemelt területek</span>
                     Budapest • Pest megye • Debrecen • Szeged • Miskolc • Pécs • Győr • Nyíregyháza • Kecskemét • Székesfehérvár • Szombathely • Érd • Szolnok • Tatabánya • Sopron • Kaposvár • Veszprém • Békéscsaba • Zalaegerszeg • Eger • Nagykanizsa
                 </div>

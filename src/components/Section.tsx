@@ -44,14 +44,14 @@ export const Section: React.FC<SectionProps> = ({
                 <>
                     <div
                         className={twMerge(
-                            "absolute -top-[28%] -right-[18%] h-[360px] w-[360px] rounded-full bg-white/14 blur-3xl sm:h-[680px] sm:w-[680px] lg:opacity-70 will-change-transform",
+                            "absolute -top-[28%] -right-[18%] h-[360px] w-[360px] rounded-full bg-white/14 blur-3xl sm:h-[680px] sm:w-[680px] lg:opacity-70",
                             !disableOrbAnimation && "lg:animate-float-zigzag"
                         )}
                         style={{ contain: 'layout paint style' }}
                     />
                     <div
                         className={twMerge(
-                            "absolute -bottom-[25%] -left-[18%] h-[320px] w-[320px] rounded-full bg-[#FFD66A]/12 blur-3xl sm:h-[620px] sm:w-[620px] lg:opacity-70 will-change-transform",
+                            "absolute -bottom-[25%] -left-[18%] h-[320px] w-[320px] rounded-full bg-[#FFD66A]/12 blur-3xl sm:h-[620px] sm:w-[620px] lg:opacity-70",
                             !disableOrbAnimation && "lg:animate-float-zigzag"
                         )}
                         style={{

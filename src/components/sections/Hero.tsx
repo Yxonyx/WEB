@@ -103,12 +103,12 @@ export const Hero = () => {
                 </div>
 
                 {/* Mobile: own vertical poster composition */}
-                <div className="flex min-h-[calc(100vh-5.5rem)] flex-col items-center justify-center pt-8 text-center lg:hidden">
-                    <div className="mb-5 font-mono text-sm font-medium uppercase text-white drop-shadow-[0_2px_10px_rgba(0,93,180,0.35)] sm:text-base md:text-lg">
+                <div className="flex min-h-[calc(100vh-5.5rem)] flex-col items-center justify-start pt-4 text-center lg:hidden">
+                    <div className="mb-2 font-mono text-sm font-medium uppercase text-white drop-shadow-[0_2px_10px_rgba(0,93,180,0.35)] sm:text-base">
                         &lt; Web + SEO + GEO &gt;
                     </div>
 
-                    <h1 className="mb-5 max-w-5xl bg-none font-hero text-[2.35rem] font-extrabold leading-[1.03] text-white drop-shadow-[0_6px_18px_rgba(0,93,180,0.26)] sm:text-[4.4rem] lg:text-[5.7rem] xl:text-[6.5rem]">
+                    <h1 className="mb-3 max-w-5xl bg-none font-hero text-[2.1rem] font-extrabold leading-[1.03] text-white drop-shadow-[0_6px_18px_rgba(0,93,180,0.26)] sm:text-[4.4rem]">
                         <span>{t('hero.title_prefix_1')}</span>
                         <br className="sm:hidden" />
                         <span>{t('hero.title_prefix_2')}</span>
@@ -119,18 +119,18 @@ export const Hero = () => {
                         <span>{t('hero.title_suffix')}</span>
                     </h1>
 
-                    <p className="mb-3 max-w-3xl text-xl font-medium leading-relaxed text-white drop-shadow-[0_3px_12px_rgba(0,86,170,0.28)] sm:text-2xl md:text-3xl">
+                    <p className="mb-4 max-w-3xl text-lg font-medium leading-snug text-white drop-shadow-[0_3px_12px_rgba(0,86,170,0.28)] sm:text-2xl">
                         <span>{t('hero.subtitle_1')}</span>{' '}
                         <span>{t('hero.subtitle_highlight')}</span>
                     </p>
-                    <p className="mb-7 max-w-2xl text-base font-medium leading-relaxed text-white/95 drop-shadow-[0_2px_10px_rgba(0,70,150,0.25)] sm:text-lg md:text-xl">
+                    <p className="mb-5 hidden max-w-2xl text-base font-medium leading-relaxed text-white/95 drop-shadow-[0_2px_10px_rgba(0,70,150,0.25)] sm:mb-7 sm:block sm:text-lg md:text-xl">
                         {t('hero.subtitle_desc_1')}
                         <strong className="font-bold text-white">{t('hero.subtitle_google')}</strong>
                         {t('hero.subtitle_desc_2')}
                         <strong className="font-bold text-white">{t('hero.subtitle_ai')}</strong>.
                     </p>
 
-                    <div className="mb-8 flex w-full max-w-xl flex-col gap-4 sm:flex-row sm:justify-center">
+                    <div className="mb-5 flex w-full max-w-xl flex-col gap-3 sm:mb-8 sm:flex-row sm:justify-center sm:gap-4">
                         <Button
                             href="#kapcsolat"
                             variant="primary"
@@ -148,7 +148,7 @@ export const Hero = () => {
                     </div>
 
                     {/* Visual Content - 3D Spline Robot */}
-                    <div className="relative h-[340px] w-full max-w-[560px] sm:h-[410px]">
+                    <div className="relative mt-auto h-[min(420px,46vh)] w-full max-w-[560px] min-h-[300px] sm:h-[410px]">
                         <div className="absolute inset-x-8 bottom-4 top-2 rounded-[2rem] border border-white/65 bg-white/[0.08] shadow-[0_0_0_1px_rgba(255,255,255,0.18),0_18px_60px_rgba(0,106,190,0.24),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-[2px] sm:inset-x-12" />
                         <div className="absolute inset-x-11 bottom-7 top-5 rounded-[1.7rem] border border-white/35 sm:inset-x-16" />
                         <div className="absolute inset-0 z-10">

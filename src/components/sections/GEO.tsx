@@ -1,24 +1,25 @@
-import { Container } from '../Container';
-import { Section } from '../Section';
-import { Network, Cpu, Sparkles, ArrowRight, UserCheck, Search, Bot } from 'lucide-react';
-import { ProIcon } from '../icons/ProIcon';
-import { motion } from 'framer-motion';
-import { lazy, Suspense, useEffect, useState } from 'react';
-import { SectionHeader } from '../ui/SectionHeader';
-import { MountOnVisible } from '../ui/MountOnVisible';
-import { useLanguage } from '../../context/LanguageContext';
-const Robot3D = lazy(() => import('../ui/Robot3D').then(module => ({ default: module.Robot3D })));
+import {Container} from '../Container';
+import {Section} from '../Section';
+import {Network, Cpu, Sparkles, ArrowRight, UserCheck, Search, Bot} from 'lucide-react';
+import {ProIcon} from '../icons/ProIcon';
+import {motion} from 'framer-motion';
+import {lazy, Suspense, useEffect, useState} from 'react';
+import {SectionHeader} from '../ui/SectionHeader';
+import {MountOnVisible} from '../ui/MountOnVisible';
+import {useLanguage} from '../../context/LanguageContext';
+const Robot3D = lazy(() => import('../ui/Robot3D').then(module => ({default: module.Robot3D})));
 
 export const GEO = () => {
-    const { t } = useLanguage();
+    const {t} = useLanguage();
     const [isCapable, setIsCapable] = useState(true);
-    const aiAnswer = t('geo.where.dialog.a1') as unknown as { label: string; text_prefix: string; text_highlight: string; text_suffix: string };
+    const aiAnswer = t('geo.where.dialog.a1') as unknown as {label: string; text_prefix: string; text_highlight: string; text_suffix: string};
     const channels = t('geo.where.list') as unknown as string[];
     useEffect(() => {
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const dm = (navigator as Navigator & { deviceMemory?: number }).deviceMemory;
+        const mobile = window.matchMedia('(max-width: 1023px)').matches;
+        const dm = (navigator as Navigator & {deviceMemory?: number}).deviceMemory;
         const lowMem = dm !== undefined && dm < 3;
-        setIsCapable(!reduced && !lowMem);
+        setIsCapable(!reduced && !lowMem && !mobile);
     }, []);
 
     // Subtle soft glow only — no visible ring/circle border
@@ -38,36 +39,35 @@ export const GEO = () => {
                 />
                 <p
                     className="text-white/88 text-base lg:text-[17px] text-center max-w-3xl mx-auto mb-16 lg:mb-20 leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: t('geo.header.desc') as string }}
+                    dangerouslySetInnerHTML={{__html: t('geo.header.desc') as string}}
                 />
 
                 {/* Main Content Grid */}
-                <div className="space-y-32">
+                <div className="space-y-16 sm:space-y-24 lg:space-y-32">
 
                     {/* 1. The Shift (Problem/Solution) */}
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
-                            initial={{ opacity: 1, x: 0 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
+                            initial={{opacity: 1, x: 0}}
+                            whileInView={{opacity: 1, x: 0}}
+                            viewport={{once: true}}
+                            transition={{duration: 0.5}}
                         >
                             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 font-hero bg-none">{t('geo.shift.title')}</h3>
-                            <p className="text-lg text-white/80 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: t('geo.shift.desc') as string }} />
+                            <p className="text-lg text-white/80 leading-relaxed font-medium" dangerouslySetInnerHTML={{__html: t('geo.shift.desc') as string}} />
                         </motion.div>
 
                         <motion.div
                             className="relative"
-                            initial={{ opacity: 1, x: 0 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
+                            initial={{opacity: 1, x: 0}}
+                            whileInView={{opacity: 1, x: 0}}
+                            viewport={{once: true}}
+                            transition={{duration: 0.5}}
                         >
-                            <div className="absolute inset-0 bg-white/16 blur-3xl rounded-full" />
-                            <div className="relative min-h-[300px]">
-                                {/* Robot 3D floating on left */}
-                                <div className="pointer-events-none absolute left-0 top-1/2 z-20 h-[150px] w-[150px] -translate-y-1/2 sm:h-[205px] sm:w-[205px] lg:-left-5">
-                                    {/* Permanent halo glow behind robot — no flash when 3D mounts/unmounts */}
+                            <div className="pointer-events-none absolute inset-0 hidden rounded-full bg-white/16 blur-3xl sm:block" />
+                            <div className="relative flex flex-col items-center gap-4 sm:block sm:min-h-[260px]">
+                                {/* Robot — desktop only (WebGL pixelates + heavy on mobile) */}
+                                <div className="pointer-events-none relative z-20 hidden h-[120px] w-[120px] sm:absolute sm:left-0 sm:top-1/2 sm:block sm:h-[165px] sm:w-[165px] sm:-translate-y-1/2 lg:h-[205px] lg:w-[205px] lg:-left-5">
                                     {robotGlow}
                                     {isCapable && (
                                         <MountOnVisible
@@ -75,33 +75,32 @@ export const GEO = () => {
                                             rootMargin="200px"
                                         >
                                             <Suspense fallback={null}>
-                                                <Robot3D size={205} />
+                                                <Robot3D size={165} />
                                             </Suspense>
                                         </MountOnVisible>
                                     )}
                                 </div>
-                                {/* Search Interface card on right */}
-                                <div className="geo-solid-panel ml-[96px] rounded-[1.65rem] p-5 pl-[76px] sm:ml-[132px] sm:p-6 sm:pl-[88px]">
-                                    <div className="mb-4 flex items-center justify-between gap-3">
-                                        <div className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-[#FFF2C6]">
+                                <div className="geo-solid-panel w-full max-w-md rounded-[1.35rem] p-4 sm:max-w-none sm:rounded-[1.65rem] sm:p-5 sm:pl-[72px] sm:ml-[110px] lg:ml-[132px] lg:p-6 lg:pl-[88px]">
+                                    <div className="mb-3 flex items-center justify-between gap-3 sm:mb-4">
+                                        <div className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#FFF2C6] sm:text-xs sm:tracking-[0.24em]">
                                             {t('geo.shift.visual_search')}
                                         </div>
                                         <div className="flex items-center gap-1.5">
-                                            <span className="h-2.5 w-2.5 rounded-full bg-white/70" />
-                                            <span className="h-2.5 w-2.5 rounded-full bg-[#FFD66A]" />
-                                            <span className="h-2.5 w-2.5 rounded-full bg-white/70" />
+                                            <span className="h-2 w-2 rounded-full bg-white/70 sm:h-2.5 sm:w-2.5" />
+                                            <span className="h-2 w-2 rounded-full bg-[#FFD66A] sm:h-2.5 sm:w-2.5" />
+                                            <span className="h-2 w-2 rounded-full bg-white/70 sm:h-2.5 sm:w-2.5" />
                                         </div>
                                     </div>
 
-                                    <div className="geo-message-panel mb-4 flex items-center gap-3 rounded-2xl px-4 py-3">
-                                        <Search className="h-4 w-4 shrink-0 text-[#FFF2C6]" />
-                                        <div className="min-w-0 flex-1 truncate text-sm italic text-white sm:text-base">
+                                    <div className="geo-message-panel mb-3 flex items-center gap-2.5 rounded-xl px-3 py-2.5 sm:mb-4 sm:gap-3 sm:rounded-2xl sm:px-4 sm:py-3">
+                                        <Search className="h-3.5 w-3.5 shrink-0 text-[#FFF2C6] sm:h-4 sm:w-4" />
+                                        <div className="min-w-0 flex-1 truncate text-xs italic text-white sm:text-sm sm:text-base">
                                             {t('geo.shift.visual_query')}
                                         </div>
                                     </div>
 
-                                    <div className="grid gap-3">
-                                        <div className="geo-message-panel rounded-2xl p-4">
+                                    <div className="grid gap-2.5 sm:gap-3">
+                                        <div className="geo-message-panel hidden rounded-2xl p-4 sm:block">
                                             <div className="mb-2 flex items-center gap-2">
                                                 <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white text-[12px] font-bold text-[#0E7CDC]">G</span>
                                                 <span className="text-xs font-bold uppercase tracking-[0.18em] text-white/88">{channels[0]}</span>
@@ -113,14 +112,15 @@ export const GEO = () => {
                                             <div className="mt-2 h-2 w-3/4 rounded-full bg-[#FFD66A]" />
                                         </div>
 
-                                        <div className="geo-message-panel geo-message-panel-accent rounded-2xl p-4">
-                                            <div className="mb-2 flex items-center gap-2">
-                                                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#FFD66A] text-[#06437D]">
-                                                    <Bot size={13} />
+                                        <div className="geo-message-panel geo-message-panel-accent rounded-xl p-3 sm:rounded-2xl sm:p-4">
+                                            <div className="mb-1.5 flex items-center gap-2 sm:mb-2">
+                                                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#FFD66A] text-[#06437D] sm:h-6 sm:w-6">
+                                                    <Bot size={12} className="sm:hidden" />
+                                                    <Bot size={13} className="hidden sm:block" />
                                                 </span>
-                                                <span className="text-xs font-bold uppercase tracking-[0.18em] text-white/90">{aiAnswer.label}</span>
+                                                <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/90 sm:text-xs sm:tracking-[0.18em]">{aiAnswer.label}</span>
                                             </div>
-                                            <div className="text-sm leading-relaxed text-white/95">
+                                            <div className="text-xs leading-relaxed text-white/95 sm:text-sm">
                                                 {aiAnswer.text_prefix}
                                                 <span className="font-bold text-[#FFF2C6] underline decoration-white/60 underline-offset-4">
                                                     {aiAnswer.text_highlight}
@@ -138,10 +138,10 @@ export const GEO = () => {
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center lg:flex-row-reverse">
                         <motion.div
                             className="lg:order-2"
-                            initial={{ opacity: 1, x: 0 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
+                            initial={{opacity: 1, x: 0}}
+                            whileInView={{opacity: 1, x: 0}}
+                            viewport={{once: true}}
+                            transition={{duration: 0.5}}
                         >
                             <div className="flex items-center gap-4 mb-6">
                                 <ProIcon icon={Network} color="neonPurple" size={32} />
@@ -162,10 +162,10 @@ export const GEO = () => {
 
                         <motion.div
                             className="lg:order-1 relative"
-                            initial={{ opacity: 1, x: 0 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
+                            initial={{opacity: 1, x: 0}}
+                            whileInView={{opacity: 1, x: 0}}
+                            viewport={{once: true}}
+                            transition={{duration: 0.5}}
                         >
                             <div className="active-card geo-solid-panel relative z-10 rounded-2xl p-6">
                                 {/* Chat UI Mockup */}
@@ -201,16 +201,16 @@ export const GEO = () => {
                     {/* 3. Metrics (Trust & Quality) */}
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         <motion.div
-                            initial={{ opacity: 1, x: 0 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
+                            initial={{opacity: 1, x: 0}}
+                            whileInView={{opacity: 1, x: 0}}
+                            viewport={{once: true}}
+                            transition={{duration: 0.5}}
                         >
                             <div className="flex items-center gap-4 mb-6">
                                 <ProIcon icon={Cpu} color="green" size={32} />
                                 <h3 className="text-2xl sm:text-3xl font-bold text-white font-hero bg-none">{t('geo.what.title')}</h3>
                             </div>
-                            <p className="text-lg text-white/80 leading-relaxed font-medium mb-8" dangerouslySetInnerHTML={{ __html: t('geo.what.desc') as string }} />
+                            <p className="text-lg text-white/80 leading-relaxed font-medium mb-8" dangerouslySetInnerHTML={{__html: t('geo.what.desc') as string}} />
 
                             {/* Metrics mockup */}
                             <div className="geo-solid-panel rounded-2xl p-4 space-y-4">
@@ -222,10 +222,10 @@ export const GEO = () => {
                                     <div className="h-2 bg-white/20 rounded-full overflow-hidden">
                                         <motion.div
                                             className="h-full bg-[#FFD66A]"
-                                            initial={{ width: 0 }}
-                                            whileInView={{ width: "98%" }}
-                                            viewport={{ once: true, amount: 0.2 }}
-                                            transition={{ duration: 0.8, ease: "easeOut" }}
+                                            initial={{width: 0}}
+                                            whileInView={{width: "98%"}}
+                                            viewport={{once: true, amount: 0.2}}
+                                            transition={{duration: 0.8, ease: "easeOut"}}
                                         />
                                     </div>
                                 </div>
@@ -237,10 +237,10 @@ export const GEO = () => {
                                     <div className="h-2 bg-white/20 rounded-full overflow-hidden">
                                         <motion.div
                                             className="h-full bg-green-500"
-                                            initial={{ width: 0 }}
-                                            whileInView={{ width: "95%" }}
-                                            viewport={{ once: true, amount: 0.2 }}
-                                            transition={{ duration: 0.8, ease: "easeOut" }}
+                                            initial={{width: 0}}
+                                            whileInView={{width: "95%"}}
+                                            viewport={{once: true, amount: 0.2}}
+                                            transition={{duration: 0.8, ease: "easeOut"}}
                                         />
                                     </div>
                                 </div>
@@ -249,16 +249,16 @@ export const GEO = () => {
 
                         <motion.div
                             className="relative"
-                            initial={{ opacity: 1, x: 0 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
+                            initial={{opacity: 1, x: 0}}
+                            whileInView={{opacity: 1, x: 0}}
+                            viewport={{once: true}}
+                            transition={{duration: 0.5}}
                         >
                             {/* Vertical Flow Steps */}
                             <div className="space-y-4 relative">
                                 <div className="absolute left-[19px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-transparent via-white/10 to-transparent" />
 
-                                {(t('geo.what.steps') as unknown as { label: string, sub: string }[]).map((step, i) => (
+                                {(t('geo.what.steps') as unknown as {label: string, sub: string}[]).map((step, i) => (
                                     <div key={i} className="flex items-center gap-4 relative z-10">
                                         <div className={`w-10 h-10 rounded-full flex items-center justify-center border-2 ${i === 4 ? 'bg-[#FFD66A] border-white/70 text-[#06437D]' :
                                             i === 2 ? 'bg-[#FFD66A]/20 border-[#FFD66A] text-[#FFF2C6]' :

@@ -27,9 +27,9 @@ export const Robot3D = ({ size = 200 }: Robot3DProps) => {
 
         // Renderer - smoother edges on capable (desktop) devices, lean on mobile
         const isMobile = window.innerWidth < 1024;
-        const renderer = new THREE.WebGLRenderer({ antialias: !isMobile, alpha: true });
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(width, height);
-        renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.toneMappingExposure = 1.05;
         container.appendChild(renderer.domElement);

@@ -11,6 +11,9 @@
     scroll-behavior: smooth;
     overflow-x: hidden;
     font-size: 105%;
+    /* Solid fallback so fast-scroll never exposes a white/blank page behind
+       the fixed body::before layer (Safari & Chrome mobile tab reload guard). */
+    background-color: #2DA8EA;
     /* Disable browser pull-to-refresh and overscroll bounce.
        On mobile Chrome/Safari, an aggressive scroll near the top reloads
        the page — this contains scroll to the page itself. */
@@ -336,6 +339,15 @@
       background-size: 112px 112px, 112px 112px, auto;
       opacity: 0.20;
     }
+
+    /* Csak az animált felhőréteg: scroll közben GPU memóriát eszik (Safari tab reload) — a statikus háttér marad */
+    .between-hero-footer-bg::after {
+      animation: none;
+    }
+
+    .between-hero-footer-bg > section#csapat {
+      padding-bottom: 0 !important;
+    }
   }
 
   .between-hero-footer-bg > section {
@@ -412,7 +424,8 @@
   .between-hero-footer-bg > section:not(:first-child)::after {
     content: "";
     position: absolute;
-    inset-x: 0;
+    left: 0;
+    right: 0;
     top: 0;
     z-index: 0;
     height: 4.5rem;

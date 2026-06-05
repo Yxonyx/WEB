@@ -65,7 +65,7 @@ export const Team = () => {
     return (
         <Section
             id="csapat"
-            className="relative overflow-hidden bg-transparent"
+            className="relative overflow-hidden bg-transparent !pb-6 sm:!pb-10 lg:!pb-16"
             background={
                 <>
                     <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(5,42,86,0.24)_0%,rgba(3,20,48,0.18)_100%)]" />
@@ -77,7 +77,7 @@ export const Team = () => {
         >
             <Container className="relative z-[2]">
                 <motion.div
-                    className="philosophy-hero-panel relative mx-auto mb-14 max-w-5xl overflow-hidden rounded-[2rem] px-6 py-10 text-center sm:px-12 sm:py-12 lg:px-20"
+                    className="philosophy-hero-panel relative mx-auto mb-6 sm:mb-14 max-w-5xl overflow-hidden rounded-[2rem] px-5 py-6 text-center sm:px-12 sm:py-12 lg:px-20"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: '-50px' }}
