@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState, useEffect, useLayoutEffect, type WheelEvent } from 'react';
+import { useCallback, useRef, useState, useEffect, useLayoutEffect } from 'react';
 import { Section } from '../Section';
 import { Container } from '../Container';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -139,14 +139,6 @@ export const Testimonials = () => {
         });
     }, [getScrollAmount, initialIndex, items.length]);
 
-    const handleTrackWheel = useCallback((event: WheelEvent<HTMLDivElement>) => {
-        const isVerticalIntent = Math.abs(event.deltaY) > Math.abs(event.deltaX) && !event.shiftKey;
-        if (!isVerticalIntent) return;
-
-        event.preventDefault();
-        window.scrollBy({ top: event.deltaY, behavior: 'auto' });
-    }, []);
-
     // Auto-scroll only while the carousel is in the viewport
     useEffect(() => {
         const node = sectionRef.current;
@@ -230,7 +222,6 @@ export const Testimonials = () => {
                 {/* Scrollable Track - Replaces CSS animation with native scroll */}
                 <div
                     ref={trackRef}
-                    onWheel={handleTrackWheel}
                     className="flex gap-3 py-4 md:py-8 w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-[calc((100vw-300px)/2)] md:px-[calc((100vw-400px)/2)] [scroll-padding-inline:calc((100vw-300px)/2)] md:[scroll-padding-inline:calc((100vw-400px)/2)]"
                 >
                     {items.map((testimonial, index) => (
